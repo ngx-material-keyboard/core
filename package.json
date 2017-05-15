@@ -1,0 +1,22 @@
+{
+  "name": "ngx-material-keyboard",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "Onscreen virtual keyboard for Angular ≥ 2 (https://angular.io/) using Material 2 (https://material.angular.io/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidenke/ngx-material-keyboard.git"
+  },
+  "author": "David Enke <post@davidenke.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidenke/ngx-material-keyboard/issues"
+  },
+  "homepage": "https://github.com/davidenke/ngx-material-keyboard#readme",
+  "devDependencies": {
+    "@angular/cli": "1.0.3"
+  }
+}
