@@ -21,7 +21,7 @@ export const HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
 @Component({
   selector: 'md-keyboard-container',
   templateUrl: './keyboard-container.component.html',
-  styleUrls: ['./keyboard-container.component.css'],
+  styleUrls: ['./keyboard-container.component.scss'],
   host: {
     'role': 'alert',
     '[@state]': 'animationState',

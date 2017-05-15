@@ -9,7 +9,7 @@ import { MdKeyboardRef } from './keyboard-ref';
 @Component({
   selector: 'md-keyboard',
   templateUrl: './keyboard.component.html',
-  styleUrls: ['./keyboard.component.css']
+  styleUrls: ['./keyboard.component.scss']
 })
 export class KeyboardComponent {
 
