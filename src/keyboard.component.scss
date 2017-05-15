@@ -1,0 +1,31 @@
+@import '~material2-srcs/src/lib/core/style/variables';
+@import '~material2-srcs/src/lib/core/style/button-common';
+@import '~material2-srcs/src/lib/core/style/list-common';
+
+$mat-keyboard-button-margin: 48px !default;
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  line-height: 20px;
+  font: {
+    size: $mat-body-font-size-base;
+    family: $mat-font-family;
+  }
+}
+
+.mat-keyboard-action {
+  @include mat-button-reset;
+  background: none;
+  text-transform: uppercase;
+  color: inherit;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-left: $mat-keyboard-button-margin;
+  font: {
+    family: inherit;
+    size: inherit;
+    weight: 600;
+  }
+}
