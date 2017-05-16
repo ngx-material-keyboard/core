@@ -1,10 +1,9 @@
 import { ComponentRef, Injectable, Optional, SkipSelf } from '@angular/core';
 import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
-import { MdKeyboardConfig } from './keyboard.config';
 import { MdKeyboardContainerComponent } from './keyboard-container.component';
 import { MdKeyboardRef } from './keyboard-ref';
 import { KeyboardComponent } from './keyboard.component';
-
+import { MdKeyboardConfig } from './keyboard.config';
 
 /**
  * Service to dispatch Material Design keyboard.

@@ -1,5 +1,6 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { MdKeyboardRef } from './keyboard-ref';
+import { MD_KEYBOARD_DEADKEYS } from './config/keyboard-deadkey.config';
 
 
 /**
@@ -11,7 +12,7 @@ import { MdKeyboardRef } from './keyboard-ref';
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.scss']
 })
-export class KeyboardComponent {
+export class KeyboardComponent implements OnInit {
 
   @HostBinding('class.mat-keyboard') cssClass = true;
 
@@ -31,4 +32,11 @@ export class KeyboardComponent {
 
   /** If the action button should be shown. */
   get hasAction(): boolean { return !!this.action; }
+
+  constructor(@Inject(MD_KEYBOARD_DEADKEYS) private _deadkeys) {}
+
+  ngOnInit() {
+    console.log('deadkeys:', this._deadkeys);
+  }
+
 }

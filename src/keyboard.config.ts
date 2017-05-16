@@ -1,9 +1,6 @@
 import { ViewContainerRef } from '@angular/core';
 import { AriaLivePoliteness } from '@angular/material';
 
-/**
- * Configuration used when opening a keyboard.
- */
 export class MdKeyboardConfig {
   /** The politeness level for the MdAriaLiveAnnouncer announcement. */
   politeness?: AriaLivePoliteness = 'assertive';
