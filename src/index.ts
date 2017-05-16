@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { LIVE_ANNOUNCER_PROVIDER, MdCommonModule, OverlayModule, PortalModule } from '@angular/material';
 import { keyboardDeadkeys, MD_KEYBOARD_DEADKEYS } from './config/keyboard-deadkey.config';
 import { MdKeyboardContainerComponent } from './keyboard-container.component';
-import { KeyboardComponent } from './keyboard.component';
-import { KeyboardDirective } from './keyboard.directive';
+import { MdKeyboardComponent } from './keyboard.component';
+import { MdKeyboardDirective } from './keyboard.directive';
 import { MdKeyboardService } from './keyboard.service';
 
 @NgModule({
@@ -15,18 +15,18 @@ import { MdKeyboardService } from './keyboard.service';
     MdCommonModule,
   ],
   exports: [
-    MdKeyboardContainerComponent,
     MdCommonModule,
-    KeyboardDirective
+    MdKeyboardContainerComponent,
+    MdKeyboardDirective
   ],
   declarations: [
+    MdKeyboardComponent,
     MdKeyboardContainerComponent,
-    KeyboardComponent,
-    KeyboardDirective
+    MdKeyboardDirective
   ],
   entryComponents: [
-    MdKeyboardContainerComponent,
-    KeyboardComponent
+    MdKeyboardComponent,
+    MdKeyboardContainerComponent
   ],
   providers: [
     MdKeyboardService,

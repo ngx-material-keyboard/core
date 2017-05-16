@@ -12,7 +12,7 @@ import { MD_KEYBOARD_DEADKEYS } from './config/keyboard-deadkey.config';
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.scss']
 })
-export class KeyboardComponent implements OnInit {
+export class MdKeyboardComponent implements OnInit {
 
   @HostBinding('class.mat-keyboard') cssClass = true;
 
@@ -23,7 +23,7 @@ export class KeyboardComponent implements OnInit {
   action: string;
 
   /** The instance of the component making up the content of the keyboard. */
-  keyboardRef: MdKeyboardRef<KeyboardComponent>;
+  keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
 
   /** Dismisses the keyboard. */
   dismiss(): void {

@@ -2,7 +2,7 @@ import { ComponentRef, Injectable, Optional, SkipSelf } from '@angular/core';
 import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
 import { MdKeyboardContainerComponent } from './keyboard-container.component';
 import { MdKeyboardRef } from './keyboard-ref';
-import { KeyboardComponent } from './keyboard.component';
+import { MdKeyboardComponent } from './keyboard.component';
 import { MdKeyboardConfig } from './keyboard.config';
 
 /**
@@ -85,9 +85,9 @@ export class MdKeyboardService {
    * @param action The label for the keyboard action.
    * @param config Additional configuration options for the keyboard.
    */
-  open(message: string, action = '', config: MdKeyboardConfig = {}): MdKeyboardRef<KeyboardComponent> {
+  open(message: string, action = '', config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
     config.announcementMessage = message;
-    const keyboardComponentRef = this._openFromComponent(KeyboardComponent, config);
+    const keyboardComponentRef = this._openFromComponent(MdKeyboardComponent, config);
     keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
     keyboardComponentRef.instance.message = message;
     keyboardComponentRef.instance.action = action;
