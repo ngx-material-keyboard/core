@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidenke/ngx-material-keyboard.git"
+    "url": "git+https://github.com/ngx-material-keyboard/core.git"
   },
   "author": "David Enke <post@davidenke.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidenke/ngx-material-keyboard/issues"
+    "url": "https://github.com/ngx-material-keyboard/core/issues"
   },
-  "homepage": "https://github.com/davidenke/ngx-material-keyboard#readme",
+  "homepage": "https://github.com/ngx-material-keyboard/core#readme",
   "devDependencies": {
     "@angular/cli": "1.0.3",
     "codelyzer": "3.0.1",
