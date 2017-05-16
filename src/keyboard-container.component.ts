@@ -15,18 +15,13 @@ export const SHOW_ANIMATION = '225ms cubic-bezier(0.4,0.0,1,1)';
 export const HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
 
 /**
- * Internal component that wraps user-provided snack bar content.
+ * Internal component that wraps user-provided keyboard content.
  * @docs-private
  */
 @Component({
   selector: 'md-keyboard-container',
   templateUrl: './keyboard-container.component.html',
   styleUrls: ['./keyboard-container.component.scss'],
-  host: {
-    'role': 'alert',
-    '[@state]': 'animationState',
-    '(@state.done)': 'onAnimationEnd($event)'
-  },
   animations: [
     trigger('state', [
       state('initial', style({ transform: 'translateY(100%)' })),
@@ -41,23 +36,20 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
 
   @HostBinding('attr.role') attrRole = 'alert';
 
-  @HostBinding('@state') animState = 'alert';
-
-
-  /** The portal host inside of this container into which the snack bar content will be loaded. */
+  /** The portal host inside of this container into which the keyboard content will be loaded. */
   @ViewChild(PortalHostDirective) _portalHost: PortalHostDirective;
 
-  /** Subject for notifying that the snack bar has exited from view. */
+  /** Subject for notifying that the keyboard has exited from view. */
   private onExit: Subject<any> = new Subject();
 
-  /** Subject for notifying that the snack bar has finished entering the view. */
+  /** Subject for notifying that the keyboard has finished entering the view. */
   private onEnter: Subject<any> = new Subject();
 
-  /** The state of the snack bar animations. */
+  /** The state of the keyboard animations. */
   @HostBinding('@state')
   animationState: KeyboardState = 'initial';
 
-  /** The snack bar configuration. */
+  /** The keyboard configuration. */
   keyboardConfig: MdKeyboardConfig;
 
   constructor(private _ngZone: NgZone,
@@ -66,7 +58,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     super();
   }
 
-  /** Attach a component portal as content to this snack bar container. */
+  /** Attach a component portal as content to this keyboard container. */
   attachComponentPortal<T>(portal: ComponentPortal<T>): ComponentRef<T> {
     if (this._portalHost.hasAttached()) {
       throw new MdKeyboardContentAlreadyAttached();
@@ -75,7 +67,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     if (this.keyboardConfig.extraClasses) {
       // Not the most efficient way of adding classes, but the renderer doesn't allow us
       // to pass in an array or a space-separated list.
-      for (let cssClass of this.keyboardConfig.extraClasses) {
+      for (const cssClass of this.keyboardConfig.extraClasses) {
         this._renderer.addClass(this._elementRef.nativeElement, cssClass);
       }
     }
@@ -83,7 +75,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     return this._portalHost.attachComponentPortal(portal);
   }
 
-  /** Attach a template portal as content to this snack bar container. */
+  /** Attach a template portal as content to this keyboard container. */
   attachTemplatePortal(portal: TemplatePortal): Map<string, any> {
     throw Error('Not yet implemented');
   }
@@ -107,7 +99,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     }
   }
 
-  /** Begin animation of snack bar entrance into view. */
+  /** Begin animation of keyboard entrance into view. */
   enter(): void {
     this.animationState = 'visible';
   }
@@ -118,7 +110,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     return this.onEnter.asObservable();
   }
 
-  /** Begin animation of the snack bar exiting from view. */
+  /** Begin animation of the keyboard exiting from view. */
   exit(): Observable<void> {
     this.animationState = 'complete';
     return this._onExit();

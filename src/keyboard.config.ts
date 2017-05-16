@@ -11,12 +11,12 @@ export class MdKeyboardConfig {
   /** Message to be announced by the MdAriaLiveAnnouncer */
   announcementMessage? = '';
 
-  /** The view container to place the overlay for the snack bar into. */
+  /** The view container to place the overlay for the keyboard into. */
   viewContainerRef?: ViewContainerRef = null;
 
-  /** The length of time in milliseconds to wait before automatically dismissing the snack bar. */
+  /** The length of time in milliseconds to wait before automatically dismissing the keyboard after blur. */
   duration? = 0;
 
-  /** Extra CSS classes to be added to the snack bar container. */
+  /** Extra CSS classes to be added to the keyboard container. */
   extraClasses?: string[];
 }

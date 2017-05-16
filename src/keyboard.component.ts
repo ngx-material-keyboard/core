@@ -3,8 +3,8 @@ import { MdKeyboardRef } from './keyboard-ref';
 
 
 /**
- * A component used to open as the default snack bar, matching material spec.
- * This should only be used internally by the snack bar service.
+ * A component used to open as the default keyboard, matching material spec.
+ * This should only be used internally by the keyboard service.
  */
 @Component({
   selector: 'md-keyboard',
@@ -15,16 +15,16 @@ export class KeyboardComponent {
 
   @HostBinding('class.mat-keyboard') cssClass = true;
 
-  /** The message to be shown in the snack bar. */
+  /** The message to be shown in the keyboard. */
   message: string;
 
-  /** The label for the button in the snack bar. */
+  /** The label for the button in the keyboard. */
   action: string;
 
-  /** The instance of the component making up the content of the snack bar. */
+  /** The instance of the component making up the content of the keyboard. */
   keyboardRef: MdKeyboardRef<KeyboardComponent>;
 
-  /** Dismisses the snack bar. */
+  /** Dismisses the keyboard. */
   dismiss(): void {
     this.keyboardRef._action();
   }

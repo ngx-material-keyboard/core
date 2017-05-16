@@ -57,7 +57,7 @@ describe('MdKeyboard', () => {
 
     let containerElement = overlayContainerElement.querySelector('keyboard-container');
     expect(containerElement.getAttribute('role'))
-      .toBe('alert', 'Expected snack bar container to have role="alert"');
+      .toBe('alert', 'Expected keyboard container to have role="alert"');
   });
 
   it('should open and close a keyboard without a ViewContainerRef', async(() => {
@@ -66,14 +66,14 @@ describe('MdKeyboard', () => {
 
     let messageElement = overlayContainerElement.querySelector('keyboard-container');
     expect(messageElement.textContent).toContain('Snack time!',
-      'Expected snack bar to show a message without a ViewContainerRef');
+      'Expected keyboard to show a message without a ViewContainerRef');
 
     keyboardRef.dismiss();
     viewContainerFixture.detectChanges();
 
     viewContainerFixture.whenStable().then(() => {
       expect(overlayContainerElement.childNodes.length)
-        .toBe(0, 'Expected snack bar to be dismissed without a ViewContainerRef');
+        .toBe(0, 'Expected keyboard to be dismissed without a ViewContainerRef');
     });
   }));
 
@@ -85,20 +85,20 @@ describe('MdKeyboard', () => {
 
     expect(keyboardRef.instance)
       .toEqual(jasmine.any(KeyboardComponent),
-        'Expected the snack bar content component to be KeyboardComponent');
+        'Expected the keyboard content component to be KeyboardComponent');
     expect(keyboardRef.instance.keyboardRef)
-      .toBe(keyboardRef, 'Expected the snack bar reference to be placed in the component instance');
+      .toBe(keyboardRef, 'Expected the keyboard reference to be placed in the component instance');
 
     let messageElement = overlayContainerElement.querySelector('keyboard-container');
     expect(messageElement.textContent)
-      .toContain(simpleMessage, `Expected the snack bar message to be '${simpleMessage}'`);
+      .toContain(simpleMessage, `Expected the keyboard message to be '${simpleMessage}'`);
 
     let buttonElement = overlayContainerElement.querySelector('button.mat-keyboard-action');
     expect(buttonElement.tagName)
-      .toBe('BUTTON', 'Expected snack bar action label to be a <button>');
+      .toBe('BUTTON', 'Expected keyboard action label to be a <button>');
     expect(buttonElement.textContent)
       .toBe(simpleActionLabel,
-        `Expected the snack bar action label to be '${simpleActionLabel}'`);
+        `Expected the keyboard action label to be '${simpleActionLabel}'`);
   });
 
   it('should open a simple message with no button', () => {
@@ -109,18 +109,18 @@ describe('MdKeyboard', () => {
 
     expect(keyboardRef.instance)
       .toEqual(jasmine.any(KeyboardComponent),
-        'Expected the snack bar content component to be KeyboardComponent');
+        'Expected the keyboard content component to be KeyboardComponent');
     expect(keyboardRef.instance.keyboardRef)
-      .toBe(keyboardRef, 'Expected the snack bar reference to be placed in the component instance');
+      .toBe(keyboardRef, 'Expected the keyboard reference to be placed in the component instance');
 
     let messageElement = overlayContainerElement.querySelector('keyboard-container');
     expect(messageElement.textContent)
-      .toContain(simpleMessage, `Expected the snack bar message to be '${simpleMessage}'`);
+      .toContain(simpleMessage, `Expected the keyboard message to be '${simpleMessage}'`);
     expect(overlayContainerElement.querySelector('button.mat-keyboard-action'))
       .toBeNull('Expected the query selection for action label to be null');
   });
 
-  it('should dismiss the snack bar and remove itself from the view', async(() => {
+  it('should dismiss the keyboard and remove itself from the view', async(() => {
     let config = { viewContainerRef: testViewContainerRef };
     let dismissObservableCompleted = false;
 
@@ -137,7 +137,7 @@ describe('MdKeyboard', () => {
     viewContainerFixture.detectChanges();  // Run through animations for dismissal
 
     viewContainerFixture.whenStable().then(() => {
-      expect(dismissObservableCompleted).toBeTruthy('Expected the snack bar to be dismissed');
+      expect(dismissObservableCompleted).toBeTruthy('Expected the keyboard to be dismissed');
       expect(overlayContainerElement.childElementCount)
         .toBe(0, 'Expected the overlay container element to have no child elements');
     });
@@ -166,7 +166,7 @@ describe('MdKeyboard', () => {
 
     viewContainerFixture.whenStable().then(() => {
       expect(overlayContainerElement.childElementCount)
-        .toBe(0, 'Expected snack bar to be removed after the view container was destroyed');
+        .toBe(0, 'Expected keyboard to be removed after the view container was destroyed');
     });
   }));
 
@@ -176,7 +176,7 @@ describe('MdKeyboard', () => {
 
     expect(keyboardRef.instance)
       .toEqual(jasmine.any(BurritosNotification),
-        'Expected the snack bar content component to be BurritosNotification');
+        'Expected the keyboard content component to be BurritosNotification');
     expect(overlayContainerElement.textContent.trim())
       .toBe('Burritos are on the way.',
         `Expected the overlay text content to be 'Burritos are on the way'`);
@@ -201,8 +201,8 @@ describe('MdKeyboard', () => {
       .toBe('complete', `Expected the animation state would be 'complete'.`);
   });
 
-  it(`should set the old snack bar animation state to complete and the new snack bar animation
-      state to visible on entry of new snack bar`, async(() => {
+  it(`should set the old keyboard animation state to complete and the new keyboard animation
+      state to visible on entry of new keyboard`, async(() => {
     let config = { viewContainerRef: testViewContainerRef };
     let keyboardRef = keyboard.open(simpleMessage, null, config);
     let dismissObservableCompleted = false;
@@ -300,8 +300,8 @@ describe('MdKeyboard', () => {
       viewContainerFixture.detectChanges();
       flushMicrotasks();
 
-      expect(dismissObservableCompleted).toBeTruthy('Expected the snack bar to be dismissed');
-      expect(actionObservableCompleted).toBeTruthy('Expected the snack bar to notify of action');
+      expect(dismissObservableCompleted).toBeTruthy('Expected the keyboard to be dismissed');
+      expect(actionObservableCompleted).toBeTruthy('Expected the keyboard to notify of action');
 
       tick(500);
     }));
@@ -317,12 +317,12 @@ describe('MdKeyboard', () => {
 
     viewContainerFixture.detectChanges();
     flushMicrotasks();
-    expect(dismissObservableCompleted).toBeFalsy('Expected the snack bar not to be dismissed');
+    expect(dismissObservableCompleted).toBeFalsy('Expected the keyboard not to be dismissed');
 
     tick(1000);
     viewContainerFixture.detectChanges();
     flushMicrotasks();
-    expect(dismissObservableCompleted).toBeTruthy('Expected the snack bar to be dismissed');
+    expect(dismissObservableCompleted).toBeTruthy('Expected the keyboard to be dismissed');
   }));
 
   it('should add extra classes to the container', () => {
@@ -443,7 +443,7 @@ class ComponentThatProvidesMdKeyboard {
 }
 
 
-/** Simple component to open snack bars from.
+/** Simple component to open keyboards from.
  * Create a real (non-test) NgModule as a workaround forRoot
  * https://github.com/angular/angular/issues/10760
  */

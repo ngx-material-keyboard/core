@@ -1,7 +1,7 @@
 import { MdError } from '@angular/material';
 
 /**
- * Error that is thrown when attempting to attach a snack bar that is already attached.
+ * Error that is thrown when attempting to attach a keyboard that is already attached.
  * @docs-private
  */
 export class MdKeyboardContentAlreadyAttached extends MdError {

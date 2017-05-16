@@ -7,12 +7,12 @@ import { KeyboardComponent } from './keyboard.component';
 
 
 /**
- * Service to dispatch Material Design snack bar messages.
+ * Service to dispatch Material Design keyboard.
  */
 @Injectable()
 export class MdKeyboardService {
   /**
-   * Reference to the current snack bar in the view *at this level* (in the Angular injector tree).
+   * Reference to the current keyboard in the view *at this level* (in the Angular injector tree).
    * If there is a parent keyboard service, all operations should delegate to that parent
    * via `_openedKeyboardRef`.
    */
@@ -36,13 +36,13 @@ export class MdKeyboardService {
               @Optional() @SkipSelf() private _parentKeyboard: MdKeyboardService) {}
 
   /**
-   * Creates and dispatches a snack bar with a custom component for the content, removing any
-   * currently opened snack bars.
+   * Creates and dispatches a keyboard with a custom component for the content, removing any
+   * currently opened keyboards.
    *
    * @param component Component to be instantiated.
-   * @param config Extra configuration for the snack bar.
+   * @param config Extra configuration for the keyboard.
    */
-  openFromComponent<T>(component: ComponentType<T>, config?: MdKeyboardConfig): MdKeyboardRef<T> {
+  private _openFromComponent<T>(component: ComponentType<T>, config?: MdKeyboardConfig): MdKeyboardRef<T> {
     config = _applyConfigDefaults(config);
     const overlayRef = this._createOverlay();
     const keyboardContainer = this._attachKeyboardContainer(overlayRef, config);
@@ -56,24 +56,24 @@ export class MdKeyboardService {
       }
     });
 
-    // If a snack bar is already in view, dismiss it and enter the new snack bar after exit
+    // If a keyboard is already in view, dismiss it and enter the new keyboard after exit
     // animation is complete.
     if (this._openedKeyboardRef) {
       this._openedKeyboardRef.afterDismissed().subscribe(() => {
         keyboardRef.containerInstance.enter();
       });
       this._openedKeyboardRef.dismiss();
-      // If no snack bar is in view, enter the new snack bar.
+      // If no keyboard is in view, enter the new keyboard.
     } else {
       keyboardRef.containerInstance.enter();
     }
 
     // If a dismiss timeout is provided, set up dismiss based on after the keyboard is opened.
-    if (config.duration > 0) {
-      keyboardRef.afterOpened().subscribe(() => {
-        setTimeout(() => keyboardRef.dismiss(), config.duration);
-      });
-    }
+    // if (config.duration > 0) {
+    //   keyboardRef.afterOpened().subscribe(() => {
+    //     setTimeout(() => keyboardRef.dismiss(), config.duration);
+    //   });
+    // }
 
     this._live.announce(config.announcementMessage, config.politeness);
     this._openedKeyboardRef = keyboardRef;
@@ -88,7 +88,7 @@ export class MdKeyboardService {
    */
   open(message: string, action = '', config: MdKeyboardConfig = {}): MdKeyboardRef<KeyboardComponent> {
     config.announcementMessage = message;
-    const keyboardComponentRef = this.openFromComponent(KeyboardComponent, config);
+    const keyboardComponentRef = this._openFromComponent(KeyboardComponent, config);
     keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
     keyboardComponentRef.instance.message = message;
     keyboardComponentRef.instance.action = action;
@@ -96,7 +96,7 @@ export class MdKeyboardService {
   }
 
   /**
-   * Dismisses the currently-visible snack bar.
+   * Dismisses the currently-visible keyboard.
    */
   dismiss(): void {
     if (this._openedKeyboardRef) {
@@ -105,7 +105,7 @@ export class MdKeyboardService {
   }
 
   /**
-   * Attaches the snack bar container component to the overlay.
+   * Attaches the keyboard container component to the overlay.
    */
   private _attachKeyboardContainer(overlayRef: OverlayRef,
                                    config: MdKeyboardConfig): MdKeyboardContainerComponent {
@@ -117,7 +117,7 @@ export class MdKeyboardService {
   }
 
   /**
-   * Places a new component as the content of the snack bar container.
+   * Places a new component as the content of the keyboard container.
    */
   private _attachKeyboardContent<T>(component: ComponentType<T>,
                                     container: MdKeyboardContainerComponent,

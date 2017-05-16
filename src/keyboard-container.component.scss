@@ -1,5 +1,5 @@
-@import '~material2-srcs/src/lib/core/style/elevation';
-@import '~material2-srcs/src/lib/core/a11y/a11y';
+@import '../node_modules/material2-srcs/src/lib/core/style/elevation';
+@import '../node_modules/material2-srcs/src/lib/core/a11y/a11y';
 
 $mat-keyboard-padding: 14px 24px !default;
 $mat-keyboard-min-width: 288px !default;
@@ -14,7 +14,7 @@ $mat-keyboard-max-width: 568px !default;
   max-width: $mat-keyboard-max-width;
   min-width: $mat-keyboard-min-width;
   padding: $mat-keyboard-padding;
-  // Initial transformation is applied to start snack bar out of view.
+  // Initial transformation is applied to start keyboard out of view.
   transform: translateY(100%);
 
   @include cdk-high-contrast {

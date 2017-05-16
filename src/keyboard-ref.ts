@@ -6,35 +6,35 @@ import { MdKeyboardContainerComponent } from './keyboard-container.component';
 // TODO(josephperrott): Implement onAction observable.
 
 /**
- * Reference to a snack bar dispatched from the snack bar service.
+ * Reference to a keyboard dispatched from the keyboard service.
  */
 export class MdKeyboardRef<T> {
   private _instance: T;
 
-  /** The instance of the component making up the content of the snack bar. */
+  /** The instance of the component making up the content of the keyboard. */
   get instance(): T {
     return this._instance;
   }
 
   /**
-   * The instance of the component making up the content of the snack bar.
+   * The instance of the component making up the content of the keyboard.
    * @docs-private
    */
   containerInstance: MdKeyboardContainerComponent;
 
-  /** Subject for notifying the user that the snack bar has closed. */
+  /** Subject for notifying the user that the keyboard has closed. */
   private _afterClosed: Subject<any> = new Subject();
 
-  /** Subject for notifying the user that the snack bar has opened and appeared. */
+  /** Subject for notifying the user that the keyboard has opened and appeared. */
   private _afterOpened: Subject<any>;
 
-  /** Subject for notifying the user that the snack bar action was called. */
+  /** Subject for notifying the user that the keyboard action was called. */
   private _onAction: Subject<any> = new Subject();
 
   constructor(instance: T,
               containerInstance: MdKeyboardContainerComponent,
               private _overlayRef: OverlayRef) {
-    // Sets the readonly instance of the snack bar content component.
+    // Sets the readonly instance of the keyboard content component.
     this._instance = instance;
     this.containerInstance = containerInstance;
     // Dismiss keyboard on action.
@@ -42,7 +42,7 @@ export class MdKeyboardRef<T> {
     containerInstance._onExit().subscribe(() => this._finishDismiss());
   }
 
-  /** Dismisses the snack bar. */
+  /** Dismisses the keyboard. */
   dismiss(): void {
     if (!this._afterClosed.closed) {
       this.containerInstance.exit();
@@ -72,17 +72,17 @@ export class MdKeyboardRef<T> {
     this._afterClosed.complete();
   }
 
-  /** Gets an observable that is notified when the snack bar is finished closing. */
+  /** Gets an observable that is notified when the keyboard is finished closing. */
   afterDismissed(): Observable<void> {
     return this._afterClosed.asObservable();
   }
 
-  /** Gets an observable that is notified when the snack bar has opened and appeared. */
+  /** Gets an observable that is notified when the keyboard has opened and appeared. */
   afterOpened(): Observable<void> {
     return this.containerInstance._onEnter();
   }
 
-  /** Gets an observable that is notified when the snack bar action is called. */
+  /** Gets an observable that is notified when the keyboard action is called. */
   onAction(): Observable<void> {
     return this._onAction.asObservable();
   }
