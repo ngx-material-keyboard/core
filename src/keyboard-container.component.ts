@@ -1,5 +1,5 @@
 import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
-import { Component, ComponentRef, ElementRef, HostBinding, HostListener, NgZone, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import { Component, ComponentRef, HostBinding, HostListener, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
