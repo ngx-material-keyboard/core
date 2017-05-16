@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/ngx-material-keyboard/core#readme",
   "devDependencies": {
-    "@angular/cli": "1.0.3",
     "codelyzer": "3.0.1",
     "tslint": "5.2.0",
     "tslint-microsoft-contrib": "5.0.0",
