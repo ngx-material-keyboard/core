@@ -17,17 +17,32 @@
   },
   "homepage": "https://github.com/ngx-material-keyboard/core#readme",
   "devDependencies": {
+    "@angular/animations": "4.1.2",
+    "@angular/common": "4.1.2",
+    "@angular/compiler": "4.1.2",
+    "@angular/core": "4.1.2",
+    "@angular/forms": "4.1.2",
+    "@angular/http": "4.1.2",
+    "@angular/material": "2.0.0-beta.5",
+    "@angular/platform-browser": "4.1.2",
+    "@angular/platform-browser-dynamic": "4.1.2",
+    "core-js": "2.4.1",
     "codelyzer": "3.0.1",
+    "rxjs": "5.4.0",
+    "ts-node": "2.0.0",
     "tslint": "5.2.0",
     "tslint-microsoft-contrib": "5.0.0",
-    "tsutils": "1.6.0"
+    "tsutils": "1.6.0",
+    "zone.js": "0.8.10",
+    "typescript": "2.2.2"
   },
   "peerDependencies": {
     "@angular/animations": "^4.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
-    "@angular/material": "2.0.0-beta.5"
+    "@angular/material": "2.0.0-beta.5",
+    "rxjs": "^5.1.0"
   },
   "dependencies": {
     "@angular/material2-srcs": "git+https://github.com/angular/material2.git#2.0.0-beta.5"
