@@ -1,6 +1,7 @@
 import { Component, HostBinding, Inject, LOCALE_ID, OnInit } from '@angular/core';
-import { MdKeyboardRef } from './keyboard-ref';
 import { MD_KEYBOARD_DEADKEYS } from './config/keyboard-deadkey.config';
+import { MD_KEYBOARD_LAYOUTS } from './config/keyboard-layouts.config';
+import { MdKeyboardRef } from './keyboard-ref';
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -34,11 +35,13 @@ export class MdKeyboardComponent implements OnInit {
 
   // Inject dependencies
   constructor(@Inject(LOCALE_ID) private _locale,
-              @Inject(MD_KEYBOARD_DEADKEYS) private _deadkeys) {}
+              @Inject(MD_KEYBOARD_DEADKEYS) private _deadkeys,
+              @Inject(MD_KEYBOARD_LAYOUTS) private _layouts) {}
 
   ngOnInit() {
     console.log('detected locale:', this._locale);
     console.log('configured deadkeys:', this._deadkeys);
+    console.log('configured layouts:', this._layouts);
   }
 
 }
