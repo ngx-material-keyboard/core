@@ -5,6 +5,7 @@ import { MdKeyboardService } from './keyboard.service';
 import { MdKeyboardContainerComponent } from './keyboard-container.component';
 import { KeyboardComponent } from './keyboard.component';
 
+import { KeyboardDirective } from './keyboard.directive';
 
 @NgModule({
   imports: [
@@ -13,8 +14,8 @@ import { KeyboardComponent } from './keyboard.component';
     CommonModule,
     MdCommonModule,
   ],
-  exports: [MdKeyboardContainerComponent, MdCommonModule],
-  declarations: [MdKeyboardContainerComponent, KeyboardComponent],
+  exports: [MdKeyboardContainerComponent, MdCommonModule, KeyboardDirective],
+  declarations: [MdKeyboardContainerComponent, KeyboardComponent, KeyboardDirective],
   entryComponents: [MdKeyboardContainerComponent, KeyboardComponent],
   providers: [MdKeyboardService, LIVE_ANNOUNCER_PROVIDER]
 })
@@ -26,3 +27,4 @@ export * from './keyboard-container.component';
 export * from './keyboard.config';
 export * from './keyboard-ref';
 export * from './keyboard.component';
+export * from './keyboard.directive';
