@@ -52,9 +52,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   /** The keyboard configuration. */
   keyboardConfig: MdKeyboardConfig;
 
-  constructor(private _ngZone: NgZone,
-              private _renderer: Renderer2,
-              private _elementRef: ElementRef) {
+  constructor(private _ngZone: NgZone) {
     super();
   }
 
@@ -62,14 +60,6 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   attachComponentPortal<T>(portal: ComponentPortal<T>): ComponentRef<T> {
     if (this._portalHost.hasAttached()) {
       throw new MdKeyboardContentAlreadyAttached();
-    }
-
-    if (this.keyboardConfig.extraClasses) {
-      // Not the most efficient way of adding classes, but the renderer doesn't allow us
-      // to pass in an array or a space-separated list.
-      for (const cssClass of this.keyboardConfig.extraClasses) {
-        this._renderer.addClass(this._elementRef.nativeElement, cssClass);
-      }
     }
 
     return this._portalHost.attachComponentPortal(portal);

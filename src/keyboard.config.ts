@@ -13,7 +13,4 @@ export class MdKeyboardConfig {
 
   /** The length of time in milliseconds to wait before automatically dismissing the keyboard after blur. */
   duration? = 0;
-
-  /** Extra CSS classes to be added to the keyboard container. */
-  extraClasses?: string[];
 }
