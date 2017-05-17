@@ -1,8 +1,22 @@
-{{message}}
+<div>{{locale}}</div>
+<!--<pre>{{layout | json}}</pre>-->
+
+<nav class="layout">
+  <div class="row" *ngFor="let row of layout.keys">
+    <button
+      md-raised-button
+      class="key"
+      *ngFor="let key of row"
+    >
+      {{key[0]}}
+    </button>
+  </div>
+</nav>
+
 <button
   class="mat-keyboard-action"
   *ngIf="hasAction"
   (click)="dismiss()"
 >
-  {{action}}
+  <md-icon>{{close}}</md-icon>
 </button>

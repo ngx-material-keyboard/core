@@ -9,3 +9,9 @@ export class MdKeyboardContentAlreadyAttached extends MdError {
     super('Attempting to attach keyboard content after content is already attached');
   }
 }
+
+export class MdKeyboardLayoutNotFound extends MdError {
+  constructor(locale) {
+    super(`No layout found for locale ${locale}`);
+  }
+}

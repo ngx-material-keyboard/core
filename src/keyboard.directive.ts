@@ -14,7 +14,7 @@ export class MdKeyboardDirective {
 
   @HostListener('focus', ['$event'])
   private _showKeyboard() {
-    this._keyboardRef = this._keyboardService.open('test', 'Close');
+    this._keyboardRef = this._keyboardService.open(this.mdKeyboard);
   }
 
   @HostListener('blur', ['$event'])

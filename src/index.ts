@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { LIVE_ANNOUNCER_PROVIDER, MdCommonModule, OverlayModule, PortalModule } from '@angular/material';
+import { LIVE_ANNOUNCER_PROVIDER, MdButtonModule, MdCommonModule, MdIconModule, OverlayModule, PortalModule } from '@angular/material';
 import { keyboardDeadkeys, MD_KEYBOARD_DEADKEYS } from './config/keyboard-deadkey.config';
 import { keyboardLayouts, MD_KEYBOARD_LAYOUTS } from './config/keyboard-layouts.config';
 import { MdKeyboardContainerComponent } from './keyboard-container.component';
@@ -13,7 +13,9 @@ import { MdKeyboardService } from './keyboard.service';
     OverlayModule,
     PortalModule,
     CommonModule,
+    MdButtonModule,
     MdCommonModule,
+    MdIconModule
   ],
   exports: [
     MdCommonModule,

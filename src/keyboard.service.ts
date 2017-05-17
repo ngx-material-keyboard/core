@@ -1,9 +1,15 @@
-import { ComponentRef, Injectable, Optional, SkipSelf } from '@angular/core';
+import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from '@angular/core';
 import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
 import { MdKeyboardContainerComponent } from './keyboard-container.component';
 import { MdKeyboardRef } from './keyboard-ref';
 import { MdKeyboardComponent } from './keyboard.component';
 import { MdKeyboardConfig } from './keyboard.config';
+import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from './config/keyboard-layouts.config';
+import { MdKeyboardLayoutNotFound } from './keyboard.errors';
+
+export interface ILocaleMap {
+  [locale: string]: string;
+}
 
 /**
  * Service to dispatch Material Design keyboard.
@@ -30,9 +36,28 @@ export class MdKeyboardService {
     }
   }
 
+  private _availableLocales: ILocaleMap;
+
+  get availableLocales(): ILocaleMap {
+    return this._availableLocales;
+  }
+
   constructor(private _overlay: Overlay,
               private _live: LiveAnnouncer,
-              @Optional() @SkipSelf() private _parentKeyboard: MdKeyboardService) {}
+              @Inject(MD_KEYBOARD_LAYOUTS) private _layouts,
+              @Optional() @SkipSelf() private _parentKeyboard: MdKeyboardService) {
+    // prepare available layouts mapping
+    this._availableLocales = {};
+    Object
+      .keys(this._layouts)
+      .forEach(layout => {
+        if (this._layouts[layout].lang) {
+          this._layouts[layout].lang.forEach(lang => {
+            this._availableLocales[lang] = layout;
+          });
+        }
+      });
+  }
 
   /**
    * Creates and dispatches a keyboard with a custom component for the content, removing any
@@ -81,16 +106,25 @@ export class MdKeyboardService {
 
   /**
    * Opens a keyboard with a message and an optional action.
-   * @param message The message to show in the keyboard.
-   * @param action The label for the keyboard action.
+   * @param layoutOrLocale [Optional] A string representing the locale or the layout name to be used.
    * @param config Additional configuration options for the keyboard.
    */
-  open(message: string, action = '', config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
-    config.announcementMessage = message;
+  open(layoutOrLocale?: string, config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
     const keyboardComponentRef = this._openFromComponent(MdKeyboardComponent, config);
     keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
-    keyboardComponentRef.instance.message = message;
-    keyboardComponentRef.instance.action = action;
+
+    // a locale is provided
+    if (this.availableLocales[layoutOrLocale]) {
+      keyboardComponentRef.instance.locale = layoutOrLocale;
+      keyboardComponentRef.instance.layout = this.getLayoutForLocale(layoutOrLocale);
+    }
+
+    // a layout name is provided
+    if (this._layouts[layoutOrLocale]) {
+      keyboardComponentRef.instance.layout = this._layouts[layoutOrLocale];
+      keyboardComponentRef.instance.locale = this._layouts[layoutOrLocale].lang && this._layouts[layoutOrLocale].lang.pop();
+    }
+
     return keyboardComponentRef;
   }
 
@@ -101,6 +135,32 @@ export class MdKeyboardService {
     if (this._openedKeyboardRef) {
       this._openedKeyboardRef.dismiss();
     }
+  }
+
+  mapLocale(locale: string): string {
+    let layout: string;
+    let country = locale.split('-').shift();
+
+    // search for layout matching the
+    // first part, the country code
+    if (this.availableLocales[country]) {
+      layout = this.availableLocales[locale];
+    }
+
+    // look if the detailed locale matches any layout
+    if (this.availableLocales[locale]) {
+      layout = this.availableLocales[locale];
+    }
+
+    if (!layout) {
+      throw new MdKeyboardLayoutNotFound(locale);
+    }
+
+    return layout;
+  }
+
+  getLayoutForLocale(locale: string): IKeyboardLayout {
+    return this._layouts[this.mapLocale(locale)];
   }
 
   /**

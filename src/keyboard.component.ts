@@ -1,7 +1,8 @@
-import { Component, HostBinding, Inject, LOCALE_ID, OnInit } from '@angular/core';
-import { MD_KEYBOARD_DEADKEYS } from './config/keyboard-deadkey.config';
-import { MD_KEYBOARD_LAYOUTS } from './config/keyboard-layouts.config';
-import { MdKeyboardRef } from './keyboard-ref';
+import {Component, HostBinding, Inject, Input, LOCALE_ID, OnInit} from "@angular/core";
+import {MD_KEYBOARD_DEADKEYS} from "./config/keyboard-deadkey.config";
+import {IKeyboardLayout, MD_KEYBOARD_LAYOUTS} from "./config/keyboard-layouts.config";
+import {MdKeyboardRef} from "./keyboard-ref";
+import {MdKeyboardService} from "./keyboard.service";
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -14,13 +15,13 @@ import { MdKeyboardRef } from './keyboard-ref';
 })
 export class MdKeyboardComponent implements OnInit {
 
+  locale?: string;
+
+  layout: IKeyboardLayout;
+
   @HostBinding('class.mat-keyboard') cssClass = true;
 
-  // The message to be shown in the keyboard.
-  message: string;
-
-  // The label for the button in the keyboard.
-  action: string;
+  // The service provides a locale or layout optionally.
 
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
@@ -30,18 +31,23 @@ export class MdKeyboardComponent implements OnInit {
     this.keyboardRef._action();
   }
 
-  // If the action button should be shown.
-  get hasAction(): boolean { return !!this.action; }
-
   // Inject dependencies
-  constructor(@Inject(LOCALE_ID) private _locale,
+  constructor(private _keyboardService: MdKeyboardService,
+              @Inject(LOCALE_ID) private _locale,
               @Inject(MD_KEYBOARD_DEADKEYS) private _deadkeys,
-              @Inject(MD_KEYBOARD_LAYOUTS) private _layouts) {}
+              @Inject(MD_KEYBOARD_LAYOUTS) private _layouts) {
+  }
 
   ngOnInit() {
-    console.log('detected locale:', this._locale);
-    console.log('configured deadkeys:', this._deadkeys);
-    console.log('configured layouts:', this._layouts);
+    //   console.log('detected locale:', this._locale);
+    //   console.log('configured deadkeys:', this._deadkeys);
+    //   console.log('configured layouts:', this._layouts);
+
+    // set a fallback using the locale
+    if (!this.layout) {
+      this.locale = this._keyboardService.mapLocale(this._locale) ? this._locale : 'en-US';
+      this.layout = this._keyboardService.getLayoutForLocale(this.locale);
+    }
   }
 
 }
