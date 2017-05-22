@@ -19,6 +19,8 @@ export class MdKeyboardComponent implements OnInit {
 
   layout: IKeyboardLayout;
 
+  @HostBinding('class.dark-theme') darkTheme: boolean;
+
   @HostBinding('class.mat-keyboard') cssClass = true;
 
   // The service provides a locale or layout optionally.

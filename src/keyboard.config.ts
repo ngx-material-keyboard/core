@@ -13,4 +13,7 @@ export class MdKeyboardConfig {
 
   /** The length of time in milliseconds to wait before automatically dismissing the keyboard after blur. */
   duration? = 0;
+
+  /** Enable a dark keyboard **/
+  darkTheme? = null;
 }

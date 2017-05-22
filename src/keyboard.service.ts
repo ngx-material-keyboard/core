@@ -72,6 +72,8 @@ export class MdKeyboardService {
     const keyboardContainer = this._attachKeyboardContainer(overlayRef, config);
     const keyboardRef = this._attachKeyboardContent(component, keyboardContainer, overlayRef);
 
+    keyboardContainer.darkTheme = config.darkTheme;
+
     // When the keyboard is dismissed, clear the reference to it.
     keyboardRef.afterDismissed().subscribe(() => {
       // Clear the keyboard ref if it hasn't already been replaced by a newer keyboard.
@@ -112,6 +114,8 @@ export class MdKeyboardService {
   open(layoutOrLocale?: string, config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
     const keyboardComponentRef = this._openFromComponent(MdKeyboardComponent, config);
     keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
+    keyboardComponentRef.instance.darkTheme = config.darkTheme;
+    keyboardComponentRef.containerInstance.darkTheme = config.darkTheme;
 
     // a locale is provided
     if (this.availableLocales[layoutOrLocale]) {

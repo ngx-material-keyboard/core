@@ -23,6 +23,6 @@ $mat-keyboard-max-width: 100% !default;
   }
 
   &.dark-theme {
-    background-color: #323232;
+    background-color: mat-color($mat-grey, 800);
   }
 }

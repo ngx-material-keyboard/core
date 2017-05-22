@@ -1,11 +1,10 @@
 import { animate, AnimationEvent, state, style, transition, trigger } from "@angular/animations";
-import { Component, ComponentRef, HostBinding, HostListener, NgZone, OnDestroy, ViewChild } from "@angular/core";
+import { Component, ComponentRef, HostBinding, HostListener, Input, NgZone, OnDestroy, ViewChild } from "@angular/core";
 import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from "@angular/material";
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 import { MdKeyboardConfig } from "./keyboard.config";
 import { MdKeyboardContentAlreadyAttached } from "./keyboard.errors";
-
 
 export type KeyboardState = 'initial' | 'visible' | 'complete' | 'void';
 
@@ -35,6 +34,9 @@ export const HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
 export class MdKeyboardContainerComponent extends BasePortalHost implements OnDestroy {
 
   @HostBinding('attr.role') attrRole = 'alert';
+
+  @HostBinding('class.dark-theme')
+  @Input() darkTheme: boolean;
 
   /** The portal host inside of this container into which the keyboard content will be loaded. */
   @ViewChild(PortalHostDirective) _portalHost: PortalHostDirective;

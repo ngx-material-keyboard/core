@@ -2,6 +2,7 @@ import { OverlayRef } from "@angular/material";
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 import { MdKeyboardContainerComponent } from "./keyboard-container.component";
+import { MdKeyboardComponent } from "./keyboard.component";
 
 // TODO(josephperrott): Implement onAction observable.
 
@@ -9,6 +10,7 @@ import { MdKeyboardContainerComponent } from "./keyboard-container.component";
  * Reference to a keyboard dispatched from the keyboard service.
  */
 export class MdKeyboardRef<T> {
+
   private _instance: T;
 
   /** The instance of the component making up the content of the keyboard. */
