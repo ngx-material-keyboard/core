@@ -43,7 +43,7 @@
  *   - Dutch and US Int'l keyboard layouts by jerone
  *
  */
-import { InjectionToken } from '@angular/core';
+import { InjectionToken } from "@angular/core";
 
 interface IKeyboardLayout {
   name: string;

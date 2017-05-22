@@ -1,11 +1,11 @@
-import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from '@angular/core';
-import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
-import { MdKeyboardContainerComponent } from './keyboard-container.component';
-import { MdKeyboardRef } from './keyboard-ref';
-import { MdKeyboardComponent } from './keyboard.component';
-import { MdKeyboardConfig } from './keyboard.config';
-import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from './config/keyboard-layouts.config';
-import { MdKeyboardLayoutNotFound } from './keyboard.errors';
+import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from "@angular/core";
+import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from "@angular/material";
+import { MdKeyboardContainerComponent } from "./keyboard-container.component";
+import { MdKeyboardRef } from "./keyboard-ref";
+import { MdKeyboardComponent } from "./keyboard.component";
+import { MdKeyboardConfig } from "./keyboard.config";
+import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from "./config/keyboard-layouts.config";
+import { MdKeyboardLayoutNotFound } from "./keyboard.errors";
 
 export interface ILocaleMap {
   [locale: string]: string;
@@ -192,8 +192,8 @@ export class MdKeyboardService {
   private _createOverlay(): OverlayRef {
     const state = new OverlayState();
     state.positionStrategy = this._overlay.position().global()
-                                 .centerHorizontally()
-                                 .bottom('0');
+      .centerHorizontally()
+      .bottom('0');
     return this._overlay.create(state);
   }
 }

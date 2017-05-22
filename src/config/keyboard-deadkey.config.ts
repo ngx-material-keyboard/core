@@ -8,7 +8,7 @@
 // - Note that if you have created a new keyboard layout and want
 //   it included in the distributed script, PLEASE TELL ME if you
 //   have added additional dead keys to the ones below.
-import { InjectionToken } from '@angular/core';
+import { InjectionToken } from "@angular/core";
 
 interface IKeyboardDeadkeys {
   [deadkey: string]: {

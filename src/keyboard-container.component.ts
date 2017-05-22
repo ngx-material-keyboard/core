@@ -1,10 +1,10 @@
-import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
-import { Component, ComponentRef, HostBinding, HostListener, NgZone, OnDestroy, ViewChild } from '@angular/core';
-import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { MdKeyboardConfig } from './keyboard.config';
-import { MdKeyboardContentAlreadyAttached } from './keyboard.errors';
+import { animate, AnimationEvent, state, style, transition, trigger } from "@angular/animations";
+import { Component, ComponentRef, HostBinding, HostListener, NgZone, OnDestroy, ViewChild } from "@angular/core";
+import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from "@angular/material";
+import { Observable } from "rxjs/Observable";
+import { Subject } from "rxjs/Subject";
+import { MdKeyboardConfig } from "./keyboard.config";
+import { MdKeyboardContentAlreadyAttached } from "./keyboard.errors";
 
 
 export type KeyboardState = 'initial' | 'visible' | 'complete' | 'void';
@@ -24,9 +24,9 @@ export const HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
   styleUrls: ['./keyboard-container.component.scss'],
   animations: [
     trigger('state', [
-      state('initial', style({ transform: 'translateY(100%)' })),
-      state('visible', style({ transform: 'translateY(0%)' })),
-      state('complete', style({ transform: 'translateY(100%)' })),
+      state('initial', style({transform: 'translateY(100%)'})),
+      state('visible', style({transform: 'translateY(0%)'})),
+      state('complete', style({transform: 'translateY(100%)'})),
       transition('visible => complete', animate(HIDE_ANIMATION)),
       transition('initial => visible, void => visible', animate(SHOW_ANIMATION)),
     ])

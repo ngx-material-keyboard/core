@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { Component, Directive, NgModule, ViewChild, ViewContainerRef } from '@angular/core';
-import { async, ComponentFixture, fakeAsync, flushMicrotasks, inject, TestBed, tick } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { LiveAnnouncer, OverlayContainer } from '../core';
-import { MdKeyboard, MdKeyboardConfig, MdKeyboardModule, KeyboardComponent } from './index';
+import { CommonModule } from "@angular/common";
+import { Component, Directive, NgModule, ViewChild, ViewContainerRef } from "@angular/core";
+import { async, ComponentFixture, fakeAsync, flushMicrotasks, inject, TestBed, tick } from "@angular/core/testing";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { LiveAnnouncer, OverlayContainer } from "../core";
+import { KeyboardComponent, MdKeyboard, MdKeyboardConfig, MdKeyboardModule } from "./index";
 
 
 // TODO(josephperrott): Update tests to mock waiting for time to complete for animations.
@@ -26,7 +26,7 @@ describe('MdKeyboard', () => {
         {
           provide: OverlayContainer, useFactory: () => {
           overlayContainerElement = document.createElement('div');
-          return { getContainerElement: () => overlayContainerElement };
+          return {getContainerElement: () => overlayContainerElement};
         }
         }
       ],
@@ -52,7 +52,7 @@ describe('MdKeyboard', () => {
   });
 
   it('should have the role of alert', () => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     keyboard.open(simpleMessage, simpleActionLabel, config);
 
     let containerElement = overlayContainerElement.querySelector('keyboard-container');
@@ -78,7 +78,7 @@ describe('MdKeyboard', () => {
   }));
 
   it('should open a simple message with a button', () => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let keyboardRef = keyboard.open(simpleMessage, simpleActionLabel, config);
 
     viewContainerFixture.detectChanges();
@@ -102,7 +102,7 @@ describe('MdKeyboard', () => {
   });
 
   it('should open a simple message with no button', () => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let keyboardRef = keyboard.open(simpleMessage, null, config);
 
     viewContainerFixture.detectChanges();
@@ -121,7 +121,7 @@ describe('MdKeyboard', () => {
   });
 
   it('should dismiss the keyboard and remove itself from the view', async(() => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let dismissObservableCompleted = false;
 
     let keyboardRef = keyboard.open(simpleMessage, null, config);
@@ -157,7 +157,7 @@ describe('MdKeyboard', () => {
   }));
 
   it('should clean itself up when the view container gets destroyed', async(() => {
-    keyboard.open(simpleMessage, null, { viewContainerRef: testViewContainerRef });
+    keyboard.open(simpleMessage, null, {viewContainerRef: testViewContainerRef});
     viewContainerFixture.detectChanges();
     expect(overlayContainerElement.childElementCount).toBeGreaterThan(0);
 
@@ -171,7 +171,7 @@ describe('MdKeyboard', () => {
   }));
 
   it('should open a custom component', () => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let keyboardRef = keyboard.openFromComponent(BurritosNotification, config);
 
     expect(keyboardRef.instance)
@@ -183,7 +183,7 @@ describe('MdKeyboard', () => {
   });
 
   it('should set the animation state to visible on entry', () => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let keyboardRef = keyboard.open(simpleMessage, null, config);
 
     viewContainerFixture.detectChanges();
@@ -192,7 +192,7 @@ describe('MdKeyboard', () => {
   });
 
   it('should set the animation state to complete on exit', () => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let keyboardRef = keyboard.open(simpleMessage, null, config);
     keyboardRef.dismiss();
 
@@ -203,7 +203,7 @@ describe('MdKeyboard', () => {
 
   it(`should set the old keyboard animation state to complete and the new keyboard animation
       state to visible on entry of new keyboard`, async(() => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let keyboardRef = keyboard.open(simpleMessage, null, config);
     let dismissObservableCompleted = false;
 
@@ -211,7 +211,7 @@ describe('MdKeyboard', () => {
     expect(keyboardRef.containerInstance.animationState)
       .toBe('visible', `Expected the animation state would be 'visible'.`);
 
-    let config2 = { viewContainerRef: testViewContainerRef };
+    let config2 = {viewContainerRef: testViewContainerRef};
     let keyboardRef2 = keyboard.open(simpleMessage, null, config2);
 
     viewContainerFixture.detectChanges();
@@ -229,7 +229,7 @@ describe('MdKeyboard', () => {
   }));
 
   it('should open a new keyboard after dismissing a previous keyboard', async(() => {
-    let config = { viewContainerRef: testViewContainerRef };
+    let config = {viewContainerRef: testViewContainerRef};
     let keyboardRef = keyboard.open(simpleMessage, 'DISMISS', config);
     viewContainerFixture.detectChanges();
 
@@ -353,7 +353,7 @@ describe('MdKeyboard with parent MdKeyboard', () => {
         {
           provide: OverlayContainer, useFactory: () => {
           overlayContainerElement = document.createElement('div');
-          return { getContainerElement: () => overlayContainerElement };
+          return {getContainerElement: () => overlayContainerElement};
         }
         }
       ],
@@ -409,9 +409,10 @@ describe('MdKeyboard with parent MdKeyboard', () => {
   }));
 });
 
-@Directive({ selector: 'dir-with-view-container' })
+@Directive({selector: 'dir-with-view-container'})
 class DirectiveWithViewContainer {
-  constructor(public viewContainerRef: ViewContainerRef) { }
+  constructor(public viewContainerRef: ViewContainerRef) {
+  }
 }
 
 @Component({
@@ -429,7 +430,7 @@ class ComponentWithChildViewContainer {
 }
 
 /** Simple component for testing ComponentPortal. */
-@Component({ template: '<p>Burritos are on the way.</p>' })
+@Component({template: '<p>Burritos are on the way.</p>'})
 class BurritosNotification {
 }
 
@@ -439,7 +440,8 @@ class BurritosNotification {
   providers: [MdKeyboard]
 })
 class ComponentThatProvidesMdKeyboard {
-  constructor(public keyboard: MdKeyboard) {}
+  constructor(public keyboard: MdKeyboard) {
+  }
 }
 
 

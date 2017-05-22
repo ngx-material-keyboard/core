@@ -1,8 +1,8 @@
-import {Component, HostBinding, Inject, Input, LOCALE_ID, OnInit} from "@angular/core";
-import {MD_KEYBOARD_DEADKEYS} from "./config/keyboard-deadkey.config";
-import {IKeyboardLayout, MD_KEYBOARD_LAYOUTS} from "./config/keyboard-layouts.config";
-import {MdKeyboardRef} from "./keyboard-ref";
-import {MdKeyboardService} from "./keyboard.service";
+import { Component, HostBinding, Inject, Input, LOCALE_ID, OnInit } from "@angular/core";
+import { MD_KEYBOARD_DEADKEYS } from "./config/keyboard-deadkey.config";
+import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from "./config/keyboard-layouts.config";
+import { MdKeyboardRef } from "./keyboard-ref";
+import { MdKeyboardService } from "./keyboard.service";
 
 /**
  * A component used to open as the default keyboard, matching material spec.
