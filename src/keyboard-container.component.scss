@@ -2,8 +2,8 @@
 @import '~material2-srcs/src/lib/core/a11y/a11y';
 
 $mat-keyboard-padding: 14px 24px !default;
-$mat-keyboard-min-width: 288px !default;
-$mat-keyboard-max-width: 568px !default;
+$mat-keyboard-min-width: 568px !default;
+$mat-keyboard-max-width: 100% !default;
 
 :host {
   @include mat-elevation(6);
