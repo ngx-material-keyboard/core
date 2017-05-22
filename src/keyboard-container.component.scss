@@ -1,5 +1,6 @@
 @import '~material2-srcs/src/lib/core/style/elevation';
 @import '~material2-srcs/src/lib/core/a11y/a11y';
+@import '~@angular/material/theming';
 
 $mat-keyboard-padding: 14px 24px !default;
 $mat-keyboard-min-width: 568px !default;
@@ -7,9 +8,9 @@ $mat-keyboard-max-width: 100% !default;
 
 :host {
   @include mat-elevation(6);
-  background: #323232;
+  background-color: mat-color($mat-grey, 100);
   border-radius: 2px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   display: block;
   max-width: $mat-keyboard-max-width;
   min-width: $mat-keyboard-min-width;
@@ -19,5 +20,9 @@ $mat-keyboard-max-width: 100% !default;
 
   @include cdk-high-contrast {
     border: solid 1px;
+  }
+
+  &.dark-theme {
+    background-color: #323232;
   }
 }

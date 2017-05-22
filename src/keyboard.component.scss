@@ -2,6 +2,7 @@
 @import '~material2-srcs/src/lib/core/style/button-common';
 @import '~material2-srcs/src/lib/core/style/list-common';
 
+$mat-keyboard-button-padding: 8px !default;
 $mat-keyboard-button-margin: 48px !default;
 
 :host {
@@ -15,17 +16,41 @@ $mat-keyboard-button-margin: 48px !default;
   }
 }
 
-.mat-keyboard-action {
-  @include mat-button-reset;
-  background: none;
-  text-transform: uppercase;
-  color: inherit;
-  line-height: 1;
-  flex-shrink: 0;
-  margin-left: $mat-keyboard-button-margin;
-  font: {
-    family: inherit;
-    size: inherit;
-    weight: 600;
+.mat-keyboard {
+  &__action {
+    @include mat-button-reset;
+    background: none;
+    text-transform: uppercase;
+    color: inherit;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-left: $mat-keyboard-button-margin;
+    font: {
+      family: inherit;
+      size: inherit;
+      weight: 600;
+    }
+  }
+
+  &__layout {
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  &__col {
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    padding: $mat-keyboard-button-padding / 2;
+  }
+
+  &__key {
+    min-width: 0;
+    width: 100%;
   }
 }

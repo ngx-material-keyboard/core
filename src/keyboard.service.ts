@@ -193,7 +193,8 @@ export class MdKeyboardService {
     const state = new OverlayState();
     state.positionStrategy = this._overlay.position().global()
       .centerHorizontally()
-      .bottom('0');
+      .bottom('0')
+      .width('100%');
     return this._overlay.create(state);
   }
 }
