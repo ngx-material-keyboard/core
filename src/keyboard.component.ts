@@ -31,7 +31,7 @@ export class MdKeyboardComponent implements OnInit {
 
   @HostBinding('class.mat-keyboard') cssClass = true;
 
-  @HostBinding('class.debug') isDebug = true;
+  @HostBinding('class.debug') isDebug = false;
 
   hasAction: boolean;
 

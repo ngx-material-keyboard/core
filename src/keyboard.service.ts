@@ -42,6 +42,10 @@ export class MdKeyboardService {
     return this._availableLocales;
   }
 
+  get isOpened(): boolean {
+    return !!this._openedKeyboardRef;
+  }
+
   constructor(private _overlay: Overlay,
               private _live: LiveAnnouncer,
               @Inject(MD_KEYBOARD_LAYOUTS) private _layouts,
