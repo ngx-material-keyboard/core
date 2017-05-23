@@ -8,29 +8,29 @@ $mat-keyboard-button-margin: 48px !default;
 
 :host {
   display: flex;
+  font: {
+    family: $mat-font-family;
+    size: $mat-body-font-size-base;
+  }
   justify-content: space-between;
   //color: white;
   line-height: 20px;
-  font: {
-    size: $mat-body-font-size-base;
-    family: $mat-font-family;
-  }
 }
 
 .mat-keyboard {
   &__action {
     @include mat-button-reset;
     background: none;
-    text-transform: uppercase;
     color: inherit;
-    line-height: 1;
     flex-shrink: 0;
-    margin-left: $mat-keyboard-button-margin;
     font: {
       family: inherit;
       size: inherit;
       weight: 600;
     }
+    line-height: 1;
+    margin-left: $mat-keyboard-button-margin;
+    text-transform: uppercase;
   }
 
   &__layout {
@@ -38,10 +38,10 @@ $mat-keyboard-button-margin: 48px !default;
   }
 
   &__row {
+    align-items: stretch;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: stretch;
   }
 
   &__col {
@@ -56,7 +56,7 @@ $mat-keyboard-button-margin: 48px !default;
   }
 
   /deep/ &.dark-theme &__key {
-    color: mat-color($mat-grey, 100);
     background-color: mat-color($mat-grey, 700);
+    color: mat-color($mat-grey, 100);
   }
 }
