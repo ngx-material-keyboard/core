@@ -4,7 +4,7 @@
 
 $mat-keyboard-padding: 14px 24px !default;
 $mat-keyboard-min-width: 568px !default;
-$mat-keyboard-max-width: 100% !default;
+$mat-keyboard-max-width: 960px !default;
 
 :host {
   @include mat-elevation(6);
@@ -12,6 +12,7 @@ $mat-keyboard-max-width: 100% !default;
   border-radius: 2px;
   box-sizing: border-box;
   display: block;
+  margin: 0 auto;
   max-width: $mat-keyboard-max-width;
   min-width: $mat-keyboard-min-width;
   padding: $mat-keyboard-padding;
