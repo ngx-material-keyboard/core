@@ -16,4 +16,7 @@ export class MdKeyboardConfig {
 
   /** Enable a dark keyboard **/
   darkTheme? = null;
+
+  /** Enable an close action **/
+  hasAction? = false;
 }

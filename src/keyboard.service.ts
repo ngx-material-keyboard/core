@@ -115,6 +115,7 @@ export class MdKeyboardService {
     const keyboardComponentRef = this._openFromComponent(MdKeyboardComponent, config);
     keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
     keyboardComponentRef.instance.darkTheme = config.darkTheme;
+    keyboardComponentRef.instance.hasAction = config.hasAction;
     keyboardComponentRef.containerInstance.darkTheme = config.darkTheme;
 
     // a locale is provided

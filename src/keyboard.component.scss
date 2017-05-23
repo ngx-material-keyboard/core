@@ -59,4 +59,24 @@ $mat-keyboard-button-margin: 48px !default;
     background-color: mat-color($mat-grey, 700);
     color: mat-color($mat-grey, 100);
   }
+
+  /deep/ &.debug &__key {
+    &--deadkey {
+      background-color: cadetblue;
+    }
+
+    &--modifier {
+      background-color: aquamarine;
+    }
+  }
+
+  /deep/ &.debug.dark-theme &__key {
+    &--deadkey {
+      background-color: rebeccapurple;
+    }
+
+    &--modifier {
+      background-color: mediumpurple;
+    }
+  }
 }

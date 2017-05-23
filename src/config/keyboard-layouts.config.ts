@@ -122,7 +122,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -192,7 +192,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -264,7 +264,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['az-CYRL']
@@ -334,7 +334,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['az']
@@ -405,7 +405,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['be']
@@ -476,7 +476,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -547,7 +547,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['bg']
@@ -617,7 +617,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ]
   },
@@ -685,7 +685,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -757,7 +757,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -829,7 +829,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -901,7 +901,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -973,7 +973,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1045,7 +1045,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['AltGr', 'AltGr'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['de']
@@ -1117,7 +1117,7 @@ const keyboardLayouts: IKeyboardLayouts = {
       ],
       [
         ['AltLk', 'AltLk'],
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ]
@@ -1188,7 +1188,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1259,7 +1259,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ]
   },
@@ -1329,7 +1329,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1401,7 +1401,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1473,7 +1473,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1544,7 +1544,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1615,7 +1615,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -1687,7 +1687,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1759,7 +1759,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1831,7 +1831,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1902,7 +1902,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -1973,7 +1973,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2044,7 +2044,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2115,7 +2115,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2186,7 +2186,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['hy-AREVMDA']
@@ -2256,7 +2256,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['hy']
@@ -2327,7 +2327,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2399,7 +2399,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2473,7 +2473,7 @@ const keyboardLayouts: IKeyboardLayouts = {
       ],
       [
         ['AltLk', 'AltLk'],
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -2544,7 +2544,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2616,7 +2616,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['kk']
@@ -2686,7 +2686,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        ['\u200B', ' ', '\u00A0', ' '],
+        ['\u200B', 'Space', '\u00A0', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2756,7 +2756,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -2827,7 +2827,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Kor', 'Alt'],
       ]
     ],
@@ -2898,7 +2898,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['ku']
@@ -2968,7 +2968,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3039,7 +3039,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3111,7 +3111,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['lt']
@@ -3182,7 +3182,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3254,7 +3254,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3326,7 +3326,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3396,7 +3396,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3487,7 +3487,7 @@ const keyboardLayouts: IKeyboardLayouts = {
       ],
       [
         ['AltLk', 'AltLk'],
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ]
@@ -3557,7 +3557,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['mn']
@@ -3627,7 +3627,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3698,7 +3698,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['my']
@@ -3769,7 +3769,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3841,7 +3841,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -3912,7 +3912,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift', '\u064d'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -3982,7 +3982,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4054,7 +4054,7 @@ const keyboardLayouts: IKeyboardLayouts = {
       ],
       [
         ['AltLk', 'AltLk'],
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -4126,7 +4126,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ]
@@ -4196,7 +4196,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -4269,7 +4269,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4341,7 +4341,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4413,7 +4413,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4485,7 +4485,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['ru']
@@ -4556,7 +4556,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4628,7 +4628,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4700,7 +4700,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4772,7 +4772,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4845,7 +4845,7 @@ const keyboardLayouts: IKeyboardLayouts = {
       ],
       [
         ['Alt', 'Alt'],
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4917,7 +4917,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -4989,7 +4989,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5060,7 +5060,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5130,7 +5130,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5200,7 +5200,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5271,7 +5271,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5342,7 +5342,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['th']
@@ -5412,7 +5412,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ]
   },
@@ -5482,7 +5482,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5528,7 +5528,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['u', 'U', '\u00e6', '\u00c6'],
         ['i', '\u0130', '\u00df', '\u00a7'],
         ['e', 'E', '\u20ac'],
-        ['a', 'A', ' ', '\u00aa'],
+        ['a', 'A', 'Space', '\u00aa'],
         ['\u00fc', '\u00dc'],
         ['t', 'T'],
         ['k', 'K'],
@@ -5554,7 +5554,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ]
@@ -5625,7 +5625,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5696,7 +5696,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['uk']
@@ -5767,7 +5767,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['AltGr', 'AltGr'],
       ]
     ],
@@ -5838,7 +5838,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['ur']
@@ -5908,7 +5908,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ]
@@ -5978,7 +5978,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['en-US']
@@ -6048,7 +6048,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -6119,7 +6119,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['uz']
@@ -6189,7 +6189,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -6260,7 +6260,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' ', ' ', ' '],
+        ['Space', 'Space', 'Space', 'Space'],
         ['Alt', 'Alt'],
       ]
     ],
@@ -6331,7 +6331,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['zh-BOPO']
@@ -6401,7 +6401,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['Shift', 'Shift'],
       ],
       [
-        [' ', ' '],
+        ['Space', 'Space'],
       ]
     ],
     'lang': ['zh']
