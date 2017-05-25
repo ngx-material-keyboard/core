@@ -19,4 +19,7 @@ export class MdKeyboardConfig {
 
   /** Enable an close action **/
   hasAction? = false;
+
+  /** Enable the debug view **/
+  isDebug? = false;
 }

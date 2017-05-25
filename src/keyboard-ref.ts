@@ -24,6 +24,44 @@ export class MdKeyboardRef<T> {
    */
   containerInstance: MdKeyboardContainerComponent;
 
+  get darkTheme(): boolean {
+    if (this.instance instanceof MdKeyboardComponent) {
+      return this.instance.darkTheme;
+    }
+  }
+
+  set darkTheme(darkTheme: boolean) {
+    if (this.instance instanceof MdKeyboardComponent) {
+      this.instance.darkTheme = darkTheme;
+    }
+
+    this.containerInstance.darkTheme = darkTheme;
+  }
+
+  get hasAction(): boolean {
+    if (this.instance instanceof MdKeyboardComponent) {
+      return this.instance.hasAction;
+    }
+  }
+
+  set hasAction(hasAction: boolean) {
+    if (this.instance instanceof MdKeyboardComponent) {
+      this.instance.hasAction = hasAction;
+    }
+  }
+
+  get isDebug(): boolean {
+    if (this.instance instanceof MdKeyboardComponent) {
+      return this.instance.isDebug;
+    }
+  }
+
+  set isDebug(isDebug: boolean) {
+    if (this.instance instanceof MdKeyboardComponent) {
+      this.instance.isDebug = isDebug;
+    }
+  }
+
   /** Subject for notifying the user that the keyboard has closed. */
   private _afterClosed: Subject<any> = new Subject();
 

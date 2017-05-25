@@ -116,11 +116,12 @@ export class MdKeyboardService {
    * @param config Additional configuration options for the keyboard.
    */
   open(layoutOrLocale?: string, config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
-    const keyboardComponentRef = this._openFromComponent(MdKeyboardComponent, config);
+    const keyboardComponentRef = this._openFromComponent<MdKeyboardComponent>(MdKeyboardComponent, config);
     keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
-    keyboardComponentRef.instance.darkTheme = config.darkTheme;
-    keyboardComponentRef.instance.hasAction = config.hasAction;
-    keyboardComponentRef.containerInstance.darkTheme = config.darkTheme;
+
+    keyboardComponentRef.darkTheme = config.darkTheme;
+    keyboardComponentRef.hasAction = config.hasAction;
+    keyboardComponentRef.isDebug = config.isDebug;
 
     // a locale is provided
     if (this.availableLocales[layoutOrLocale]) {
