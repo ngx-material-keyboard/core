@@ -53,7 +53,7 @@
  *
  * CREDITS
  * -------
- * 
+ *
  * See http://www.greywyvern.com/code/javascript/keyboard for examples
  * and usage instructions.
  *

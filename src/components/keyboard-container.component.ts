@@ -3,8 +3,8 @@ import { Component, ComponentRef, HostBinding, HostListener, Input, NgZone, OnDe
 import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { MdKeyboardConfig } from './keyboard.config';
-import { MdKeyboardContentAlreadyAttached } from './keyboard.errors';
+import { MdKeyboardConfig } from '../configs/keyboard.config';
+import { MdKeyboardContentAlreadyAttached } from '../classes/keyboard-errors.class';
 
 export type KeyboardState = 'initial' | 'visible' | 'complete' | 'void';
 

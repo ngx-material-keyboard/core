@@ -1,3 +1,4 @@
+export * from './keyboard.config';
 export * from './keyboard-classes.config';
 export * from './keyboard-deadkey.config';
 export * from './keyboard-icons.config';

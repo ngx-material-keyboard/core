@@ -1,11 +1,11 @@
 import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from '@angular/core';
 import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
-import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from './config/keyboard-layouts.config';
-import { MdKeyboardContainerComponent } from './keyboard-container.component';
-import { MdKeyboardRef } from './keyboard-ref';
-import { MdKeyboardComponent } from './keyboard.component';
-import { MdKeyboardConfig } from './keyboard.config';
-import { MdKeyboardLayoutNotFound } from './keyboard.errors';
+import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from '../configs/keyboard-layouts.config';
+import { MdKeyboardContainerComponent } from '../components/keyboard-container.component';
+import { MdKeyboardRef } from '../classes/keyboard-ref.class';
+import { MdKeyboardComponent } from '../components/keyboard.component';
+import { MdKeyboardConfig } from '../configs/keyboard.config';
+import { MdKeyboardLayoutNotFound } from '../classes/keyboard-errors.class';
 
 export interface ILocaleMap {
   [locale: string]: string;
@@ -99,9 +99,9 @@ export class MdKeyboardService {
     }
 
     // If a dismiss timeout is provided, set up dismiss based on after the keyboard is opened.
-    // if (config.duration > 0) {
+    // if (configs.duration > 0) {
     //   keyboardRef.afterOpened().subscribe(() => {
-    //     setTimeout(() => keyboardRef.dismiss(), config.duration);
+    //     setTimeout(() => keyboardRef.dismiss(), configs.duration);
     //   });
     // }
 
@@ -211,7 +211,7 @@ export class MdKeyboardService {
 }
 
 /**
- * Applies default options to the keyboard config.
+ * Applies default options to the keyboard configs.
  * @param config The configuration to which the defaults will be applied.
  * @returns The new configuration object with defaults applied.
  */

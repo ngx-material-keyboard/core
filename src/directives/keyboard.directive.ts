@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { MdKeyboardRef } from './keyboard-ref';
-import { MdKeyboardComponent } from './keyboard.component';
-import { MdKeyboardService } from './keyboard.service';
+import { MdKeyboardRef } from '../classes/keyboard-ref.class';
+import { MdKeyboardComponent } from '../components/keyboard.component';
+import { MdKeyboardService } from '../services/keyboard.service';
 
 @Directive({
   selector: 'input[mdKeyboard], textarea[mdKeyboard], input[matKeyboard], textarea[matKeyboard]'
