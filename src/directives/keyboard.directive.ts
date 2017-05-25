@@ -28,7 +28,7 @@ export class MdKeyboardDirective {
       hasAction: this.hasAction,
       isDebug: this.isDebug
     });
-    this._keyboardRef.instance.inputInstance = this._elementRef;
+    this._keyboardRef.instance.setInputInstance(this._elementRef);
   }
 
   @HostListener('blur', ['$event'])

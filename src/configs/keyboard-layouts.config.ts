@@ -130,10 +130,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u2019'],
         ['-', '_', '\u00a5'],
         ['=', '+', '\u00d7', '\u00f7'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0636', '\u064e'],
         ['\u0635', '\u064b'],
         ['\u062b', '\u064f'],
@@ -149,7 +149,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0634', '\u0650'],
         ['\u0633', '\u064d'],
         ['\u064a', ']'],
@@ -161,10 +161,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0645', '/'],
         ['\u0643', ':'],
         ['\u0637', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0626', '~'],
         ['\u0621', '\u0652'],
         ['\u0624', '}'],
@@ -175,11 +175,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0648', ','],
         ['\u0632', '.'],
         ['\u0638', '\u061f'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['ar']
@@ -201,10 +201,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u09E6', ')', '\u09E6'],
         ['-', ''],
         ['\u09C3', '\u098B', '\u09E2', '\u09E0'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u09CC', '\u0994', '\u09D7'],
         ['\u09C8', '\u0990'],
         ['\u09BE', '\u0986'],
@@ -216,10 +216,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u09A6', '\u09A7'],
         ['\u099C', '\u099D'],
         ['\u09A1', '\u09A2', '\u09DC', '\u09DD'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u09CB', '\u0993', '\u09F4', '\u09F5'],
         ['\u09C7', '\u098F', '\u09F6', '\u09F7'],
         ['\u09CD', '\u0985', '\u09F8', '\u09F9'],
@@ -234,7 +234,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u09BC', '\u099E'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u09CE', '\u0983'],
         ['\u0982', '\u0981', '\u09FA'],
         ['\u09AE', '\u09A3'],
@@ -245,11 +245,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u09B7'],
         ['.', ';'],
         ['\u09AF', '\u09DF'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['as']
@@ -271,10 +271,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0458', '\u0408'],
         ['\u04AF', '\u04AE'],
         ['\u0443', '\u0423'],
@@ -290,7 +290,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u044B', '\u042B'],
         ['\u0432', '\u0412'],
@@ -302,10 +302,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u0436', '\u0416'],
         ['\u049D', '\u049C'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|'],
         ['\u04D9', '\u04D8'],
         ['\u0447', '\u0427'],
@@ -317,10 +317,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411'],
         ['\u04E9', '\u04E8'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['az-CYRL']
@@ -342,10 +342,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['\u00FC', '\u00DC'],
         ['e', 'E'],
@@ -361,7 +361,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -373,10 +373,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u0131', 'I'],
         ['\u0259', '\u018F'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['z', 'Z'],
         ['x', 'X'],
         ['c', 'C'],
@@ -387,10 +387,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00E7', '\u00C7'],
         ['\u015F', '\u015E'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['az']
@@ -412,10 +412,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0439', '\u0419'],
         ['\u0446', '\u0426'],
         ['\u0443', '\u0423'],
@@ -431,7 +431,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u044b', '\u042b'],
         ['\u0432', '\u0412'],
@@ -443,10 +443,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u0436', '\u0416'],
         ['\u044d', '\u042d'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['/', '|'],
         ['\u044f', '\u042f'],
         ['\u0447', '\u0427'],
@@ -458,10 +458,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411'],
         ['\u044e', '\u042e'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['be']
@@ -483,10 +483,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00e0', '0', '}'],
         [')', '\u00b0'],
         ['-', '_'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['a', 'A'],
         ['z', 'Z'],
         ['e', 'E', '\u20ac'],
@@ -502,7 +502,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u03bc', '\u00a3', '`'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['q', 'Q'],
         ['s', 'S'],
         ['d', 'D'],
@@ -514,10 +514,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['m', 'M'],
         ['\u00f9', '%', '\u00b4'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '\\'],
         ['w', 'W'],
         ['x', 'X'],
@@ -529,11 +529,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [';', '.'],
         [':', '/'],
         ['=', '+', '~'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['nl-BE', 'fr-BE']
@@ -555,10 +555,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u044F', '\u042F'],
         ['\u0432', '\u0412'],
         ['\u0435', '\u0415'],
@@ -574,7 +574,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u044E', '\u042E'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0430', '\u0410'],
         ['\u0441', '\u0421'],
         ['\u0434', '\u0414'],
@@ -586,10 +586,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u043B', '\u041B'],
         [';', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0437', '\u0417'],
         ['\u044C', '\u042C'],
         ['\u0446', '\u0426'],
@@ -600,10 +600,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['bg']
@@ -625,10 +625,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '\u2116'],
         ['-', '\u0406'],
         ['=', 'V'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         [',', '\u044b'],
         ['\u0443', '\u0423'],
         ['\u0435', '\u0415'],
@@ -644,7 +644,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['(', ')'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u044c', '\u042c'],
         ['\u044f', '\u042f'],
         ['\u0430', '\u0410'],
@@ -656,10 +656,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0412', '\u0412'],
         ['\u043c', '\u041c'],
         ['\u0447', '\u0427'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u042e', '\u044e'],
         ['\u0439', '\u0419'],
         ['\u044a', '\u042a'],
@@ -670,10 +670,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0440', '\u0420'],
         ['\u043b', '\u041b'],
         ['\u0431', '\u0411'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ]
   },
@@ -694,10 +694,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u09E6'],
         ['-', '\u0983'],
         ['\u09C3', '\u098B', '\u09E2', '\u09E0'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u09CC', '\u0994', '\u09D7'],
         ['\u09C8', '\u0990'],
         ['\u09BE', '\u0986'],
@@ -709,10 +709,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u09A6', '\u09A7'],
         ['\u099C', '\u099D'],
         ['\u09A1', '\u09A2', '\u09DC', '\u09DD'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u09CB', '\u0993', '\u09F4', '\u09F5'],
         ['\u09C7', '\u098F', '\u09F6', '\u09F7'],
         ['\u09CD', '\u0985', '\u09F8', '\u09F9'],
@@ -727,7 +727,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u09BC', '\u099E'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [''],
         ['\u0982', '\u0981', '\u09FA'],
         ['\u09AE', '\u09A3'],
@@ -738,11 +738,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u09B7'],
         ['.', '{'],
         ['\u09AF', '\u09DF'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['bn']
@@ -764,10 +764,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '\u02DD'],
         ['\'', '?', '\u00A8'],
         ['+', '*', '\u00B8'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\\'],
         ['w', 'W', '|'],
         ['e', 'E', '\u20AC'],
@@ -783,7 +783,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u017E', '\u017D', '\u00A4'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -795,10 +795,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u0141'],
         ['\u010D', '\u010C'],
         ['\u0107', '\u0106', '\u00DF'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['y', 'Y'],
         ['x', 'X'],
@@ -810,11 +810,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';', '<'],
         ['.', ':', '>'],
         ['-', '_', '\u00A9'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['bs']
@@ -836,10 +836,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u00BC'],
         ['-', '_', '\u00BD'],
         ['=', '+', '\u00BE'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E'],
@@ -855,7 +855,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['<', '>', '}'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -867,10 +867,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         [';', ':', '~'],
         ['`', '`', '{'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u00AB', '\u00BB', '\u00B0'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -882,11 +882,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\'', '\u00AF'],
         ['.', '.', '\u00AD'],
         ['\u00E9', '\u00C9', '\u00B4'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['fr-CA']
@@ -908,10 +908,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00E9', '0', ')'],
         ['=', '%', '-', '_'],
         ['\u00B4', '\u02c7', '=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -927,7 +927,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00A8', '\'', '\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -939,10 +939,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u016F', '"', ';', ':'],
         ['\u00A7', '!', '\u00a4', '^'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|', '', '\u02dd'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -954,11 +954,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '?', '<', '\u00d7'],
         ['.', ':', '>', '\u00f7'],
         ['-', '_', '/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['cs']
@@ -980,10 +980,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['+', '?'],
         ['\u00b4', '`', '|'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -999,7 +999,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '*'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -1011,10 +1011,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00e6', '\u00c6'],
         ['\u00f8', '\u00d8'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '\\'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -1026,11 +1026,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['da']
@@ -1052,10 +1052,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['\u00df', '?', '\\'],
         ['\u00b4', '`'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '@'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -1071,7 +1071,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['#', '\''],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -1083,10 +1083,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00f6', '\u00d6'],
         ['\u00e4', '\u00c4'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '\u00a6'],
         ['y', 'Y'],
         ['x', 'X'],
@@ -1098,7 +1098,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
@@ -1123,10 +1123,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u2793', '\u2789', '\u277f', '\u2771'],
         ['\u2795', '\u2796', '\u274c', '\u2797'],
         ['\u2702', '\u2704', '\u2701', '\u2703'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u2714', '\u2705', '\u2713'],
         ['\u2718', '\u2715', '\u2717', '\u2716'],
         ['\u271a', '\u2719', '\u271b', '\u271c'],
@@ -1142,7 +1142,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u2737', '\u2738', '\u2739', '\u273a'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u2799', '\u279a', '\u2798', '\u2758'],
         ['\u27b5', '\u27b6', '\u27b4', '\u2759'],
         ['\u27b8', '\u27b9', '\u27b7', '\u275a'],
@@ -1154,10 +1154,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u27ad', '\u27ae', '\u27af', '\u27b1'],
         ['\u27a8', '\u27a6', '\u27a5', '\u27a7'],
         ['\u279f', '\u27a0', '\u27be', '\u27b2'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u270c', '\u270b', '\u270a', '\u270d'],
         ['\u274f', '\u2750', '\u2751', '\u2752'],
         ['\u273f', '\u2740', '\u2741', '\u2742'],
@@ -1169,12 +1169,12 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u2709', '\u2706', '\u2708', '\u2707'],
         ['\u275b', '\u275d', '\u2761', '\u2775'],
         ['\u275c', '\u275e', '\u275f', '\u2760'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['AltLk', 'AltLk'],
+        ['AltLk', 'AltLk', 'AltLk', 'AltLk'],
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ]
   },
@@ -1195,10 +1195,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '('],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u07ab', '\u00d7'],
         ['\u07ae', '\u2019'],
         ['\u07a7', '\u201c'],
@@ -1214,7 +1214,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         [']', '}'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u07a8', '<'],
         ['\u07aa', '>'],
         ['\u07b0', '.', ',', ','],
@@ -1226,10 +1226,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0786', '\u079a'],
         ['\u078a', '\u07a1'],
         ['\ufdf2', '\u061b', ';', ';'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|'],
         ['\u0792', '\u0796'],
         ['\u0791', '\u0795'],
@@ -1241,11 +1241,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0781', '\\'],
         ['\u0793', '\u079e'],
         ['\u07af', '\u061f'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['dv']
@@ -1267,10 +1267,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['[', '{'],
         [']', '}'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\'', '"'],
         [',', '<'],
         ['.', '>'],
@@ -1286,7 +1286,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['o', 'O'],
         ['e', 'E'],
@@ -1298,10 +1298,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['n', 'N'],
         ['s', 'S'],
         ['-', '_'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [';', ':'],
         ['q', 'Q'],
         ['j', 'J'],
@@ -1312,10 +1312,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['w', 'W'],
         ['v', 'V'],
         ['z', 'Z'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ]
   },
@@ -1336,10 +1336,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u00ba'],
         ['-', '_', '\u00b1'],
         ['=', '+', '\u00bd'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         [';', ':'],
         ['\u03c2', '^'],
         ['\u03b5', '\u0395'],
@@ -1355,7 +1355,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|', '\u00ac'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u03b1', '\u0391'],
         ['\u03c3', '\u03a3'],
         ['\u03b4', '\u0394'],
@@ -1367,10 +1367,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u03bb', '\u039b'],
         ['\u0384', '\u00a8', '\u0385'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['\u03b6', '\u0396'],
         ['\u03c7', '\u03a7'],
@@ -1382,11 +1382,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['el']
@@ -1408,10 +1408,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}', '}'],
         ['+', '?', '\\', '\\'],
         ['\u00B4', '`'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -1427,7 +1427,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '*', '\u00BD', '\u00BD'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S', '\u0161', '\u0160'],
         ['d', 'D'],
@@ -1439,10 +1439,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00F6', '\u00D6'],
         ['\u00E4', '\u00C4', '^', '^'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '|', '|'],
         ['z', 'Z', '\u017E', '\u017D'],
         ['x', 'X'],
@@ -1454,11 +1454,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['et']
@@ -1480,10 +1480,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '='],
         ['\'', '?'],
         ['\u00a1', '\u00bf'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E'],
@@ -1499,7 +1499,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00e7', '\u00c7', '}'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -1511,10 +1511,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00f1', '\u00d1'],
         ['\u00b4', '\u00a8', '{'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -1526,11 +1526,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['es']
@@ -1552,10 +1552,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u06F0', '(', '\u200F'],
         ['-', '\u0640', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0636', '\u0652', '\u00B0'],
         ['\u0635', '\u064C'],
         ['\u062B', '\u064D', '\u20AC'],
@@ -1571,7 +1571,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|', '?'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0634', '\u0624', '\u069A'],
         ['\u0633', '\u0626', '\u06CD'],
         ['\u06CC', '\u064A', '\u0649'],
@@ -1583,10 +1583,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0645', '\u00AB', '\u06BA'],
         ['\u06A9', ':', ';'],
         ['\u06AF', '\u061B', '\u06AB'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0638', '\u0643', '\u06D2'],
         ['\u0637', '\u0653', '\u0691'],
         ['\u0632', '\u0698', '\u0696'],
@@ -1597,11 +1597,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0648', '>', ','],
         ['.', '<', '\u06C7'],
         ['/', '\u061F', '\u06C9'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['fa-AF']
@@ -1623,10 +1623,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u2019'],
         ['-', '_', '\u00a5'],
         ['=', '+', '\u00d7', '\u00f7'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0636', '\u064e'],
         ['\u0635', '\u064b'],
         ['\u062b', '\u064f'],
@@ -1642,7 +1642,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0698', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0634', '\u0650'],
         ['\u0633', '\u064d'],
         ['\u064a', ']'],
@@ -1654,10 +1654,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0645', '\\'],
         ['\u06af', ':'],
         ['\u0643', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0638', '~'],
         ['\u0637', '\u0652'],
         ['\u0632', '}'],
@@ -1668,11 +1668,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0648', ','],
         ['.', '.'],
         ['/', '\u061f'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['fa']
@@ -1694,10 +1694,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['+', '?'],
         ['\u00B4', '`', '|'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -1713,7 +1713,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '*'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -1725,10 +1725,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00E6', '\u00C6'],
         ['\u00F8', '\u00D8', '^'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '\\'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -1740,11 +1740,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['fo']
@@ -1766,10 +1766,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00e0', '0', '@'],
         [')', '\u00b0', ']'],
         ['=', '+', '}'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['a', 'A'],
         ['z', 'Z'],
         ['e', 'E', '\u20ac'],
@@ -1785,7 +1785,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['*', '\u03bc'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['q', 'Q'],
         ['s', 'S'],
         ['d', 'D'],
@@ -1797,10 +1797,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['m', 'M'],
         ['\u00f9', '%'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['w', 'W'],
         ['x', 'X'],
@@ -1812,11 +1812,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [';', '.'],
         [':', '/'],
         ['!', '\u00a7'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['fr']
@@ -1838,10 +1838,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u00E9', '\u00C9'],
@@ -1857,7 +1857,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['#', '~'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u00E1', '\u00C1'],
         ['s', 'S'],
         ['d', 'D'],
@@ -1869,10 +1869,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         [';', ':'],
         ['\'', '@', '\u00B4', '`'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -1884,11 +1884,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['ga', 'gd']
@@ -1910,10 +1910,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u0AE6'],
         ['-', '\u0A83'],
         ['\u0AC3', '\u0A8B', '\u0AC4', '\u0AE0'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0ACC', '\u0A94'],
         ['\u0AC8', '\u0A90'],
         ['\u0ABE', '\u0A86'],
@@ -1929,7 +1929,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0AC9', '\u0A91'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0ACB', '\u0A93'],
         ['\u0AC7', '\u0A8F'],
         ['\u0ACD', '\u0A85'],
@@ -1941,10 +1941,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0AA4', '\u0AA5'],
         ['\u0A9A', '\u0A9B'],
         ['\u0A9F', '\u0AA0'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [''],
         ['\u0A82', '\u0A81', '', '\u0AD0'],
         ['\u0AAE', '\u0AA3'],
@@ -1955,11 +1955,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0AB7'],
         ['.', '\u0964', '\u0965', '\u0ABD'],
         ['\u0AAF'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['gu']
@@ -1981,10 +1981,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '('],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['/', 'Q'],
         ['\'', 'W'],
         ['\u05e7', 'E', '\u20ac'],
@@ -1996,10 +1996,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u05dd', 'O'],
         ['\u05e4', 'P'],
         ['\\', '|'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u05e9', 'A'],
         ['\u05d3', 'S'],
         ['\u05d2', 'D'],
@@ -2015,7 +2015,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['[', '{'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u05d6', 'Z'],
         ['\u05e1', 'X'],
         ['\u05d1', 'C'],
@@ -2026,11 +2026,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u05ea', '>'],
         ['\u05e5', '<'],
         ['.', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['he']
@@ -2052,10 +2052,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u0966'],
         ['-', '\u0903'],
         ['\u0943', '\u090B', '\u0944', '\u0960'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u094C', '\u0914'],
         ['\u0948', '\u0910'],
         ['\u093E', '\u0906'],
@@ -2071,7 +2071,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0949', '\u0911'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u094B', '\u0913'],
         ['\u0947', '\u090F'],
         ['\u094D', '\u0905'],
@@ -2083,10 +2083,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0924', '\u0925'],
         ['\u091A', '\u091B', '\u0952'],
         ['\u091F', '\u0920', '', '\u0951'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0946', '\u090E', '\u0953'],
         ['\u0902', '\u0901', '', '\u0950'],
         ['\u092E', '\u0923', '\u0954'],
@@ -2097,11 +2097,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0937', '\u0970'],
         ['.', '\u0964', '\u0965', '\u093D'],
         ['\u092F', '\u095F'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['hi-DEVA']
@@ -2123,10 +2123,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u0966', ')'],
         ['-', '\u0903', '-', '_'],
         ['\u0943', '\u090B', '=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u094C', '\u0914'],
         ['\u0948', '\u0910'],
         ['\u093E', '\u0906'],
@@ -2142,7 +2142,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0949', '\u0911', '\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u094B', '\u0913'],
         ['\u0947', '\u090F'],
         ['\u094D', '\u0905'],
@@ -2154,10 +2154,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0924', '\u0925'],
         ['\u091A', '\u091B', ';', ':'],
         ['\u091F', '\u0920', '\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [''],
         ['\u0902', '\u0901', '', '\u0950'],
         ['\u092E', '\u0923'],
@@ -2168,11 +2168,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0937', ',', '<'],
         ['.', '\u0964', '.', '>'],
         ['\u092F', '\u095F', '/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['hi']
@@ -2194,10 +2194,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0585', '\u0555'],
         ['\u057C', '\u054C'],
         ['\u056A', '\u053A'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u056D', '\u053D'],
         ['\u057E', '\u054E'],
         ['\u0567', '\u0537'],
@@ -2213,7 +2213,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '\u055E'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0561', '\u0531'],
         ['\u057D', '\u054D'],
         ['\u057F', '\u054F'],
@@ -2225,10 +2225,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u056C', '\u053C'],
         ['\u0569', '\u0539'],
         ['\u0583', '\u0553'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0566', '\u0536'],
         ['\u0581', '\u0551'],
         ['\u0563', '\u0533'],
@@ -2239,10 +2239,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0577', '\u0547'],
         ['\u0572', '\u0542'],
         ['\u056E', '\u053E'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['hy-AREVMDA']
@@ -2264,10 +2264,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0585', '\u0555'],
         ['\u057C', '\u054C'],
         ['\u056A', '\u053A'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u056D', '\u053D'],
         ['\u0582', '\u0552'],
         ['\u0567', '\u0537'],
@@ -2283,7 +2283,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '\u055E'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0561', '\u0531'],
         ['\u057D', '\u054D'],
         ['\u0564', '\u0534'],
@@ -2295,10 +2295,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u056C', '\u053C'],
         ['\u0569', '\u0539'],
         ['\u0583', '\u0553'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0566', '\u0536'],
         ['\u0581', '\u0551'],
         ['\u0563', '\u0533'],
@@ -2309,10 +2309,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0577', '\u0547'],
         ['\u0572', '\u0542'],
         ['\u056E', '\u053E'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['hy']
@@ -2334,10 +2334,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['\u00F6', '\u00D6', '\\'],
         ['-', '_'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '@'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -2353,7 +2353,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['+', '*', '`'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -2365,10 +2365,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00E6', '\u00C6'],
         ['\u00B4', '\'', '^'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -2380,11 +2380,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['\u00FE', '\u00DE'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['is']
@@ -2406,10 +2406,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '='],
         ['\'', '?'],
         ['\u00ec', '^'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -2425,7 +2425,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00f9', '\u00a7'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -2437,10 +2437,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00f2', '\u00e7', '@'],
         ['\u00e0', '\u00b0', '#'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -2452,11 +2452,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['it']
@@ -2478,10 +2478,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u308f', '\u30ef', '\u3092', '\u30f2'],
         ['\u307b', '\u30db', '\u30fc', '\uff1d'],
         ['\u3078', '\u30d8', '\uff3e', '\uff5e'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u305f', '\u30bf'],
         ['\u3066', '\u30c6'],
         ['\u3044', '\u30a4', '\u3043', '\u30a3'],
@@ -2498,7 +2498,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u309B', '"', '\uffe5', '\uff5c'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u3061', '\u30c1'],
         ['\u3068', '\u30c8'],
         ['\u3057', '\u30b7'],
@@ -2510,10 +2510,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u308c', '\u30ec', '\uff1b', '\uff0b'],
         ['\u3051', '\u30b1', '\uff1a', '\u30f6'],
         ['\u3080', '\u30e0', '\u300d', '\uff5d'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u3064', '\u30c4'],
         ['\u3055', '\u30b5'],
         ['\u305d', '\u30bd'],
@@ -2525,12 +2525,12 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u308b', '\u30eb', '\u3002', '\uff1e'],
         ['\u3081', '\u30e1', '\u30fb', '\uff1f'],
         ['\u308d', '\u30ed', '', '\uff3f'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['AltLk', 'AltLk'],
+        ['AltLk', 'AltLk', 'AltLk', 'AltLk'],
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['ja']
@@ -2552,10 +2552,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['/', '0'],
         ['\u2013', '-'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u10E6', '\u10E6'],
         ['\u10EF', '\u10EF'],
         ['\u10E3', '\u10E3'],
@@ -2571,7 +2571,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['(', ')'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u10E4', '\u10E4', '\u10F6'],
         ['\u10EB', '\u10EB'],
         ['\u10D5', '\u10D5', '\u10F3'],
@@ -2583,10 +2583,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u10DA', '\u10DA'],
         ['\u10D3', '\u10D3'],
         ['\u10DF', '\u10DF'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u10ED', '\u10ED'],
         ['\u10E9', '\u10E9'],
         ['\u10E7', '\u10E7'],
@@ -2597,11 +2597,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u10E5', '\u10E5'],
         ['\u10D1', '\u10D1'],
         ['\u10F0', '\u10F0', '\u10F5'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['ka']
@@ -2623,10 +2623,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u049b', '\u049a'],
         ['\u04e9', '\u04e8'],
         ['\u04bb', '\u04ba'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0439', '\u0419'],
         ['\u0446', '\u0426'],
         ['\u0443', '\u0423'],
@@ -2642,7 +2642,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u044B', '\u042B'],
         ['\u0432', '\u0412'],
@@ -2654,10 +2654,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u0436', '\u0416'],
         ['\u044D', '\u042D'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|'],
         ['\u044F', '\u042F'],
         ['\u0447', '\u0427'],
@@ -2669,10 +2669,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411'],
         ['\u044E', '\u042E'],
         ['\u2116', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['kk']
@@ -2694,10 +2694,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u17E0', ')', '}', '\u17F0'],
         ['\u17A5', '\u17CC', 'x'],
         ['\u17B2', '=', '\u17CE'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u1786', '\u1788', '\u17DC', '\u19E0'],
         ['\u17B9', '\u17BA', '\u17DD', '\u19E1'],
         ['\u17C1', '\u17C2', '\u17AF', '\u19E2'],
@@ -2713,7 +2713,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u17AE', '\u17AD', '\\'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u17B6', '\u17B6\u17C6', '\u17B5', '\u19EC'],
         ['\u179F', '\u17C3', '', '\u19ED'],
         ['\u178A', '\u178C', '\u17D3', '\u19EE'],
@@ -2725,10 +2725,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u179B', '\u17A1', '\u17D8', '\u19F4'],
         ['\u17BE', '\u17C4\u17C7', '\u17D6', '\u19F5'],
         ['\u17CB', '\u17C9', '\u17C8', '\u19F6'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u178B', '\u178D', '|', '\u19F7'],
         ['\u1781', '\u1783', '\u1781\u17D2\u1789\u17BB\u17C6', '\u19F8'],
         ['\u1785', '\u1787', '-', '\u19F9'],
@@ -2739,11 +2739,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u17BB\u17C6', '\u17BB\u17C7', ',', '\u19FE'],
         ['\u17D4', '\u17D5', '.', '\u19FF'],
         ['\u17CA', '?', '/'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['\u200B', 'Space', '\u00A0', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['\u200B', ' ', '\u00A0', ' '],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['km']
@@ -2765,10 +2765,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u0CE6'],
         ['-', '\u0C83'],
         ['\u0CC3', '\u0C8B', '\u0CC4', '\u0CE0'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0CCC', '\u0C94'],
         ['\u0CC8', '\u0C90', '\u0CD6'],
         ['\u0CBE', '\u0C86'],
@@ -2780,10 +2780,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0CA6', '\u0CA7'],
         ['\u0C9C', '\u0C9D'],
         ['\u0CA1', '\u0CA2'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0CCB', '\u0C93'],
         ['\u0CC7', '\u0C8F', '\u0CD5'],
         ['\u0CCD', '\u0C85'],
@@ -2798,7 +2798,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['', '\u0C9E'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0CC6', '\u0C8F'],
         ['\u0C82'],
         ['\u0CAE', '\u0CA3'],
@@ -2809,11 +2809,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0CB7'],
         ['.', '|'],
         ['\u0CAF'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['kn']
@@ -2836,10 +2836,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['-', '_', '-', '_'],
         ['=', '+', '=', '+'],
         ['\u20A9', '|', '\u20A9', '|'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u1107', '\u1108', 'q', 'Q'],
         ['\u110C', '\u110D', 'w', 'W'],
         ['\u1103', '\u1104', 'e', 'E'],
@@ -2854,7 +2854,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         [']', '}', ']', '}'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u1106', '', 'a', 'A'],
         ['\u1102', '', 's', 'S'],
         ['\u110B', '', 'd', 'D'],
@@ -2866,10 +2866,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u1175', '', 'l', 'L'],
         [';', ':', ';', ':'],
         ['\'', '"', '\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u110F', '', 'z', 'Z'],
         ['\u1110', '', 'x', 'X'],
         ['\u110E', '', 'c', 'C'],
@@ -2880,7 +2880,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<', ',', '<'],
         ['.', '>', '.', '>'],
         ['/', '?', '/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
@@ -2906,10 +2906,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0660', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0642', '`'],
         ['\u0648', '\u0648\u0648'],
         ['\u06d5', '\u064a'],
@@ -2925,7 +2925,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0627', '\u0622'],
         ['\u0633', '\u0634'],
         ['\u062f', '\u0630'],
@@ -2937,10 +2937,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0644', '\u06b5'],
         ['\u061b', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0632', '\u0636'],
         ['\u062e', '\u0635'],
         ['\u062c', '\u0686'],
@@ -2951,10 +2951,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u060c', '<'],
         ['.', '>'],
         ['/', '\u061f'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['ku']
@@ -2976,10 +2976,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0439', '\u0419'],
         ['\u0446', '\u0426'],
         ['\u0443', '\u0423', '\u04AF', '\u04AE'],
@@ -2995,7 +2995,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u044B', '\u042B'],
         ['\u0432', '\u0412'],
@@ -3007,10 +3007,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u0436', '\u0416'],
         ['\u044D', '\u042D'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u044F', '\u042F'],
         ['\u0447', '\u0427'],
         ['\u0441', '\u0421'],
@@ -3021,11 +3021,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411'],
         ['\u044E', '\u042E'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['ky']
@@ -3047,10 +3047,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_', '\u2013', '\u2014'],
         ['f', 'F', '=', ';'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u016B', '\u016A', 'q', 'Q'],
         ['g', 'G', '\u0123', '\u0122'],
         ['j', 'J'],
@@ -3066,7 +3066,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0137', '\u0136'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0161', '\u0160'],
         ['u', 'U'],
         ['s', 'S'],
@@ -3078,10 +3078,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['e', 'E', '\u20AC'],
         ['c', 'C'],
         ['\u00B4', '\u00B0', '\u00B4', '\u00A8'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0146', '\u0145'],
         ['b', 'B', 'x', 'X'],
         ['\u012B', '\u012A'],
@@ -3092,11 +3092,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';', '<'],
         ['.', ':', '>'],
         ['\u013C', '\u013B'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['lv']
@@ -3118,10 +3118,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u201C', ')'],
         ['-', '_'],
         ['\u017E', '\u017D'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E'],
@@ -3137,7 +3137,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -3149,10 +3149,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         [';', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u2013', '\u20AC'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -3164,10 +3164,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['lt']
@@ -3189,10 +3189,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00f6', '\u00d6', '\u02dd'],
         ['\u00fc', '\u00dc', '\u00a8'],
         ['\u00f3', '\u00d3', '\u00b8'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\\'],
         ['w', 'W', '|'],
         ['e', 'E', '\u00c4'],
@@ -3208,7 +3208,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0171', '\u0170', '\u00a4'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u00e4'],
         ['s', 'S', '\u0111'],
         ['d', 'D', '\u0110'],
@@ -3220,10 +3220,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u0142'],
         ['\u00e9', '\u00c9', '$'],
         ['\u00e1', '\u00c1', '\u00df'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u00ed', '\u00cd', '<'],
         ['y', 'Y', '>'],
         ['x', 'X', '#'],
@@ -3235,11 +3235,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '?', ';'],
         ['.', ':', '>'],
         ['-', '_', '*'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['hu']
@@ -3261,10 +3261,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u00E8', '\u00C8'],
@@ -3280,7 +3280,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['#', '\u017e'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u00E0', '\u00C0'],
         ['s', 'S'],
         ['d', 'D'],
@@ -3292,10 +3292,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         [';', ':'],
         ['\'', '@'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u017c', '\u017b', '\\', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -3307,11 +3307,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?', '', '`'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['mt']
@@ -3333,10 +3333,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0459', '\u0409'],
         ['\u045A', '\u040A'],
         ['\u0435', '\u0415', '\u20AC'],
@@ -3352,7 +3352,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0436', '\u0416'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0430', '\u0410'],
         ['\u0441', '\u0421'],
         ['\u0434', '\u0414'],
@@ -3364,10 +3364,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u043B', '\u041B'],
         ['\u0447', '\u0427', '\u040B'],
         ['\u045C', '\u040C', '\u045B'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0451', '\u0401'],
         ['\u0437', '\u0417'],
         ['\u045F', '\u040F'],
@@ -3379,11 +3379,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['mk']
@@ -3405,10 +3405,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u0D66'],
         ['-', '\u0D03'],
         ['\u0D43', '\u0D0B', '', '\u0D60'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0D4C', '\u0D14', '\u0D57'],
         ['\u0D48', '\u0D10'],
         ['\u0D3E', '\u0D06'],
@@ -3423,7 +3423,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['', '\u0D1E'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0D4B', '\u0D13'],
         ['\u0D47', '\u0D0F'],
         ['\u0D4D', '\u0D05', '', '\u0D0C'],
@@ -3435,10 +3435,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0D24', '\u0D25'],
         ['\u0D1A', '\u0D1B'],
         ['\u0D1F', '\u0D20'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0D46', '\u0D0F'],
         ['\u0D02'],
         ['\u0D2E', '\u0D23'],
@@ -3449,11 +3449,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0D37'],
         ['.'],
         ['\u0D2F'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['ml']
@@ -3475,7 +3475,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u2651', '\u267c', '\u265c', '\u2687'],
         ['\u2652', '\u267d', '\u265b', '\u2688'],
         ['\u2653', '\u2672', '\u265a', '\u2689'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
         ['\u263f', '\u2680', '\u268a', '\u26a2'],
@@ -3495,7 +3495,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u267f', '\u262e', '\u2638', '\u2609'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u261e', '\u261c', '\u261d', '\u261f'],
         ['\u261b', '\u261a', '\u2618', '\u2619'],
         ['\u2602', '\u2614', '\u26f1', '\u26d9'],
@@ -3512,7 +3512,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u26fa', '\u26fb', '\u26fc', '\u26fd'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u262f', '\u2670', '\u2671', '\u267e'],
         ['\u263c', '\u2699', '\u263d', '\u263e'],
         ['\u26c4', '\u2603', '\u26c7', '\u26c6'],
@@ -3524,10 +3524,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u26b7', '\u26bf', '\u26b8', '\u26f8'],
         ['\u26b9', '\u26ba', '\u26bb', '\u26bc'],
         ['\u26bd', '\u26be', '\u269f', '\u269e'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u2600', '\u2601', '\u26c5', '\u26c8'],
         ['\u2691', '\u2690', '\u26ab', '\u26aa'],
         ['\u26cb', '\u26cc', '\u26cd', '\u26ce'],
@@ -3539,12 +3539,12 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u26eb', '\u26ec', '\u26ed', '\u26ee'],
         ['\u26ef', '\u26f0', '\u26f2', '\u26f3'],
         ['\u26f4', '\u26f5', '\u26f6', '\u26f7'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['AltLk', 'AltLk'],
+        ['AltLk', 'AltLk', 'AltLk', 'AltLk'],
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ]
   },
@@ -3565,10 +3565,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['?', '0'],
         ['\u0435', '\u0415'],
         ['\u0449', '\u0429'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0444', '\u0424'],
         ['\u0446', '\u0426'],
         ['\u0443', '\u0423'],
@@ -3584,7 +3584,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0439', '\u0419'],
         ['\u044B', '\u042B'],
         ['\u0431', '\u0411'],
@@ -3596,10 +3596,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u043B', '\u041b'],
         ['\u0434', '\u0414'],
         ['\u043f', '\u041f'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u044F', '\u042F'],
         ['\u0447', '\u0427'],
         ['\u0451', '\u0401'],
@@ -3610,10 +3610,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u044c', '\u042c'],
         ['\u0432', '\u0412'],
         ['\u044e', '\u042e'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['mn']
@@ -3635,10 +3635,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0966', ')', '0', ')'],
         ['-', '\u0903', '-', '_'],
         ['\u0943', '\u090B', '=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u094C', '\u0914'],
         ['\u0948', '\u0910'],
         ['\u093E', '\u0906'],
@@ -3654,7 +3654,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0949', '\u0911', '\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u094B', '\u0913'],
         ['\u0947', '\u090F'],
         ['\u094D', '\u0905'],
@@ -3666,10 +3666,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0924', '\u0925'],
         ['\u091A', '\u091B', ';', ':'],
         ['\u091F', '\u0920', '\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [''],
         ['\u0902', '\u0901', '', '\u0950'],
         ['\u092E', '\u0923'],
@@ -3680,11 +3680,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0937', ',', '<'],
         ['.', '\u0964', '.', '>'],
         ['\u092F', '\u095F', '/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['mr']
@@ -3706,10 +3706,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u1040', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u1006', '\u1029'],
         ['\u1010', '\u1040'],
         ['\u1014', '\u103F'],
@@ -3725,7 +3725,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u104F', '\u100B\u1039\u100C'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u200B\u1031', '\u1017'],
         ['\u200B\u103B', '\u200B\u103E'],
         ['\u200B\u102D', '\u200B\u102E'],
@@ -3737,10 +3737,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u200B\u1030', '\u200B\u1030'],
         ['\u200B\u1038', '\u200B\u102B\u103A'],
         ['\u1012', '\u1013'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u1016', '\u1007'],
         ['\u1011', '\u100C'],
         ['\u1001', '\u1003'],
@@ -3751,10 +3751,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u101A', '\u101B'],
         ['.', '\u101B'],
         ['\u104B', '\u104A'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['my']
@@ -3776,10 +3776,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '\''],
         ['/', '?', '\\'],
         ['\u00b0', '~', '\u00b8'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -3795,7 +3795,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['<', '>'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S', '\u00df'],
         ['d', 'D'],
@@ -3807,10 +3807,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['+', '\u00b1'],
         ['\u00b4', '`'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [']', '[', '\u00a6'],
         ['z', 'Z', '\u00ab'],
         ['x', 'X', '\u00bb'],
@@ -3822,11 +3822,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':', '\u00b7'],
         ['-', '='],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['nl']
@@ -3848,10 +3848,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['+', '?'],
         ['\\', '`', '\u00b4'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -3867,7 +3867,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '*'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -3879,10 +3879,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00f8', '\u00d8'],
         ['\u00e6', '\u00c6'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -3894,11 +3894,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['no', 'nb', 'nn']
@@ -3920,10 +3920,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u06f0', ')', '\ufefb'],
         ['-', '\u0640', '_'],
         ['=', '+', '\ufe87', '\u00f7'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0636', '\u0652', '\u06d5'],
         ['\u0635', '\u064c', '\u0653'],
         ['\u062b', '\u064d', '\u20ac'],
@@ -3939,7 +3939,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '\u066d', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0634', '\u069a', '\ufbb0'],
         ['\u0633', '\u06cd', '\u06d2'],
         ['\u06cc', '\u064a', '\u06d2'],
@@ -3951,10 +3951,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0645', '\u0629', '>'],
         ['\u06a9', ':', '\u0643'],
         ['\u06af', '\u061b', '\u06ab'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0638', '\u0626', '?'],
         ['\u0637', '\u06d0', ';'],
         ['\u0632', '\u0698', '\u0655'],
@@ -3969,7 +3969,7 @@ const keyboardLayouts: IKeyboardLayouts = {
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['ps']
@@ -3991,10 +3991,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u0A66', '\u0A66'],
         ['-'],
         [''],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0A4C', '\u0A14'],
         ['\u0A48', '\u0A10'],
         ['\u0A3E', '\u0A06'],
@@ -4006,10 +4006,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0A26', '\u0A27'],
         ['\u0A1C', '\u0A1D', '\u0A5B', '\u0A5B'],
         ['\u0A21', '\u0A22', '\u0A5C', '\u0A5C'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0A4B', '\u0A13'],
         ['\u0A47', '\u0A0F'],
         ['\u0A4D', '\u0A05'],
@@ -4024,7 +4024,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0A3C', '\u0A1E'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [''],
         ['\u0A02', '\u0A02'],
         ['\u0A2E', '\u0A23'],
@@ -4035,11 +4035,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [','],
         ['.', '|', '\u0965', '\u0965'],
         ['\u0A2F'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['pa']
@@ -4061,10 +4061,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u300B'],
         ['-', '_', '\u300E'],
         ['=', '+', '\u300F'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\u0101', '\u0100'],
         ['w', 'W', '\u00E1', '\u00C1'],
         ['e', 'E', '\u01CE', '\u01CD'],
@@ -4080,7 +4080,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|', '\u3020'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u014D', '\u014C'],
         ['s', 'S', '\u00F3', '\u00D3'],
         ['d', 'D', '\u01D2', '\u01D1'],
@@ -4092,10 +4092,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u00F9', '\u00D9'],
         [';', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['z', 'Z', '\u01D6', '\u01D5'],
         ['x', 'X', '\u01D8', '\u01D7'],
         ['c', 'C', '\u01DA', '\u01D9'],
@@ -4106,12 +4106,12 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<', '\u3001'],
         ['.', '>', '\u3002'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['AltLk', 'AltLk'],
+        ['AltLk', 'AltLk', 'AltLk', 'AltLk'],
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['zh-LATN']
@@ -4133,10 +4133,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '\u02DD'],
         ['+', '?', '\u00A8'],
         ['\'', '*', '\u00B8'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\\'],
         ['w', 'W', '\u00A6'],
         ['e', 'E'],
@@ -4152,7 +4152,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00F3', '\u017A'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S', '\u0111'],
         ['d', 'D', '\u0110'],
@@ -4164,10 +4164,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u0142', '\u0141', '$'],
         ['\u0105', '\u0119', '\u00DF'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['y', 'Y'],
         ['x', 'X'],
@@ -4179,11 +4179,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';', '<'],
         ['.', ':', '>'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ]
   },
@@ -4204,10 +4204,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u0119', '\u0118'],
@@ -4223,7 +4223,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u0105', '\u0104'],
         ['s', 'S', '\u015b', '\u015a'],
         ['d', 'D'],
@@ -4235,10 +4235,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u0142', '\u0141'],
         [';', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['z', 'Z', '\u017c', '\u017b'],
         ['x', 'X', '\u017a', '\u0179'],
         ['c', 'C', '\u0107', '\u0106'],
@@ -4249,11 +4249,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['pl']
@@ -4275,10 +4275,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+', '\u00a7'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '/'],
         ['w', 'W', '?'],
         ['e', 'E', '\u20ac'],
@@ -4291,10 +4291,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['p', 'P'],
         ['\u00b4', '`'],
         ['[', '{', '\u00aa'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -4310,7 +4310,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['/', '?'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -4322,11 +4322,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         [':', ':'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['pt-BR']
@@ -4348,10 +4348,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['\'', '?'],
         ['\u00ab', '\u00bb'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -4367,7 +4367,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['~', '^'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -4379,10 +4379,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00e7', '\u00c7'],
         ['\u00ba', '\u00aa'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '\\'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -4394,11 +4394,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['pt']
@@ -4420,10 +4420,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u02DD'],
         ['-', '_', '\u00A8'],
         ['=', '+', '\u00B8', '\u00B1'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -4439,7 +4439,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00E2', '\u00C2', '\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S', '\u00df'],
         ['d', 'D', '\u00f0', '\u00D0'],
@@ -4451,10 +4451,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u0142', '\u0141'],
         ['\u0219', '\u0218', ';', ':'],
         ['\u021B', '\u021A', '\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -4466,11 +4466,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';', '<', '\u00AB'],
         ['.', ':', '>', '\u00BB'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['ro']
@@ -4492,10 +4492,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0439', '\u0419'],
         ['\u0446', '\u0426'],
         ['\u0443', '\u0423'],
@@ -4511,7 +4511,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u044B', '\u042B'],
         ['\u0432', '\u0412'],
@@ -4523,10 +4523,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u0436', '\u0416'],
         ['\u044D', '\u042D'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['/', '|'],
         ['\u044F', '\u042F'],
         ['\u0447', '\u0427'],
@@ -4538,10 +4538,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411'],
         ['\u044E', '\u042E'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['ru']
@@ -4563,10 +4563,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '='],
         ['\'', '?', '\u00B4'],
         ['^', '`', '~'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -4582,7 +4582,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['$', '\u00A3', '}'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -4594,10 +4594,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00F6', '\u00E9'],
         ['\u00E4', '\u00E0', '{'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '\\'],
         ['y', 'Y'],
         ['x', 'X'],
@@ -4609,11 +4609,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['de-CH']
@@ -4635,10 +4635,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u02DD'],
         ['-', '_', '\u00A8'],
         ['=', '+', '\u00B8'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\\'],
         ['w', 'W', '|'],
         ['e', 'E'],
@@ -4654,7 +4654,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         [']', '}', '\u00A4'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S', '\u0111'],
         ['d', 'D', '\u0110'],
@@ -4666,10 +4666,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u0141'],
         ['\u00EB', '\u00CB', '$'],
         ['@', '\'', '\u00D7'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['y', 'Y'],
         ['x', 'X'],
@@ -4681,11 +4681,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';', '<'],
         ['.', ':', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['sq']
@@ -4707,10 +4707,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00E9', '0', '\u02DD'],
         ['=', '%', '\u00A8'],
         ['\u00B4', '\u02c7', '\u00B8'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\\'],
         ['w', 'W', '|'],
         ['e', 'E', '\u20AC'],
@@ -4726,7 +4726,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0148', ')', '\u00A4'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S', '\u0111'],
         ['d', 'D', '\u0110'],
@@ -4738,10 +4738,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u0141'],
         ['\u00F4', '"', '$'],
         ['\u00A7', '!', '\u00DF'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['&', '*', '<'],
         ['y', 'Y', '>'],
         ['x', 'X', '#'],
@@ -4753,11 +4753,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '?', '<'],
         ['.', ':', '>'],
         ['-', '_', '*',],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['sk']
@@ -4779,10 +4779,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '='],
         ['\'', '?'],
         ['+', '*'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0459', '\u0409'],
         ['\u045a', '\u040a'],
         ['\u0435', '\u0415', '\u20ac'],
@@ -4798,7 +4798,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0436', '\u0416'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0430', '\u0410'],
         ['\u0441', '\u0421'],
         ['\u0434', '\u0414'],
@@ -4810,10 +4810,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u043b', '\u041b'],
         ['\u0447', '\u0427'],
         ['\u045b', '\u040b'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>'],
         ['\u0455', '\u0405'],
         ['\u045f', '\u040f'],
@@ -4825,11 +4825,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';', '<'],
         ['.', ':', '>'],
         ['-', '_', '\u00a9'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['sr-CYRL']
@@ -4851,10 +4851,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['+', '?', '\\'],
         ['\u00B4', '`'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\u00E2', '\u00C2'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -4870,7 +4870,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '*'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u00E1', '\u00C1'],
         ['s', 'S', '\u0161', '\u0160'],
         ['d', 'D', '\u0111', '\u0110'],
@@ -4882,10 +4882,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00F6', '\u00D6', '\u00F8', '\u00D8'],
         ['\u00E4', '\u00C4', '\u00E6', '\u00C6'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '|'],
         ['z', 'Z', '\u017E', '\u017D'],
         ['x', 'X'],
@@ -4897,12 +4897,12 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['fi']
@@ -4924,10 +4924,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['+', '?', '\\'],
         ['\u00b4', '`'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -4943,7 +4943,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\'', '*'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -4955,10 +4955,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00f6', '\u00d6'],
         ['\u00e4', '\u00c4'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -4970,11 +4970,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['sv']
@@ -4996,10 +4996,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '='],
         ['\'', '?', '\u00B4'],
         ['^', '`', '~'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u20AC'],
@@ -5015,7 +5015,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['$', '\u00A3', '}'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -5027,10 +5027,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u00E9', '\u00F6'],
         ['\u00E0', '\u00E4', '{'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '\\'],
         ['y', 'Y'],
         ['x', 'X'],
@@ -5042,11 +5042,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';'],
         ['.', ':'],
         ['-', '_'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['fr-CH']
@@ -5068,10 +5068,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '(', '\u070D', '\u070D'],
         ['-', '\u00ab', '\u250C', '\u250C'],
         ['=', '+', '\u2510', '\u2510'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0714', '\u0730', '\u064E', '\u064E'],
         ['\u0728', '\u0733', '\u064B', '\u064B'],
         ['\u0716', '\u0736', '\u064F', '\u064F'],
@@ -5087,7 +5087,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0706', ':'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u072b', '\u0731', '\u0650', '\u0650'],
         ['\u0723', '\u0734', '\u064d', '\u064d'],
         ['\u071d', '\u0737'],
@@ -5099,10 +5099,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0721', '\u0331', '\u0746', '\u0746'],
         ['\u071f', '\u0323'],
         ['\u071b', '\u0330'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         [']', '\u0732'],
         ['[', '\u0735', '\u0652', '\u0652'],
         ['\u0724', '\u0738'],
@@ -5113,11 +5113,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0718', '\u060c'],
         ['\u0719', '\u061b'],
         ['\u0707', '\u061F'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['syc']
@@ -5139,10 +5139,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '', '\u0BF0'],
         ['-', '\u0B83', '\u0BF1'],
         ['', '', '\u0BF2'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0BCC', '\u0B94'],
         ['\u0BC8', '\u0B90'],
         ['\u0BBE', '\u0B86'],
@@ -5157,7 +5157,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0B9E']
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0BCB', '\u0B93'],
         ['\u0BC7', '\u0B8F'],
         ['\u0BCD', '\u0B85'],
@@ -5169,10 +5169,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0BA4', '\u0BA4'],
         ['\u0B9A', '\u0B9A'],
         ['\u0B9F', '\u0B9F'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0BC6', '\u0B8E'],
         [''],
         ['\u0BAE', '\u0BA3'],
@@ -5183,11 +5183,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0BB7'],
         ['.', '\u0BB8\u0BCD\u0BB0\u0BC0'],
         ['\u0BAF', '\u0BAF'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['ta']
@@ -5209,10 +5209,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u0C66'],
         ['-', '\u0C03'],
         ['\u0C43', '\u0C0B', '\u0C44'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0C4C', '\u0C14'],
         ['\u0C48', '\u0C10', '\u0C56'],
         ['\u0C3E', '\u0C06'],
@@ -5227,7 +5227,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['', '\u0C1E'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0C4B', '\u0C13'],
         ['\u0C47', '\u0C0F', '\u0C55'],
         ['\u0C4D', '\u0C05'],
@@ -5239,10 +5239,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0C24', '\u0C25'],
         ['\u0C1A', '\u0C1B'],
         ['\u0C1F', '\u0C25'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0C46', '\u0C0E'],
         ['\u0C02', '\u0C01'],
         ['\u0C2E', '\u0C23'],
@@ -5253,11 +5253,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '\u0C37'],
         ['.'],
         ['\u0C2F'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['te']
@@ -5279,10 +5279,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0111', '\u0110', '0', ')'],
         ['-', '_', '-', '_'],
         ['\u20AB', '+', '=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', 'q', 'Q'],
         ['w', 'W', 'w', 'W'],
         ['e', 'E', 'e', 'E'],
@@ -5298,7 +5298,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|', '\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', 'a', 'A'],
         ['s', 'S', 's', 'S'],
         ['d', 'D', 'd', 'D'],
@@ -5310,10 +5310,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', 'l', 'L'],
         [';', ':', ';', ':'],
         ['\'', '"', '\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['z', 'Z', 'z', 'Z'],
         ['x', 'X', 'x', 'X'],
         ['c', 'C', 'c', 'C'],
@@ -5324,11 +5324,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<', ',', '<'],
         ['.', '>', '.', '>'],
         ['/', '?', '/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['vi']
@@ -5350,10 +5350,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0E08', '\u0E57'],
         ['\u0E02', '\u0E58'],
         ['\u0E0A', '\u0E59'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0E46', '\u0E50'],
         ['\u0E44', '"'],
         ['\u0E33', '\u0E0E'],
@@ -5369,7 +5369,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0E03', '\u0E05'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0E1F', '\u0E24'],
         ['\u0E2B', '\u0E06'],
         ['\u0E01', '\u0E0F'],
@@ -5381,10 +5381,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0E2A', '\u0E28'],
         ['\u0E27', '\u0E0B'],
         ['\u0E07', '.'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0E1C', '('],
         ['\u0E1B', ')'],
         ['\u0E41', '\u0E09'],
@@ -5395,10 +5395,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0E21', '\u0E12'],
         ['\u0E43', '\u0E2C'],
         ['\u0E1D', '\u0E26'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['th']
@@ -5420,10 +5420,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0E50', ')'],
         ['\u0E51', '-'],
         ['\u0E56', '%'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0E47', '\u0E4A'],
         ['\u0E15', '\u0E24'],
         ['\u0E22', '\u0E46'],
@@ -5439,7 +5439,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\uF8C7', '\u0E4D'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0E49', '\u0E4B'],
         ['\u0E17', '\u0E18'],
         ['\u0E07', '\u0E33'],
@@ -5451,10 +5451,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0E40', '\u0E42'],
         ['\u0E44', '\u0E06'],
         ['\u0E02', '\u0E11'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0E1A', '\u0E0E'],
         ['\u0E1B', '\u0E0F'],
         ['\u0E25', '\u0E10'],
@@ -5465,10 +5465,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0E30', '\u0E1F'],
         ['\u0E08', '\u0E09'],
         ['\u0E1E', '\u0E2C'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ]
   },
@@ -5489,10 +5489,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '}'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0439', '\u0419'],
         ['\u04E9', '\u04E8', '\u0446', '\u0426'],
         ['\u0443', '\u0423'],
@@ -5508,7 +5508,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u044B', '\u042B'],
         ['\u0432', '\u0412'],
@@ -5520,10 +5520,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u04A3', '\u04A2', '\u0436', '\u0416'],
         ['\u044D', '\u042D', '\''],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0491', '\u0490'],
         ['\u044F', '\u042F'],
         ['\u0447', '\u0427'],
@@ -5535,11 +5535,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411', '<'],
         ['\u044E', '\u042E', '>'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['tt']
@@ -5561,10 +5561,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['/', '?', '\\', '\u00bf'],
         ['-', '_', '|'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['f', 'F', '@'],
         ['g', 'G'],
         ['\u011f', '\u011e'],
@@ -5580,11 +5580,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['x', 'X', '`'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['u', 'U', '\u00e6', '\u00c6'],
         ['i', '\u0130', '\u00df', '\u00a7'],
         ['e', 'E', '\u20ac'],
-        ['a', 'A', 'Space', '\u00aa'],
+        ['a', 'A', ' ', '\u00aa'],
         ['\u00fc', '\u00dc'],
         ['t', 'T'],
         ['k', 'K'],
@@ -5592,10 +5592,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['y', 'Y', '\u00b4'],
         ['\u015f', '\u015e'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '|', '\u00a6'],
         ['j', 'J', '\u00ab', '<'],
         ['\u00f6', '\u00d6', '\u00bb', '>'],
@@ -5607,11 +5607,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['b', 'B', '\u00d7'],
         ['.', ':', '\u00f7'],
         [',', ';', '-'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ]
   },
@@ -5632,10 +5632,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '=', '}'],
         ['*', '?', '\\'],
         ['-', '_', '|'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '@'],
         ['w', 'W'],
         ['e', 'E', '\u20ac'],
@@ -5651,7 +5651,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', ';', '`'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u00e6', '\u00c6'],
         ['s', 'S', '\u00df'],
         ['d', 'D'],
@@ -5663,10 +5663,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         ['\u015f', '\u015e', '\u00b4'],
         ['i', '\u0130'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['<', '>', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -5678,11 +5678,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u00f6', '\u00d6'],
         ['\u00e7', '\u00c7'],
         ['.', ':'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['tr']
@@ -5704,10 +5704,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0439', '\u0419'],
         ['\u0446', '\u0426'],
         ['\u0443', '\u0423'],
@@ -5723,7 +5723,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0491', '\u0490'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u0456', '\u0406'],
         ['\u0432', '\u0412'],
@@ -5735,10 +5735,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u0436', '\u0416'],
         ['\u0454', '\u0404'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u044F', '\u042F'],
         ['\u0447', '\u0427'],
         ['\u0441', '\u0421'],
@@ -5749,10 +5749,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411'],
         ['\u044E', '\u042E'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['uk']
@@ -5774,10 +5774,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E', '\u00e9', '\u00c9'],
@@ -5793,7 +5793,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['#', '~'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u00e1', '\u00c1'],
         ['s', 'S'],
         ['d', 'D'],
@@ -5805,10 +5805,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         [';', ':'],
         ['\'', '@'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\\', '|'],
         ['z', 'Z'],
         ['x', 'X'],
@@ -5820,11 +5820,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['AltGr', 'AltGr'],
+        ['AltGr', 'AltGr', 'AltGr', 'AltGr'],
       ]
     ],
     'lang': ['en-GB']
@@ -5846,10 +5846,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '('],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0637', '\u0638'],
         ['\u0635', '\u0636'],
         ['\u06be', '\u0630'],
@@ -5865,7 +5865,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0645', '\u0698'],
         ['\u0648', '\u0632'],
         ['\u0631', '\u0691'],
@@ -5877,10 +5877,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u06CC', '\u064A'],
         ['\u061b', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0642', '\u200D'],
         ['\u0641', '\u200C'],
         ['\u06D2', '\u06D3'],
@@ -5891,10 +5891,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u060C', '>'],
         ['\u06D4', '<'],
         ['/', '\u061F'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['ur']
@@ -5916,10 +5916,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u06F0', '0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0642', '\u0652'],
         ['\u0648', '\u0651', '\u0602'],
         ['\u0639', '\u0670', '\u0656'],
@@ -5935,7 +5935,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0627', '\u0622', '\uFDF2'],
         ['\u0633', '\u0635', '\u0610'],
         ['\u062F', '\u0688', '\uFDFA'],
@@ -5947,10 +5947,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0644'],
         ['\u061B', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u0632', '\u0630', '\u060F'],
         ['\u0634', '\u0698', '\u060E'],
         ['\u0686', '\u062B', '\u0603'],
@@ -5961,11 +5961,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u060C', '', '<'],
         ['\u06D4', '\u066B', '>'],
         ['/', '\u061F'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ]
   },
@@ -5986,10 +5986,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q'],
         ['w', 'W'],
         ['e', 'E'],
@@ -6005,7 +6005,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A'],
         ['s', 'S'],
         ['d', 'D'],
@@ -6017,10 +6017,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L'],
         [';', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['z', 'Z'],
         ['x', 'X'],
         ['c', 'C'],
@@ -6031,10 +6031,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['en-US']
@@ -6056,10 +6056,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u2019'],
         ['-', '_', '\u00a5'],
         ['=', '+', '\u00d7', '\u00f7'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['q', 'Q', '\u00e4', '\u00c4'],
         ['w', 'W', '\u00e5', '\u00c5'],
         ['e', 'E', '\u00e9', '\u00c9'],
@@ -6075,7 +6075,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|', '\u00ac', '\u00a6'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['a', 'A', '\u00e1', '\u00c1'],
         ['s', 'S', '\u00df', '\u00a7'],
         ['d', 'D', '\u00f0', '\u00d0'],
@@ -6087,10 +6087,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['l', 'L', '\u00f8', '\u00d8'],
         [';', ':', '\u00b6', '\u00b0'],
         ['\'', '"', '\u00b4', '\u00a8'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['z', 'Z', '\u00e6', '\u00c6'],
         ['x', 'X'],
         ['c', 'C', '\u00a9', '\u00a2'],
@@ -6101,11 +6101,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<', '\u00e7', '\u00c7'],
         ['.', '>'],
         ['/', '?', '\u00bf'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['en']
@@ -6127,10 +6127,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')'],
         ['\u0493', '\u0492'],
         ['\u04B3', '\u04B2'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u0439', '\u0419'],
         ['\u0446', '\u0426'],
         ['\u0443', '\u0423'],
@@ -6146,7 +6146,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '/'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u0444', '\u0424'],
         ['\u049B', '\u049A'],
         ['\u0432', '\u0412'],
@@ -6158,10 +6158,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0434', '\u0414'],
         ['\u0436', '\u0416'],
         ['\u044D', '\u042D'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u044F', '\u042F'],
         ['\u0447', '\u0427'],
         ['\u0441', '\u0421'],
@@ -6172,10 +6172,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u0431', '\u0411'],
         ['\u044E', '\u042E'],
         ['.', ','],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['uz']
@@ -6197,10 +6197,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', ')', '\u05C1'],
         ['-', '_', '\u05B9'],
         ['=', '+', '\u05BC'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['/', '\u201F', '\u201F'],
         ['\'', '\u201E', '\u201E'],
         ['\u05E7', '`', '`'],
@@ -6216,7 +6216,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|', '\u05BB'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u05E9', '\uFB2A', '\uFB2A'],
         ['\u05D3', '\uFB2B', '\uFB2B'],
         ['\u05D2'],
@@ -6228,10 +6228,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u05DA'],
         ['\u05E3', ':', '\u05C3'],
         [',', '"', '\u05C0'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u05D6', '\u2260', '\u2260'],
         ['\u05E1', '\uFB4C', '\uFB4C'],
         ['\u05D1', '\uFB31', '\uFB31'],
@@ -6242,11 +6242,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u05EA', '<', '\u05F3'],
         ['\u05E5', '>', '\u05F4'],
         ['.', '?', '\u20AA'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Space', 'Space', 'Space', 'Space'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['yi']
@@ -6268,10 +6268,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '(', '\u05B0', '\u05B0'],
         ['-', '_', '\u05BF', '\u05BF'],
         ['=', '+', '\u05B9', '\u05B9'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['/', '', '\u05F4', '\u05F4'],
         ['\'', '', '\u05F3', '\u05F3'],
         ['\u05E7', '', '\u20AC'],
@@ -6287,7 +6287,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|', '\u05BE', '\u05BE'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u05E9', '\u05E9\u05C1', '\u05E9\u05C2', '\uFB2B'],
         ['\u05D3', '', '\u20AA'],
         ['\u05D2', '\u201E'],
@@ -6299,10 +6299,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u05DA', '', '', '\u05F2'],
         ['\u05E3', ':', '\u05E4\u05BF', '\uFB4E'],
         [',', '"', ';', '\u05B2'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u05D6', '', '\u2013', '\u2013'],
         ['\u05E1', '', '\u2014', '\u2014'],
         ['\u05D1', '\u05DC\u05B9', '\u05D1\u05BF', '\uFB4C'],
@@ -6313,11 +6313,11 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u05EA', '>', '\u05EA\u05BC', '\uFB4A'],
         ['\u05E5', '<'],
         ['.', '?', '\u2026'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
         ['Space', 'Space', 'Space', 'Space'],
-        ['Alt', 'Alt'],
+        ['Alt', 'Alt', 'Alt', 'Alt'],
       ]
     ],
     'lang': ['yi']
@@ -6339,10 +6339,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u3122', '('],
         ['\u3126', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u3106', 'q'],
         ['\u310A', 'w'],
         ['\u310D', 'e'],
@@ -6358,7 +6358,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u3107', 'a'],
         ['\u310B', 's'],
         ['\u310E', 'd'],
@@ -6370,10 +6370,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u3120', 'l'],
         ['\u3124', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\u3108', 'z'],
         ['\u310C', 'x'],
         ['\u310F', 'c'],
@@ -6384,10 +6384,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u311D', '<'],
         ['\u3121', '>'],
         ['\u3125', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['zh-BOPO']
@@ -6409,10 +6409,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['0', '('],
         ['-', '_'],
         ['=', '+'],
-        ['Bksp', 'Bksp'],
+        ['Bksp', 'Bksp', 'Bksp', 'Bksp'],
       ],
       [
-        ['Tab', 'Tab'],
+        ['Tab', 'Tab', 'Tab', 'Tab'],
         ['\u624B', 'q'],
         ['\u7530', 'w'],
         ['\u6C34', 'e'],
@@ -6428,7 +6428,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\\', '|'],
       ],
       [
-        ['Caps', 'Caps'],
+        ['Caps', 'Caps', 'Caps', 'Caps'],
         ['\u65E5', 'a'],
         ['\u5C38', 's'],
         ['\u6728', 'd'],
@@ -6440,10 +6440,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['\u4E2D', 'l'],
         [';', ':'],
         ['\'', '"'],
-        ['Enter', 'Enter'],
+        ['Enter', 'Enter', 'Enter', 'Enter'],
       ],
       [
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
         ['\uFF3A', 'z'],
         ['\u96E3', 'x'],
         ['\u91D1', 'c'],
@@ -6454,10 +6454,10 @@ const keyboardLayouts: IKeyboardLayouts = {
         [',', '<'],
         ['.', '>'],
         ['/', '?'],
-        ['Shift', 'Shift'],
+        ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
-        ['Space', 'Space'],
+        ['Space', 'Space', 'Space', 'Space'],
       ]
     ],
     'lang': ['zh']

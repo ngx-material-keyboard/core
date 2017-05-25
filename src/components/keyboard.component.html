@@ -3,21 +3,18 @@
     class="mat-keyboard__row"
     *ngFor="let row of layout.keys"
   >
-    <div
-      class="mat-keyboard__col"
-      *ngFor="let key of row"
-    >
-      <button
-        md-raised-button
-        class="mat-keyboard__key"
-        [ngClass]="getClass(key[0])"
-        (mousedown)="mousedown($event)"
-        (click)="click($event, key[0])"
-      >
-        <md-icon *ngIf="hasIcon(key[0])">{{getIcon(key[0])}}</md-icon>
-        <ng-container *ngIf="!hasIcon(key[0])">{{key[0]}}</ng-container>
-      </button>
-    </div>
+    <ng-container *ngFor="let key of row">
+      <md-keyboard-key
+        class="mat-keyboard__col"
+        *ngIf="key[modifier]"
+        [key]="key[modifier]"
+        [active]="isActive(key[modifier])"
+        [input]="inputInstance | async"
+        (altClick)="onAltClick()"
+        (capsClick)="onCapsClick()"
+        (shiftClick)="onShiftClick()"
+      ></md-keyboard-key>
+    </ng-container>
   </div>
 </nav>
 
