@@ -94,4 +94,9 @@ export class MdKeyboardComponent implements OnInit {
     return classes.join(' ');
   }
 
+  mousedown(ev: MouseEvent) {
+    ev.preventDefault();
+    console.log('focus lost?');
+  }
+
 }
