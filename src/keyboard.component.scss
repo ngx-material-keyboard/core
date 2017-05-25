@@ -33,7 +33,7 @@ $mat-keyboard-button-distance: 8px !default;
   }
 
   /deep/ &.dark-theme &__action {
-    color:  mat-color($mat-grey, 100);
+    color: mat-color($mat-grey, 100);
   }
 
   &__layout {

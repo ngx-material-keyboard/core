@@ -223,7 +223,7 @@ export class MdKeyboardComponent implements OnInit {
         return true;
       }
 
-      else  { // fail city, fortunately this never happens (as far as I've tested) :)
+      else { // fail city, fortunately this never happens (as far as I've tested) :)
         this.inputInstance.nativeElement.focus();
         return false;
       }

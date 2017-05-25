@@ -132,7 +132,8 @@ export class MdKeyboardService {
     // a layout name is provided
     if (this._layouts[layoutOrLocale]) {
       keyboardComponentRef.instance.layout = this._layouts[layoutOrLocale];
-      keyboardComponentRef.instance.locale = this._layouts[layoutOrLocale].lang && this._layouts[layoutOrLocale].lang.pop();
+      keyboardComponentRef.instance.locale = this._layouts[layoutOrLocale].lang &&
+                                             this._layouts[layoutOrLocale].lang.pop();
     }
 
     return keyboardComponentRef;
