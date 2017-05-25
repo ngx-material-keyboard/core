@@ -12,6 +12,7 @@
         class="mat-keyboard__key"
         [ngClass]="getClass(key[0])"
         (mousedown)="mousedown($event)"
+        (click)="click($event, key[0])"
       >
         <md-icon *ngIf="hasIcon(key[0])">{{getIcon(key[0])}}</md-icon>
         <ng-container *ngIf="!hasIcon(key[0])">{{key[0]}}</ng-container>

@@ -9,6 +9,7 @@ const keyboardIcons: IKeyboardIcons = {
   'bksp': 'keyboard_backspace',
   'caps': 'keyboard_capslock',
   'enter': 'keyboard_return',
+  'space': '',
   'tab': 'keyboard_tab'
 };
 

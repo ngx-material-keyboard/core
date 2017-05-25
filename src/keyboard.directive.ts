@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input } from "@angular/core";
+import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 import { MdKeyboardRef } from "./keyboard-ref";
 import { MdKeyboardComponent } from "./keyboard.component";
 import { MdKeyboardService } from "./keyboard.service";
@@ -28,6 +28,7 @@ export class MdKeyboardDirective {
       hasAction: this.hasAction,
       isDebug: this.isDebug
     });
+    this._keyboardRef.instance.inputInstance = this._elementRef;
   }
 
   @HostListener('blur', ['$event'])
@@ -37,7 +38,8 @@ export class MdKeyboardDirective {
     }
   }
 
-  constructor(private _keyboardService: MdKeyboardService) {
+  constructor(private _elementRef: ElementRef,
+              private _keyboardService: MdKeyboardService) {
   }
 
 }

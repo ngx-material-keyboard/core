@@ -4,7 +4,7 @@ import { Subject } from "rxjs/Subject";
 import { MdKeyboardContainerComponent } from "./keyboard-container.component";
 import { MdKeyboardComponent } from "./keyboard.component";
 
-// TODO(josephperrott): Implement onAction observable.
+// TODO: Implement onAction observable.
 
 /**
  * Reference to a keyboard dispatched from the keyboard service.

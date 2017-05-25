@@ -1,4 +1,5 @@
-import { Component, HostBinding, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, ElementRef, HostBinding, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { MD_KEYBOARD_CLASSES } from './config/keyboard-classes.config';
 import { MD_KEYBOARD_DEADKEYS } from './config/keyboard-deadkey.config';
 import { MD_KEYBOARD_ICONS } from './config/keyboard-icons.config';
 import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from './config/keyboard-layouts.config';
@@ -16,8 +17,6 @@ import { MdKeyboardService } from './keyboard.service';
 })
 export class MdKeyboardComponent implements OnInit {
 
-  private _classKeys = ['altgr', 'bksp', 'caps', 'ctrl', 'enter', 'shift', 'space', 'tab'];
-
   private _deadkeyKeys: string[] = [];
 
   private _iconKeys: string[] = [];
@@ -27,16 +26,18 @@ export class MdKeyboardComponent implements OnInit {
 
   layout: IKeyboardLayout;
 
+  @HostBinding('class.mat-keyboard') cssClass = true;
+
   @HostBinding('class.dark-theme') darkTheme: boolean;
 
-  @HostBinding('class.mat-keyboard') cssClass = true;
+  @HostBinding('class.has-action') hasAction: boolean;
 
   @HostBinding('class.debug') isDebug = false;
 
-  hasAction: boolean;
-
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
+
+  inputInstance?: ElementRef;
 
   // Dismisses the keyboard.
   dismiss(): void {
@@ -46,6 +47,7 @@ export class MdKeyboardComponent implements OnInit {
   // Inject dependencies
   constructor(private _keyboardService: MdKeyboardService,
               @Inject(LOCALE_ID) private _locale,
+              @Inject(MD_KEYBOARD_CLASSES) private _classKeys,
               @Inject(MD_KEYBOARD_DEADKEYS) private _deadkeys,
               @Inject(MD_KEYBOARD_ICONS) private _icons,
               @Inject(MD_KEYBOARD_LAYOUTS) private _layouts) {
@@ -74,20 +76,27 @@ export class MdKeyboardComponent implements OnInit {
     return !!this._iconKeys.find((iconKey: string) => iconKey === lowerKey);
   }
 
+  isClassKey(key: string): boolean {
+    return !!this._classKeys.find((classKey: string) => classKey === key.toLowerCase());
+  }
+
+  isDeadKey(key: string): boolean {
+    return !!this._deadkeyKeys.find((deadKey: string) => deadKey === key);
+  }
+
   getIcon(key: string): string {
     return this._icons[key.toLowerCase()];
   }
 
   getClass(key: string): string {
-    const lowerKey = key.toLowerCase();
     const classes = [];
 
-    if (this._classKeys.find((classKey: string) => classKey === lowerKey)) {
+    if (this.isClassKey(key)) {
       classes.push('mat-keyboard__key--modifier');
-      classes.push(`mat-keyboard__key--${lowerKey}`);
+      classes.push(`mat-keyboard__key--${key.toLowerCase()}`);
     }
 
-    if (this._deadkeyKeys.find((deadKey: string) => deadKey === key)) {
+    if (this.isDeadKey(key)) {
       classes.push('mat-keyboard__key--deadkey');
     }
 
@@ -96,7 +105,124 @@ export class MdKeyboardComponent implements OnInit {
 
   mousedown(ev: MouseEvent) {
     ev.preventDefault();
-    console.log('focus lost?');
+  }
+
+  click(ev: MouseEvent, key: string) {
+    this._triggerKeyEvent(key);
+
+    if (this.inputInstance) {
+      const value = this.inputInstance.nativeElement.value;
+      const caret = this._getCursorPosition();
+      let char: string;
+
+      switch (key) {
+        case 'Alt':
+        case 'AltGr':
+        case 'Caps':
+        case 'Ctrl':
+        case 'Enter':
+        case 'Shift':
+          break;
+
+        case 'Bksp':
+          this.inputInstance.nativeElement.value = [value.slice(0, caret - 1), value.slice(caret)].join('');
+          this._setCursorPosition(caret - 1);
+          break;
+
+        case 'Space':
+          char = ' ';
+          break;
+
+        case 'Tab':
+          char = '\t';
+          break;
+
+        default:
+          char = key;
+          break;
+      }
+
+      if (char) {
+        this.inputInstance.nativeElement.value = [value.slice(0, caret), char, value.slice(caret)].join('');
+        this._setCursorPosition(caret + 1);
+      }
+    }
+  }
+
+  private _triggerKeyEvent(key: string): Event {
+    const charCode = key.charCodeAt(0);
+    const keyboardEvent = window.document.createEvent('KeyboardEvent');
+    const initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? 'initKeyboardEvent' : 'initKeyEvent';
+
+    keyboardEvent[initMethod](
+      'keydown', // event type : keydown, keyup, keypress
+      true, // bubbles
+      true, // cancelable
+      window, // viewArg: should be window
+      false, // ctrlKeyArg
+      false, // altKeyArg
+      false, // shiftKeyArg
+      false, // metaKeyArg
+      charCode, // keyCodeArg : unsigned long - the virtual key code, else 0
+      0 // charCodeArgs : unsigned long - the Unicode character associated with the depressed key, else 0
+    );
+
+    window.document.dispatchEvent(keyboardEvent);
+
+    return keyboardEvent;
+  }
+
+  // inspired by:
+  // ref https://stackoverflow.com/a/2897510/1146207
+  private _getCursorPosition(): number {
+    if (!this.inputInstance) {
+      return;
+    }
+
+    if ('selectionStart' in this.inputInstance.nativeElement) {
+      // Standard-compliant browsers
+      return this.inputInstance.nativeElement.selectionStart;
+    } else if (window.document['selection']) {
+      // IE
+      this.inputInstance.nativeElement.focus();
+      const sel = window.document['selection'].createRange();
+      const selLen = window.document['selection'].createRange().text.length;
+      sel.moveStart('character', -this.inputInstance.nativeElement.value.length);
+
+      return sel.text.length - selLen;
+    }
+  }
+
+  // inspired by:
+  // ref https://stackoverflow.com/a/12518737/1146207
+  private _setCursorPosition(position: number): boolean {
+    if (!this.inputInstance) {
+      return;
+    }
+
+    this.inputInstance.nativeElement.value = this.inputInstance.nativeElement.value;
+    // ^ this is used to not only get "focus", but
+    // to make sure we don't have it everything -selected-
+    // (it causes an issue in chrome, and having it doesn't hurt any other browser)
+
+    if ('createTextRange' in this.inputInstance.nativeElement) {
+      let range = this.inputInstance.nativeElement.createTextRange();
+      range.move('character', position);
+      range.select();
+      return true;
+    } else {
+      // (el.selectionStart === 0 added for Firefox bug)
+      if (this.inputInstance.nativeElement.selectionStart || this.inputInstance.nativeElement.selectionStart === 0) {
+        this.inputInstance.nativeElement.focus();
+        this.inputInstance.nativeElement.setSelectionRange(position, position);
+        return true;
+      }
+
+      else  { // fail city, fortunately this never happens (as far as I've tested) :)
+        this.inputInstance.nativeElement.focus();
+        return false;
+      }
+    }
   }
 
 }
