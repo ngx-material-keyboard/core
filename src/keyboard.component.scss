@@ -3,8 +3,7 @@
 @import '~material2-srcs/src/lib/core/style/list-common';
 @import '~@angular/material/theming';
 
-$mat-keyboard-button-padding: 8px !default;
-$mat-keyboard-button-margin: 48px !default;
+$mat-keyboard-button-distance: 8px !default;
 
 :host {
   display: flex;
@@ -29,8 +28,12 @@ $mat-keyboard-button-margin: 48px !default;
       weight: 600;
     }
     line-height: 1;
-    margin-left: $mat-keyboard-button-margin;
+    margin-left: $mat-keyboard-button-distance;
     text-transform: uppercase;
+  }
+
+  /deep/ &.dark-theme &__action {
+    color:  mat-color($mat-grey, 100);
   }
 
   &__layout {
@@ -47,7 +50,7 @@ $mat-keyboard-button-margin: 48px !default;
   &__col {
     box-sizing: border-box;
     flex: 1 1 auto;
-    padding: $mat-keyboard-button-padding / 2;
+    padding: $mat-keyboard-button-distance / 2;
   }
 
   &__key {
