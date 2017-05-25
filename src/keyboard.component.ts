@@ -108,14 +108,19 @@ export class MdKeyboardComponent implements OnInit {
   }
 
   click(ev: MouseEvent, key: string) {
+    // Trigger a global key event
+    // TODO: determine whether an output should bubble the pressed key similar to the keybboard action or not
     this._triggerKeyEvent(key);
 
+    // Manipulate the focused input / textarea value
     if (this.inputInstance) {
       const value = this.inputInstance.nativeElement.value;
       const caret = this._getCursorPosition();
       let char: string;
 
       switch (key) {
+        // this keys have no actions yet
+        // TODO: add deadkeys and modifiers
         case 'Alt':
         case 'AltGr':
         case 'Caps':
