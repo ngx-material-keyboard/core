@@ -1,0 +1,977 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-material-keyboard documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-material-keyboard documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">ngx-material-keyboard documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-up"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/MdKeyboardModule.html" >MdKeyboardModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/MdKeyboardComponent.html" >MdKeyboardComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/MdKeyboardContainerComponent.html" >MdKeyboardContainerComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/MdKeyboardKeyComponent.html" >MdKeyboardKeyComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-directives-links"
+                            >
+                            <span class="fa fa-code"></span>
+                            <span>Directives</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-directives-links"
+                            >
+                                <li class="link">
+                                    <a href="../directives/MdKeyboardDirective.html" >MdKeyboardDirective</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/MdKeyboardConfig.html" >MdKeyboardConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/MdKeyboardContentAlreadyAttached.html" >MdKeyboardContentAlreadyAttached</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/MdKeyboardLayoutNotFound.html" >MdKeyboardLayoutNotFound</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/MdKeyboardRef.html" >MdKeyboardRef</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/MdKeyboardService.html"  data-type="entity-link" class="active" >MdKeyboardService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/IKeyboardDeadkeys.html" >IKeyboardDeadkeys</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IKeyboardIcons.html" >IKeyboardIcons</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IKeyboardLayout.html" >IKeyboardLayout</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IKeyboardLayouts.html" >IKeyboardLayouts</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/ILocaleMap.html" >ILocaleMap</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-pipes-links"
+                            >
+                            <span class="fa fa-plus"></span>
+                            <span>Pipes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-pipes-links"
+                            >
+                                <li class="link">
+                                    <a href="../pipes/KebabCasePipe.html" >KebabCasePipe</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">ngx-material-keyboard documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-up"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/MdKeyboardModule.html" >MdKeyboardModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/MdKeyboardComponent.html" >MdKeyboardComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/MdKeyboardContainerComponent.html" >MdKeyboardContainerComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/MdKeyboardKeyComponent.html" >MdKeyboardKeyComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#directives-links"
+                   >
+                                   <span class="fa fa-code"></span>
+                                   <span>Directives</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="directives-links"
+                   >
+                                       <li class="link">
+                                           <a href="../directives/MdKeyboardDirective.html" >MdKeyboardDirective</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/MdKeyboardConfig.html" >MdKeyboardConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/MdKeyboardContentAlreadyAttached.html" >MdKeyboardContentAlreadyAttached</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/MdKeyboardLayoutNotFound.html" >MdKeyboardLayoutNotFound</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/MdKeyboardRef.html" >MdKeyboardRef</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/MdKeyboardService.html"  data-type="entity-link" class="active" >MdKeyboardService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/IKeyboardDeadkeys.html" >IKeyboardDeadkeys</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IKeyboardIcons.html" >IKeyboardIcons</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IKeyboardLayout.html" >IKeyboardLayout</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IKeyboardLayouts.html" >IKeyboardLayouts</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/ILocaleMap.html" >ILocaleMap</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#pipes-links"
+                   >
+                                   <span class="fa fa-plus"></span>
+                                   <span>Pipes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="pipes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../pipes/KebabCasePipe.html" >KebabCasePipe</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>MdKeyboardService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/services/keyboard.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service to dispatch Material Design keyboard.</p>
+
+            </p>
+
+            <section>
+                <h3 id="constructor">Constructor</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>constructor(_overlay: any, _live: any, _layouts: any, _parentKeyboard: <a href="../injectables/MdKeyboardService.html">MdKeyboardService</a>)</code>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/services/keyboard.service.ts:47</a></div>
+                                        </td>
+                                    </tr>
+            
+                        </tbody>
+                    </table>
+            </section>
+
+            <section>
+                
+                    <h3 id="methods">
+                        Methods
+                    </h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> open</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>open(layoutOrLocale: string, config: any)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/services/keyboard.service.ts:118</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Opens a keyboard with a message and an optional action.</p>
+            </div>
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <ul class="jsdoc-params">
+                                                        <li>
+                                                            <div>
+                                                                <b>layoutOrLocale</b>
+                                                            </div>
+                                                            <div>
+                                                                <p>[Optional] A string representing the locale or the layout name to be used.</p>
+            
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div>
+                                                                <b>config</b>
+                                                            </div>
+                                                            <div>
+                                                                <p>Additional configuration options for the keyboard.</p>
+            
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>any</code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> dismiss</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>dismiss()</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/services/keyboard.service.ts:145</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Dismisses the currently-visible keyboard.</p>
+            </div>
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> mapLocale</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>mapLocale(locale: string)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/services/keyboard.service.ts:151</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>string</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> getLayoutForLocale</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>getLayoutForLocale(locale: string)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/services/keyboard.service.ts:173</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>any</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+            <section>
+                
+                    <h3 id="inputs">
+                        Properties
+                    </h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> _openedKeyboardRef</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>_openedKeyboardRef:     <code>any</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/services/keyboard.service.ts:27</a></div>
+                                        </td>
+                                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Reference to the currently opened keyboard at <em>any</em> level. </p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> availableLocales</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>availableLocales:     <code><a href="../interfaces/ILocaleMap.html" target="_self" >ILocaleMap</a></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/services/keyboard.service.ts:41</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> isOpened</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>isOpened:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/services/keyboard.service.ts:45</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from &#x27;@angular/material&#x27;;
+import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from &#x27;../configs/keyboard-layouts.config&#x27;;
+import { MdKeyboardContainerComponent } from &#x27;../components/keyboard-container.component&#x27;;
+import { MdKeyboardRef } from &#x27;../classes/keyboard-ref.class&#x27;;
+import { MdKeyboardComponent } from &#x27;../components/keyboard.component&#x27;;
+import { MdKeyboardConfig } from &#x27;../configs/keyboard.config&#x27;;
+import { MdKeyboardLayoutNotFound } from &#x27;../classes/keyboard-errors.class&#x27;;
+
+export interface ILocaleMap {
+  [locale: string]: string;
+}
+
+/**
+ * Service to dispatch Material Design keyboard.
+ */
+@Injectable()
+export class MdKeyboardService {
+  /**
+   * Reference to the current keyboard in the view *at this level* (in the Angular injector tree).
+   * If there is a parent keyboard service, all operations should delegate to that parent
+   * via &#x60;_openedKeyboardRef&#x60;.
+   */
+  private _keyboardRefAtThisLevel: MdKeyboardRef&lt;any&gt;;
+
+  /** Reference to the currently opened keyboard at *any* level. */
+  get _openedKeyboardRef(): MdKeyboardRef&lt;any&gt; {
+    return this._parentKeyboard ? this._parentKeyboard._openedKeyboardRef : this._keyboardRefAtThisLevel;
+  }
+
+  set _openedKeyboardRef(value: MdKeyboardRef&lt;any&gt;) {
+    if (this._parentKeyboard) {
+      this._parentKeyboard._openedKeyboardRef &#x3D; value;
+    } else {
+      this._keyboardRefAtThisLevel &#x3D; value;
+    }
+  }
+
+  private _availableLocales: ILocaleMap;
+
+  get availableLocales(): ILocaleMap {
+    return this._availableLocales;
+  }
+
+  get isOpened(): boolean {
+    return !!this._openedKeyboardRef;
+  }
+
+  constructor(private _overlay: Overlay,
+              private _live: LiveAnnouncer,
+              @Inject(MD_KEYBOARD_LAYOUTS) private _layouts,
+              @Optional() @SkipSelf() private _parentKeyboard: MdKeyboardService) {
+    // prepare available layouts mapping
+    this._availableLocales &#x3D; {};
+    Object
+      .keys(this._layouts)
+      .forEach(layout &#x3D;&gt; {
+        if (this._layouts[layout].lang) {
+          this._layouts[layout].lang.forEach(lang &#x3D;&gt; {
+            this._availableLocales[lang] &#x3D; layout;
+          });
+        }
+      });
+  }
+
+  /**
+   * Creates and dispatches a keyboard with a custom component for the content, removing any
+   * currently opened keyboards.
+   *
+   * @param component Component to be instantiated.
+   * @param config Extra configuration for the keyboard.
+   */
+  private _openFromComponent&lt;T&gt;(component: ComponentType&lt;T&gt;, config?: MdKeyboardConfig): MdKeyboardRef&lt;T&gt; {
+    config &#x3D; _applyConfigDefaults(config);
+    const overlayRef &#x3D; this._createOverlay();
+    const keyboardContainer &#x3D; this._attachKeyboardContainer(overlayRef, config);
+    const keyboardRef &#x3D; this._attachKeyboardContent(component, keyboardContainer, overlayRef);
+
+    keyboardContainer.darkTheme &#x3D; config.darkTheme;
+
+    // When the keyboard is dismissed, clear the reference to it.
+    keyboardRef.afterDismissed().subscribe(() &#x3D;&gt; {
+      // Clear the keyboard ref if it hasn&#x27;t already been replaced by a newer keyboard.
+      if (this._openedKeyboardRef &#x3D;&#x3D;&#x3D; keyboardRef) {
+        this._openedKeyboardRef &#x3D; null;
+      }
+    });
+
+    // If a keyboard is already in view, dismiss it and enter the new keyboard after exit
+    // animation is complete.
+    if (this._openedKeyboardRef) {
+      this._openedKeyboardRef.afterDismissed().subscribe(() &#x3D;&gt; {
+        keyboardRef.containerInstance.enter();
+      });
+      this._openedKeyboardRef.dismiss();
+      // If no keyboard is in view, enter the new keyboard.
+    } else {
+      keyboardRef.containerInstance.enter();
+    }
+
+    // If a dismiss timeout is provided, set up dismiss based on after the keyboard is opened.
+    // if (configs.duration &gt; 0) {
+    //   keyboardRef.afterOpened().subscribe(() &#x3D;&gt; {
+    //     setTimeout(() &#x3D;&gt; keyboardRef.dismiss(), configs.duration);
+    //   });
+    // }
+
+    this._live.announce(config.announcementMessage, config.politeness);
+    this._openedKeyboardRef &#x3D; keyboardRef;
+    return this._openedKeyboardRef;
+  }
+
+  /**
+   * Opens a keyboard with a message and an optional action.
+   * @param layoutOrLocale [Optional] A string representing the locale or the layout name to be used.
+   * @param config Additional configuration options for the keyboard.
+   */
+  open(layoutOrLocale?: string, config: MdKeyboardConfig &#x3D; {}): MdKeyboardRef&lt;MdKeyboardComponent&gt; {
+    const keyboardComponentRef &#x3D; this._openFromComponent&lt;MdKeyboardComponent&gt;(MdKeyboardComponent, config);
+    keyboardComponentRef.instance.keyboardRef &#x3D; keyboardComponentRef;
+
+    keyboardComponentRef.darkTheme &#x3D; config.darkTheme;
+    keyboardComponentRef.hasAction &#x3D; config.hasAction;
+    keyboardComponentRef.isDebug &#x3D; config.isDebug;
+
+    // a locale is provided
+    if (this.availableLocales[layoutOrLocale]) {
+      keyboardComponentRef.instance.locale &#x3D; layoutOrLocale;
+      keyboardComponentRef.instance.layout &#x3D; this.getLayoutForLocale(layoutOrLocale);
+    }
+
+    // a layout name is provided
+    if (this._layouts[layoutOrLocale]) {
+      keyboardComponentRef.instance.layout &#x3D; this._layouts[layoutOrLocale];
+      keyboardComponentRef.instance.locale &#x3D; this._layouts[layoutOrLocale].lang &amp;&amp;
+                                             this._layouts[layoutOrLocale].lang.pop();
+    }
+
+    return keyboardComponentRef;
+  }
+
+  /**
+   * Dismisses the currently-visible keyboard.
+   */
+  dismiss(): void {
+    if (this._openedKeyboardRef) {
+      this._openedKeyboardRef.dismiss();
+    }
+  }
+
+  mapLocale(locale: string): string {
+    let layout: string;
+    let country &#x3D; locale.split(&#x27;-&#x27;).shift();
+
+    // search for layout matching the
+    // first part, the country code
+    if (this.availableLocales[country]) {
+      layout &#x3D; this.availableLocales[locale];
+    }
+
+    // look if the detailed locale matches any layout
+    if (this.availableLocales[locale]) {
+      layout &#x3D; this.availableLocales[locale];
+    }
+
+    if (!layout) {
+      throw new MdKeyboardLayoutNotFound(locale);
+    }
+
+    return layout;
+  }
+
+  getLayoutForLocale(locale: string): IKeyboardLayout {
+    return this._layouts[this.mapLocale(locale)];
+  }
+
+  /**
+   * Attaches the keyboard container component to the overlay.
+   */
+  private _attachKeyboardContainer(overlayRef: OverlayRef,
+                                   config: MdKeyboardConfig): MdKeyboardContainerComponent {
+    const containerPortal &#x3D; new ComponentPortal(MdKeyboardContainerComponent, config.viewContainerRef);
+    const containerRef: ComponentRef&lt;MdKeyboardContainerComponent&gt; &#x3D; overlayRef.attach(containerPortal);
+    containerRef.instance.keyboardConfig &#x3D; config;
+
+    return containerRef.instance;
+  }
+
+  /**
+   * Places a new component as the content of the keyboard container.
+   */
+  private _attachKeyboardContent&lt;T&gt;(component: ComponentType&lt;T&gt;,
+                                    container: MdKeyboardContainerComponent,
+                                    overlayRef: OverlayRef): MdKeyboardRef&lt;T&gt; {
+    const portal &#x3D; new ComponentPortal(component);
+    const contentRef &#x3D; container.attachComponentPortal(portal);
+    return new MdKeyboardRef(contentRef.instance, container, overlayRef) as MdKeyboardRef&lt;T&gt;;
+  }
+
+  /**
+   * Creates a new overlay and places it in the correct location.
+   */
+  private _createOverlay(): OverlayRef {
+    const state &#x3D; new OverlayState();
+    state.positionStrategy &#x3D; this._overlay.position().global()
+                                 .centerHorizontally()
+                                 .bottom(&#x27;0&#x27;)
+                                 .width(&#x27;100%&#x27;);
+    return this._overlay.create(state);
+  }
+}
+
+/**
+ * Applies default options to the keyboard configs.
+ * @param config The configuration to which the defaults will be applied.
+ * @returns The new configuration object with defaults applied.
+ */
+function _applyConfigDefaults(config: MdKeyboardConfig): MdKeyboardConfig {
+  return Object.assign(new MdKeyboardConfig(), config);
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>

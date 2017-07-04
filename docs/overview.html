@@ -1,0 +1,718 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-material-keyboard documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ngx-material-keyboard documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./index.html">ngx-material-keyboard documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                         href="./overview.html" 
+                                        
+                                         href="./overview.html" 
+                                         class="active" >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-up"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="./modules/MdKeyboardModule.html" >MdKeyboardModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="./components/MdKeyboardComponent.html" >MdKeyboardComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/MdKeyboardContainerComponent.html" >MdKeyboardContainerComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/MdKeyboardKeyComponent.html" >MdKeyboardKeyComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-directives-links"
+                            >
+                            <span class="fa fa-code"></span>
+                            <span>Directives</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-directives-links"
+                            >
+                                <li class="link">
+                                    <a href="./directives/MdKeyboardDirective.html" >MdKeyboardDirective</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="./classes/MdKeyboardConfig.html" >MdKeyboardConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/MdKeyboardContentAlreadyAttached.html" >MdKeyboardContentAlreadyAttached</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/MdKeyboardLayoutNotFound.html" >MdKeyboardLayoutNotFound</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/MdKeyboardRef.html" >MdKeyboardRef</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="./injectables/MdKeyboardService.html" >MdKeyboardService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="./interfaces/IKeyboardDeadkeys.html" >IKeyboardDeadkeys</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/IKeyboardIcons.html" >IKeyboardIcons</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/IKeyboardLayout.html" >IKeyboardLayout</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/IKeyboardLayouts.html" >IKeyboardLayouts</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/ILocaleMap.html" >ILocaleMap</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-pipes-links"
+                            >
+                            <span class="fa fa-plus"></span>
+                            <span>Pipes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-pipes-links"
+                            >
+                                <li class="link">
+                                    <a href="./pipes/KebabCasePipe.html" >KebabCasePipe</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./index.html">ngx-material-keyboard documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                                href="./overview.html" 
+                                               
+                                                href="./overview.html" 
+                                                class="active" >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-up"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="./modules/MdKeyboardModule.html" >MdKeyboardModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="./components/MdKeyboardComponent.html" >MdKeyboardComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/MdKeyboardContainerComponent.html" >MdKeyboardContainerComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/MdKeyboardKeyComponent.html" >MdKeyboardKeyComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#directives-links"
+                   >
+                                   <span class="fa fa-code"></span>
+                                   <span>Directives</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="directives-links"
+                   >
+                                       <li class="link">
+                                           <a href="./directives/MdKeyboardDirective.html" >MdKeyboardDirective</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="./classes/MdKeyboardConfig.html" >MdKeyboardConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/MdKeyboardContentAlreadyAttached.html" >MdKeyboardContentAlreadyAttached</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/MdKeyboardLayoutNotFound.html" >MdKeyboardLayoutNotFound</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/MdKeyboardRef.html" >MdKeyboardRef</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="./injectables/MdKeyboardService.html" >MdKeyboardService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="./interfaces/IKeyboardDeadkeys.html" >IKeyboardDeadkeys</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/IKeyboardIcons.html" >IKeyboardIcons</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/IKeyboardLayout.html" >IKeyboardLayout</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/IKeyboardLayouts.html" >IKeyboardLayouts</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/ILocaleMap.html" >ILocaleMap</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#pipes-links"
+                   >
+                                   <span class="fa fa-plus"></span>
+                                   <span>Pipes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="pipes-links"
+                   >
+                                       <li class="link">
+                                           <a href="./pipes/KebabCasePipe.html" >KebabCasePipe</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content overview">
+                   <div class="content-data">
+<h3>Overview</h3>
+<div class="text-center">
+    <div id="module-graph-svg">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: dependencies Pages: 1 -->
+<svg width="966pt" height="284pt"
+ viewBox="0.00 0.00 966.00 284.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 280)">
+<title>dependencies</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-280 962,-280 962,4 -4,4"/>
+<text text-anchor="start" x="458.0091" y="-42.4" font-family="sans-serif" font-weight="bold" font-size="14.00" fill="#000000">Legend</text>
+<polygon fill="#ffffb3" stroke="transparent" points="245,-10 245,-30 265,-30 265,-10 245,-10"/>
+<text text-anchor="start" x="268.629" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Declarations</text>
+<polygon fill="#8dd3c7" stroke="transparent" points="358,-10 358,-30 378,-30 378,-10 358,-10"/>
+<text text-anchor="start" x="381.7251" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Module</text>
+<polygon fill="#80b1d3" stroke="transparent" points="444,-10 444,-30 464,-30 464,-10 444,-10"/>
+<text text-anchor="start" x="467.7812" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Bootstrap</text>
+<polygon fill="#fdb462" stroke="transparent" points="541,-10 541,-30 561,-30 561,-10 541,-10"/>
+<text text-anchor="start" x="564.6732" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Providers</text>
+<polygon fill="#fb8072" stroke="transparent" points="637,-10 637,-30 657,-30 657,-10 637,-10"/>
+<text text-anchor="start" x="660.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
+<g id="clust1" class="cluster">
+<title>cluster_MdKeyboardModule</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="8,-70 8,-268 950,-268 950,-70 8,-70"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_MdKeyboardModule_imports</title>
+<polygon fill="none" stroke="#000000" points="94,-78 94,-130 860,-130 860,-78 94,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_MdKeyboardModule_exports</title>
+<polygon fill="none" stroke="#000000" points="16,-208 16,-260 942,-260 942,-208 16,-208"/>
+</g>
+<!-- OverlayModule -->
+<g id="node1" class="node">
+<title>OverlayModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="852.1374,-122 849.1374,-126 828.1374,-126 825.1374,-122 747.8626,-122 747.8626,-86 852.1374,-86 852.1374,-122"/>
+<text text-anchor="middle" x="800" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">OverlayModule</text>
+</g>
+<!-- MdKeyboardModule -->
+<g id="node7" class="node">
+<title>MdKeyboardModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="564.1909,-187 561.1909,-191 540.1909,-191 537.1909,-187 429.8091,-187 429.8091,-151 564.1909,-151 564.1909,-187"/>
+<text text-anchor="middle" x="497" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdKeyboardModule</text>
+</g>
+<!-- OverlayModule&#45;&gt;MdKeyboardModule -->
+<g id="edge1" class="edge">
+<title>OverlayModule&#45;&gt;MdKeyboardModule</title>
+<path fill="none" stroke="#000000" d="M764.7092,-122.2667C764.7092,-140.5552 764.7092,-166 764.7092,-166 764.7092,-166 574.2088,-166 574.2088,-166"/>
+<polygon fill="#000000" stroke="#000000" points="574.2088,-162.5001 564.2088,-166 574.2087,-169.5001 574.2088,-162.5001"/>
+</g>
+<!-- PortalModule -->
+<g id="node2" class="node">
+<title>PortalModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="729.4888,-122 726.4888,-126 705.4888,-126 702.4888,-122 636.5112,-122 636.5112,-86 729.4888,-86 729.4888,-122"/>
+<text text-anchor="middle" x="683" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">PortalModule</text>
+</g>
+<!-- PortalModule&#45;&gt;MdKeyboardModule -->
+<g id="edge2" class="edge">
+<title>PortalModule&#45;&gt;MdKeyboardModule</title>
+<path fill="none" stroke="#000000" d="M683,-122.0091C683,-138.0494 683,-159 683,-159 683,-159 574.1503,-159 574.1503,-159"/>
+<polygon fill="#000000" stroke="#000000" points="574.1503,-155.5001 564.1503,-159 574.1502,-162.5001 574.1503,-155.5001"/>
+</g>
+<!-- CommonModule -->
+<g id="node3" class="node">
+<title>CommonModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="618.6681,-122 615.6681,-126 594.6681,-126 591.6681,-122 507.3319,-122 507.3319,-86 618.6681,-86 618.6681,-122"/>
+<text text-anchor="middle" x="563" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
+</g>
+<!-- CommonModule&#45;&gt;MdKeyboardModule -->
+<g id="edge3" class="edge">
+<title>CommonModule&#45;&gt;MdKeyboardModule</title>
+<path fill="none" stroke="#000000" d="M535.6308,-122.1061C535.6308,-122.1061 535.6308,-140.991 535.6308,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="532.1309,-140.9909 535.6308,-150.991 539.1309,-140.991 532.1309,-140.9909"/>
+</g>
+<!-- MdButtonModule -->
+<g id="node4" class="node">
+<title>MdButtonModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="489.6123,-122 486.6123,-126 465.6123,-126 462.6123,-122 372.3877,-122 372.3877,-86 489.6123,-86 489.6123,-122"/>
+<text text-anchor="middle" x="431" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdButtonModule</text>
+</g>
+<!-- MdButtonModule&#45;&gt;MdKeyboardModule -->
+<g id="edge4" class="edge">
+<title>MdButtonModule&#45;&gt;MdKeyboardModule</title>
+<path fill="none" stroke="#000000" d="M459.7304,-122.1061C459.7304,-122.1061 459.7304,-140.991 459.7304,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="456.2304,-140.9909 459.7304,-150.991 463.2304,-140.991 456.2304,-140.9909"/>
+</g>
+<!-- MdCommonModule -->
+<g id="node5" class="node">
+<title>MdCommonModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="354.6122,-122 351.6122,-126 330.6122,-126 327.6122,-122 223.3878,-122 223.3878,-86 354.6122,-86 354.6122,-122"/>
+<text text-anchor="middle" x="289" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdCommonModule</text>
+</g>
+<!-- MdCommonModule&#45;&gt;MdKeyboardModule -->
+<g id="edge5" class="edge">
+<title>MdCommonModule&#45;&gt;MdKeyboardModule</title>
+<path fill="none" stroke="#000000" d="M289,-122.0091C289,-138.0494 289,-159 289,-159 289,-159 419.7556,-159 419.7556,-159"/>
+<polygon fill="#000000" stroke="#000000" points="419.7556,-162.5001 429.7556,-159 419.7556,-155.5001 419.7556,-162.5001"/>
+</g>
+<!-- MdIconModule -->
+<g id="node6" class="node">
+<title>MdIconModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="205.8697,-122 202.8697,-126 181.8697,-126 178.8697,-122 102.1303,-122 102.1303,-86 205.8697,-86 205.8697,-122"/>
+<text text-anchor="middle" x="154" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdIconModule</text>
+</g>
+<!-- MdIconModule&#45;&gt;MdKeyboardModule -->
+<g id="edge6" class="edge">
+<title>MdIconModule&#45;&gt;MdKeyboardModule</title>
+<path fill="none" stroke="#000000" d="M197.2687,-122.2667C197.2687,-140.5552 197.2687,-166 197.2687,-166 197.2687,-166 419.7345,-166 419.7345,-166"/>
+<polygon fill="#000000" stroke="#000000" points="419.7345,-169.5001 429.7345,-166 419.7344,-162.5001 419.7345,-169.5001"/>
+</g>
+<!-- MdCommonModule  -->
+<g id="node8" class="node">
+<title>MdCommonModule </title>
+<polygon fill="#fb8072" stroke="#000000" points="934.1128,-252 799.8872,-252 799.8872,-216 934.1128,-216 934.1128,-252"/>
+<text text-anchor="middle" x="867" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdCommonModule </text>
+</g>
+<!-- MdKeyboardModule&#45;&gt;MdCommonModule  -->
+<g id="edge7" class="edge">
+<title>MdKeyboardModule&#45;&gt;MdCommonModule </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M564.3732,-173C660.6283,-173 826.0061,-173 826.0061,-173 826.0061,-173 826.0061,-205.698 826.0061,-205.698"/>
+<polygon fill="#000000" stroke="#000000" points="822.5062,-205.698 826.0061,-215.698 829.5062,-205.698 822.5062,-205.698"/>
+</g>
+<!-- MdKeyboardComponent  -->
+<g id="node9" class="node">
+<title>MdKeyboardComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="781.9741,-252 622.0259,-252 622.0259,-216 781.9741,-216 781.9741,-252"/>
+<text text-anchor="middle" x="702" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdKeyboardComponent </text>
+</g>
+<!-- MdKeyboardModule&#45;&gt;MdKeyboardComponent  -->
+<g id="edge8" class="edge">
+<title>MdKeyboardModule&#45;&gt;MdKeyboardComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M564.3557,-180C597.0595,-180 629.3845,-180 629.3845,-180 629.3845,-180 629.3845,-205.7181 629.3845,-205.7181"/>
+<polygon fill="#000000" stroke="#000000" points="625.8845,-205.718 629.3845,-215.7181 632.8845,-205.7181 625.8845,-205.718"/>
+</g>
+<!-- MdKeyboardContainerComponent  -->
+<g id="node10" class="node">
+<title>MdKeyboardContainerComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="604.1812,-252 389.8188,-252 389.8188,-216 604.1812,-216 604.1812,-252"/>
+<text text-anchor="middle" x="497" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdKeyboardContainerComponent </text>
+</g>
+<!-- MdKeyboardModule&#45;&gt;MdKeyboardContainerComponent  -->
+<g id="edge9" class="edge">
+<title>MdKeyboardModule&#45;&gt;MdKeyboardContainerComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M497,-187.1061C497,-187.1061 497,-205.991 497,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="493.5001,-205.9909 497,-215.991 500.5001,-205.991 493.5001,-205.9909"/>
+</g>
+<!-- MdKeyboardKeyComponent  -->
+<g id="node11" class="node">
+<title>MdKeyboardKeyComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="371.2947,-252 188.7053,-252 188.7053,-216 371.2947,-216 371.2947,-252"/>
+<text text-anchor="middle" x="280" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdKeyboardKeyComponent </text>
+</g>
+<!-- MdKeyboardModule&#45;&gt;MdKeyboardKeyComponent  -->
+<g id="edge10" class="edge">
+<title>MdKeyboardModule&#45;&gt;MdKeyboardKeyComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M429.5957,-180C396.2213,-180 362.9767,-180 362.9767,-180 362.9767,-180 362.9767,-205.7181 362.9767,-205.7181"/>
+<polygon fill="#000000" stroke="#000000" points="359.4768,-205.718 362.9767,-215.7181 366.4768,-205.7181 359.4768,-205.718"/>
+</g>
+<!-- MdKeyboardDirective  -->
+<g id="node12" class="node">
+<title>MdKeyboardDirective </title>
+<polygon fill="#fb8072" stroke="#000000" points="170.224,-252 23.776,-252 23.776,-216 170.224,-216 170.224,-252"/>
+<text text-anchor="middle" x="97" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MdKeyboardDirective </text>
+</g>
+<!-- MdKeyboardModule&#45;&gt;MdKeyboardDirective  -->
+<g id="edge11" class="edge">
+<title>MdKeyboardModule&#45;&gt;MdKeyboardDirective </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M429.5387,-173C325.0778,-173 136.0886,-173 136.0886,-173 136.0886,-173 136.0886,-205.698 136.0886,-205.698"/>
+<polygon fill="#000000" stroke="#000000" points="132.5886,-205.698 136.0886,-215.698 139.5886,-205.698 132.5886,-205.698"/>
+</g>
+</g>
+</svg>
+
+    </div>
+    <div class="btn-group">
+        <button id="zoom-in" class="btn btn-default btn-sm">Zoom in</button>
+        <button id="reset" class="btn btn-default btn-sm">Reset</button>
+        <button id="zoom-out" class="btn btn-default btn-sm">Zoom out</button>
+    </div>
+</div>
+<div class="container-fluid overview">
+    <div class="row">
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-archive"></span></h4>
+                        <p class="card-text">
+                            <a href="./modules.html">1 module</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-cogs"></span></h4>
+                        <p class="card-text">3 components</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-code"></span></h4>
+                        <p class="card-text">1 directive</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-code-fork"></span></h4>
+                        <p class="card-text">1 injectable</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-plus"></span></h4>
+                        <p class="card-text">1 pipe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-file-code-o"></span></h4>
+                        <p class="card-text">4 classes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h4 class="card-title"><span class="fa fa-info"></span></h4>
+                        <p class="card-text">5 interfaces</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<script src="js/libs/svg-pan-zoom.min.js"></script>
+<script src="js/svg-pan-zoom.controls.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 0;</script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+       <script src="./js/search/search_index.js"></script>
+
+    </body>
+</html>
