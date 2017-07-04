@@ -4,7 +4,8 @@
   "description": "Onscreen virtual keyboard for Angular ≥ 2 (https://angular.io/) using Material 2 (https://material.angular.io/).",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:docs": "compodoc -p ./tsconfig.json -d ./docs --disableCoverage --disablePrivateOrInternalSupport"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
     "@angular/material": "2.0.0-beta.5",
     "material2-srcs": "git+https://github.com/angular/material2.git#2.0.0-beta.5",
     "rxjs": "^5.1.0"
+  },
+  "devDependencies": {
+    "@compodoc/compodoc": "^1.0.0-beta.10"
   }
 }
