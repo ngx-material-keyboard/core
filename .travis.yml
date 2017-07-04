@@ -2,4 +2,4 @@ language: node_js
 jobs:
   include:
     - stage: build
-      script: npm run build
+      script: npm run build:docs
