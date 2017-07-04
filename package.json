@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:docs": "compodoc -p ./tsconfig.json -d ./docs --disableCoverage --disablePrivateOrInternalSupport"
+    "build:docs": "compodoc -p ./tsconfig.json -d docs --disableCoverage --disablePrivateOrInternalSupport"
   },
   "repository": {
     "type": "git",
