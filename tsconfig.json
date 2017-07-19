@@ -1,22 +1,36 @@
-// TypeScript config file that matches all source files in the project. This file is read by
-// IDEs and ensures that `experimentalDecorator` warnings are not showing up.
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "experimentalDecorators": true,
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "declaration": false,
     "module": "es2015",
     "moduleResolution": "node",
-    "outDir": "./dist",
-    "sourceMap": true,
-    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [],
     "lib": [
       "es2015",
       "dom"
     ],
-    "types": [
-      "jasmine"
+    "paths": {
+      "@ngx-material-keyboard/core": [
+        "./public_api.ts"
+      ]
+    },
+    "include": [
+      "**/*.ts"
     ],
-    "baseUrl": "./src",
-    "paths": {}
+    "exclude": [
+      "**/*.d.ts",
+      "./.ng_build",
+      "./src/test.ts",
+      "./src/**/*.spec.ts"
+    ]
   }
 }

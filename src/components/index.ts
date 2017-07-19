@@ -1,3 +1,3 @@
-export * from './keyboard.component';
-export * from './keyboard-container.component';
-export * from './keyboard-key.component';
+export * from './keyboard/keyboard.component';
+export * from './keyboard-container/keyboard-container.component';
+export * from './keyboard-key/keyboard-key.component';

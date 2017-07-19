@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
-import { IKeyboardLayout } from '../configs/keyboard-layouts.config';
-import { KeyboardModifier } from '../enums/keyboard-modifier.enum';
-import { MdKeyboardRef } from '../classes/keyboard-ref.class';
-import { MdKeyboardService } from '../services/keyboard.service';
+import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
+import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
+import { MdKeyboardRef } from '../../utils/keyboard-ref.class';
+import { MdKeyboardService } from '../../services/keyboard.service';
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -31,6 +31,8 @@ export class MdKeyboardComponent implements OnInit {
 
   layout: IKeyboardLayout;
 
+  modifier: KeyboardModifier = KeyboardModifier.None;
+
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
 
@@ -44,8 +46,6 @@ export class MdKeyboardComponent implements OnInit {
     this._inputInstance$.next(inputInstance);
     this._inputInstance$.complete();
   }
-
-  modifier: KeyboardModifier = KeyboardModifier.None;
 
   // Inject dependencies
   constructor(@Inject(LOCALE_ID) private _locale,

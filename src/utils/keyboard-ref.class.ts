@@ -1,8 +1,8 @@
 import { OverlayRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { MdKeyboardContainerComponent } from '../components/keyboard-container.component';
-import { MdKeyboardComponent } from '../components/keyboard.component';
+import { MdKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 
 // TODO: Implement onAction observable.
 

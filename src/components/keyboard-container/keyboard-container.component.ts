@@ -1,10 +1,11 @@
 import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
+import { first } from '@angular/cdk';
 import { Component, ComponentRef, HostBinding, HostListener, Input, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { MdKeyboardConfig } from '../configs/keyboard.config';
-import { MdKeyboardContentAlreadyAttached } from '../classes/keyboard-errors.class';
+import { throwContentAlreadyAttached } from '../../utils/keyboard-errors';
+import { MdKeyboardConfig } from '../../configs/keyboard.config';
 
 export type KeyboardState = 'initial' | 'visible' | 'complete' | 'void';
 
@@ -61,7 +62,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   /** Attach a component portal as content to this keyboard container. */
   attachComponentPortal<T>(portal: ComponentPortal<T>): ComponentRef<T> {
     if (this._portalHost.hasAttached()) {
-      throw new MdKeyboardContentAlreadyAttached();
+      throwContentAlreadyAttached();
     }
 
     return this._portalHost.attachComponentPortal(portal);
@@ -129,7 +130,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     // because it can cause a memory leak.
     const onExit = this.onExit;
 
-    this._ngZone.onMicrotaskEmpty.first().subscribe(() => {
+    first.call(this._ngZone.onMicrotaskEmpty).subscribe(() => {
       onExit.next();
       onExit.complete();
     });

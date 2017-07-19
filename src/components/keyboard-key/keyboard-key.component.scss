@@ -1,15 +1,13 @@
-@import '~material2-srcs/src/lib/core/style/variables';
-@import '~material2-srcs/src/lib/core/style/button-common';
-@import '~material2-srcs/src/lib/core/style/list-common';
 @import '~@angular/material/theming';
 
+$mat-typography-config: mat-typography-config();
 $mat-keyboard-button-distance: 8px !default;
 
 :host {
   display: flex;
   font: {
-    family: $mat-font-family;
-    size: $mat-body-font-size-base;
+    family: mat-font-family($mat-typography-config);
+    size: mat-font-size($mat-typography-config, button);
   }
   justify-content: space-between;
   //color: white;
@@ -17,40 +15,41 @@ $mat-keyboard-button-distance: 8px !default;
 }
 
 .mat-keyboard {
-  &__key {
+  &-key {
     min-width: 0;
     width: 100%;
 
-    &--active {
+    &-active {
       background-color: mat-color($mat-grey, 300);
     }
   }
 
-  :host-context(.dark-theme) &__key {
+  :host-context(.dark-theme) &-key {
     background-color: mat-color($mat-grey, 700);
     color: mat-color($mat-grey, 100);
 
-    &--active {
+    &-active {
       background-color: mat-color($mat-grey, 500);
     }
   }
 
-  :host-context(.debug) &__key {
-    &--deadkey {
+  // sass-lint:disable no-color-keywords no-color-literals
+  :host-context(.debug) &-key {
+    &-deadkey {
       background-color: cadetblue;
     }
 
-    &--modifier {
+    &-modifier {
       background-color: aquamarine;
     }
   }
 
-  :host-context(.dark-theme.debug) &__key {
-    &--deadkey {
+  :host-context(.dark-theme.debug) &-key {
+    &-deadkey {
       background-color: rebeccapurple;
     }
 
-    &--modifier {
+    &-modifier {
       background-color: mediumpurple;
     }
   }

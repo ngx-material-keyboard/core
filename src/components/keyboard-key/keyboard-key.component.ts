@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { KeyboardKeyClass } from '../enums/keyboard-key-class.enum';
-import { MD_KEYBOARD_DEADKEYS } from '../configs/keyboard-deadkey.config';
-import { MD_KEYBOARD_ICONS } from '../configs/keyboard-icons.config';
+import { KeyboardKeyClass } from '../../enums/keyboard-key-class.enum';
+import { MD_KEYBOARD_DEADKEYS } from '../../configs/keyboard-deadkey.config';
+import { MD_KEYBOARD_ICONS } from '../../configs/keyboard-icons.config';
 
 @Component({
   selector: 'md-keyboard-key',
@@ -196,7 +196,7 @@ export class MdKeyboardKeyComponent implements OnInit {
     // (it causes an issue in chrome, and having it doesn't hurt any other browser)
 
     if ('createTextRange' in this.input.nativeElement) {
-      let range = this.input.nativeElement.createTextRange();
+      const range = this.input.nativeElement.createTextRange();
       range.move('character', position);
       range.select();
       return true;
