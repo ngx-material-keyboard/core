@@ -15,7 +15,7 @@
 
 # misc
 /.sass-cache
-/.packagr-cache
+/.ng_build
 /connect.lock
 /coverage/*
 /libpeerconnection.log
