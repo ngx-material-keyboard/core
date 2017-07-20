@@ -55,12 +55,12 @@ export class MdKeyboardKeyComponent implements OnInit {
     const classes = [];
 
     if (this.isClassKey) {
-      classes.push('mat-keyboard__key--modifier');
-      classes.push(`mat-keyboard__key--${KeyboardKeyClass[this.key]}`);
+      classes.push('mat-keyboard-key-modifier');
+      classes.push(`mat-keyboard-key-${KeyboardKeyClass[this.key]}`);
     }
 
     if (this.isDeadKey) {
-      classes.push('mat-keyboard__key--deadkey');
+      classes.push('mat-keyboard-key-deadkey');
     }
 
     return classes.join(' ');
