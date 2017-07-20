@@ -1,11 +1,11 @@
 {
-  "name": "ngx-material-keyboard",
+  "name": "@ngx-material-keyboard/core",
   "version": "0.0.1-SNAPSHOT",
   "description": "Onscreen virtual keyboard for Angular ≥ 2 (https://angular.io/) using Material 2 (https://material.angular.io/).",
-  "main": "./dist/bundles/material-gui-kit.umd.js",
-  "module": "./dist/@zalari/material-gui-kit.es5.js",
-  "es2015": "./dist/@zalari/material-gui-kit.js",
-  "typings": "./dist/material-gui-kit.d.ts",
+  "main": "./dist/bundles/core.umd.js",
+  "module": "./dist/@ngx-material-keyboard/core.es5.js",
+  "es2015": "./dist/@ngx-material-keyboard/core.js",
+  "typings": "./dist/core.d.ts",
   "scripts": {
     "start:docs": "http-server -p 4191 ./docs",
     "build": "ng-packagr -p ./ng-package.json",
