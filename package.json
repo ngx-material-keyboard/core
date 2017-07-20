@@ -7,9 +7,9 @@
   "es2015": "./dist/@ngx-material-keyboard/core.js",
   "typings": "./dist/core.d.ts",
   "scripts": {
-    "start:docs": "http-server -p 4191 ./docs",
     "build": "ng-packagr -p ./ng-package.json",
-    "build:docs": "compodoc -p ./tsconfig.json -d ./docs --disableCoverage --disablePrivateOrInternalSupport",
+    "build:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs",
+    "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --serve --open --watch --port 4191",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint \"./src/**/*.ts\" --type-check --config ./tslint.json --project ./tsconfig.json",
     "lint:sass": "sass-lint --config ./.sass-lint.yml \"./src/**/*.scss\" --verbose -no-exit"
@@ -42,9 +42,8 @@
     "@angular/http": "^4.0.0",
     "@angular/material": "2.0.0-beta.8",
     "@angular/platform-browser": "^4.0.0",
-    "@compodoc/compodoc": "^1.0.0-beta.10",
+    "@compodoc/compodoc": "^1.0.0-beta.13",
     "codelyzer": "^3.1.2",
-    "http-server": "^0.10.0",
     "ng-packagr": "^1.0.0-pre.10",
     "rxjs": "^5.4.2",
     "sass-lint": "^1.10.2",
