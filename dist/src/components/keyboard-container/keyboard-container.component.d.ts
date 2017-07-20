@@ -1,4 +1,4 @@
-import { AnimationEvent } from '@angular/animations';
+import { AnimationEvent } from '@angular/animations/src/animation_event';
 import { ComponentRef, NgZone, OnDestroy } from '@angular/core';
 import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
 import { Observable } from 'rxjs/Observable';

@@ -1,4 +1,5 @@
-import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { AnimationEvent } from '@angular/animations/src/animation_event';
 import { first } from '@angular/cdk';
 import { Component, ComponentRef, HostBinding, HostListener, Input, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
