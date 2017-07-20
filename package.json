@@ -9,7 +9,7 @@
   "scripts": {
     "build": "ng-packagr -p ./ng-package.json",
     "build:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs",
-    "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --serve --open --watch --port 4191",
+    "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs --serve --open --watch --port 4191",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint \"./src/**/*.ts\" --type-check --config ./tslint.json --project ./tsconfig.json",
     "lint:sass": "sass-lint --config ./.sass-lint.yml \"./src/**/*.scss\" --verbose -no-exit"
