@@ -1,11 +1,11 @@
 import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from '@angular/core';
 import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
 import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from '../configs/keyboard-layouts.config';
-import { MdKeyboardContainerComponent } from '../components/keyboard-container.component';
-import { MdKeyboardRef } from '../classes/keyboard-ref.class';
-import { MdKeyboardComponent } from '../components/keyboard.component';
+import { MdKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { MdKeyboardRef } from '../utils/keyboard-ref.class';
+import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardConfig } from '../configs/keyboard.config';
-import { MdKeyboardLayoutNotFound } from '../classes/keyboard-errors.class';
+import { throwLayoutNotFound } from '../utils/keyboard-errors';
 
 export interface ILocaleMap {
   [locale: string]: string;
@@ -150,7 +150,7 @@ export class MdKeyboardService {
 
   mapLocale(locale: string): string {
     let layout: string;
-    let country = locale.split('-').shift();
+    const country = locale.split('-').shift();
 
     // search for layout matching the
     // first part, the country code
@@ -164,7 +164,7 @@ export class MdKeyboardService {
     }
 
     if (!layout) {
-      throw new MdKeyboardLayoutNotFound(locale);
+      throwLayoutNotFound(locale);
     }
 
     return layout;

@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+
+$mat-keyboard-padding: 14px 24px !default;
+$mat-keyboard-min-width: 568px !default;
+$mat-keyboard-max-width: 960px !default;
+
+:host {
+  @include mat-elevation(6);
+  background-color: mat-color($mat-grey, 100);
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  max-width: $mat-keyboard-max-width;
+  min-width: $mat-keyboard-min-width;
+  padding: $mat-keyboard-padding;
+  // Initial transformation is applied to start keyboard out of view.
+  transform: translateY(100%);
+
+  @include cdk-high-contrast {
+    border: solid 1px;
+  }
+
+  &.dark-theme {
+    background-color: mat-color($mat-grey, 800);
+  }
+}

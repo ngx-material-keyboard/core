@@ -1,11 +1,18 @@
 {
-  "name": "ngx-material-keyboard",
-  "version": "0.0.1-SNAPSHOT",
+  "name": "@ngx-material-keyboard/core",
+  "version": "0.0.1",
   "description": "Onscreen virtual keyboard for Angular ≥ 2 (https://angular.io/) using Material 2 (https://material.angular.io/).",
-  "main": "index.ts",
+  "main": "./dist/bundles/core.umd.js",
+  "module": "./dist/@ngx-material-keyboard/core.es5.js",
+  "es2015": "./dist/@ngx-material-keyboard/core.js",
+  "typings": "./dist/core.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:docs": "compodoc -p ./tsconfig.json -d docs --disableCoverage --disablePrivateOrInternalSupport"
+    "build": "ng-packagr -p ./ng-package.json",
+    "build:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs",
+    "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs --serve --open --watch --port 4191",
+    "lint": "npm run lint:ts && npm run lint:sass",
+    "lint:ts": "tslint \"./src/**/*.ts\" --type-check --config ./tslint.json --project ./tsconfig.json",
+    "lint:sass": "sass-lint --config ./.sass-lint.yml \"./src/**/*.scss\" --verbose -no-exit"
   },
   "repository": {
     "type": "git",
@@ -19,14 +26,29 @@
   "homepage": "https://github.com/ngx-material-keyboard/core#readme",
   "peerDependencies": {
     "@angular/animations": "^4.0.0",
+    "@angular/cdk": "2.0.0-beta.8",
+    "@angular/common": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/material": "2.0.0-beta.8",
+    "rxjs": "^5.4.2"
+  },
+  "devDependencies": {
+    "@angular/animations": "^4.0.0",
+    "@angular/cdk": "2.0.0-beta.8",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
-    "@angular/material": "2.0.0-beta.5",
-    "material2-srcs": "git+https://github.com/angular/material2.git#2.0.0-beta.5",
-    "rxjs": "^5.1.0"
-  },
-  "devDependencies": {
-    "@compodoc/compodoc": "^1.0.0-beta.10"
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/material": "2.0.0-beta.8",
+    "@angular/platform-browser": "^4.0.0",
+    "@compodoc/compodoc": "^1.0.0-beta.13",
+    "codelyzer": "^3.1.2",
+    "ng-packagr": "^1.0.0-pre.10",
+    "rxjs": "^5.4.2",
+    "sass-lint": "^1.10.2",
+    "tslint": "^5.5.0",
+    "tslint-microsoft-contrib": "^5.0.1",
+    "zone.js": "^0.8.14"
   }
 }

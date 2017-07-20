@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { MdKeyboardRef } from '../classes/keyboard-ref.class';
-import { MdKeyboardComponent } from '../components/keyboard.component';
+import { MdKeyboardRef } from '../utils/keyboard-ref.class';
+import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardService } from '../services/keyboard.service';
 
 @Directive({

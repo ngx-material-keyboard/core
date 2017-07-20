@@ -4,19 +4,19 @@
  *
  * - Lay out each keyboard in rows of sub-arrays.  Each sub-array
  *   represents one key.
- * 
+ *
  * - Each sub-array consists of four slots described as follows:
  *     example: ["a", "A", "\u00e1", "\u00c1"]
- * 
+ *
  *          a) Normal character
  *          A) Character + Shift/Caps
  *     \u00e1) Character + Alt/AltGr/AltLk
  *     \u00c1) Character + Shift/Caps + Alt/AltGr/AltLk
- * 
+ *
  *   You may include sub-arrays which are fewer than four slots.
  *   In these cases, the missing slots will be blanked when the
  *   corresponding modifier key (Shift or AltGr) is pressed.
- * 
+ *
  * - If the second slot of a sub-array matches one of the following
  *   strings:
  *     "Tab", "Caps", "Shift", "Enter", "Bksp",
@@ -30,22 +30,22 @@
  *     - Delete the previous character
  *     - Next entered character will be the alternate character
  *     - Toggle Alt/AltGr Lock
- * 
+ *
  *   The first slot of this sub-array will be the text to display
  *   on the corresponding key.  This allows for easy localisation
  *   of key names.
- * 
+ *
  * - Layout dead keys (diacritic + letter) should be added as
  *   property/value pairs of objects with hash keys equal to the
  *   diacritic.  See the "this.VKI_deadkey" object below the layout
  *   definitions.  In each property/value pair, the value is what
  *   the diacritic would change the property name to.
- * 
+ *
  * - Note that any characters beyond the normal ASCII set should be
  *   entered in escaped Unicode format.  (eg \u00a3 = Pound symbol)
  *   You can find Unicode values for characters here:
  *     http://unicode.org/charts/
- * 
+ *
  * - To remove a keyboard, just delete it, or comment it out of the
  *   source code. If you decide to remove the US International
  *   keyboard layout, make sure you change the default layout
@@ -4752,7 +4752,7 @@ const keyboardLayouts: IKeyboardLayouts = {
         ['m', 'M'],
         [',', '?', '<'],
         ['.', ':', '>'],
-        ['-', '_', '*',],
+        ['-', '_', '*'],
         ['Shift', 'Shift', 'Shift', 'Shift'],
       ],
       [
