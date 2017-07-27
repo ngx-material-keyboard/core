@@ -10,6 +10,7 @@
         [key]="key[modifier]"
         [active]="isActive(key[modifier])"
         [input]="inputInstance | async"
+        [ngModel]="_ngModel"
         (altClick)="onAltClick()"
         (capsClick)="onCapsClick()"
         (shiftClick)="onShiftClick()"

@@ -31305,7 +31305,7 @@ MdKeyboardContainerComponent.decorators = [
     { type: _angular_core.Component, args: [{
                 selector: 'md-keyboard-container',
                 template: "\n    <ng-template cdkPortalHost></ng-template>\n  ",
-                styles: ["\n    /**\n     * Applies styles for users in high contrast mode. Note that this only applies\n     * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n     * attribute, however Chrome handles high contrast differently.\n     */\n    /* Theme for the ripple elements.*/\n    /** The mixins below are shared between md-menu and md-select */\n    /**\n     * This mixin adds the correct panel transform styles based\n     * on the direction that the menu panel opens.\n     */\n    /* stylelint-disable material/no-prefixes */\n    /* stylelint-enable */\n    /**\n     * This mixin contains shared option styles between the select and\n     * autocomplete components.\n     */\n    :host {\n      -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n              box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n      background-color: whitesmoke;\n      border-radius: 2px;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      display: block;\n      margin: 0 auto;\n      max-width: 960px;\n      min-width: 568px;\n      padding: 14px 24px;\n      -webkit-transform: translateY(100%);\n              transform: translateY(100%); }\n      @media screen and (-ms-high-contrast: active) {\n        :host {\n          border: solid 1px; } }\n      :host.dark-theme {\n        background-color: #424242; }\n  "],
+                styles: ["\n    /**\n     * Applies styles for users in high contrast mode. Note that this only applies\n     * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n     * attribute, however Chrome handles high contrast differently.\n     */\n    /* Theme for the ripple elements.*/\n    /** The mixins below are shared between md-menu and md-select */\n    /**\n     * This mixin adds the correct panel transform styles based\n     * on the direction that the menu panel opens.\n     */\n    /* stylelint-disable material/no-prefixes */\n    /* stylelint-enable */\n    /**\n     * This mixin contains shared option styles between the select and\n     * autocomplete components.\n     */\n    :host {\n      -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n              box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n      background-color: whitesmoke;\n      border-radius: 2px;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      display: block;\n      margin: 0 auto;\n      max-width: 960px;\n      min-width: 568px;\n      padding: 14px 24px;\n      -webkit-transform: translateY(100%);\n              transform: translateY(100%);\n      position: fixed;\n      bottom: 0;\n      left: 25%; }\n      @media screen and (-ms-high-contrast: active) {\n        :host {\n          border: solid 1px; } }\n      :host.dark-theme {\n        background-color: #424242; }\n  "],
                 animations: [
                     _angular_animations.trigger('state', [
                         _angular_animations.state('initial', _angular_animations.style({ transform: 'translateY(100%)' })),
@@ -31792,6 +31792,13 @@ var MdKeyboardComponent = (function () {
         configurable: true
     });
     /**
+     * @param {?} ngModel
+     * @return {?}
+     */
+    MdKeyboardComponent.prototype.setNgModel = function (ngModel) {
+        this._ngModel = ngModel;
+    };
+    /**
      * @param {?} inputInstance
      * @return {?}
      */
@@ -31865,7 +31872,7 @@ var MdKeyboardComponent = (function () {
 MdKeyboardComponent.decorators = [
     { type: _angular_core.Component, args: [{
                 selector: 'md-keyboard',
-                template: "\n    <nav class=\"mat-keyboard-layout\">\n      <div\n        class=\"mat-keyboard-row\"\n        *ngFor=\"let row of layout.keys\"\n      >\n        <ng-container *ngFor=\"let key of row\">\n          <md-keyboard-key\n            class=\"mat-keyboard-col\"\n            *ngIf=\"key[modifier]\"\n            [key]=\"key[modifier]\"\n            [active]=\"isActive(key[modifier])\"\n            [input]=\"inputInstance | async\"\n            (altClick)=\"onAltClick()\"\n            (capsClick)=\"onCapsClick()\"\n            (shiftClick)=\"onShiftClick()\"\n          ></md-keyboard-key>\n        </ng-container>\n      </div>\n    </nav>\n\n    <button\n      md-icon-button\n      class=\"mat-keyboard-action\"\n      *ngIf=\"hasAction\"\n      (click)=\"dismiss()\"\n    >\n      <md-icon>close</md-icon>\n    </button>\n  ",
+                template: "\n    <nav class=\"mat-keyboard-layout\">\n      <div\n        class=\"mat-keyboard-row\"\n        *ngFor=\"let row of layout.keys\"\n      >\n        <ng-container *ngFor=\"let key of row\">\n          <md-keyboard-key\n            class=\"mat-keyboard-col\"\n            *ngIf=\"key[modifier]\"\n            [key]=\"key[modifier]\"\n            [active]=\"isActive(key[modifier])\"\n            [input]=\"inputInstance | async\"\n            [ngModel]=\"_ngModel\"\n            (altClick)=\"onAltClick()\"\n            (capsClick)=\"onCapsClick()\"\n            (shiftClick)=\"onShiftClick()\"\n          ></md-keyboard-key>\n        </ng-container>\n      </div>\n    </nav>\n\n    <button\n      md-icon-button\n      class=\"mat-keyboard-action\"\n      *ngIf=\"hasAction\"\n      (click)=\"dismiss()\"\n    >\n      <md-icon>close</md-icon>\n    </button>\n  ",
                 styles: ["\n    /**\n     * Applies styles for users in high contrast mode. Note that this only applies\n     * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n     * attribute, however Chrome handles high contrast differently.\n     */\n    /* Theme for the ripple elements.*/\n    /** The mixins below are shared between md-menu and md-select */\n    /**\n     * This mixin adds the correct panel transform styles based\n     * on the direction that the menu panel opens.\n     */\n    /* stylelint-disable material/no-prefixes */\n    /* stylelint-enable */\n    /**\n     * This mixin contains shared option styles between the select and\n     * autocomplete components.\n     */\n    :host {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      font-family: Roboto, \"Helvetica Neue\", sans-serif;\n      font-size: 14px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      line-height: 20px; }\n\n    .mat-keyboard-action {\n      background: none;\n      color: inherit;\n      -ms-flex-negative: 0;\n          flex-shrink: 0;\n      font-family: inherit;\n      font-size: inherit;\n      font-weight: 600;\n      line-height: 1;\n      margin-left: 8px;\n      text-transform: uppercase; }\n\n    /deep/ .mat-keyboard.dark-theme .mat-keyboard-action {\n      color: whitesmoke; }\n\n    .mat-keyboard-layout {\n      width: 100%; }\n\n    .mat-keyboard-row {\n      -webkit-box-align: stretch;\n          -ms-flex-align: stretch;\n              align-items: stretch;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-wrap: nowrap;\n          flex-wrap: nowrap; }\n\n    .mat-keyboard-col {\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 auto;\n              flex: 1 1 auto;\n      padding: 4px; }\n\n    .mat-keyboard-key {\n      min-width: 0;\n      width: 100%; }\n\n    /deep/ .mat-keyboard.dark-theme .mat-keyboard-key {\n      background-color: #616161;\n      color: whitesmoke; }\n\n    /deep/ .mat-keyboard.debug .mat-keyboard-key-deadkey {\n      background-color: cadetblue; }\n\n    /deep/ .mat-keyboard.debug .mat-keyboard-key-modifier {\n      background-color: aquamarine; }\n\n    /deep/ .mat-keyboard.debug.dark-theme .mat-keyboard-key-deadkey {\n      background-color: rebeccapurple; }\n\n    /deep/ .mat-keyboard.debug.dark-theme .mat-keyboard-key-modifier {\n      background-color: mediumpurple; }\n  "],
                 changeDetection: _angular_core.ChangeDetectionStrategy.OnPush
             },] },
@@ -32199,11 +32206,11 @@ var MdKeyboardKeyComponent = (function () {
         get: function () {
             var /** @type {?} */ classes = [];
             if (this.isClassKey) {
-                classes.push('mat-keyboard__key--modifier');
-                classes.push("mat-keyboard__key--" + KeyboardKeyClass[this.key]);
+                classes.push('mat-keyboard-key-modifier');
+                classes.push("mat-keyboard-key-" + KeyboardKeyClass[this.key]);
             }
             if (this.isDeadKey) {
-                classes.push('mat-keyboard__key--deadkey');
+                classes.push('mat-keyboard-key-deadkey');
             }
             return classes.join(' ');
         },
@@ -32269,7 +32276,10 @@ var MdKeyboardKeyComponent = (function () {
                 char = this.key;
                 break;
         }
-        if (char && this.input) {
+        if (char && this.ngModel) {
+            this.ngModel.update.emit([value.slice(0, caret), char, value.slice(caret)].join(''));
+        }
+        else if (char && this.input) {
             this.input.nativeElement.value = [value.slice(0, caret), char, value.slice(caret)].join('');
             this._setCursorPosition(caret + 1);
         }
@@ -32351,7 +32361,7 @@ MdKeyboardKeyComponent.decorators = [
     { type: _angular_core.Component, args: [{
                 selector: 'md-keyboard-key',
                 template: "\n    <button\n      md-raised-button\n      class=\"mat-keyboard-key\"\n      [class.mat-keyboard-key-active]=\"active\"\n      [ngClass]=\"cssClass\"\n      (mousedown)=\"onMousedown($event)\"\n      (click)=\"onClick()\"\n    >\n      <md-icon *ngIf=\"hasIcon\">{{icon}}</md-icon>\n      <ng-container *ngIf=\"!hasIcon\">{{key}}</ng-container>\n    </button>\n  ",
-                styles: ["\n    /**\n     * Applies styles for users in high contrast mode. Note that this only applies\n     * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n     * attribute, however Chrome handles high contrast differently.\n     */\n    /* Theme for the ripple elements.*/\n    /** The mixins below are shared between md-menu and md-select */\n    /**\n     * This mixin adds the correct panel transform styles based\n     * on the direction that the menu panel opens.\n     */\n    /* stylelint-disable material/no-prefixes */\n    /* stylelint-enable */\n    /**\n     * This mixin contains shared option styles between the select and\n     * autocomplete components.\n     */\n    :host {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      font-family: Roboto, \"Helvetica Neue\", sans-serif;\n      font-size: 14px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      line-height: 20px; }\n\n    .mat-keyboard-key {\n      min-width: 0;\n      width: 100%; }\n      .mat-keyboard-key-active {\n        background-color: #e0e0e0; }\n\n    :host-context(.dark-theme) .mat-keyboard-key {\n      background-color: #616161;\n      color: whitesmoke; }\n      :host-context(.dark-theme) .mat-keyboard-key-active {\n        background-color: #9e9e9e; }\n\n    :host-context(.debug) .mat-keyboard-key-deadkey {\n      background-color: cadetblue; }\n\n    :host-context(.debug) .mat-keyboard-key-modifier {\n      background-color: aquamarine; }\n\n    :host-context(.dark-theme.debug) .mat-keyboard-key-deadkey {\n      background-color: rebeccapurple; }\n\n    :host-context(.dark-theme.debug) .mat-keyboard-key-modifier {\n      background-color: mediumpurple; }\n  "],
+                styles: ["\n    /**\n     * Applies styles for users in high contrast mode. Note that this only applies\n     * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n     * attribute, however Chrome handles high contrast differently.\n     */\n    /* Theme for the ripple elements.*/\n    /** The mixins below are shared between md-menu and md-select */\n    /**\n     * This mixin adds the correct panel transform styles based\n     * on the direction that the menu panel opens.\n     */\n    /* stylelint-disable material/no-prefixes */\n    /* stylelint-enable */\n    /**\n     * This mixin contains shared option styles between the select and\n     * autocomplete components.\n     */\n    button {\n      padding: 5px 22px !important; }\n\n    :host {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      font-family: Roboto, \"Helvetica Neue\", sans-serif;\n      font-size: 14px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      line-height: 20px; }\n\n    .mat-keyboard-key {\n      min-width: 0;\n      width: 100%; }\n      .mat-keyboard-key-active {\n        background-color: #e0e0e0; }\n\n    :host-context(.dark-theme) .mat-keyboard-key {\n      background-color: #616161;\n      color: whitesmoke; }\n      :host-context(.dark-theme) .mat-keyboard-key-active {\n        background-color: #9e9e9e; }\n\n    :host-context(.debug) .mat-keyboard-key-deadkey {\n      background-color: cadetblue; }\n\n    :host-context(.debug) .mat-keyboard-key-modifier {\n      background-color: aquamarine; }\n\n    :host-context(.dark-theme.debug) .mat-keyboard-key-deadkey {\n      background-color: rebeccapurple; }\n\n    :host-context(.dark-theme.debug) .mat-keyboard-key-modifier {\n      background-color: mediumpurple; }\n  "],
                 changeDetection: _angular_core.ChangeDetectionStrategy.OnPush
             },] },
 ];
@@ -32366,6 +32376,7 @@ MdKeyboardKeyComponent.propDecorators = {
     'key': [{ type: _angular_core.Input },],
     'active': [{ type: _angular_core.Input },],
     'input': [{ type: _angular_core.Input },],
+    'ngModel': [{ type: _angular_core.Input },],
     'altClick': [{ type: _angular_core.Output },],
     'capsClick': [{ type: _angular_core.Output },],
     'shiftClick': [{ type: _angular_core.Output },],
