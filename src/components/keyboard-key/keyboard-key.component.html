@@ -1,0 +1,11 @@
+<button
+  md-raised-button
+  class="mat-keyboard-key"
+  [class.mat-keyboard-key-active]="active"
+  [ngClass]="cssClass"
+  (mousedown)="onMousedown($event)"
+  (click)="onClick()"
+>
+  <md-icon *ngIf="hasIcon">{{icon}}</md-icon>
+  <ng-container *ngIf="!hasIcon">{{key}}</ng-container>
+</button>

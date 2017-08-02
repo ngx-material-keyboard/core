@@ -24,10 +24,7 @@
     ],
     "interface-over-type-literal": true,
     "label-position": true,
-    "max-line-length": [
-      true,
-      140
-    ],
+    "max-line-length": [false],
     "member-access": false,
     "member-ordering": [
       true,
@@ -46,6 +43,7 @@
     ],
     "no-construct": true,
     "no-debugger": true,
+    "no-duplicate-variable": true,
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
@@ -66,7 +64,6 @@
       true,
       "check-open-brace",
       "check-catch",
-      "check-else",
       "check-whitespace"
     ],
     "prefer-const": true,
