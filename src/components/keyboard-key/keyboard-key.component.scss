@@ -3,6 +3,10 @@
 $mat-typography-config: mat-typography-config();
 $mat-keyboard-button-distance: 8px !default;
 
+button{
+  padding: 5px 22px !important;
+}
+
 :host {
   display: flex;
   font: {

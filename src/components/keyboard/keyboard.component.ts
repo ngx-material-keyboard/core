@@ -5,6 +5,7 @@ import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
 import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
 import { MdKeyboardRef } from '../../utils/keyboard-ref.class';
 import { MdKeyboardService } from '../../services/keyboard.service';
+import {NgModel} from '@angular/forms';
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -36,10 +37,17 @@ export class MdKeyboardComponent implements OnInit {
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
 
+  private _ngModel: NgModel;
+
+
   private _inputInstance$: AsyncSubject<any> = new AsyncSubject();
 
   get inputInstance(): Observable<ElementRef> {
     return this._inputInstance$.asObservable();
+  }
+
+  setNgModel(ngModel: NgModel) {
+    this._ngModel = ngModel;
   }
 
   setInputInstance(inputInstance: ElementRef) {

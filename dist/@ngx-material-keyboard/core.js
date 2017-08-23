@@ -31066,7 +31066,10 @@ MdKeyboardContainerComponent.decorators = [
       min-width: 568px;
       padding: 14px 24px;
       -webkit-transform: translateY(100%);
-              transform: translateY(100%); }
+              transform: translateY(100%);
+      position: fixed;
+      bottom: 0;
+      left: 25%; }
       @media screen and (-ms-high-contrast: active) {
         :host {
           border: solid 1px; } }
@@ -31524,6 +31527,13 @@ class MdKeyboardComponent {
         return this._inputInstance$.asObservable();
     }
     /**
+     * @param {?} ngModel
+     * @return {?}
+     */
+    setNgModel(ngModel) {
+        this._ngModel = ngModel;
+    }
+    /**
      * @param {?} inputInstance
      * @return {?}
      */
@@ -31609,6 +31619,7 @@ MdKeyboardComponent.decorators = [
             [key]="key[modifier]"
             [active]="isActive(key[modifier])"
             [input]="inputInstance | async"
+            [ngModel]="_ngModel"
             (altClick)="onAltClick()"
             (capsClick)="onCapsClick()"
             (shiftClick)="onShiftClick()"
@@ -32024,11 +32035,11 @@ class MdKeyboardKeyComponent {
     get cssClass() {
         const /** @type {?} */ classes = [];
         if (this.isClassKey) {
-            classes.push('mat-keyboard__key--modifier');
-            classes.push(`mat-keyboard__key--${KeyboardKeyClass[this.key]}`);
+            classes.push('mat-keyboard-key-modifier');
+            classes.push(`mat-keyboard-key-${KeyboardKeyClass[this.key]}`);
         }
         if (this.isDeadKey) {
-            classes.push('mat-keyboard__key--deadkey');
+            classes.push('mat-keyboard-key-deadkey');
         }
         return classes.join(' ');
     }
@@ -32091,7 +32102,10 @@ class MdKeyboardKeyComponent {
                 char = this.key;
                 break;
         }
-        if (char && this.input) {
+        if (char && this.ngModel) {
+            this.ngModel.update.emit([value.slice(0, caret), char, value.slice(caret)].join(''));
+        }
+        else if (char && this.input) {
             this.input.nativeElement.value = [value.slice(0, caret), char, value.slice(caret)].join('');
             this._setCursorPosition(caret + 1);
         }
@@ -32202,6 +32216,9 @@ MdKeyboardKeyComponent.decorators = [
      * This mixin contains shared option styles between the select and
      * autocomplete components.
      */
+    button {
+      padding: 5px 22px !important; }
+
     :host {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -32251,6 +32268,7 @@ MdKeyboardKeyComponent.propDecorators = {
     'key': [{ type: Input },],
     'active': [{ type: Input },],
     'input': [{ type: Input },],
+    'ngModel': [{ type: Input },],
     'altClick': [{ type: Output },],
     'capsClick': [{ type: Output },],
     'shiftClick': [{ type: Output },],

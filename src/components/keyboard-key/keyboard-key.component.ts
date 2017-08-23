@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, I
 import { KeyboardKeyClass } from '../../enums/keyboard-key-class.enum';
 import { MD_KEYBOARD_DEADKEYS } from '../../configs/keyboard-deadkey.config';
 import { MD_KEYBOARD_ICONS } from '../../configs/keyboard-icons.config';
+import {NgModel} from '@angular/forms';
 
 @Component({
   selector: 'md-keyboard-key',
@@ -20,6 +21,8 @@ export class MdKeyboardKeyComponent implements OnInit {
   @Input() active: boolean;
 
   @Input() input?: ElementRef;
+
+  @Input() ngModel?: NgModel;
 
   @Output() altClick = new EventEmitter<void>();
 
@@ -134,7 +137,10 @@ export class MdKeyboardKeyComponent implements OnInit {
         break;
     }
 
-    if (char && this.input) {
+    if (char && this.ngModel) {
+      this.ngModel.update.emit([value.slice(0, caret), char, value.slice(caret)].join(''));
+    }
+    else if (char && this.input) {
       this.input.nativeElement.value = [value.slice(0, caret), char, value.slice(caret)].join('');
       this._setCursorPosition(caret + 1);
     }
