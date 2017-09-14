@@ -32098,7 +32098,7 @@ class MdKeyboardKeyComponent {
                 this.altClick.emit();
                 break;
             case 'Bksp':
-                this.ngControl.control.setValue([value.slice(0, caret - 1), value.slice(caret)].join(''), { onlySelf: true, emitEvent: true });
+                this.ngControl.control.setValue([value.slice(0, caret - 1), value.slice(caret)].join(''), { onlySelf: false, emitEvent: true });
                 this._setCursorPosition(caret - 1);
                 break;
             case 'Caps':
@@ -32121,7 +32121,7 @@ class MdKeyboardKeyComponent {
                 break;
         }
         if (char && this.input) {
-            this.ngControl.control.setValue([value.slice(0, caret), char, value.slice(caret)].join(''), { onlySelf: true, emitEvent: true });
+            this.ngControl.control.setValue([value.slice(0, caret), char, value.slice(caret)].join(''), { onlySelf: false, emitEvent: true });
             this._setCursorPosition(caret + 1);
         }
     }
@@ -32173,7 +32173,7 @@ class MdKeyboardKeyComponent {
         if (!this.input) {
             return;
         }
-        this.ngControl.control.setValue(this.ngControl.value, { onlySelf: true, emitEvent: true });
+        this.ngControl.control.setValue(this.ngControl.value, { onlySelf: false, emitEvent: true });
         // ^ this is used to not only get "focus", but
         // to make sure we don't have it everything -selected-
         // (it causes an issue in chrome, and having it doesn't hurt any other browser)
