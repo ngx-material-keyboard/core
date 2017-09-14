@@ -2,6 +2,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardService } from '../services/keyboard.service';
+import { NgControl } from "@angular/forms";
 
 @Directive({
   selector: 'input[mdKeyboard], textarea[mdKeyboard], input[matKeyboard], textarea[matKeyboard]'
@@ -28,7 +29,7 @@ export class MdKeyboardDirective {
       hasAction: this.hasAction,
       isDebug: this.isDebug
     });
-    this._keyboardRef.instance.setInputInstance(this._elementRef);
+    this._keyboardRef.instance.setInputInstance(this._elementRef, this.ngControl);
   }
 
   @HostListener('blur', ['$event'])
@@ -39,7 +40,9 @@ export class MdKeyboardDirective {
   }
 
   constructor(private _elementRef: ElementRef,
-              private _keyboardService: MdKeyboardService) {
+              private _keyboardService: MdKeyboardService,
+              private ngControl: NgControl
+              ) {
   }
 
 }
