@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
@@ -41,6 +41,6 @@ export class MdKeyboardDirective {
 
   constructor(private _elementRef: ElementRef,
               private _keyboardService: MdKeyboardService,
-              private _ngControl: NgControl) {}
+              @Optional() private _ngControl: NgControl) {}
 
 }

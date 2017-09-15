@@ -34,10 +34,10 @@ export class MdKeyboardComponent implements OnInit {
 
   modifier: KeyboardModifier = KeyboardModifier.None;
 
-  ngControl: NgControl;
-
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
+
+  ngControl?: NgControl;
 
   private _inputInstance$: AsyncSubject<any> = new AsyncSubject();
 
@@ -45,7 +45,7 @@ export class MdKeyboardComponent implements OnInit {
     return this._inputInstance$.asObservable();
   }
 
-  setInputInstance(inputInstance: ElementRef, ngControl: NgControl) {
+  setInputInstance(inputInstance: ElementRef, ngControl?: NgControl) {
     this.ngControl = ngControl;
     this._inputInstance$.next(inputInstance);
     this._inputInstance$.complete();
