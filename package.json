@@ -46,6 +46,7 @@
     "codelyzer": "^3.2.0",
     "ng-packagr": "^1.1.0",
     "rxjs": "^5.4.3",
+    "rxjs-tslint-rules": "^2.1.6",
     "sass-lint": "^1.11.1",
     "tslint": "^5.7.0",
     "tslint-microsoft-contrib": "^5.0.1",
