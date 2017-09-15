@@ -71,12 +71,12 @@ export class MdKeyboardService {
    * @param config Extra configuration for the keyboard.
    */
   private _openFromComponent<T>(component: ComponentType<T>, config?: MdKeyboardConfig): MdKeyboardRef<T> {
-    config = _applyConfigDefaults(config);
+    const _config = _applyConfigDefaults(config);
     const overlayRef = this._createOverlay();
-    const keyboardContainer = this._attachKeyboardContainer(overlayRef, config);
+    const keyboardContainer = this._attachKeyboardContainer(overlayRef, _config);
     const keyboardRef = this._attachKeyboardContent(component, keyboardContainer, overlayRef);
 
-    keyboardContainer.darkTheme = config.darkTheme;
+    keyboardContainer.darkTheme = _config.darkTheme;
 
     // When the keyboard is dismissed, clear the reference to it.
     keyboardRef.afterDismissed().subscribe(() => {
@@ -105,7 +105,7 @@ export class MdKeyboardService {
     //   });
     // }
 
-    this._live.announce(config.announcementMessage, config.politeness);
+    this._live.announce(_config.announcementMessage, _config.politeness);
     this._openedKeyboardRef = keyboardRef;
     return this._openedKeyboardRef;
   }
@@ -116,9 +116,10 @@ export class MdKeyboardService {
    * @param config Additional configuration options for the keyboard.
    */
   open(layoutOrLocale?: string, config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
-    const keyboardComponentRef = this._openFromComponent<MdKeyboardComponent>(MdKeyboardComponent, config);
-    keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
+    const _config = _applyConfigDefaults(config);
+    const keyboardComponentRef = this._openFromComponent<MdKeyboardComponent>(MdKeyboardComponent, _config);
 
+    keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
     keyboardComponentRef.darkTheme = config.darkTheme;
     keyboardComponentRef.hasAction = config.hasAction;
     keyboardComponentRef.isDebug = config.isDebug;

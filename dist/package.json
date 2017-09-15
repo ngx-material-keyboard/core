@@ -12,7 +12,7 @@
     "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs --serve --open --watch --port 4191",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint \"./src/**/*.ts\" --type-check --config ./tslint.json --project ./tsconfig.json",
-    "lint:sass": "sass-lint --config ./.sass-lint.yml \"./src/**/*.scss\" --verbose -no-exit"
+    "lint:sass": "sass-lint --verbose --no-exit --config ./.sass-lint.yml"
   },
   "repository": {
     "type": "git",
@@ -25,30 +25,31 @@
   },
   "homepage": "https://github.com/ngx-material-keyboard/core#readme",
   "peerDependencies": {
-    "@angular/animations": "^4.0.0",
-    "@angular/cdk": "2.0.0-beta.8",
-    "@angular/common": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/material": "2.0.0-beta.8",
-    "rxjs": "^5.4.2"
+    "@angular/animations": "~4.3.6",
+    "@angular/cdk": "2.0.0-beta.10",
+    "@angular/common": "~4.3.6",
+    "@angular/core": "~4.3.6",
+    "@angular/material": "2.0.0-beta.10",
+    "rxjs": "^5.4.3"
   },
   "devDependencies": {
-    "@angular/animations": "^4.0.0",
-    "@angular/cdk": "2.0.0-beta.8",
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
-    "@angular/http": "^4.0.0",
-    "@angular/material": "2.0.0-beta.8",
-    "@angular/platform-browser": "^4.0.0",
-    "@compodoc/compodoc": "^1.0.0-beta.13",
-    "codelyzer": "^3.1.2",
-    "ng-packagr": "^1.0.0-pre.10",
-    "rxjs": "^5.4.2",
-    "sass-lint": "^1.10.2",
-    "tslint": "^5.5.0",
+    "@angular/animations": "~4.3.6",
+    "@angular/cdk": "2.0.0-beta.10",
+    "@angular/common": "~4.3.6",
+    "@angular/compiler": "~4.3.6",
+    "@angular/core": "~4.3.6",
+    "@angular/forms": "~4.3.6",
+    "@angular/http": "~4.3.6",
+    "@angular/material": "2.0.0-beta.10",
+    "@angular/platform-browser": "~4.3.6",
+    "@compodoc/compodoc": "^1.0.1",
+    "codelyzer": "^3.2.0",
+    "ng-packagr": "^1.1.0",
+    "rxjs": "^5.4.3",
+    "rxjs-tslint-rules": "^2.1.6",
+    "sass-lint": "^1.11.1",
+    "tslint": "^5.7.0",
     "tslint-microsoft-contrib": "^5.0.1",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.17"
   }
 }
