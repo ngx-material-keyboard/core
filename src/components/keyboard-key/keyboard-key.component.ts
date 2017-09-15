@@ -22,7 +22,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   @Input() input?: ElementRef;
 
-  @Input() ngControl?: NgControl;
+  @Input() ngControl: NgControl;
 
   @Output() altClick = new EventEmitter<void>();
 
@@ -69,24 +69,6 @@ export class MdKeyboardKeyComponent implements OnInit {
     return classes.join(' ');
   }
 
-  get inputValue(): string {
-    if (this.ngControl) {
-      return this.ngControl.value;
-    } else if (this.input) {
-      return this.input.nativeElement.value;
-    } else {
-      return '';
-    }
-  }
-
-  set inputValue(inputValue: string) {
-    if (this.ngControl) {
-      this.ngControl.control.setValue(inputValue, { onlySelf: false, emitEvent: true });
-    } else if (this.input) {
-      this.input.nativeElement.value = this.inputValue;
-    }
-  }
-
   // Inject dependencies
   constructor(@Inject(MD_KEYBOARD_DEADKEYS) private _deadkeys,
               @Inject(MD_KEYBOARD_ICONS) private _icons) {
@@ -112,7 +94,7 @@ export class MdKeyboardKeyComponent implements OnInit {
     this._triggerKeyEvent();
 
     // Manipulate the focused input / textarea value
-    const value = this.inputValue;
+    const value = this.input ? this.ngControl.value : '';
     const caret = this.input ? this._getCursorPosition() : 0;
     let char: string;
 
@@ -126,7 +108,7 @@ export class MdKeyboardKeyComponent implements OnInit {
         break;
 
       case 'Bksp':
-        this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
+        this.ngControl.control.setValue([value.slice(0, caret - 1), value.slice(caret)].join(''), { onlySelf: false, emitEvent: true });
         this._setCursorPosition(caret - 1);
         break;
 
@@ -156,7 +138,7 @@ export class MdKeyboardKeyComponent implements OnInit {
     }
 
     if (char && this.input) {
-      this.inputValue = [value.slice(0, caret), char, value.slice(caret)].join('');
+      this.ngControl.control.setValue([value.slice(0, caret), char, value.slice(caret)].join(''), { onlySelf: false, emitEvent: true });
       this._setCursorPosition(caret + 1);
     }
   }
@@ -211,7 +193,7 @@ export class MdKeyboardKeyComponent implements OnInit {
       return;
     }
 
-    this.inputValue = this.ngControl.value;
+    this.ngControl.control.setValue(this.ngControl.value, { onlySelf: false, emitEvent: true });
     // ^ this is used to not only get "focus", but
     // to make sure we don't have it everything -selected-
     // (it causes an issue in chrome, and having it doesn't hurt any other browser)

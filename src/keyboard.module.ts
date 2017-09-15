@@ -53,4 +53,5 @@ import { MdKeyboardService } from './services/keyboard.service';
     { provide: MD_KEYBOARD_LAYOUTS, useValue: keyboardLayouts }
   ]
 })
-export class MdKeyboardModule {}
+export class MdKeyboardModule {
+}
