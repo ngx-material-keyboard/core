@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { NgControl } from '@angular/forms';
 import { KeyboardKeyClass } from '../../enums/keyboard-key-class.enum';
 import { MD_KEYBOARD_DEADKEYS } from '../../configs/keyboard-deadkey.config';
 import { MD_KEYBOARD_ICONS } from '../../configs/keyboard-icons.config';
-import { NgControl } from '@angular/forms';
 
 @Component({
   selector: 'md-keyboard-key',
