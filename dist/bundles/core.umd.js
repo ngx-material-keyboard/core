@@ -35512,6 +35512,8 @@ MdKeyboardModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
                     common.CommonModule,
+                    forms.FormsModule,
+                    forms.ReactiveFormsModule,
                     OverlayModule,
                     PortalModule,
                     MdButtonModule,

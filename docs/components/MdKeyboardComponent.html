@@ -1274,13 +1274,13 @@ This should only be used internally by the keyboard service.</p>
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, LOCALE_ID, OnInit } from &#x27;@angular/core&#x27;;
+import { NgControl } from &#x27;@angular/forms&#x27;;
 import { Observable } from &#x27;rxjs/Observable&#x27;;
 import { AsyncSubject } from &#x27;rxjs/AsyncSubject&#x27;;
 import { IKeyboardLayout } from &#x27;../../configs/keyboard-layouts.config&#x27;;
 import { KeyboardModifier } from &#x27;../../enums/keyboard-modifier.enum&#x27;;
 import { MdKeyboardRef } from &#x27;../../utils/keyboard-ref.class&#x27;;
 import { MdKeyboardService } from &#x27;../../services/keyboard.service&#x27;;
-import { NgControl } from &#x27;@angular/forms&#x27;;
 
 /**
  * A component used to open as the default keyboard, matching material spec.

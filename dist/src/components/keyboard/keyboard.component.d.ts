@@ -1,10 +1,10 @@
 import { ElementRef, OnInit } from '@angular/core';
+import { NgControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
 import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
 import { MdKeyboardRef } from '../../utils/keyboard-ref.class';
 import { MdKeyboardService } from '../../services/keyboard.service';
-import { NgControl } from '@angular/forms';
 /**
  * A component used to open as the default keyboard, matching material spec.
  * This should only be used internally by the keyboard service.

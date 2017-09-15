@@ -29,7 +29,7 @@ import { Subscription as Subscription$1 } from 'rxjs/Subscription';
 import { fromEvent as fromEvent$1 } from 'rxjs/observable/fromEvent';
 import { merge as merge$1 } from 'rxjs/observable/merge';
 import { of as of$1 } from 'rxjs/observable/of';
-import { CheckboxRequiredValidator, FormGroupDirective, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl, NgForm, Validators } from '@angular/forms';
+import { CheckboxRequiredValidator, FormGroupDirective, FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Http } from '@angular/http';
 import { Observable as Observable$1 } from 'rxjs/Observable';
@@ -35535,6 +35535,8 @@ MdKeyboardModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     CommonModule,
+                    FormsModule,
+                    ReactiveFormsModule,
                     OverlayModule,
                     PortalModule,
                     MdButtonModule,
