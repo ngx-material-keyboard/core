@@ -34204,6 +34204,13 @@ keyboardLayouts['Srpski'] = {
     'keys': keyboardLayouts['Bosanski'].keys.slice(0),
     'lang': ['sr']
 };
+var KeyboardState = {};
+KeyboardState.Void = 0;
+KeyboardState.Visible = 1;
+KeyboardState.Hidden = 2;
+KeyboardState[KeyboardState.Void] = "Void";
+KeyboardState[KeyboardState.Visible] = "Visible";
+KeyboardState[KeyboardState.Hidden] = "Hidden";
 /**
  * Error that is thrown when attempting to attach a keyboard that is already attached.
  * \@docs-private
@@ -34249,7 +34256,7 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
         /**
          * The state of the keyboard animations.
          */
-        _this._animationState = 'initial';
+        _this._animationState = KeyboardState.Visible;
         /**
          * Whether the component has been destroyed.
          */
@@ -34281,10 +34288,10 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     MdKeyboardContainerComponent.prototype.onAnimationEnd = function (event) {
-        if (event.toState === 'void' || event.toState.startsWith('hidden')) {
+        if (event.toState === "" + KeyboardState.Hidden || event.toState === "" + KeyboardState.Hidden) {
             this._completeExit();
         }
-        if (event.toState.startsWith('visible')) {
+        if (event.toState === "" + KeyboardState.Visible) {
             // Note: we shouldn't use `this` inside the zone callback,
             // because it can cause a memory leak.
             var /** @type {?} */ onEnter_2 = this.onEnter;
@@ -34300,7 +34307,7 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
      */
     MdKeyboardContainerComponent.prototype.enter = function () {
         if (!this._destroyed) {
-            this._animationState = 'visible';
+            this._animationState = KeyboardState.Visible;
             this._changeDetectorRef.detectChanges();
         }
     };
@@ -34309,7 +34316,7 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     MdKeyboardContainerComponent.prototype._onEnter = function () {
-        this._animationState = 'visible';
+        this._animationState = KeyboardState.Visible;
         return this.onEnter.asObservable();
     };
     /**
@@ -34317,7 +34324,7 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     MdKeyboardContainerComponent.prototype.exit = function () {
-        this._animationState = 'complete';
+        this._animationState = KeyboardState.Hidden;
         return this._onExit();
     };
     /**
@@ -34332,6 +34339,7 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     MdKeyboardContainerComponent.prototype.ngOnDestroy = function () {
+        this._destroyed = true;
         this._completeExit();
     };
     /**
@@ -34343,7 +34351,7 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
         // Note: we shouldn't use `this` inside the zone callback,
         // because it can cause a memory leak.
         var /** @type {?} */ onExit = this.onExit;
-        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
+        first$1$1.call(this._ngZone.onMicrotaskEmpty.asObservable()).subscribe(function () {
             onExit.next();
             onExit.complete();
         });
@@ -34357,11 +34365,10 @@ MdKeyboardContainerComponent.decorators = [
                 styles: ["\n    /**\n     * Applies styles for users in high contrast mode. Note that this only applies\n     * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n     * attribute, however Chrome handles high contrast differently.\n     */\n    /* Theme for the ripple elements.*/\n    /** The mixins below are shared between md-menu and md-select */\n    /**\n     * This mixin adds the correct panel transform styles based\n     * on the direction that the menu panel opens.\n     */\n    /* stylelint-disable material/no-prefixes */\n    /* stylelint-enable */\n    /**\n     * This mixin contains shared option styles between the select and\n     * autocomplete components.\n     */\n    :host {\n      -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n              box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n      background-color: whitesmoke;\n      border-radius: 2px;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      display: block;\n      margin: 0 auto;\n      max-width: 960px;\n      min-width: 568px;\n      padding: 14px 24px;\n      -webkit-transform: translateY(100%);\n              transform: translateY(100%); }\n      @media screen and (-ms-high-contrast: active) {\n        :host {\n          border: solid 1px; } }\n      :host.dark-theme {\n        background-color: #424242; }\n  "],
                 animations: [
                     animations.trigger('state', [
-                        animations.state('initial', animations.style({ transform: 'translateY(100%)' })),
-                        animations.state('visible', animations.style({ transform: 'translateY(0%)' })),
-                        animations.state('complete', animations.style({ transform: 'translateY(100%)' })),
-                        animations.transition('visible => complete', animations.animate(HIDE_ANIMATION$1)),
-                        animations.transition('initial => visible, void => visible', animations.animate(SHOW_ANIMATION$1))
+                        animations.state("" + KeyboardState.Visible, animations.style({ transform: 'translateY(0%)' })),
+                        animations.state("" + KeyboardState.Hidden, animations.style({ transform: 'translateY(100%)' })),
+                        animations.transition(KeyboardState.Visible + " => " + KeyboardState.Hidden, animations.animate(HIDE_ANIMATION$1)),
+                        animations.transition(KeyboardState.Void + " => " + KeyboardState.Visible, animations.animate(SHOW_ANIMATION$1))
                     ])
                 ]
             },] },
@@ -35596,6 +35603,7 @@ exports.MD_KEYBOARD_LAYOUTS = MD_KEYBOARD_LAYOUTS;
 exports.MdKeyboardDirective = MdKeyboardDirective;
 exports.KeyboardKeyClass = KeyboardKeyClass;
 exports.KeyboardModifier = KeyboardModifier;
+exports.KeyboardState = KeyboardState;
 exports.KebabCasePipe = KebabCasePipe;
 exports.MdKeyboardService = MdKeyboardService;
 exports.throwContentAlreadyAttached = throwContentAlreadyAttached;
@@ -35603,16 +35611,17 @@ exports.throwLayoutNotFound = throwLayoutNotFound;
 exports.MdKeyboardRef = MdKeyboardRef;
 exports.MdKeyboardModule = MdKeyboardModule;
 exports.ɵe = MdKeyboardContainerComponent;
-exports.ɵf = MdKeyboardKeyComponent;
+exports.ɵg = MdKeyboardKeyComponent;
 exports.ɵa = MdKeyboardComponent;
-exports.ɵg = MD_KEYBOARD_DEADKEYS;
-exports.ɵh = keyboardDeadkeys;
-exports.ɵi = MD_KEYBOARD_ICONS;
-exports.ɵj = keyboardIcons;
+exports.ɵh = MD_KEYBOARD_DEADKEYS;
+exports.ɵi = keyboardDeadkeys;
+exports.ɵj = MD_KEYBOARD_ICONS;
+exports.ɵk = keyboardIcons;
 exports.ɵc = MD_KEYBOARD_LAYOUTS;
 exports.ɵd = keyboardLayouts;
-exports.ɵk = MdKeyboardDirective;
-exports.ɵl = KebabCasePipe;
+exports.ɵl = MdKeyboardDirective;
+exports.ɵf = KeyboardState;
+exports.ɵm = KebabCasePipe;
 exports.ɵb = MdKeyboardService;
 
 Object.defineProperty(exports, '__esModule', { value: true });

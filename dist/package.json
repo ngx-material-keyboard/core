@@ -13,8 +13,7 @@
     "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs --serve --open --watch --port 4191",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint \"./src/**/*.ts\" --type-check --config ./tslint.json --project ./tsconfig.json",
-    "lint:sass": "sass-lint --verbose --no-exit --config ./.sass-lint.yml",
-    "publish": "npm run build && npm publish"
+    "lint:sass": "sass-lint --verbose --no-exit --config ./.sass-lint.yml"
   },
   "repository": {
     "type": "git",
