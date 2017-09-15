@@ -1,6 +1,6 @@
 {
   "name": "@ngx-material-keyboard/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Onscreen virtual keyboard for Angular ≥ 2 (https://angular.io/) using Material 2 (https://material.angular.io/).",
   "main": "./dist/bundles/core.umd.js",
   "module": "./dist/@ngx-material-keyboard/core.es5.js",
@@ -13,8 +13,7 @@
     "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs --serve --open --watch --port 4191",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint \"./src/**/*.ts\" --type-check --config ./tslint.json --project ./tsconfig.json",
-    "lint:sass": "sass-lint --verbose --no-exit --config ./.sass-lint.yml",
-    "publish": "npm run build && npm publish"
+    "lint:sass": "sass-lint --verbose --no-exit --config ./.sass-lint.yml"
   },
   "repository": {
     "type": "git",

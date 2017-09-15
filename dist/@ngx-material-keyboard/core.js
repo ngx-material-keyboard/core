@@ -33922,6 +33922,14 @@ keyboardLayouts['Srpski'] = {
     'lang': ['sr']
 };
 
+let KeyboardState = {};
+KeyboardState.Void = 0;
+KeyboardState.Visible = 1;
+KeyboardState.Hidden = 2;
+KeyboardState[KeyboardState.Void] = "Void";
+KeyboardState[KeyboardState.Visible] = "Visible";
+KeyboardState[KeyboardState.Hidden] = "Hidden";
+
 /**
  * Error that is thrown when attempting to attach a keyboard that is already attached.
  * \@docs-private
@@ -33967,7 +33975,7 @@ class MdKeyboardContainerComponent extends BasePortalHost {
         /**
          * The state of the keyboard animations.
          */
-        this._animationState = 'initial';
+        this._animationState = KeyboardState.Visible;
         /**
          * Whether the component has been destroyed.
          */
@@ -33998,10 +34006,10 @@ class MdKeyboardContainerComponent extends BasePortalHost {
      * @return {?}
      */
     onAnimationEnd(event) {
-        if (event.toState === 'void' || event.toState.startsWith('hidden')) {
+        if (event.toState === `${KeyboardState.Hidden}` || event.toState === `${KeyboardState.Hidden}`) {
             this._completeExit();
         }
-        if (event.toState.startsWith('visible')) {
+        if (event.toState === `${KeyboardState.Visible}`) {
             // Note: we shouldn't use `this` inside the zone callback,
             // because it can cause a memory leak.
             const /** @type {?} */ onEnter = this.onEnter;
@@ -34017,7 +34025,7 @@ class MdKeyboardContainerComponent extends BasePortalHost {
      */
     enter() {
         if (!this._destroyed) {
-            this._animationState = 'visible';
+            this._animationState = KeyboardState.Visible;
             this._changeDetectorRef.detectChanges();
         }
     }
@@ -34026,7 +34034,7 @@ class MdKeyboardContainerComponent extends BasePortalHost {
      * @return {?}
      */
     _onEnter() {
-        this._animationState = 'visible';
+        this._animationState = KeyboardState.Visible;
         return this.onEnter.asObservable();
     }
     /**
@@ -34034,7 +34042,7 @@ class MdKeyboardContainerComponent extends BasePortalHost {
      * @return {?}
      */
     exit() {
-        this._animationState = 'complete';
+        this._animationState = KeyboardState.Hidden;
         return this._onExit();
     }
     /**
@@ -34049,6 +34057,7 @@ class MdKeyboardContainerComponent extends BasePortalHost {
      * @return {?}
      */
     ngOnDestroy() {
+        this._destroyed = true;
         this._completeExit();
     }
     /**
@@ -34060,7 +34069,7 @@ class MdKeyboardContainerComponent extends BasePortalHost {
         // Note: we shouldn't use `this` inside the zone callback,
         // because it can cause a memory leak.
         const /** @type {?} */ onExit = this.onExit;
-        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(() => {
+        first$1$1.call(this._ngZone.onMicrotaskEmpty.asObservable()).subscribe(() => {
             onExit.next();
             onExit.complete();
         });
@@ -34112,11 +34121,10 @@ MdKeyboardContainerComponent.decorators = [
   `],
                 animations: [
                     trigger('state', [
-                        state('initial', style({ transform: 'translateY(100%)' })),
-                        state('visible', style({ transform: 'translateY(0%)' })),
-                        state('complete', style({ transform: 'translateY(100%)' })),
-                        transition('visible => complete', animate(HIDE_ANIMATION$1)),
-                        transition('initial => visible, void => visible', animate(SHOW_ANIMATION$1))
+                        state(`${KeyboardState.Visible}`, style({ transform: 'translateY(0%)' })),
+                        state(`${KeyboardState.Hidden}`, style({ transform: 'translateY(100%)' })),
+                        transition(`${KeyboardState.Visible} => ${KeyboardState.Hidden}`, animate(HIDE_ANIMATION$1)),
+                        transition(`${KeyboardState.Void} => ${KeyboardState.Visible}`, animate(SHOW_ANIMATION$1))
                     ])
                 ]
             },] },
@@ -35459,5 +35467,5 @@ MdKeyboardModule.ctorParameters = () => [];
  * Generated bundle index. Do not edit.
  */
 
-export { MdKeyboardComponent, SHOW_ANIMATION$1 as SHOW_ANIMATION, HIDE_ANIMATION$1 as HIDE_ANIMATION, MdKeyboardContainerComponent, MdKeyboardKeyComponent, MdKeyboardConfig, MD_KEYBOARD_DEADKEYS, keyboardDeadkeys, MD_KEYBOARD_ICONS, keyboardIcons, keyboardLayouts, MD_KEYBOARD_LAYOUTS, MdKeyboardDirective, KeyboardKeyClass, KeyboardModifier, KebabCasePipe, MdKeyboardService, throwContentAlreadyAttached, throwLayoutNotFound, MdKeyboardRef, MdKeyboardModule, MdKeyboardContainerComponent as ɵe, MdKeyboardKeyComponent as ɵf, MdKeyboardComponent as ɵa, MD_KEYBOARD_DEADKEYS as ɵg, keyboardDeadkeys as ɵh, MD_KEYBOARD_ICONS as ɵi, keyboardIcons as ɵj, MD_KEYBOARD_LAYOUTS as ɵc, keyboardLayouts as ɵd, MdKeyboardDirective as ɵk, KebabCasePipe as ɵl, MdKeyboardService as ɵb };
+export { MdKeyboardComponent, SHOW_ANIMATION$1 as SHOW_ANIMATION, HIDE_ANIMATION$1 as HIDE_ANIMATION, MdKeyboardContainerComponent, MdKeyboardKeyComponent, MdKeyboardConfig, MD_KEYBOARD_DEADKEYS, keyboardDeadkeys, MD_KEYBOARD_ICONS, keyboardIcons, keyboardLayouts, MD_KEYBOARD_LAYOUTS, MdKeyboardDirective, KeyboardKeyClass, KeyboardModifier, KeyboardState, KebabCasePipe, MdKeyboardService, throwContentAlreadyAttached, throwLayoutNotFound, MdKeyboardRef, MdKeyboardModule, MdKeyboardContainerComponent as ɵe, MdKeyboardKeyComponent as ɵg, MdKeyboardComponent as ɵa, MD_KEYBOARD_DEADKEYS as ɵh, keyboardDeadkeys as ɵi, MD_KEYBOARD_ICONS as ɵj, keyboardIcons as ɵk, MD_KEYBOARD_LAYOUTS as ɵc, keyboardLayouts as ɵd, MdKeyboardDirective as ɵl, KeyboardState as ɵf, KebabCasePipe as ɵm, MdKeyboardService as ɵb };
 //# sourceMappingURL=core.js.map
