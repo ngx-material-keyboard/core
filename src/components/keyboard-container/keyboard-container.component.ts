@@ -5,10 +5,9 @@ import { ChangeDetectorRef, Component, ComponentRef, EmbeddedViewRef, HostBindin
 import { BasePortalHost, ComponentPortal, PortalHostDirective } from '@angular/cdk/portal';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { KeyboardState } from '../../enums/keyboard-state.enum';
 import { throwContentAlreadyAttached } from '../../utils/keyboard-errors';
 import { MdKeyboardConfig } from '../../configs/keyboard.config';
-
-export type KeyboardState = 'initial' | 'visible' | 'complete' | 'void';
 
 // TODO(jelbourn): we can't use constants from animation.ts here because you can't use
 // a text interpolation in anything that is analyzed statically with ngc (for AoT compile).
@@ -25,11 +24,10 @@ export const HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
   styleUrls: ['./keyboard-container.component.scss'],
   animations: [
     trigger('state', [
-      state('initial', style({ transform: 'translateY(100%)' })),
-      state('visible', style({ transform: 'translateY(0%)' })),
-      state('complete', style({ transform: 'translateY(100%)' })),
-      transition('visible => complete', animate(HIDE_ANIMATION)),
-      transition('initial => visible, void => visible', animate(SHOW_ANIMATION))
+      state(`${KeyboardState.Visible}`, style({ transform: 'translateY(0%)' })),
+      state(`${KeyboardState.Hidden}`, style({ transform: 'translateY(100%)' })),
+      transition(`${KeyboardState.Visible} => ${KeyboardState.Hidden}`, animate(HIDE_ANIMATION)),
+      transition(`${KeyboardState.Void} => ${KeyboardState.Visible}`, animate(SHOW_ANIMATION))
     ])
   ]
 })
@@ -54,7 +52,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
 
   /** The state of the keyboard animations. */
   @HostBinding('@state')
-  private _animationState: KeyboardState = 'initial';
+  private _animationState: KeyboardState = KeyboardState.Visible;
 
   /** Whether the component has been destroyed. */
   private _destroyed = false;
@@ -81,11 +79,11 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   /** Handle end of animations, updating the state of the keyboard. */
   @HostListener('@state.done', ['$event'])
   onAnimationEnd(event: AnimationEvent) {
-    if (event.toState === 'void' || event.toState.startsWith('hidden')) {
+    if (event.toState === `${KeyboardState.Hidden}` || event.toState === `${KeyboardState.Hidden}`) {
       this._completeExit();
     }
 
-    if (event.toState.startsWith('visible')) {
+    if (event.toState === `${KeyboardState.Visible}`) {
       // Note: we shouldn't use `this` inside the zone callback,
       // because it can cause a memory leak.
       const onEnter = this.onEnter;
@@ -100,20 +98,20 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   /** Begin animation of keyboard entrance into view. */
   enter(): void {
     if (!this._destroyed) {
-      this._animationState = 'visible';
+      this._animationState = KeyboardState.Visible;
       this._changeDetectorRef.detectChanges();
     }
   }
 
   /** Returns an observable resolving when the enter animation completes.  */
   _onEnter(): Observable<void> {
-    this._animationState = 'visible';
+    this._animationState = KeyboardState.Visible;
     return this.onEnter.asObservable();
   }
 
   /** Begin animation of the keyboard exiting from view. */
   exit(): Observable<void> {
-    this._animationState = 'complete';
+    this._animationState = KeyboardState.Hidden;
     return this._onExit();
   }
 
@@ -126,6 +124,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
    * Makes sure the exit callbacks have been invoked when the element is destroyed.
    */
   ngOnDestroy() {
+    this._destroyed = true;
     this._completeExit();
   }
 
@@ -138,7 +137,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     // because it can cause a memory leak.
     const onExit = this.onExit;
 
-    first.call(this._ngZone.onMicrotaskEmpty).subscribe(() => {
+    first.call(this._ngZone.onMicrotaskEmpty.asObservable()).subscribe(() => {
       onExit.next();
       onExit.complete();
     });
