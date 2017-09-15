@@ -1397,7 +1397,7 @@ export class MdKeyboardComponent implements OnInit {
         [key]&#x3D;&quot;key[modifier]&quot;
         [active]&#x3D;&quot;isActive(key[modifier])&quot;
         [input]&#x3D;&quot;inputInstance | async&quot;
-        [control]&#x3D;&quot;mdInput&quot;
+        [control]&#x3D;&quot;control&quot;
         (altClick)&#x3D;&quot;onAltClick()&quot;
         (capsClick)&#x3D;&quot;onCapsClick()&quot;
         (shiftClick)&#x3D;&quot;onShiftClick()&quot;
@@ -1440,7 +1440,7 @@ export class MdKeyboardComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav class="mat-keyboard-layout">  <div    class="mat-keyboard-row"    *ngFor="let row of layout.keys"  >    <ng-container *ngFor="let key of row">      <md-keyboard-key        class="mat-keyboard-col"        *ngIf="key[modifier]"        [key]="key[modifier]"        [active]="isActive(key[modifier])"        [input]="inputInstance | async"        [control]="mdInput"        (altClick)="onAltClick()"        (capsClick)="onCapsClick()"        (shiftClick)="onShiftClick()"      ></md-keyboard-key>    </ng-container>  </div></nav><button  md-icon-button  class="mat-keyboard-action"  *ngIf="hasAction"  (click)="dismiss()">  <md-icon>close</md-icon></button></div>'
+        var COMPONENT_TEMPLATE = '<div><nav class="mat-keyboard-layout">  <div    class="mat-keyboard-row"    *ngFor="let row of layout.keys"  >    <ng-container *ngFor="let key of row">      <md-keyboard-key        class="mat-keyboard-col"        *ngIf="key[modifier]"        [key]="key[modifier]"        [active]="isActive(key[modifier])"        [input]="inputInstance | async"        [control]="control"        (altClick)="onAltClick()"        (capsClick)="onCapsClick()"        (shiftClick)="onShiftClick()"      ></md-keyboard-key>    </ng-container>  </div></nav><button  md-icon-button  class="mat-keyboard-action"  *ngIf="hasAction"  (click)="dismiss()">  <md-icon>close</md-icon></button></div>'
     var COMPONENTS = [{'name': 'MdKeyboardComponent', 'selector': 'md-keyboard'},{'name': 'MdKeyboardContainerComponent', 'selector': 'md-keyboard-container'},{'name': 'MdKeyboardKeyComponent', 'selector': 'md-keyboard-key'}];
     var DIRECTIVES = [{'name': 'MdKeyboardDirective', 'selector': 'input[mdKeyboard], textarea[mdKeyboard], input[matKeyboard], textarea[matKeyboard]'}];
     var ACTUAL_COMPONENT = {'name': 'MdKeyboardComponent'};

@@ -619,13 +619,13 @@
                                 <a href="#active">active</a>
                             </li>
                             <li>
+                                <a href="#control">control</a>
+                            </li>
+                            <li>
                                 <a href="#input">input</a>
                             </li>
                             <li>
                                 <a href="#key">key</a>
-                            </li>
-                            <li>
-                                <a href="#mdInput">mdInput</a>
                             </li>
                         </ul>
                     </td>
@@ -665,7 +665,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:78</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:88</a></div>
                                 </td>
                             </tr>
     
@@ -735,6 +735,27 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <a name="control"></a>
+                            <code>control</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>MdInput</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:25</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
                             <a name="input"></a>
                             <code>input</code>
                         </td>
@@ -769,27 +790,6 @@
                             <tr>
                                 <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:19</a></div>
-                                </td>
-                            </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <a name="mdInput"></a>
-                            <code>mdInput</code>
-                        </td>
-                        <td class="col-md-10">
-                              <p>
-                                <em>Type:</em>    <code>MdInput</code>
-
-                              </p>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:25</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -881,7 +881,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:97</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:107</a></div>
                                 </td>
                             </tr>
     
@@ -913,7 +913,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:93</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:103</a></div>
                                 </td>
                             </tr>
     
@@ -1225,7 +1225,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   @Input() input?: ElementRef;
 
-  @Input() mdInput: MdInput;
+  @Input() control?: MdInput;
 
   @Output() altClick &#x3D; new EventEmitter&lt;void&gt;();
 
@@ -1273,11 +1273,21 @@ export class MdKeyboardKeyComponent implements OnInit {
   }
 
   get inputValue(): string {
-    return this.mdInput.value;
+    if (this.control) {
+      return this.control.value;
+    } else if (this.input) {
+      return this.input.nativeElement.value;
+    } else {
+      return &#x27;&#x27;;
+    }
   }
 
   set inputValue(inputValue: string) {
-    this.mdInput.value &#x3D; inputValue;
+    if (this.control) {
+      this.control.value &#x3D; inputValue;
+    } else if (this.input) {
+      this.input.nativeElement.value &#x3D; inputValue;
+    }
   }
 
   // Inject dependencies
@@ -1389,7 +1399,7 @@ export class MdKeyboardKeyComponent implements OnInit {
       this.input.nativeElement.focus();
       const sel &#x3D; window.document[&#x27;selection&#x27;].createRange();
       const selLen &#x3D; window.document[&#x27;selection&#x27;].createRange().text.length;
-      sel.moveStart(&#x27;character&#x27;, -this.mdInput.value.length);
+      sel.moveStart(&#x27;character&#x27;, -this.control.value.length);
 
       return sel.text.length - selLen;
     }
@@ -1402,7 +1412,7 @@ export class MdKeyboardKeyComponent implements OnInit {
       return;
     }
 
-    this.inputValue &#x3D; this.mdInput.value;
+    this.inputValue &#x3D; this.control.value;
     // ^ this is used to not only get &quot;focus&quot;, but
     // to make sure we don&#x27;t have it everything -selected-
     // (it causes an issue in chrome, and having it doesn&#x27;t hurt any other browser)

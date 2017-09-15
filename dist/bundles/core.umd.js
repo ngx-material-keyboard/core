@@ -34918,7 +34918,7 @@ var MdKeyboardComponent = /** @class */ (function () {
 MdKeyboardComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'md-keyboard',
-                template: "\n    <nav class=\"mat-keyboard-layout\">\n      <div\n        class=\"mat-keyboard-row\"\n        *ngFor=\"let row of layout.keys\"\n      >\n        <ng-container *ngFor=\"let key of row\">\n          <md-keyboard-key\n            class=\"mat-keyboard-col\"\n            *ngIf=\"key[modifier]\"\n            [key]=\"key[modifier]\"\n            [active]=\"isActive(key[modifier])\"\n            [input]=\"inputInstance | async\"\n            [control]=\"mdInput\"\n            (altClick)=\"onAltClick()\"\n            (capsClick)=\"onCapsClick()\"\n            (shiftClick)=\"onShiftClick()\"\n          ></md-keyboard-key>\n        </ng-container>\n      </div>\n    </nav>\n\n    <button\n      md-icon-button\n      class=\"mat-keyboard-action\"\n      *ngIf=\"hasAction\"\n      (click)=\"dismiss()\"\n    >\n      <md-icon>close</md-icon>\n    </button>\n  ",
+                template: "\n    <nav class=\"mat-keyboard-layout\">\n      <div\n        class=\"mat-keyboard-row\"\n        *ngFor=\"let row of layout.keys\"\n      >\n        <ng-container *ngFor=\"let key of row\">\n          <md-keyboard-key\n            class=\"mat-keyboard-col\"\n            *ngIf=\"key[modifier]\"\n            [key]=\"key[modifier]\"\n            [active]=\"isActive(key[modifier])\"\n            [input]=\"inputInstance | async\"\n            [control]=\"control\"\n            (altClick)=\"onAltClick()\"\n            (capsClick)=\"onCapsClick()\"\n            (shiftClick)=\"onShiftClick()\"\n          ></md-keyboard-key>\n        </ng-container>\n      </div>\n    </nav>\n\n    <button\n      md-icon-button\n      class=\"mat-keyboard-action\"\n      *ngIf=\"hasAction\"\n      (click)=\"dismiss()\"\n    >\n      <md-icon>close</md-icon>\n    </button>\n  ",
                 styles: ["\n    /**\n     * Applies styles for users in high contrast mode. Note that this only applies\n     * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n     * attribute, however Chrome handles high contrast differently.\n     */\n    /* Theme for the ripple elements.*/\n    /** The mixins below are shared between md-menu and md-select */\n    /**\n     * This mixin adds the correct panel transform styles based\n     * on the direction that the menu panel opens.\n     */\n    /* stylelint-disable material/no-prefixes */\n    /* stylelint-enable */\n    /**\n     * This mixin contains shared option styles between the select and\n     * autocomplete components.\n     */\n    :host {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      font-family: Roboto, \"Helvetica Neue\", sans-serif;\n      font-size: 14px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      line-height: 20px; }\n\n    .mat-keyboard-action {\n      background: none;\n      color: inherit;\n      -ms-flex-negative: 0;\n          flex-shrink: 0;\n      font-family: inherit;\n      font-size: inherit;\n      font-weight: 600;\n      line-height: 1;\n      margin-left: 8px;\n      text-transform: uppercase; }\n\n    /deep/ .mat-keyboard.dark-theme .mat-keyboard-action {\n      color: whitesmoke; }\n\n    .mat-keyboard-layout {\n      width: 100%; }\n\n    .mat-keyboard-row {\n      -webkit-box-align: stretch;\n          -ms-flex-align: stretch;\n              align-items: stretch;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -ms-flex-wrap: nowrap;\n          flex-wrap: nowrap; }\n\n    .mat-keyboard-col {\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 auto;\n              flex: 1 1 auto;\n      padding: 4px; }\n\n    .mat-keyboard-key {\n      min-width: 0;\n      width: 100%; }\n\n    /deep/ .mat-keyboard.dark-theme .mat-keyboard-key {\n      background-color: #616161;\n      color: whitesmoke; }\n\n    /deep/ .mat-keyboard.debug .mat-keyboard-key-deadkey {\n      background-color: cadetblue; }\n\n    /deep/ .mat-keyboard.debug .mat-keyboard-key-modifier {\n      background-color: aquamarine; }\n\n    /deep/ .mat-keyboard.debug.dark-theme .mat-keyboard-key-deadkey {\n      background-color: rebeccapurple; }\n\n    /deep/ .mat-keyboard.debug.dark-theme .mat-keyboard-key-modifier {\n      background-color: mediumpurple; }\n  "],
                 changeDetection: core.ChangeDetectionStrategy.OnPush
             },] },
@@ -35268,14 +35268,27 @@ var MdKeyboardKeyComponent = /** @class */ (function () {
          * @return {?}
          */
         get: function () {
-            return this.mdInput.value;
+            if (this.control) {
+                return this.control.value;
+            }
+            else if (this.input) {
+                return this.input.nativeElement.value;
+            }
+            else {
+                return '';
+            }
         },
         /**
          * @param {?} inputValue
          * @return {?}
          */
         set: function (inputValue) {
-            this.mdInput.value = inputValue;
+            if (this.control) {
+                this.control.value = inputValue;
+            }
+            else if (this.input) {
+                this.input.nativeElement.value = inputValue;
+            }
         },
         enumerable: true,
         configurable: true
@@ -35379,7 +35392,7 @@ var MdKeyboardKeyComponent = /** @class */ (function () {
             this.input.nativeElement.focus();
             var /** @type {?} */ sel = window.document['selection'].createRange();
             var /** @type {?} */ selLen = window.document['selection'].createRange().text.length;
-            sel.moveStart('character', -this.mdInput.value.length);
+            sel.moveStart('character', -this.control.value.length);
             return sel.text.length - selLen;
         }
     };
@@ -35391,7 +35404,7 @@ var MdKeyboardKeyComponent = /** @class */ (function () {
         if (!this.input) {
             return;
         }
-        this.inputValue = this.mdInput.value;
+        this.inputValue = this.control.value;
         // ^ this is used to not only get "focus", but
         // to make sure we don't have it everything -selected-
         // (it causes an issue in chrome, and having it doesn't hurt any other browser)
@@ -35435,7 +35448,7 @@ MdKeyboardKeyComponent.propDecorators = {
     'key': [{ type: core.Input },],
     'active': [{ type: core.Input },],
     'input': [{ type: core.Input },],
-    'mdInput': [{ type: core.Input },],
+    'control': [{ type: core.Input },],
     'altClick': [{ type: core.Output },],
     'capsClick': [{ type: core.Output },],
     'shiftClick': [{ type: core.Output },],
@@ -35444,12 +35457,12 @@ var MdKeyboardDirective = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _keyboardService
-     * @param {?} _mdInput
+     * @param {?=} _control
      */
-    function MdKeyboardDirective(_elementRef, _keyboardService, _mdInput) {
+    function MdKeyboardDirective(_elementRef, _keyboardService, _control) {
         this._elementRef = _elementRef;
         this._keyboardService = _keyboardService;
-        this._mdInput = _mdInput;
+        this._control = _control;
     }
     /**
      * @return {?}
@@ -35461,7 +35474,7 @@ var MdKeyboardDirective = /** @class */ (function () {
             hasAction: this.hasAction,
             isDebug: this.isDebug
         });
-        this._keyboardRef.instance.setInputInstance(this._elementRef, this._mdInput);
+        this._keyboardRef.instance.setInputInstance(this._elementRef, this._control);
     };
     /**
      * @return {?}
@@ -35484,7 +35497,7 @@ MdKeyboardDirective.decorators = [
 MdKeyboardDirective.ctorParameters = function () { return [
     { type: core.ElementRef, },
     { type: MdKeyboardService, },
-    { type: MdInput, },
+    { type: MdInput, decorators: [{ type: core.Optional }, { type: core.Self },] },
 ]; };
 MdKeyboardDirective.propDecorators = {
     'mdKeyboard': [{ type: core.Input },],

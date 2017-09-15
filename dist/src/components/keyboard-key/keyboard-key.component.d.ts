@@ -8,7 +8,7 @@ export declare class MdKeyboardKeyComponent implements OnInit {
     key: string;
     active: boolean;
     input?: ElementRef;
-    mdInput: MdInput;
+    control?: MdInput;
     altClick: EventEmitter<void>;
     capsClick: EventEmitter<void>;
     shiftClick: EventEmitter<void>;

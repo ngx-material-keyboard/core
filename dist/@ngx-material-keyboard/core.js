@@ -34650,7 +34650,7 @@ MdKeyboardComponent.decorators = [
             [key]="key[modifier]"
             [active]="isActive(key[modifier])"
             [input]="inputInstance | async"
-            [control]="mdInput"
+            [control]="control"
             (altClick)="onAltClick()"
             (capsClick)="onCapsClick()"
             (shiftClick)="onShiftClick()"
@@ -35078,14 +35078,27 @@ class MdKeyboardKeyComponent {
      * @return {?}
      */
     get inputValue() {
-        return this.mdInput.value;
+        if (this.control) {
+            return this.control.value;
+        }
+        else if (this.input) {
+            return this.input.nativeElement.value;
+        }
+        else {
+            return '';
+        }
     }
     /**
      * @param {?} inputValue
      * @return {?}
      */
     set inputValue(inputValue) {
-        this.mdInput.value = inputValue;
+        if (this.control) {
+            this.control.value = inputValue;
+        }
+        else if (this.input) {
+            this.input.nativeElement.value = inputValue;
+        }
     }
     /**
      * @return {?}
@@ -35186,7 +35199,7 @@ class MdKeyboardKeyComponent {
             this.input.nativeElement.focus();
             const /** @type {?} */ sel = window.document['selection'].createRange();
             const /** @type {?} */ selLen = window.document['selection'].createRange().text.length;
-            sel.moveStart('character', -this.mdInput.value.length);
+            sel.moveStart('character', -this.control.value.length);
             return sel.text.length - selLen;
         }
     }
@@ -35198,7 +35211,7 @@ class MdKeyboardKeyComponent {
         if (!this.input) {
             return;
         }
-        this.inputValue = this.mdInput.value;
+        this.inputValue = this.control.value;
         // ^ this is used to not only get "focus", but
         // to make sure we don't have it everything -selected-
         // (it causes an issue in chrome, and having it doesn't hurt any other browser)
@@ -35305,7 +35318,7 @@ MdKeyboardKeyComponent.propDecorators = {
     'key': [{ type: Input },],
     'active': [{ type: Input },],
     'input': [{ type: Input },],
-    'mdInput': [{ type: Input },],
+    'control': [{ type: Input },],
     'altClick': [{ type: Output },],
     'capsClick': [{ type: Output },],
     'shiftClick': [{ type: Output },],
@@ -35315,12 +35328,12 @@ class MdKeyboardDirective {
     /**
      * @param {?} _elementRef
      * @param {?} _keyboardService
-     * @param {?} _mdInput
+     * @param {?=} _control
      */
-    constructor(_elementRef, _keyboardService, _mdInput) {
+    constructor(_elementRef, _keyboardService, _control) {
         this._elementRef = _elementRef;
         this._keyboardService = _keyboardService;
-        this._mdInput = _mdInput;
+        this._control = _control;
     }
     /**
      * @return {?}
@@ -35332,7 +35345,7 @@ class MdKeyboardDirective {
             hasAction: this.hasAction,
             isDebug: this.isDebug
         });
-        this._keyboardRef.instance.setInputInstance(this._elementRef, this._mdInput);
+        this._keyboardRef.instance.setInputInstance(this._elementRef, this._control);
     }
     /**
      * @return {?}
@@ -35354,7 +35367,7 @@ MdKeyboardDirective.decorators = [
 MdKeyboardDirective.ctorParameters = () => [
     { type: ElementRef, },
     { type: MdKeyboardService, },
-    { type: MdInput, },
+    { type: MdInput, decorators: [{ type: Optional }, { type: Self },] },
 ];
 MdKeyboardDirective.propDecorators = {
     'mdKeyboard': [{ type: Input },],
