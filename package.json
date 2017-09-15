@@ -7,7 +7,8 @@
   "es2015": "./dist/@ngx-material-keyboard/core.js",
   "typings": "./dist/core.d.ts",
   "scripts": {
-    "build": "ng-packagr -p ./ng-package.json",
+    "build": "npm run build:docs && npm run build:dist",
+    "build:dist": "ng-packagr -p ./ng-package.json",
     "build:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs",
     "start:docs": "compodoc ./src -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./docs --serve --open --watch --port 4191",
     "lint": "npm run lint:ts && npm run lint:sass",

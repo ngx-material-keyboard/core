@@ -35511,9 +35511,9 @@ var MdKeyboardModule = /** @class */ (function () {
 MdKeyboardModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
+                    common.CommonModule,
                     OverlayModule,
                     PortalModule,
-                    common.CommonModule,
                     MdButtonModule,
                     MdCommonModule,
                     MdIconModule

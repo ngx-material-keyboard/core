@@ -729,7 +729,10 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
-import { LIVE_ANNOUNCER_PROVIDER, MdButtonModule, MdCommonModule, MdIconModule, OverlayModule, PortalModule } from &#x27;@angular/material&#x27;;
+import { LIVE_ANNOUNCER_PROVIDER } from &#x27;@angular/cdk/a11y&#x27;;
+import { OverlayModule } from &#x27;@angular/cdk/overlay&#x27;;
+import { PortalModule } from &#x27;@angular/cdk/portal&#x27;;
+import { MdButtonModule, MdCommonModule, MdIconModule } from &#x27;@angular/material&#x27;;
 import { MdKeyboardContainerComponent } from &#x27;./components/keyboard-container/keyboard-container.component&#x27;;
 import { MdKeyboardKeyComponent } from &#x27;./components/keyboard-key/keyboard-key.component&#x27;;
 import { MdKeyboardComponent } from &#x27;./components/keyboard/keyboard.component&#x27;;
@@ -742,9 +745,9 @@ import { MdKeyboardService } from &#x27;./services/keyboard.service&#x27;;
 
 @NgModule({
   imports: [
+    CommonModule,
     OverlayModule,
     PortalModule,
-    CommonModule,
     MdButtonModule,
     MdCommonModule,
     MdIconModule
