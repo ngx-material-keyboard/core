@@ -200,10 +200,32 @@
                         </ul>
                     </li>
             
-            
                     <li class="chapter">
-                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
                     </li>
+            
             
             
                     <li class="divider"></li>
@@ -402,10 +424,32 @@
                                </ul>
                            </li>
                    
-                   
                            <li class="chapter">
-                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
                            </li>
+                   
                    
                    
                            <li class="divider"></li>
@@ -457,13 +501,15 @@
 
 
 
+
+
             <section>
                 <h3 id="inputs">Indexable</h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>[locale: string]:    <code>string</code>
+                                    <code>[locale: string]:    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
             </code>
                                 </td>
                             </tr>
@@ -553,12 +599,12 @@ export class MdKeyboardService {
    * @param config Extra configuration for the keyboard.
    */
   private _openFromComponent&lt;T&gt;(component: ComponentType&lt;T&gt;, config?: MdKeyboardConfig): MdKeyboardRef&lt;T&gt; {
-    config &#x3D; _applyConfigDefaults(config);
+    const _config &#x3D; _applyConfigDefaults(config);
     const overlayRef &#x3D; this._createOverlay();
-    const keyboardContainer &#x3D; this._attachKeyboardContainer(overlayRef, config);
+    const keyboardContainer &#x3D; this._attachKeyboardContainer(overlayRef, _config);
     const keyboardRef &#x3D; this._attachKeyboardContent(component, keyboardContainer, overlayRef);
 
-    keyboardContainer.darkTheme &#x3D; config.darkTheme;
+    keyboardContainer.darkTheme &#x3D; _config.darkTheme;
 
     // When the keyboard is dismissed, clear the reference to it.
     keyboardRef.afterDismissed().subscribe(() &#x3D;&gt; {
@@ -587,7 +633,7 @@ export class MdKeyboardService {
     //   });
     // }
 
-    this._live.announce(config.announcementMessage, config.politeness);
+    this._live.announce(_config.announcementMessage, _config.politeness);
     this._openedKeyboardRef &#x3D; keyboardRef;
     return this._openedKeyboardRef;
   }
@@ -598,9 +644,10 @@ export class MdKeyboardService {
    * @param config Additional configuration options for the keyboard.
    */
   open(layoutOrLocale?: string, config: MdKeyboardConfig &#x3D; {}): MdKeyboardRef&lt;MdKeyboardComponent&gt; {
-    const keyboardComponentRef &#x3D; this._openFromComponent&lt;MdKeyboardComponent&gt;(MdKeyboardComponent, config);
-    keyboardComponentRef.instance.keyboardRef &#x3D; keyboardComponentRef;
+    const _config &#x3D; _applyConfigDefaults(config);
+    const keyboardComponentRef &#x3D; this._openFromComponent&lt;MdKeyboardComponent&gt;(MdKeyboardComponent, _config);
 
+    keyboardComponentRef.instance.keyboardRef &#x3D; keyboardComponentRef;
     keyboardComponentRef.darkTheme &#x3D; config.darkTheme;
     keyboardComponentRef.hasAction &#x3D; config.hasAction;
     keyboardComponentRef.isDebug &#x3D; config.isDebug;

@@ -1,8 +1,8 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AnimationEvent } from '@angular/animations/src/animation_event';
-import { first } from '@angular/cdk';
-import { Component, ComponentRef, HostBinding, HostListener, Input, NgZone, OnDestroy, ViewChild } from '@angular/core';
-import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
+import { first } from '@angular/cdk/rxjs';
+import { ChangeDetectorRef, Component, ComponentRef, EmbeddedViewRef, HostBinding, HostListener, Input, NgZone, OnDestroy, ViewChild } from '@angular/core';
+import { BasePortalHost, ComponentPortal, PortalHostDirective } from '@angular/cdk/portal';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { throwContentAlreadyAttached } from '../../utils/keyboard-errors';
@@ -29,9 +29,9 @@ export const HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
       state('visible', style({ transform: 'translateY(0%)' })),
       state('complete', style({ transform: 'translateY(100%)' })),
       transition('visible => complete', animate(HIDE_ANIMATION)),
-      transition('initial => visible, void => visible', animate(SHOW_ANIMATION)),
+      transition('initial => visible, void => visible', animate(SHOW_ANIMATION))
     ])
-  ],
+  ]
 })
 export class MdKeyboardContainerComponent extends BasePortalHost implements OnDestroy {
 
@@ -43,6 +43,9 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   /** The portal host inside of this container into which the keyboard content will be loaded. */
   @ViewChild(PortalHostDirective) _portalHost: PortalHostDirective;
 
+  /** The keyboard configuration. */
+  keyboardConfig: MdKeyboardConfig;
+
   /** Subject for notifying that the keyboard has exited from view. */
   private onExit: Subject<any> = new Subject();
 
@@ -51,12 +54,13 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
 
   /** The state of the keyboard animations. */
   @HostBinding('@state')
-  animationState: KeyboardState = 'initial';
+  private _animationState: KeyboardState = 'initial';
 
-  /** The keyboard configuration. */
-  keyboardConfig: MdKeyboardConfig;
+  /** Whether the component has been destroyed. */
+  private _destroyed = false;
 
-  constructor(private _ngZone: NgZone) {
+  constructor(private _ngZone: NgZone,
+              private _changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
@@ -70,18 +74,18 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   }
 
   /** Attach a template portal as content to this keyboard container. */
-  attachTemplatePortal(portal: TemplatePortal): Map<string, any> {
+  attachTemplatePortal(): EmbeddedViewRef<any> {
     throw Error('Not yet implemented');
   }
 
   /** Handle end of animations, updating the state of the keyboard. */
   @HostListener('@state.done', ['$event'])
   onAnimationEnd(event: AnimationEvent) {
-    if (event.toState === 'void' || event.toState === 'complete') {
+    if (event.toState === 'void' || event.toState.startsWith('hidden')) {
       this._completeExit();
     }
 
-    if (event.toState === 'visible') {
+    if (event.toState.startsWith('visible')) {
       // Note: we shouldn't use `this` inside the zone callback,
       // because it can cause a memory leak.
       const onEnter = this.onEnter;
@@ -95,18 +99,21 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
 
   /** Begin animation of keyboard entrance into view. */
   enter(): void {
-    this.animationState = 'visible';
+    if (!this._destroyed) {
+      this._animationState = 'visible';
+      this._changeDetectorRef.detectChanges();
+    }
   }
 
   /** Returns an observable resolving when the enter animation completes.  */
   _onEnter(): Observable<void> {
-    this.animationState = 'visible';
+    this._animationState = 'visible';
     return this.onEnter.asObservable();
   }
 
   /** Begin animation of the keyboard exiting from view. */
   exit(): Observable<void> {
-    this.animationState = 'complete';
+    this._animationState = 'complete';
     return this._onExit();
   }
 

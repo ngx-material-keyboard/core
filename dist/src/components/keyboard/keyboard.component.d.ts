@@ -1,4 +1,5 @@
 import { ElementRef, OnInit } from '@angular/core';
+import { MdInput } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
 import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
@@ -18,10 +19,11 @@ export declare class MdKeyboardComponent implements OnInit {
     locale?: string;
     layout: IKeyboardLayout;
     modifier: KeyboardModifier;
+    control: MdInput;
     keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
     private _inputInstance$;
     readonly inputInstance: Observable<ElementRef>;
-    setInputInstance(inputInstance: ElementRef): void;
+    setInputInstance(inputInstance: ElementRef, control: MdInput): void;
     constructor(_locale: any, _keyboardService: MdKeyboardService);
     ngOnInit(): void;
     dismiss(): void;
