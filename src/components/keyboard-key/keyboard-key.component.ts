@@ -22,7 +22,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   @Input() input?: ElementRef;
 
-  @Input() mdInput: MdInput;
+  @Input() control?: MdInput;
 
   @Output() altClick = new EventEmitter<void>();
 
@@ -70,11 +70,21 @@ export class MdKeyboardKeyComponent implements OnInit {
   }
 
   get inputValue(): string {
-    return this.mdInput.value;
+    if (this.control) {
+      return this.control.value;
+    } else if (this.input) {
+      return this.input.nativeElement.value;
+    } else {
+      return '';
+    }
   }
 
   set inputValue(inputValue: string) {
-    this.mdInput.value = inputValue;
+    if (this.control) {
+      this.control.value = inputValue;
+    } else if (this.input) {
+      this.input.nativeElement.value = inputValue;
+    }
   }
 
   // Inject dependencies
@@ -186,7 +196,7 @@ export class MdKeyboardKeyComponent implements OnInit {
       this.input.nativeElement.focus();
       const sel = window.document['selection'].createRange();
       const selLen = window.document['selection'].createRange().text.length;
-      sel.moveStart('character', -this.mdInput.value.length);
+      sel.moveStart('character', -this.control.value.length);
 
       return sel.text.length - selLen;
     }
@@ -199,7 +209,7 @@ export class MdKeyboardKeyComponent implements OnInit {
       return;
     }
 
-    this.inputValue = this.mdInput.value;
+    this.inputValue = this.control.value;
     // ^ this is used to not only get "focus", but
     // to make sure we don't have it everything -selected-
     // (it causes an issue in chrome, and having it doesn't hurt any other browser)
