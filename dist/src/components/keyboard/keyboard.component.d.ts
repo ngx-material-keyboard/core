@@ -4,6 +4,7 @@ import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
 import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
 import { MdKeyboardRef } from '../../utils/keyboard-ref.class';
 import { MdKeyboardService } from '../../services/keyboard.service';
+import { NgControl } from '@angular/forms';
 /**
  * A component used to open as the default keyboard, matching material spec.
  * This should only be used internally by the keyboard service.
@@ -18,10 +19,11 @@ export declare class MdKeyboardComponent implements OnInit {
     locale?: string;
     layout: IKeyboardLayout;
     modifier: KeyboardModifier;
+    ngControl: NgControl;
     keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
     private _inputInstance$;
     readonly inputInstance: Observable<ElementRef>;
-    setInputInstance(inputInstance: ElementRef): void;
+    setInputInstance(inputInstance: ElementRef, ngControl: NgControl): void;
     constructor(_locale: any, _keyboardService: MdKeyboardService);
     ngOnInit(): void;
     dismiss(): void;

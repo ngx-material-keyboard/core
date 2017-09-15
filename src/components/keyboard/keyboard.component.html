@@ -8,6 +8,7 @@
         class="mat-keyboard-col"
         *ngIf="key[modifier]"
         [key]="key[modifier]"
+        [ngControl]="ngControl"
         [active]="isActive(key[modifier])"
         [input]="inputInstance | async"
         (altClick)="onAltClick()"

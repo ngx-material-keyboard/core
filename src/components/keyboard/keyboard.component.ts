@@ -5,6 +5,7 @@ import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
 import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
 import { MdKeyboardRef } from '../../utils/keyboard-ref.class';
 import { MdKeyboardService } from '../../services/keyboard.service';
+import { NgControl } from '@angular/forms';
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -33,6 +34,8 @@ export class MdKeyboardComponent implements OnInit {
 
   modifier: KeyboardModifier = KeyboardModifier.None;
 
+  ngControl: NgControl;
+
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
 
@@ -42,7 +45,8 @@ export class MdKeyboardComponent implements OnInit {
     return this._inputInstance$.asObservable();
   }
 
-  setInputInstance(inputInstance: ElementRef) {
+  setInputInstance(inputInstance: ElementRef, ngControl: NgControl) {
+    this.ngControl = ngControl;
     this._inputInstance$.next(inputInstance);
     this._inputInstance$.complete();
   }
