@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LIVE_ANNOUNCER_PROVIDER } from '@angular/cdk/a11y';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
@@ -17,6 +18,8 @@ import { MdKeyboardService } from './services/keyboard.service';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     OverlayModule,
     PortalModule,
     MdButtonModule,

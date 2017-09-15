@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { NgControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
 import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
 import { MdKeyboardRef } from '../../utils/keyboard-ref.class';
 import { MdKeyboardService } from '../../services/keyboard.service';
-import { NgControl } from '@angular/forms';
 
 /**
  * A component used to open as the default keyboard, matching material spec.
