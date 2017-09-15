@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Injector, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
@@ -23,14 +23,13 @@ export class MdKeyboardDirective {
 
   @HostListener('focus', ['$event'])
   private _showKeyboard() {
-    const ngControl = this._injector.get(NgControl);
     this._keyboardRef = this._keyboardService.open(this.mdKeyboard, {
       darkTheme: this.darkTheme,
       duration: this.duration,
       hasAction: this.hasAction,
       isDebug: this.isDebug
     });
-    this._keyboardRef.instance.setInputInstance(this._elementRef, ngControl);
+    this._keyboardRef.instance.setInputInstance(this._elementRef, this._ngControl);
   }
 
   @HostListener('blur', ['$event'])
@@ -42,6 +41,6 @@ export class MdKeyboardDirective {
 
   constructor(private _elementRef: ElementRef,
               private _keyboardService: MdKeyboardService,
-              private _injector: Injector) {}
+              @Optional() private _ngControl: NgControl) {}
 
 }
