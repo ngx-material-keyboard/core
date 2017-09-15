@@ -1,10 +1,10 @@
 import { ElementRef } from '@angular/core';
+import { NgControl } from '@angular/forms';
 import { MdKeyboardService } from '../services/keyboard.service';
-import { NgControl } from "@angular/forms";
 export declare class MdKeyboardDirective {
     private _elementRef;
     private _keyboardService;
-    private ngControl;
+    private _ngControl;
     private _keyboardRef;
     mdKeyboard: string;
     darkTheme: boolean;
@@ -13,5 +13,5 @@ export declare class MdKeyboardDirective {
     isDebug: boolean;
     private _showKeyboard();
     private _hideKeyboard();
-    constructor(_elementRef: ElementRef, _keyboardService: MdKeyboardService, ngControl: NgControl);
+    constructor(_elementRef: ElementRef, _keyboardService: MdKeyboardService, _ngControl: NgControl);
 }

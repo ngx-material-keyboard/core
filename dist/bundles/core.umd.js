@@ -32403,12 +32403,12 @@ var MdKeyboardDirective = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _keyboardService
-     * @param {?} ngControl
+     * @param {?} _ngControl
      */
-    function MdKeyboardDirective(_elementRef, _keyboardService, ngControl) {
+    function MdKeyboardDirective(_elementRef, _keyboardService, _ngControl) {
         this._elementRef = _elementRef;
         this._keyboardService = _keyboardService;
-        this.ngControl = ngControl;
+        this._ngControl = _ngControl;
     }
     /**
      * @return {?}
@@ -32420,7 +32420,7 @@ var MdKeyboardDirective = /** @class */ (function () {
             hasAction: this.hasAction,
             isDebug: this.isDebug
         });
-        this._keyboardRef.instance.setInputInstance(this._elementRef, this.ngControl);
+        this._keyboardRef.instance.setInputInstance(this._elementRef, this._ngControl);
     };
     /**
      * @return {?}
