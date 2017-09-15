@@ -576,6 +576,9 @@
                                  <a href="#icon">icon</a>
                             </li>
                             <li>
+                                 <a href="#inputValue">inputValue</a>
+                            </li>
+                            <li>
                                  <a href="#isClassKey">isClassKey</a>
                             </li>
                             <li>
@@ -622,7 +625,7 @@
                                 <a href="#key">key</a>
                             </li>
                             <li>
-                                <a href="#ngControl">ngControl</a>
+                                <a href="#mdInput">mdInput</a>
                             </li>
                         </ul>
                     </td>
@@ -662,7 +665,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:70</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:78</a></div>
                                 </td>
                             </tr>
     
@@ -774,12 +777,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
-                            <a name="ngControl"></a>
-                            <code>ngControl</code>
+                            <a name="mdInput"></a>
+                            <code>mdInput</code>
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/NgControl-class.html" target="_blank" >NgControl</a></code>
+                                <em>Type:</em>    <code>MdInput</code>
 
                               </p>
                         </td>
@@ -878,7 +881,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:91</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:97</a></div>
                                 </td>
                             </tr>
     
@@ -910,7 +913,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:87</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:93</a></div>
                                 </td>
                             </tr>
     
@@ -1081,6 +1084,35 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <a name="inputValue"></a>
+                            <span class="name"><b> inputValue</b><a href="#inputValue"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>inputValue:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/components/keyboard-key/keyboard-key.component.ts:72</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <a name="isClassKey"></a>
                             <span class="name"><b> isClassKey</b><a href="#isClassKey"><span class="fa fa-link"></span></a></span>
                         </td>
@@ -1170,7 +1202,7 @@
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
-import { NgControl } from &#x27;@angular/forms&#x27;;
+import { MdInput } from &#x27;@angular/material&#x27;;
 import { KeyboardKeyClass } from &#x27;../../enums/keyboard-key-class.enum&#x27;;
 import { MD_KEYBOARD_DEADKEYS } from &#x27;../../configs/keyboard-deadkey.config&#x27;;
 import { MD_KEYBOARD_ICONS } from &#x27;../../configs/keyboard-icons.config&#x27;;
@@ -1193,7 +1225,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   @Input() input?: ElementRef;
 
-  @Input() ngControl: NgControl;
+  @Input() mdInput: MdInput;
 
   @Output() altClick &#x3D; new EventEmitter&lt;void&gt;();
 
@@ -1240,14 +1272,20 @@ export class MdKeyboardKeyComponent implements OnInit {
     return classes.join(&#x27; &#x27;);
   }
 
+  get inputValue(): string {
+    return this.mdInput.value;
+  }
+
+  set inputValue(inputValue: string) {
+    this.mdInput.value &#x3D; inputValue;
+  }
+
   // Inject dependencies
   constructor(@Inject(MD_KEYBOARD_DEADKEYS) private _deadkeys,
               @Inject(MD_KEYBOARD_ICONS) private _icons) {
   }
 
   ngOnInit() {
-    //   console.log(&#x27;configured deadkeys:&#x27;, this._deadkeys);
-
     // read the deadkeys
     this._deadkeyKeys &#x3D; Object.keys(this._deadkeys);
 
@@ -1265,7 +1303,7 @@ export class MdKeyboardKeyComponent implements OnInit {
     this._triggerKeyEvent();
 
     // Manipulate the focused input / textarea value
-    const value &#x3D; this.input ? this.ngControl.value : &#x27;&#x27;;
+    const value &#x3D; this.inputValue;
     const caret &#x3D; this.input ? this._getCursorPosition() : 0;
     let char: string;
 
@@ -1279,7 +1317,7 @@ export class MdKeyboardKeyComponent implements OnInit {
         break;
 
       case &#x27;Bksp&#x27;:
-        this.ngControl.control.setValue([value.slice(0, caret - 1), value.slice(caret)].join(&#x27;&#x27;), { onlySelf: false, emitEvent: true });
+        this.inputValue &#x3D; [value.slice(0, caret - 1), value.slice(caret)].join(&#x27;&#x27;);
         this._setCursorPosition(caret - 1);
         break;
 
@@ -1309,7 +1347,7 @@ export class MdKeyboardKeyComponent implements OnInit {
     }
 
     if (char &amp;&amp; this.input) {
-      this.ngControl.control.setValue([value.slice(0, caret), char, value.slice(caret)].join(&#x27;&#x27;), { onlySelf: false, emitEvent: true });
+      this.inputValue &#x3D; [value.slice(0, caret), char, value.slice(caret)].join(&#x27;&#x27;);
       this._setCursorPosition(caret + 1);
     }
   }
@@ -1351,7 +1389,7 @@ export class MdKeyboardKeyComponent implements OnInit {
       this.input.nativeElement.focus();
       const sel &#x3D; window.document[&#x27;selection&#x27;].createRange();
       const selLen &#x3D; window.document[&#x27;selection&#x27;].createRange().text.length;
-      sel.moveStart(&#x27;character&#x27;, -this.ngControl.value.length);
+      sel.moveStart(&#x27;character&#x27;, -this.mdInput.value.length);
 
       return sel.text.length - selLen;
     }
@@ -1364,7 +1402,7 @@ export class MdKeyboardKeyComponent implements OnInit {
       return;
     }
 
-    this.ngControl.control.setValue(this.ngControl.value, { onlySelf: false, emitEvent: true });
+    this.inputValue &#x3D; this.mdInput.value;
     // ^ this is used to not only get &quot;focus&quot;, but
     // to make sure we don&#x27;t have it everything -selected-
     // (it causes an issue in chrome, and having it doesn&#x27;t hurt any other browser)

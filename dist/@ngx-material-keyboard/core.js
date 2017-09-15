@@ -19,7 +19,7 @@ import { Subscription as Subscription$1 } from 'rxjs/Subscription';
 import { fromEvent as fromEvent$1 } from 'rxjs/observable/fromEvent';
 import { merge as merge$1 } from 'rxjs/observable/merge';
 import { of as of$1 } from 'rxjs/observable/of';
-import { CheckboxRequiredValidator, FormGroupDirective, FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CheckboxRequiredValidator, FormGroupDirective, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl, NgForm, Validators } from '@angular/forms';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Http } from '@angular/http';
 import { Observable as Observable$1 } from 'rxjs/Observable';
@@ -34564,11 +34564,11 @@ class MdKeyboardComponent {
     }
     /**
      * @param {?} inputInstance
-     * @param {?} ngControl
+     * @param {?} control
      * @return {?}
      */
-    setInputInstance(inputInstance, ngControl) {
-        this.ngControl = ngControl;
+    setInputInstance(inputInstance, control) {
+        this.control = control;
         this._inputInstance$.next(inputInstance);
         this._inputInstance$.complete();
     }
@@ -34648,9 +34648,9 @@ MdKeyboardComponent.decorators = [
             class="mat-keyboard-col"
             *ngIf="key[modifier]"
             [key]="key[modifier]"
-            [ngControl]="ngControl"
             [active]="isActive(key[modifier])"
             [input]="inputInstance | async"
+            [control]="mdInput"
             (altClick)="onAltClick()"
             (capsClick)="onCapsClick()"
             (shiftClick)="onShiftClick()"
@@ -35077,8 +35077,20 @@ class MdKeyboardKeyComponent {
     /**
      * @return {?}
      */
+    get inputValue() {
+        return this.mdInput.value;
+    }
+    /**
+     * @param {?} inputValue
+     * @return {?}
+     */
+    set inputValue(inputValue) {
+        this.mdInput.value = inputValue;
+    }
+    /**
+     * @return {?}
+     */
     ngOnInit() {
-        //   console.log('configured deadkeys:', this._deadkeys);
         // read the deadkeys
         this._deadkeyKeys = Object.keys(this._deadkeys);
         // read the icons
@@ -35099,7 +35111,7 @@ class MdKeyboardKeyComponent {
         // TODO: determine whether an output should bubble the pressed key similar to the keybboard action or not
         this._triggerKeyEvent();
         // Manipulate the focused input / textarea value
-        const /** @type {?} */ value = this.input ? this.ngControl.value : '';
+        const /** @type {?} */ value = this.inputValue;
         const /** @type {?} */ caret = this.input ? this._getCursorPosition() : 0;
         let /** @type {?} */ char;
         switch (this.key) {
@@ -35111,7 +35123,7 @@ class MdKeyboardKeyComponent {
                 this.altClick.emit();
                 break;
             case 'Bksp':
-                this.ngControl.control.setValue([value.slice(0, caret - 1), value.slice(caret)].join(''), { onlySelf: false, emitEvent: true });
+                this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
                 this._setCursorPosition(caret - 1);
                 break;
             case 'Caps':
@@ -35134,7 +35146,7 @@ class MdKeyboardKeyComponent {
                 break;
         }
         if (char && this.input) {
-            this.ngControl.control.setValue([value.slice(0, caret), char, value.slice(caret)].join(''), { onlySelf: false, emitEvent: true });
+            this.inputValue = [value.slice(0, caret), char, value.slice(caret)].join('');
             this._setCursorPosition(caret + 1);
         }
     }
@@ -35174,7 +35186,7 @@ class MdKeyboardKeyComponent {
             this.input.nativeElement.focus();
             const /** @type {?} */ sel = window.document['selection'].createRange();
             const /** @type {?} */ selLen = window.document['selection'].createRange().text.length;
-            sel.moveStart('character', -this.ngControl.value.length);
+            sel.moveStart('character', -this.mdInput.value.length);
             return sel.text.length - selLen;
         }
     }
@@ -35186,7 +35198,7 @@ class MdKeyboardKeyComponent {
         if (!this.input) {
             return;
         }
-        this.ngControl.control.setValue(this.ngControl.value, { onlySelf: false, emitEvent: true });
+        this.inputValue = this.mdInput.value;
         // ^ this is used to not only get "focus", but
         // to make sure we don't have it everything -selected-
         // (it causes an issue in chrome, and having it doesn't hurt any other browser)
@@ -35293,7 +35305,7 @@ MdKeyboardKeyComponent.propDecorators = {
     'key': [{ type: Input },],
     'active': [{ type: Input },],
     'input': [{ type: Input },],
-    'ngControl': [{ type: Input },],
+    'mdInput': [{ type: Input },],
     'altClick': [{ type: Output },],
     'capsClick': [{ type: Output },],
     'shiftClick': [{ type: Output },],
@@ -35303,12 +35315,12 @@ class MdKeyboardDirective {
     /**
      * @param {?} _elementRef
      * @param {?} _keyboardService
-     * @param {?} _ngControl
+     * @param {?} _mdInput
      */
-    constructor(_elementRef, _keyboardService, _ngControl) {
+    constructor(_elementRef, _keyboardService, _mdInput) {
         this._elementRef = _elementRef;
         this._keyboardService = _keyboardService;
-        this._ngControl = _ngControl;
+        this._mdInput = _mdInput;
     }
     /**
      * @return {?}
@@ -35320,7 +35332,7 @@ class MdKeyboardDirective {
             hasAction: this.hasAction,
             isDebug: this.isDebug
         });
-        this._keyboardRef.instance.setInputInstance(this._elementRef, this._ngControl);
+        this._keyboardRef.instance.setInputInstance(this._elementRef, this._mdInput);
     }
     /**
      * @return {?}
@@ -35342,7 +35354,7 @@ MdKeyboardDirective.decorators = [
 MdKeyboardDirective.ctorParameters = () => [
     { type: ElementRef, },
     { type: MdKeyboardService, },
-    { type: NgControl, },
+    { type: MdInput, },
 ];
 MdKeyboardDirective.propDecorators = {
     'mdKeyboard': [{ type: Input },],
@@ -35382,13 +35394,12 @@ MdKeyboardModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     CommonModule,
-                    FormsModule,
-                    ReactiveFormsModule,
                     OverlayModule,
                     PortalModule,
                     MdButtonModule,
                     MdCommonModule,
-                    MdIconModule
+                    MdIconModule,
+                    MdInputModule
                 ],
                 exports: [
                     MdCommonModule,

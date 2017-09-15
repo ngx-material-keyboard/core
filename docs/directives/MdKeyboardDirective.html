@@ -570,7 +570,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_elementRef: <a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank">ElementRef</a>, _keyboardService: <a href="../injectables/MdKeyboardService.html">MdKeyboardService</a>, _ngControl: <a href="https://angular.io/docs/ts/latest/api/forms/index/NgControl-class.html" target="_blank">NgControl</a>)</code>
+                                    <code>constructor(_elementRef: <a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank">ElementRef</a>, _keyboardService: <a href="../injectables/MdKeyboardService.html">MdKeyboardService</a>, _mdInput: MdInput)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -612,9 +612,9 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_ngControl</td>
+                                                              <td>_mdInput</td>
                                                               <td>
-                                                                        <code><a href="https://angular.io/docs/ts/latest/api/forms/index/NgControl-class.html" target="_blank" >NgControl</a></code>
+                                                                        <code>MdInput</code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -806,7 +806,7 @@
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Directive, ElementRef, HostListener, Input } from &#x27;@angular/core&#x27;;
-import { NgControl } from &#x27;@angular/forms&#x27;;
+import { MdInput } from &#x27;@angular/material&#x27;;
 import { MdKeyboardRef } from &#x27;../utils/keyboard-ref.class&#x27;;
 import { MdKeyboardComponent } from &#x27;../components/keyboard/keyboard.component&#x27;;
 import { MdKeyboardService } from &#x27;../services/keyboard.service&#x27;;
@@ -836,7 +836,7 @@ export class MdKeyboardDirective {
       hasAction: this.hasAction,
       isDebug: this.isDebug
     });
-    this._keyboardRef.instance.setInputInstance(this._elementRef, this._ngControl);
+    this._keyboardRef.instance.setInputInstance(this._elementRef, this._mdInput);
   }
 
   @HostListener(&#x27;blur&#x27;, [&#x27;$event&#x27;])
@@ -848,7 +848,7 @@ export class MdKeyboardDirective {
 
   constructor(private _elementRef: ElementRef,
               private _keyboardService: MdKeyboardService,
-              private _ngControl: NgControl) {}
+              private _mdInput: MdInput) {}
 
 }
 </code></pre>

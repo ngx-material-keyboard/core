@@ -1,5 +1,5 @@
 import { ElementRef, EventEmitter, OnInit } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { MdInput } from '@angular/material';
 export declare class MdKeyboardKeyComponent implements OnInit {
     private _deadkeys;
     private _icons;
@@ -8,7 +8,7 @@ export declare class MdKeyboardKeyComponent implements OnInit {
     key: string;
     active: boolean;
     input?: ElementRef;
-    ngControl: NgControl;
+    mdInput: MdInput;
     altClick: EventEmitter<void>;
     capsClick: EventEmitter<void>;
     shiftClick: EventEmitter<void>;
@@ -19,6 +19,7 @@ export declare class MdKeyboardKeyComponent implements OnInit {
     readonly hasIcon: boolean;
     readonly icon: string;
     readonly cssClass: string;
+    inputValue: string;
     constructor(_deadkeys: any, _icons: any);
     ngOnInit(): void;
     onMousedown(ev: MouseEvent): void;
