@@ -94,7 +94,7 @@ export class MdKeyboardKeyComponent implements OnInit {
     this._triggerKeyEvent();
 
     // Manipulate the focused input / textarea value
-    const value = this.input ? this.ngControl.value : '';
+    const value = (this.input && this.input.nativeElement && this.input.nativeElement.value) ? this.ngControl.value : '';
     const caret = this.input ? this._getCursorPosition() : 0;
     let char: string;
 
