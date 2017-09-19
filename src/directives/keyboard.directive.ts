@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnDestroy } from '@angular/core';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardService } from '../services/keyboard.service';
@@ -6,7 +6,7 @@ import { MdKeyboardService } from '../services/keyboard.service';
 @Directive({
   selector: 'input[mdKeyboard], textarea[mdKeyboard], input[matKeyboard], textarea[matKeyboard]'
 })
-export class MdKeyboardDirective {
+export class MdKeyboardDirective implements OnDestroy  {
 
   private _keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
 
@@ -40,6 +40,10 @@ export class MdKeyboardDirective {
 
   constructor(private _elementRef: ElementRef,
               private _keyboardService: MdKeyboardService) {
+  }
+
+  ngOnDestroy() {
+    this._hideKeyboard();
   }
 
 }

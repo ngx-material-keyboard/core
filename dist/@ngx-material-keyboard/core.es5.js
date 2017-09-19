@@ -9,33 +9,33 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { ApplicationRef, Attribute, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChild, ContentChildren, Directive, ElementRef, EventEmitter, Host, HostBinding, HostListener, Inject, Injectable, InjectionToken, Injector, Input, IterableDiffers, LOCALE_ID, NgModule, NgZone, Optional, Output, Pipe, Renderer2, SecurityContext, Self, SkipSelf, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation, forwardRef, isDevMode } from '@angular/core';
-import { AsyncSubject } from 'rxjs/AsyncSubject';
-import { _finally } from 'rxjs/operator/finally';
-import { _catch } from 'rxjs/operator/catch';
-import { _do } from 'rxjs/operator/do';
-import { map } from 'rxjs/operator/map';
-import { filter } from 'rxjs/operator/filter';
-import { share } from 'rxjs/operator/share';
-import { first } from 'rxjs/operator/first';
-import { switchMap } from 'rxjs/operator/switchMap';
-import { startWith } from 'rxjs/operator/startWith';
-import { debounceTime } from 'rxjs/operator/debounceTime';
-import { auditTime } from 'rxjs/operator/auditTime';
-import { takeUntil } from 'rxjs/operator/takeUntil';
+import { AsyncSubject as AsyncSubject$1 } from 'rxjs/AsyncSubject';
+import { _finally as _finally$1 } from 'rxjs/operator/finally';
+import { _catch as _catch$1 } from 'rxjs/operator/catch';
+import { _do as _do$1 } from 'rxjs/operator/do';
+import { map as map$1 } from 'rxjs/operator/map';
+import { filter as filter$1 } from 'rxjs/operator/filter';
+import { share as share$1 } from 'rxjs/operator/share';
+import { first as first$1 } from 'rxjs/operator/first';
+import { switchMap as switchMap$1 } from 'rxjs/operator/switchMap';
+import { startWith as startWith$1 } from 'rxjs/operator/startWith';
+import { debounceTime as debounceTime$1 } from 'rxjs/operator/debounceTime';
+import { auditTime as auditTime$1 } from 'rxjs/operator/auditTime';
+import { takeUntil as takeUntil$1 } from 'rxjs/operator/takeUntil';
 import { CommonModule, Location } from '@angular/common';
-import { Subject } from 'rxjs/Subject';
+import { Subject as Subject$1 } from 'rxjs/Subject';
 import { DOCUMENT, DomSanitizer, HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
-import { merge } from 'rxjs/observable/merge';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subscription } from 'rxjs/Subscription';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { of } from 'rxjs/observable/of';
+import { merge as merge$1 } from 'rxjs/observable/merge';
+import { BehaviorSubject as BehaviorSubject$1 } from 'rxjs/BehaviorSubject';
+import { Subscription as Subscription$1 } from 'rxjs/Subscription';
+import { fromEvent as fromEvent$1 } from 'rxjs/observable/fromEvent';
+import { of as of$1 } from 'rxjs/observable/of';
 import { FormGroupDirective, FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgControl, NgForm, Validators } from '@angular/forms';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { _throw } from 'rxjs/observable/throw';
-import { forkJoin } from 'rxjs/observable/forkJoin';
+import { Observable as Observable$1 } from 'rxjs/Observable';
+import { _throw as _throw$1 } from 'rxjs/observable/throw';
+import { forkJoin as forkJoin$1 } from 'rxjs/observable/forkJoin';
 var KeyboardModifier = {};
 KeyboardModifier.None = 0;
 KeyboardModifier.Shift = 1;
@@ -438,18 +438,18 @@ var RxChain = (function () {
 // `finallyOperatorType` while still being structurally the same. Without this, TypeScript tries to
 // reduce `typeof _finallyOperator & FinallyBrand` to `finallyOperatorType<T>` and then fails
 // because `T` isn't known.
-var finallyOperator = (_finally);
-var catchOperator = (_catch);
-var doOperator = (_do);
-var map$1 = (map);
-var filter$1 = (filter);
-var share$1 = (share);
-var first$1 = (first);
-var switchMap$1 = (switchMap);
-var startWith$1 = (startWith);
-var debounceTime$1 = (debounceTime);
-var auditTime$1 = (auditTime);
-var takeUntil$1 = (takeUntil);
+var finallyOperator = (_finally$1);
+var catchOperator = (_catch$1);
+var doOperator = (_do$1);
+var map$1$1 = (map$1);
+var filter$1$1 = (filter$1);
+var share$1$1 = (share$1);
+var first$1$1 = (first$1);
+var switchMap$1$1 = (switchMap$1);
+var startWith$1$1 = (startWith$1);
+var debounceTime$1$1 = (debounceTime$1);
+var auditTime$1$1 = (auditTime$1);
+var takeUntil$1$1 = (takeUntil$1);
 /**
  * Class that allows for trapping focus within a DOM element.
  *
@@ -682,7 +682,7 @@ var FocusTrap = (function () {
             fn();
         }
         else {
-            first$1.call(this._ngZone.onStable).subscribe(fn);
+            first$1$1.call(this._ngZone.onStable).subscribe(fn);
         }
     };
     return FocusTrap;
@@ -1042,7 +1042,7 @@ var ListKeyManager = (function () {
     function ListKeyManager(_items) {
         this._items = _items;
         this._activeItemIndex = -1;
-        this._tabOut = new Subject();
+        this._tabOut = new Subject$1();
         this._wrap = false;
     }
     /**
@@ -1492,7 +1492,7 @@ var BaseRowDef = (function () {
         /**
          * Event stream that emits when changes are made to the columns.
          */
-        this.columnsChange = new Subject();
+        this.columnsChange = new Subject$1();
         this.viewInitialized = false;
     }
     /**
@@ -1879,7 +1879,7 @@ var CdkTable = (function () {
         /**
          * Subject that emits when the component has been destroyed.
          */
-        this._onDestroy = new Subject();
+        this._onDestroy = new Subject$1();
         /**
          * Flag set to true after the component has been initialized.
          */
@@ -1897,7 +1897,7 @@ var CdkTable = (function () {
          * Stream containing the latest information on what rows are being displayed on screen.
          * Can be used by the data source to as a heuristic of what data should be provided.
          */
-        this.viewChange = new BehaviorSubject({ start: 0, end: Number.MAX_VALUE });
+        this.viewChange = new BehaviorSubject$1({ start: 0, end: Number.MAX_VALUE });
         if (!role) {
             renderer.setAttribute(elementRef.nativeElement, 'role', 'grid');
         }
@@ -1973,14 +1973,14 @@ var CdkTable = (function () {
         // Re-render the rows if any of their columns change.
         // TODO(andrewseguin): Determine how to only re-render the rows that have their columns changed.
         var /** @type {?} */ columnChangeEvents = this._rowDefinitions.map(function (rowDef) { return rowDef.columnsChange; });
-        takeUntil.call(merge.apply(void 0, columnChangeEvents), this._onDestroy).subscribe(function () {
+        takeUntil$1.call(merge$1.apply(void 0, columnChangeEvents), this._onDestroy).subscribe(function () {
             // Reset the data to an empty array so that renderRowChanges will re-render all new rows.
             _this._rowPlaceholder.viewContainer.clear();
             _this._dataDiffer.diff([]);
             _this._renderRowChanges();
         });
         // Re-render the header row if the columns change
-        takeUntil.call(this._headerDefinition.columnsChange, this._onDestroy).subscribe(function () {
+        takeUntil$1.call(this._headerDefinition.columnsChange, this._onDestroy).subscribe(function () {
             _this._headerRowPlaceholder.viewContainer.clear();
             _this._renderHeaderRow();
         });
@@ -2035,7 +2035,7 @@ var CdkTable = (function () {
      */
     CdkTable.prototype._observeRenderChanges = function () {
         var _this = this;
-        this._renderChangeSubscription = takeUntil.call(this.dataSource.connect(this), this._onDestroy)
+        this._renderChangeSubscription = takeUntil$1.call(this.dataSource.connect(this), this._onDestroy)
             .subscribe(function (data) {
             _this._data = data;
             _this._renderRowChanges();
@@ -2199,6 +2199,32 @@ CdkTable.propDecorators = {
     '_headerDefinition': [{ type: ContentChild, args: [CdkHeaderRowDef,] },],
     '_rowDefinitions': [{ type: ContentChildren, args: [CdkRowDef,] },],
 };
+/**
+ * @abstract
+ */
+var DataSource = (function () {
+    function DataSource() {
+    }
+    /**
+     * Connects a collection viewer (such as a data-table) to this data source.
+     * @abstract
+     * @param {?} collectionViewer The component that exposes a view over the data provided by this
+     *     data source.
+     * @return {?} Observable that emits a new value when the data changes.
+     */
+    DataSource.prototype.connect = function (collectionViewer) { };
+    /**
+     * Disconnects a collection viewer (such as a data-table) from this data source. Can be used
+     * to perform any clean-up or tear-down operations when a view is being destroyed.
+     *
+     * @abstract
+     * @param {?} collectionViewer The component that exposes a view over the data provided by this
+     *     data source.
+     * @return {?}
+     */
+    DataSource.prototype.disconnect = function (collectionViewer) { };
+    return DataSource;
+}());
 var EXPORTED_DECLARATIONS = [
     CdkTable,
     CdkRowDef,
@@ -2811,7 +2837,7 @@ var ObserveContent = (function () {
         /**
          * Used for debouncing the emitted values to the observeContent event.
          */
-        this._debouncer = new Subject();
+        this._debouncer = new Subject$1();
     }
     /**
      * @return {?}
@@ -2820,7 +2846,7 @@ var ObserveContent = (function () {
         var _this = this;
         if (this.debounce > 0) {
             RxChain.from(this._debouncer)
-                .call(debounceTime$1, this.debounce)
+                .call(debounceTime$1$1, this.debounce)
                 .subscribe(function (mutations) { return _this.event.emit(mutations); });
         }
         else {
@@ -3453,7 +3479,7 @@ var ScrollDispatcher = (function () {
         /**
          * Subject for notifying that a registered scrollable reference element has been scrolled.
          */
-        this._scrolled = new Subject();
+        this._scrolled = new Subject$1();
         /**
          * Keeps track of the global `scroll` and `resize` subscriptions.
          */
@@ -3506,17 +3532,17 @@ var ScrollDispatcher = (function () {
         }
         // Scroll events can only happen on the browser, so do nothing if we're not on the browser.
         if (!this._platform.isBrowser) {
-            return Subscription.EMPTY;
+            return Subscription$1.EMPTY;
         }
         // In the case of a 0ms delay, use an observable without auditTime
         // since it does add a perceptible delay in processing overhead.
         var /** @type {?} */ observable = auditTimeInMs > 0 ?
-            auditTime$1.call(this._scrolled.asObservable(), auditTimeInMs) :
+            auditTime$1$1.call(this._scrolled.asObservable(), auditTimeInMs) :
             this._scrolled.asObservable();
         this._scrolledCount++;
         if (!this._globalSubscription) {
             this._globalSubscription = this._ngZone.runOutsideAngular(function () {
-                return merge(fromEvent(window.document, 'scroll'), fromEvent(window, 'resize')).subscribe(function () { return _this._notify(); });
+                return merge$1(fromEvent$1(window.document, 'scroll'), fromEvent$1(window, 'resize')).subscribe(function () { return _this._notify(); });
             });
         }
         // Note that we need to do the subscribing from here, in order to be able to remove
@@ -3848,7 +3874,7 @@ var Scrollable = (function () {
         this._scroll = _scroll;
         this._ngZone = _ngZone;
         this._renderer = _renderer;
-        this._elementScrolled = new Subject();
+        this._elementScrolled = new Subject$1();
     }
     /**
      * @return {?}
@@ -4688,9 +4714,9 @@ var OverlayRef = (function () {
         this._scrollStrategy = _scrollStrategy;
         this._ngZone = _ngZone;
         this._backdropElement = null;
-        this._backdropClick = new Subject();
-        this._attachments = new Subject();
-        this._detachments = new Subject();
+        this._backdropClick = new Subject$1();
+        this._attachments = new Subject$1();
+        this._detachments = new Subject$1();
         _scrollStrategy.attach(this);
     }
     Object.defineProperty(OverlayRef.prototype, "overlayElement", {
@@ -5027,7 +5053,7 @@ var ConnectedPositionStrategy = (function () {
          * Ordered list of preferred positions, from most to least desirable.
          */
         this._preferredPositions = [];
-        this._onPositionChange = new Subject();
+        this._onPositionChange = new Subject$1();
         this._origin = this._connectedTo.nativeElement;
         this.withFallbackPosition(_originPos, _overlayPos);
     }
@@ -6336,7 +6362,7 @@ var SelectionModel = (function () {
         /**
          * Event emitted when the value has changed.
          */
-        this.onChange = this._emitChanges ? new Subject() : null;
+        this.onChange = this._emitChanges ? new Subject$1() : null;
         if (initiallySelectedValues) {
             if (_isMulti) {
                 initiallySelectedValues.forEach(function (value) { return _this._markSelected(value); });
@@ -6602,7 +6628,7 @@ var FocusOriginMonitor = (function () {
         var _this = this;
         // Do nothing if we're not on the browser platform.
         if (!this._platform.isBrowser) {
-            return of(null);
+            return of$1(null);
         }
         // Check if we're already monitoring this element.
         if (this._elementInfo.has(element)) {
@@ -6615,7 +6641,7 @@ var FocusOriginMonitor = (function () {
             unlisten: function () { },
             checkChildren: checkChildren,
             renderer: renderer,
-            subject: new Subject()
+            subject: new Subject$1()
         };
         this._elementInfo.set(element, info);
         // Start listening. We need to listen in capture phase since focus events don't bubble.
@@ -10082,7 +10108,7 @@ var MdSelect = (function (_super) {
          * @return {?}
          */
         get: function () {
-            return merge.apply(void 0, this.options.map(function (option) { return option.onSelectionChange; }));
+            return merge$1.apply(void 0, this.options.map(function (option) { return option.onSelectionChange; }));
         },
         enumerable: true,
         configurable: true
@@ -10099,7 +10125,7 @@ var MdSelect = (function (_super) {
     MdSelect.prototype.ngAfterContentInit = function () {
         var _this = this;
         this._initKeyManager();
-        this._changeSubscription = startWith$1.call(this.options.changes, null).subscribe(function () {
+        this._changeSubscription = startWith$1$1.call(this.options.changes, null).subscribe(function () {
             _this._resetOptions();
             if (_this._control) {
                 // Defer setting the value in order to avoid the "Expression
@@ -10433,7 +10459,7 @@ var MdSelect = (function (_super) {
      */
     MdSelect.prototype._listenToOptions = function () {
         var _this = this;
-        this._optionSubscription = filter$1.call(this.optionSelectionChanges, function (event) { return event.isUserInput; }).subscribe(function (event) {
+        this._optionSubscription = filter$1$1.call(this.optionSelectionChanges, function (event) { return event.isUserInput; }).subscribe(function (event) {
             _this._onSelect(event.source);
             _this._setValueWidth();
             if (!_this.multiple) {
@@ -12766,7 +12792,7 @@ var MdSidenavContainer = (function () {
         });
         this._validateDrawers();
         // Give the view a chance to render the initial state, then enable transitions.
-        first$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._enableTransitions = true; });
+        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._enableTransitions = true; });
     };
     /**
      * Calls `open` of both start and end sidenavs
@@ -12814,7 +12840,7 @@ var MdSidenavContainer = (function () {
         }
         // NOTE: We need to wait for the microtask queue to be empty before validating,
         // since both drawers may be swapping sides at the same time.
-        sidenav.onAlignChanged.subscribe(function () { return first$1.call(_this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._validateDrawers(); }); });
+        sidenav.onAlignChanged.subscribe(function () { return first$1$1.call(_this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._validateDrawers(); }); });
     };
     /**
      * Toggles the 'mat-sidenav-opened' class on the main 'md-sidenav-container' element.
@@ -15029,11 +15055,11 @@ var MdIconRegistry = (function () {
         }
         var /** @type {?} */ cachedIcon = this._cachedIconsByUrl.get(url);
         if (cachedIcon) {
-            return of(cloneSvg(cachedIcon));
+            return of$1(cloneSvg(cachedIcon));
         }
         return RxChain.from(this._loadSvgIconFromConfig(new SvgIconConfig(url)))
             .call(doOperator, function (svg) { return _this._cachedIconsByUrl.set(/** @type {?} */ ((url)), svg); })
-            .call(map$1, function (svg) { return cloneSvg(svg); })
+            .call(map$1$1, function (svg) { return cloneSvg(svg); })
             .result();
     };
     /**
@@ -15060,7 +15086,7 @@ var MdIconRegistry = (function () {
         if (iconSetConfigs) {
             return this._getSvgFromIconSetConfigs(name, iconSetConfigs);
         }
-        return _throw(getMdIconNameNotFoundError(key));
+        return _throw$1(getMdIconNameNotFoundError(key));
     };
     /**
      * Returns the cached icon for a SvgIconConfig if available, or fetches it from its URL if not.
@@ -15070,13 +15096,13 @@ var MdIconRegistry = (function () {
     MdIconRegistry.prototype._getSvgFromConfig = function (config) {
         if (config.svgElement) {
             // We already have the SVG element for this icon, return a copy.
-            return of(cloneSvg(config.svgElement));
+            return of$1(cloneSvg(config.svgElement));
         }
         else {
             // Fetch the icon from the config's URL, cache it, and return a copy.
             return RxChain.from(this._loadSvgIconFromConfig(config))
                 .call(doOperator, function (svg) { return config.svgElement = svg; })
-                .call(map$1, function (svg) { return cloneSvg(svg); })
+                .call(map$1$1, function (svg) { return cloneSvg(svg); })
                 .result();
         }
     };
@@ -15100,7 +15126,7 @@ var MdIconRegistry = (function () {
             // We could cache namedIcon in _svgIconConfigs, but since we have to make a copy every
             // time anyway, there's probably not much advantage compared to just always extracting
             // it from the icon set.
-            return of(namedIcon);
+            return of$1(namedIcon);
         }
         // Not found in any cached icon sets. If there are icon sets with URLs that we haven't
         // fetched, fetch them now and look for iconName in the results.
@@ -15113,7 +15139,7 @@ var MdIconRegistry = (function () {
                 // Swallow errors fetching individual URLs so the combined Observable won't
                 // necessarily fail.
                 console.log("Loading icon set URL: " + url + " failed: " + err);
-                return of(null);
+                return of$1(null);
             })
                 .call(doOperator, function (svg) {
                 // Cache the SVG element.
@@ -15125,7 +15151,7 @@ var MdIconRegistry = (function () {
         });
         // Fetch all the icon set URLs. When the requests complete, every IconSet should have a
         // cached SVG element (unless the request failed), and we can check again for the icon.
-        return map$1.call(forkJoin.call(Observable, iconSetFetchRequests), function () {
+        return map$1$1.call(forkJoin$1.call(Observable$1, iconSetFetchRequests), function () {
             var /** @type {?} */ foundIcon = _this._extractIconWithNameFromAnySet(name, iconSetConfigs);
             if (!foundIcon) {
                 throw getMdIconNameNotFoundError(name);
@@ -15162,7 +15188,7 @@ var MdIconRegistry = (function () {
      */
     MdIconRegistry.prototype._loadSvgIconFromConfig = function (config) {
         var _this = this;
-        return map$1.call(this._fetchUrl(config.url), function (svgText) { return _this._createSvgElementForSingleIcon(svgText); });
+        return map$1$1.call(this._fetchUrl(config.url), function (svgText) { return _this._createSvgElementForSingleIcon(svgText); });
     };
     /**
      * Loads the content of the icon set URL specified in the SvgIconConfig and creates an SVG element
@@ -15173,7 +15199,7 @@ var MdIconRegistry = (function () {
     MdIconRegistry.prototype._loadSvgIconSetFromConfig = function (config) {
         var _this = this;
         // TODO: Document that icons should only be loaded from trusted sources.
-        return map$1.call(this._fetchUrl(config.url), function (svgText) { return _this._svgElementFromString(svgText); });
+        return map$1$1.call(this._fetchUrl(config.url), function (svgText) { return _this._svgElementFromString(svgText); });
     };
     /**
      * Creates a DOM element from the given SVG string, and adds default attributes.
@@ -15290,9 +15316,9 @@ var MdIconRegistry = (function () {
         // TODO(jelbourn): for some reason, the `finally` operator "loses" the generic type on the
         // Observable. Figure out why and fix it.
         var /** @type {?} */ req = RxChain.from(this._http.get(url))
-            .call(map$1, function (response) { return response.text(); })
+            .call(map$1$1, function (response) { return response.text(); })
             .call(finallyOperator, function () { return _this._inProgressUrlFetches.delete(url); })
-            .call(share$1)
+            .call(share$1$1)
             .result();
         this._inProgressUrlFetches.set(url, req);
         return req;
@@ -15317,8 +15343,8 @@ MdIconRegistry.ctorParameters = function () {
  * @param {?} sanitizer
  * @return {?}
  */
-function ICON_REGISTRY_PROVIDER_FACTORY(parentRegistry, http, sanitizer) {
-    return parentRegistry || new MdIconRegistry(http, sanitizer);
+function ICON_REGISTRY_PROVIDER_FACTORY(parentRegistry, http$$1, sanitizer) {
+    return parentRegistry || new MdIconRegistry(http$$1, sanitizer);
 }
 var ICON_REGISTRY_PROVIDER = {
     // If there is already an MdIconRegistry available, use that. Otherwise, provide a new one.
@@ -15450,7 +15476,7 @@ var MdIcon = (function (_super) {
         if (changedInputs.indexOf('svgIcon') != -1 || changedInputs.indexOf('svgSrc') != -1) {
             if (this.svgIcon) {
                 var _a = this._splitIconName(this.svgIcon), namespace = _a[0], iconName = _a[1];
-                first$1.call(this._mdIconRegistry.getNamedSvgIcon(iconName, namespace)).subscribe(function (svg) { return _this._setSvgElement(svg); }, function (err) { return console.log("Error retrieving icon: " + err.message); });
+                first$1$1.call(this._mdIconRegistry.getNamedSvgIcon(iconName, namespace)).subscribe(function (svg) { return _this._setSvgElement(svg); }, function (err) { return console.log("Error retrieving icon: " + err.message); });
             }
         }
         if (this._usingFontIcon()) {
@@ -17157,11 +17183,11 @@ var MdSnackBarRef = (function () {
         /**
          * Subject for notifying the user that the snack bar has closed.
          */
-        this._afterClosed = new Subject();
+        this._afterClosed = new Subject$1();
         /**
          * Subject for notifying the user that the snack bar action was called.
          */
-        this._onAction = new Subject();
+        this._onAction = new Subject$1();
         // Sets the readonly instance of the snack bar content component.
         this._instance = instance;
         this.containerInstance = containerInstance;
@@ -17274,11 +17300,11 @@ var MdSnackBarContainer = (function (_super) {
         /**
          * Subject for notifying that the snack bar has exited from view.
          */
-        _this.onExit = new Subject();
+        _this.onExit = new Subject$1();
         /**
          * Subject for notifying that the snack bar has finished entering the view.
          */
-        _this.onEnter = new Subject();
+        _this.onEnter = new Subject$1();
         /**
          * The state of the snack bar animations.
          */
@@ -17377,7 +17403,7 @@ var MdSnackBarContainer = (function (_super) {
         // Note: we shouldn't use `this` inside the zone callback,
         // because it can cause a memory leak.
         var /** @type {?} */ onExit = this.onExit;
-        first$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
+        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
             onExit.next();
             onExit.complete();
         });
@@ -17908,7 +17934,7 @@ var MdTabGroup = (function () {
          * @return {?}
          */
         get: function () {
-            return map$1.call(this.selectChange, function (event) { return event.index; });
+            return map$1$1.call(this.selectChange, function (event) { return event.index; });
         },
         enumerable: true,
         configurable: true
@@ -18201,7 +18227,7 @@ var MdTabNav = (function () {
         /**
          * Subject that emits when the component has been destroyed.
          */
-        this._onDestroy = new Subject();
+        this._onDestroy = new Subject$1();
     }
     /**
      * Notifies the component that the active link has been changed.
@@ -18218,11 +18244,11 @@ var MdTabNav = (function () {
     MdTabNav.prototype.ngAfterContentInit = function () {
         var _this = this;
         this._resizeSubscription = this._ngZone.runOutsideAngular(function () {
-            var /** @type {?} */ dirChange = _this._dir ? _this._dir.change : of(null);
+            var /** @type {?} */ dirChange = _this._dir ? _this._dir.change : of$1(null);
             var /** @type {?} */ resize = typeof window !== 'undefined' ?
-                auditTime$1.call(fromEvent(window, 'resize'), 10) :
-                of(null);
-            return takeUntil$1.call(merge(dirChange, resize), _this._onDestroy)
+                auditTime$1$1.call(fromEvent$1(window, 'resize'), 10) :
+                of$1(null);
+            return takeUntil$1$1.call(merge$1(dirChange, resize), _this._onDestroy)
                 .subscribe(function () { return _this._alignInkBar(); });
         });
     };
@@ -18686,11 +18712,11 @@ var MdTabHeader = (function () {
     MdTabHeader.prototype.ngAfterContentInit = function () {
         var _this = this;
         this._realignInkBar = this._ngZone.runOutsideAngular(function () {
-            var /** @type {?} */ dirChange = _this._dir ? _this._dir.change : of(null);
+            var /** @type {?} */ dirChange = _this._dir ? _this._dir.change : of$1(null);
             var /** @type {?} */ resize = typeof window !== 'undefined' ?
-                auditTime$1.call(fromEvent(window, 'resize'), 10) :
-                of(null);
-            return startWith$1.call(merge(dirChange, resize), null).subscribe(function () {
+                auditTime$1$1.call(fromEvent$1(window, 'resize'), 10) :
+                of$1(null);
+            return startWith$1$1.call(merge$1(dirChange, resize), null).subscribe(function () {
                 _this._updatePagination();
                 _this._alignInkBarToSelectedTab();
             });
@@ -19523,7 +19549,7 @@ var MdTooltip = (function () {
         if (this._tooltipInstance) {
             this._tooltipInstance.message = message;
             this._tooltipInstance._markForCheck();
-            first$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
+            first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
                 if (_this._tooltipInstance) {
                     ((_this._overlayRef)).updatePosition();
                 }
@@ -19611,7 +19637,7 @@ var TooltipComponent = (function () {
         /**
          * Subject for notifying that the tooltip has been hidden from the view
          */
-        this._onHide = new Subject();
+        this._onHide = new Subject$1();
     }
     /**
      * Shows the tooltip with an animation originating from the provided origin
@@ -20548,8 +20574,8 @@ var MdDialogRef = (function () {
         /**
          * Subject for notifying the user that the dialog has finished closing.
          */
-        this._afterClosed = new Subject();
-        filter$1.call(_containerInstance._onAnimationStateChange, function (event) { return event.toState === 'exit'; })
+        this._afterClosed = new Subject$1();
+        filter$1$1.call(_containerInstance._onAnimationStateChange, function (event) { return event.toState === 'exit'; })
             .subscribe(function () { return _this._overlayRef.dispose(); }, undefined, function () {
             _this._afterClosed.next(_this._result);
             _this._afterClosed.complete();
@@ -20803,8 +20829,8 @@ var MdDialog = (function () {
         this._location = _location;
         this._parentDialog = _parentDialog;
         this._openDialogsAtThisLevel = [];
-        this._afterAllClosedAtThisLevel = new Subject();
-        this._afterOpenAtThisLevel = new Subject();
+        this._afterAllClosedAtThisLevel = new Subject$1();
+        this._afterOpenAtThisLevel = new Subject$1();
         this._boundKeydown = this._handleKeydown.bind(this);
         /**
          * Gets an observable that is notified when a dialog has been opened.
@@ -21481,7 +21507,7 @@ var MdAutocompleteTrigger = (function () {
          * @return {?}
          */
         get: function () {
-            return merge(this.optionSelections, this.autocomplete._keyManager.tabOut, this._outsideClickStream);
+            return merge$1(this.optionSelections, this.autocomplete._keyManager.tabOut, this._outsideClickStream);
         },
         enumerable: true,
         configurable: true
@@ -21492,7 +21518,7 @@ var MdAutocompleteTrigger = (function () {
          * @return {?}
          */
         get: function () {
-            return merge.apply(void 0, this.autocomplete.options.map(function (option) { return option.onSelectionChange; }));
+            return merge$1.apply(void 0, this.autocomplete.options.map(function (option) { return option.onSelectionChange; }));
         },
         enumerable: true,
         configurable: true
@@ -21519,9 +21545,9 @@ var MdAutocompleteTrigger = (function () {
         get: function () {
             var _this = this;
             if (!this._document) {
-                return of(null);
+                return of$1(null);
             }
-            return RxChain.from(merge(fromEvent(this._document, 'click'), fromEvent(this._document, 'touchend'))).call(filter$1, function (event) {
+            return RxChain.from(merge$1(fromEvent$1(this._document, 'click'), fromEvent$1(this._document, 'touchend'))).call(filter$1$1, function (event) {
                 var /** @type {?} */ clickTarget = (event.target);
                 var /** @type {?} */ inputContainer = _this._inputContainer ?
                     _this._inputContainer._elementRef.nativeElement : null;
@@ -21661,12 +21687,12 @@ var MdAutocompleteTrigger = (function () {
     MdAutocompleteTrigger.prototype._subscribeToClosingActions = function () {
         var _this = this;
         // When the zone is stable initially, and when the option list changes...
-        return RxChain.from(merge(first$1.call(this._zone.onStable), this.autocomplete.options.changes))
-            .call(switchMap$1, function () {
+        return RxChain.from(merge$1(first$1$1.call(this._zone.onStable), this.autocomplete.options.changes))
+            .call(switchMap$1$1, function () {
             _this._resetPanel();
             return _this.panelClosingActions;
         })
-            .call(first$1)
+            .call(first$1$1)
             .subscribe(function (event) { return _this._setValueAndClose(event); });
     };
     /**
@@ -22519,7 +22545,7 @@ var MdCalendar = (function () {
     MdCalendar.prototype._focusActiveCell = function () {
         var _this = this;
         this._ngZone.runOutsideAngular(function () {
-            return first$1.call(_this._ngZone.onStable).subscribe(function () {
+            return first$1$1.call(_this._ngZone.onStable).subscribe(function () {
                 _this._elementRef.nativeElement.querySelector('.mat-calendar-body-active').focus();
             });
         });
@@ -22958,7 +22984,7 @@ var MdDatepicker = (function () {
             var /** @type {?} */ componentRef = this._popupRef.attach(this._calendarPortal);
             componentRef.instance.datepicker = this;
             // Update the position once the calendar has rendered.
-            first$1.call(this._ngZone.onStable).subscribe(function () { return _this._popupRef.updatePosition(); });
+            first$1$1.call(this._ngZone.onStable).subscribe(function () { return _this._popupRef.updatePosition(); });
         }
         this._popupRef.backdropClick().subscribe(function () { return _this.close(); });
     };
@@ -31208,7 +31234,7 @@ var HIDE_ANIMATION$1 = '195ms cubic-bezier(0.0,0.0,0.2,1)';
  * Internal component that wraps user-provided keyboard content.
  * \@docs-private
  */
-var MdKeyboardContainerComponent = (function (_super) {
+var MdKeyboardContainerComponent = /** @class */ (function (_super) {
     __extends(MdKeyboardContainerComponent, _super);
     /**
      * @param {?} _ngZone
@@ -31220,11 +31246,11 @@ var MdKeyboardContainerComponent = (function (_super) {
         /**
          * Subject for notifying that the keyboard has exited from view.
          */
-        _this.onExit = new Subject();
+        _this.onExit = new Subject$1();
         /**
          * Subject for notifying that the keyboard has finished entering the view.
          */
-        _this.onEnter = new Subject();
+        _this.onEnter = new Subject$1();
         /**
          * The state of the keyboard animations.
          */
@@ -31316,7 +31342,7 @@ var MdKeyboardContainerComponent = (function (_super) {
         // Note: we shouldn't use `this` inside the zone callback,
         // because it can cause a memory leak.
         var /** @type {?} */ onExit = this.onExit;
-        first$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
+        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
             onExit.next();
             onExit.complete();
         });
@@ -31355,7 +31381,7 @@ MdKeyboardContainerComponent.propDecorators = {
 /**
  * Reference to a keyboard dispatched from the keyboard service.
  */
-var MdKeyboardRef = (function () {
+var MdKeyboardRef = /** @class */ (function () {
     /**
      * @param {?} instance
      * @param {?} containerInstance
@@ -31367,11 +31393,11 @@ var MdKeyboardRef = (function () {
         /**
          * Subject for notifying the user that the keyboard has closed.
          */
-        this._afterClosed = new Subject();
+        this._afterClosed = new Subject$1();
         /**
          * Subject for notifying the user that the keyboard action was called.
          */
-        this._onAction = new Subject();
+        this._onAction = new Subject$1();
         // Sets the readonly instance of the keyboard content component.
         this._instance = instance;
         this.containerInstance = containerInstance;
@@ -31515,7 +31541,7 @@ var MdKeyboardRef = (function () {
     };
     return MdKeyboardRef;
 }());
-var MdKeyboardConfig = (function () {
+var MdKeyboardConfig = /** @class */ (function () {
     function MdKeyboardConfig() {
         /**
          * The politeness level for the MdAriaLiveAnnouncer announcement.
@@ -31551,7 +31577,7 @@ var MdKeyboardConfig = (function () {
 /**
  * Service to dispatch Material Design keyboard.
  */
-var MdKeyboardService = (function () {
+var MdKeyboardService = /** @class */ (function () {
     /**
      * @param {?} _overlay
      * @param {?} _live
@@ -31750,7 +31776,7 @@ var MdKeyboardService = (function () {
     MdKeyboardService.prototype._attachKeyboardContent = function (component, container, overlayRef) {
         var /** @type {?} */ portal = new ComponentPortal(component);
         var /** @type {?} */ contentRef = container.attachComponentPortal(portal);
-        return (new MdKeyboardRef(contentRef.instance, container, overlayRef));
+        return /** @type {?} */ (new MdKeyboardRef(contentRef.instance, container, overlayRef));
     };
     /**
      * Creates a new overlay and places it in the correct location.
@@ -31790,7 +31816,7 @@ function _applyConfigDefaults(config) {
  * A component used to open as the default keyboard, matching material spec.
  * This should only be used internally by the keyboard service.
  */
-var MdKeyboardComponent = (function () {
+var MdKeyboardComponent = /** @class */ (function () {
     /**
      * @param {?} _locale
      * @param {?} _keyboardService
@@ -31801,7 +31827,7 @@ var MdKeyboardComponent = (function () {
         this.cssClass = true;
         this.isDebug = false;
         this.modifier = KeyboardModifier.None;
-        this._inputInstance$ = new AsyncSubject();
+        this._inputInstance$ = new AsyncSubject$1();
     }
     Object.defineProperty(MdKeyboardComponent.prototype, "inputInstance", {
         /**
@@ -31906,15 +31932,15 @@ MdKeyboardComponent.propDecorators = {
     'isDebug': [{ type: HostBinding, args: ['class.debug',] },],
 };
 var KeyboardKeyClass = {};
-KeyboardKeyClass.Alt = ('alt');
-KeyboardKeyClass.AltGr = ('altgr');
-KeyboardKeyClass.AltLk = ('altlk');
-KeyboardKeyClass.Bksp = ('bksp');
-KeyboardKeyClass.Caps = ('caps');
-KeyboardKeyClass.Enter = ('enter');
-KeyboardKeyClass.Shift = ('shift');
-KeyboardKeyClass.Space = ('space');
-KeyboardKeyClass.Tab = ('tab');
+KeyboardKeyClass.Alt = /** @type {?} */ ('alt');
+KeyboardKeyClass.AltGr = /** @type {?} */ ('altgr');
+KeyboardKeyClass.AltLk = /** @type {?} */ ('altlk');
+KeyboardKeyClass.Bksp = /** @type {?} */ ('bksp');
+KeyboardKeyClass.Caps = /** @type {?} */ ('caps');
+KeyboardKeyClass.Enter = /** @type {?} */ ('enter');
+KeyboardKeyClass.Shift = /** @type {?} */ ('shift');
+KeyboardKeyClass.Space = /** @type {?} */ ('space');
+KeyboardKeyClass.Tab = /** @type {?} */ ('tab');
 KeyboardKeyClass[KeyboardKeyClass.Alt] = "Alt";
 KeyboardKeyClass[KeyboardKeyClass.AltGr] = "AltGr";
 KeyboardKeyClass[KeyboardKeyClass.AltLk] = "AltLk";
@@ -32138,7 +32164,7 @@ var keyboardIcons = {
     'space': '',
     'tab': 'keyboard_tab'
 };
-var MdKeyboardKeyComponent = (function () {
+var MdKeyboardKeyComponent = /** @class */ (function () {
     /**
      * @param {?} _deadkeys
      * @param {?} _icons
@@ -32221,11 +32247,11 @@ var MdKeyboardKeyComponent = (function () {
         get: function () {
             var /** @type {?} */ classes = [];
             if (this.isClassKey) {
-                classes.push('mat-keyboard__key--modifier');
-                classes.push("mat-keyboard__key--" + KeyboardKeyClass[this.key]);
+                classes.push('mat-keyboard-key-modifier');
+                classes.push("mat-keyboard-key-" + KeyboardKeyClass[this.key]);
             }
             if (this.isDeadKey) {
-                classes.push('mat-keyboard__key--deadkey');
+                classes.push('mat-keyboard-key-deadkey');
             }
             return classes.join(' ');
         },
@@ -32392,7 +32418,7 @@ MdKeyboardKeyComponent.propDecorators = {
     'capsClick': [{ type: Output },],
     'shiftClick': [{ type: Output },],
 };
-var MdKeyboardDirective = (function () {
+var MdKeyboardDirective = /** @class */ (function () {
     /**
      * @param {?} _elementRef
      * @param {?} _keyboardService
@@ -32421,6 +32447,12 @@ var MdKeyboardDirective = (function () {
             this._keyboardRef.dismiss();
         }
     };
+    /**
+     * @return {?}
+     */
+    MdKeyboardDirective.prototype.ngOnDestroy = function () {
+        this._hideKeyboard();
+    };
     return MdKeyboardDirective;
 }());
 MdKeyboardDirective.decorators = [
@@ -32444,7 +32476,7 @@ MdKeyboardDirective.propDecorators = {
     '_showKeyboard': [{ type: HostListener, args: ['focus', ['$event'],] },],
     '_hideKeyboard': [{ type: HostListener, args: ['blur', ['$event'],] },],
 };
-var KebabCasePipe = (function () {
+var KebabCasePipe = /** @class */ (function () {
     function KebabCasePipe() {
     }
     /**
@@ -32468,7 +32500,7 @@ KebabCasePipe.decorators = [
  * @nocollapse
  */
 KebabCasePipe.ctorParameters = function () { return []; };
-var MdKeyboardModule = (function () {
+var MdKeyboardModule = /** @class */ (function () {
     function MdKeyboardModule() {
     }
     return MdKeyboardModule;
