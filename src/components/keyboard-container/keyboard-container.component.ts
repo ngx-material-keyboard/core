@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 import { throwContentAlreadyAttached } from '../../utils/keyboard-errors';
 import { MdKeyboardConfig } from '../../configs/keyboard.config';
 
-export type KeyboardState = 'initial' | 'visible' | 'complete' | 'void';
+export type KeyboardState = 'initial' | 'visible' | 'complete' | 'void' | 'show';
 
 // TODO(jelbourn): we can't use constants from animation.ts here because you can't use
 // a text interpolation in anything that is analyzed statically with ngc (for AoT compile).
@@ -27,8 +27,10 @@ export const HIDE_ANIMATION = '195ms cubic-bezier(0.0,0.0,0.2,1)';
     trigger('state', [
       state('initial', style({ transform: 'translateY(100%)' })),
       state('visible', style({ transform: 'translateY(0%)' })),
+      state('show', style({ transform: 'translateY(0%)' })),
       state('complete', style({ transform: 'translateY(100%)' })),
       transition('visible => complete', animate(HIDE_ANIMATION)),
+      transition('show => complete', animate(HIDE_ANIMATION)),
       transition('initial => visible, void => visible', animate(SHOW_ANIMATION)),
     ])
   ],
@@ -51,7 +53,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
 
   /** The state of the keyboard animations. */
   @HostBinding('@state')
-  animationState: KeyboardState = 'initial';
+  public animationState: KeyboardState = 'initial';
 
   /** The keyboard configuration. */
   keyboardConfig: MdKeyboardConfig;

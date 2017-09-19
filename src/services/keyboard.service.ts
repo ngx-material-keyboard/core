@@ -22,6 +22,7 @@ export class MdKeyboardService {
    * via `_openedKeyboardRef`.
    */
   private _keyboardRefAtThisLevel: MdKeyboardRef<any>;
+  openKeyboards = 0;
 
   /** Reference to the currently opened keyboard at *any* level. */
   get _openedKeyboardRef(): MdKeyboardRef<any> {
@@ -78,25 +79,25 @@ export class MdKeyboardService {
 
     keyboardContainer.darkTheme = config.darkTheme;
 
-    // When the keyboard is dismissed, clear the reference to it.
+    // When the keyboard is dismissed, lower the keyboard counter
     keyboardRef.afterDismissed().subscribe(() => {
-      // Clear the keyboard ref if it hasn't already been replaced by a newer keyboard.
-      if (this._openedKeyboardRef === keyboardRef) {
-        this._openedKeyboardRef = null;
-      }
+        this.openKeyboards -= 1;
     });
 
-    // If a keyboard is already in view, dismiss it and enter the new keyboard after exit
-    // animation is complete.
-    if (this._openedKeyboardRef) {
-      this._openedKeyboardRef.afterDismissed().subscribe(() => {
-        keyboardRef.containerInstance.enter();
-      });
+    // If a keyboard is already in view, dismiss the keyboard but keep the keyboard container open
+    if (this.openKeyboards > 0) {
+      // Skip the show animation because it is already in view
+      keyboardContainer.animationState = 'show';
+
+      // Dismiss previous keyboard
       this._openedKeyboardRef.dismiss();
+
       // If no keyboard is in view, enter the new keyboard.
     } else {
-      keyboardRef.containerInstance.enter();
+      keyboardContainer.animationState = 'visible';
     }
+
+    this.openKeyboards += 1;
 
     // If a dismiss timeout is provided, set up dismiss based on after the keyboard is opened.
     // if (configs.duration > 0) {

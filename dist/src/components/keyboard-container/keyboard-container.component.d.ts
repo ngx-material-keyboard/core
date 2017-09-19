@@ -3,7 +3,7 @@ import { ComponentRef, NgZone, OnDestroy } from '@angular/core';
 import { BasePortalHost, ComponentPortal, PortalHostDirective, TemplatePortal } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { MdKeyboardConfig } from '../../configs/keyboard.config';
-export declare type KeyboardState = 'initial' | 'visible' | 'complete' | 'void';
+export declare type KeyboardState = 'initial' | 'visible' | 'complete' | 'void' | 'show';
 export declare const SHOW_ANIMATION = "225ms cubic-bezier(0.4,0.0,1,1)";
 export declare const HIDE_ANIMATION = "195ms cubic-bezier(0.0,0.0,0.2,1)";
 /**

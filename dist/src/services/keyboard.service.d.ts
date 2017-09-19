@@ -20,6 +20,7 @@ export declare class MdKeyboardService {
      * via `_openedKeyboardRef`.
      */
     private _keyboardRefAtThisLevel;
+    openKeyboards: number;
     /** Reference to the currently opened keyboard at *any* level. */
     _openedKeyboardRef: MdKeyboardRef<any>;
     private _availableLocales;
