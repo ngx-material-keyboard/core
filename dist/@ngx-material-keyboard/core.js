@@ -32317,6 +32317,12 @@ class MdKeyboardDirective {
             this._keyboardRef.dismiss();
         }
     }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        this._hideKeyboard();
+    }
 }
 MdKeyboardDirective.decorators = [
     { type: Directive, args: [{

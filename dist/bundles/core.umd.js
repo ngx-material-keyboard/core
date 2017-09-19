@@ -32430,6 +32430,12 @@ var MdKeyboardDirective = /** @class */ (function () {
             this._keyboardRef.dismiss();
         }
     };
+    /**
+     * @return {?}
+     */
+    MdKeyboardDirective.prototype.ngOnDestroy = function () {
+        this._hideKeyboard();
+    };
     return MdKeyboardDirective;
 }());
 MdKeyboardDirective.decorators = [
