@@ -117,7 +117,11 @@ export class MdKeyboardKeyComponent implements OnInit {
         break;
 
       case 'Enter':
-        char = '\n\r';
+        if (this.input.nativeElement.tagName === 'TEXTAREA') {
+          char = '\n\r';
+        } else {
+          (this.ngControl as any)._parent.onSubmit();
+        }
         break;
 
       case 'Shift':
