@@ -32086,7 +32086,7 @@ class MdKeyboardKeyComponent {
         // TODO: determine whether an output should bubble the pressed key similar to the keybboard action or not
         this._triggerKeyEvent();
         // Manipulate the focused input / textarea value
-        const /** @type {?} */ value = this.input ? this.ngControl.value : '';
+        const /** @type {?} */ value = (this.input && this.input.nativeElement && this.input.nativeElement.value) ? this.ngControl.value : '';
         const /** @type {?} */ caret = this.input ? this._getCursorPosition() : 0;
         let /** @type {?} */ char;
         switch (this.key) {
@@ -32105,7 +32105,12 @@ class MdKeyboardKeyComponent {
                 this.capsClick.emit();
                 break;
             case 'Enter':
-                char = '\n\r';
+                if (this.input.nativeElement.tagName === 'TEXTAREA') {
+                    char = '\n\r';
+                }
+                else {
+                    ((this.ngControl))._parent.onSubmit();
+                }
                 break;
             case 'Shift':
                 this.shiftClick.emit();
