@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MdInput } from '@angular/material';
-import { KeyboardKeyClass } from '../../enums/keyboard-key-class.enum';
 import { MD_KEYBOARD_DEADKEYS } from '../../configs/keyboard-deadkey.config';
 import { MD_KEYBOARD_ICONS } from '../../configs/keyboard-icons.config';
+import { KeyboardKey } from '../../enums/keyboard-key.enum';
 
 @Component({
   selector: 'md-keyboard-key',
@@ -16,7 +16,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   private _iconKeys: string[] = [];
 
-  @Input() key: string;
+  @Input() key: string | KeyboardKey;
 
   @Input() active: boolean;
 
@@ -39,7 +39,7 @@ export class MdKeyboardKeyComponent implements OnInit {
   }
 
   get isClassKey(): boolean {
-    return !!KeyboardKeyClass[this.key];
+    return !!KeyboardKey[this.key];
   }
 
   get isDeadKey(): boolean {
@@ -59,7 +59,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
     if (this.isClassKey) {
       classes.push('mat-keyboard-key-modifier');
-      classes.push(`mat-keyboard-key-${KeyboardKeyClass[this.key]}`);
+      classes.push(`mat-keyboard-key-${KeyboardKey[this.key]}`);
     }
 
     if (this.isDeadKey) {
@@ -117,34 +117,34 @@ export class MdKeyboardKeyComponent implements OnInit {
     switch (this.key) {
       // this keys have no actions yet
       // TODO: add deadkeys and modifiers
-      case 'Alt':
-      case 'AltGr':
-      case 'AltLK':
+      case KeyboardKey.Alt:
+      case KeyboardKey.AltGr:
+      case KeyboardKey.AltLk:
         this.altClick.emit();
         break;
 
-      case 'Bksp':
+      case KeyboardKey.Bksp:
         this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
         this._setCursorPosition(caret - 1);
         break;
 
-      case 'Caps':
+      case KeyboardKey.Caps:
         this.capsClick.emit();
         break;
 
-      case 'Enter':
+      case KeyboardKey.Enter:
         char = '\n\r';
         break;
 
-      case 'Shift':
+      case KeyboardKey.Shift:
         this.shiftClick.emit();
         break;
 
-      case 'Space':
+      case KeyboardKey.Space:
         char = ' ';
         break;
 
-      case 'Tab':
+      case KeyboardKey.Tab:
         char = '\t';
         break;
 

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { LIVE_ANNOUNCER_PROVIDER } from '@angular/cdk/a11y';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { MdButtonModule, MdCommonModule, MdIconModule, MdInputModule } from '@angular/material';
+import { MdButtonModule, MdIconModule, MdInputModule } from '@angular/material';
 import { MdKeyboardContainerComponent } from './components/keyboard-container/keyboard-container.component';
 import { MdKeyboardKeyComponent } from './components/keyboard-key/keyboard-key.component';
 import { MdKeyboardComponent } from './components/keyboard/keyboard.component';
@@ -16,16 +16,19 @@ import { MdKeyboardService } from './services/keyboard.service';
 
 @NgModule({
   imports: [
+    // Angular modules
     CommonModule,
     OverlayModule,
+
+    // Cdk modules
     PortalModule,
+
+    // Material modules
     MdButtonModule,
-    MdCommonModule,
     MdIconModule,
     MdInputModule
   ],
   exports: [
-    MdCommonModule,
     MdKeyboardComponent,
     MdKeyboardContainerComponent,
     MdKeyboardKeyComponent,
@@ -51,5 +54,4 @@ import { MdKeyboardService } from './services/keyboard.service';
     { provide: MD_KEYBOARD_LAYOUTS, useValue: keyboardLayouts }
   ]
 })
-export class MdKeyboardModule {
-}
+export class MdKeyboardModule {}

@@ -1,6 +1,6 @@
 export enum KeyboardModifier {
-  None = 0,
-  Shift = 1,
-  Alt = 2,
-  ShiftAlt = 3
+  None = 'None',
+  Shift = 'Shift',
+  Alt = 'Alt',
+  ShiftAlt = 'ShiftAlt'
 }
