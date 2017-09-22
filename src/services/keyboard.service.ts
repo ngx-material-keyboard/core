@@ -7,9 +7,7 @@ import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardConfig } from '../configs/keyboard.config';
 import { throwLayoutNotFound } from '../utils/keyboard-errors';
 
-export interface ILocaleMap {
-  [locale: string]: string;
-}
+import { ILocaleMap } from '../interfaces/locale-map.interface';
 
 /**
  * Service to dispatch Material Design keyboard.
