@@ -1,4 +1,4 @@
-export declare enum KeyboardKeyClass {
+export declare enum KeyboardClassKey {
     Alt,
     AltGr,
     AltLk,

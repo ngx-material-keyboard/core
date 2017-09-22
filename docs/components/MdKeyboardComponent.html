@@ -839,7 +839,7 @@ This should only be used internally by the keyboard service.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/components/keyboard/keyboard.component.ts:68</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/components/keyboard/keyboard.component.ts:67</a></div>
                                 </td>
                             </tr>
     
@@ -871,7 +871,7 @@ This should only be used internally by the keyboard service.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/components/keyboard/keyboard.component.ts:72</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/components/keyboard/keyboard.component.ts:71</a></div>
                                 </td>
                             </tr>
     
@@ -932,7 +932,7 @@ This should only be used internally by the keyboard service.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/components/keyboard/keyboard.component.ts:76</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/components/keyboard/keyboard.component.ts:75</a></div>
                                 </td>
                             </tr>
     
@@ -964,7 +964,7 @@ This should only be used internally by the keyboard service.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/components/keyboard/keyboard.component.ts:91</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/components/keyboard/keyboard.component.ts:95</a></div>
                                 </td>
                             </tr>
     
@@ -996,7 +996,7 @@ This should only be used internally by the keyboard service.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/components/keyboard/keyboard.component.ts:93</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/components/keyboard/keyboard.component.ts:101</a></div>
                                 </td>
                             </tr>
     
@@ -1271,10 +1271,10 @@ This should only be used internally by the keyboard service.</p>
 import { MdInput } from &#x27;@angular/material&#x27;;
 import { Observable } from &#x27;rxjs/Observable&#x27;;
 import { AsyncSubject } from &#x27;rxjs/AsyncSubject&#x27;;
-import { IKeyboardLayout } from &#x27;../../configs/keyboard-layouts.config&#x27;;
 import { KeyboardModifier } from &#x27;../../enums/keyboard-modifier.enum&#x27;;
 import { MdKeyboardRef } from &#x27;../../utils/keyboard-ref.class&#x27;;
 import { MdKeyboardService } from &#x27;../../services/keyboard.service&#x27;;
+import { IKeyboardLayout } from &#x27;../../interfaces/keyboard-layout.interface&#x27;;
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -1308,7 +1308,7 @@ export class MdKeyboardComponent implements OnInit {
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef&lt;MdKeyboardComponent&gt;;
 
-  private _inputInstance$: AsyncSubject&lt;any&gt; &#x3D; new AsyncSubject();
+  private _inputInstance$: AsyncSubject&lt;ElementRef&gt; &#x3D; new AsyncSubject();
 
   get inputInstance(): Observable&lt;ElementRef&gt; {
     return this._inputInstance$.asObservable();
@@ -1322,8 +1322,7 @@ export class MdKeyboardComponent implements OnInit {
 
   // Inject dependencies
   constructor(@Inject(LOCALE_ID) private _locale,
-              private _keyboardService: MdKeyboardService) {
-  }
+              private _keyboardService: MdKeyboardService) {}
 
   ngOnInit() {
     // set a fallback using the locale
@@ -1339,38 +1338,52 @@ export class MdKeyboardComponent implements OnInit {
   }
 
   isActive(key: string): boolean {
-    return this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier[key] || (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.ShiftAlt &amp;&amp; KeyboardModifier[key] &gt; KeyboardModifier.None);
+    return this.modifier.toString() &#x3D;&#x3D;&#x3D; key || (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.ShiftAlt &amp;&amp; key !&#x3D;&#x3D; KeyboardModifier.None.toString());
   }
 
   onAltClick() {
-    if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.None) {
-      this.modifier &#x3D; KeyboardModifier.Alt;
-    }
-    else if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.Shift) {
-      this.modifier &#x3D; KeyboardModifier.ShiftAlt;
-    }
-    else if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.ShiftAlt) {
-      this.modifier &#x3D; KeyboardModifier.Shift;
-    }
-    else if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.Alt) {
-      this.modifier &#x3D; KeyboardModifier.None;
+    switch (this.modifier) {
+      case KeyboardModifier.None:
+        this.modifier &#x3D; KeyboardModifier.Alt;
+        break;
+
+      case KeyboardModifier.Shift:
+        this.modifier &#x3D; KeyboardModifier.ShiftAlt;
+        break;
+
+      case KeyboardModifier.ShiftAlt:
+        this.modifier &#x3D; KeyboardModifier.Shift;
+        break;
+
+      case KeyboardModifier.Alt:
+        this.modifier &#x3D; KeyboardModifier.None;
+        break;
     }
   }
 
-  onCapsClick() {}
+  onCapsClick() {
+    switch (this.modifier) {
+      // not implemented
+    }
+  }
 
   onShiftClick() {
-    if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.None) {
-      this.modifier &#x3D; KeyboardModifier.Shift;
-    }
-    else if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.Alt) {
-      this.modifier &#x3D; KeyboardModifier.ShiftAlt;
-    }
-    else if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.ShiftAlt) {
-      this.modifier &#x3D; KeyboardModifier.Alt;
-    }
-    else if (this.modifier &#x3D;&#x3D;&#x3D; KeyboardModifier.Shift) {
-      this.modifier &#x3D; KeyboardModifier.None;
+    switch (this.modifier) {
+      case KeyboardModifier.None:
+        this.modifier &#x3D; KeyboardModifier.Shift;
+        break;
+
+      case KeyboardModifier.Alt:
+        this.modifier &#x3D; KeyboardModifier.ShiftAlt;
+        break;
+
+      case KeyboardModifier.ShiftAlt:
+        this.modifier &#x3D; KeyboardModifier.Alt;
+        break;
+
+      case KeyboardModifier.Shift:
+        this.modifier &#x3D; KeyboardModifier.None;
+        break;
     }
   }
 

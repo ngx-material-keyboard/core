@@ -776,7 +776,7 @@
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                <em>Type:</em>    <code><a href="../miscellaneous/enumerations.html#KeyboardClassKey" target="_self" >string | KeyboardClassKey</a></code>
 
                               </p>
                         </td>
@@ -1197,9 +1197,9 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
 import { MdInput } from &#x27;@angular/material&#x27;;
-import { KeyboardKeyClass } from &#x27;../../enums/keyboard-key-class.enum&#x27;;
 import { MD_KEYBOARD_DEADKEYS } from &#x27;../../configs/keyboard-deadkey.config&#x27;;
 import { MD_KEYBOARD_ICONS } from &#x27;../../configs/keyboard-icons.config&#x27;;
+import { KeyboardClassKey } from &#x27;../../enums/keyboard-class-key.enum&#x27;;
 
 @Component({
   selector: &#x27;md-keyboard-key&#x27;,
@@ -1213,7 +1213,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   private _iconKeys: string[] &#x3D; [];
 
-  @Input() key: string;
+  @Input() key: string | KeyboardClassKey;
 
   @Input() active: boolean;
 
@@ -1228,19 +1228,19 @@ export class MdKeyboardKeyComponent implements OnInit {
   @Output() shiftClick &#x3D; new EventEmitter&lt;void&gt;();
 
   get lowerKey(): string {
-    return this.key.toLowerCase();
+    return this.key.toString().toLowerCase();
   }
 
   get charCode(): number {
-    return this.key.charCodeAt(0);
+    return this.key.toString().charCodeAt(0);
   }
 
   get isClassKey(): boolean {
-    return !!KeyboardKeyClass[this.key];
+    return this.key in KeyboardClassKey;
   }
 
   get isDeadKey(): boolean {
-    return !!this._deadkeyKeys.find((deadKey: string) &#x3D;&gt; deadKey &#x3D;&#x3D;&#x3D; this.key);
+    return !!this._deadkeyKeys.find((deadKey: string) &#x3D;&gt; deadKey &#x3D;&#x3D;&#x3D; this.key.toString());
   }
 
   get hasIcon(): boolean {
@@ -1256,7 +1256,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
     if (this.isClassKey) {
       classes.push(&#x27;mat-keyboard-key-modifier&#x27;);
-      classes.push(&#x60;mat-keyboard-key-${KeyboardKeyClass[this.key]}&#x60;);
+      classes.push(&#x60;mat-keyboard-key-${this.lowerKey}&#x60;);
     }
 
     if (this.isDeadKey) {
@@ -1309,44 +1309,45 @@ export class MdKeyboardKeyComponent implements OnInit {
     // Manipulate the focused input / textarea value
     const value &#x3D; this.inputValue;
     const caret &#x3D; this.input ? this._getCursorPosition() : 0;
-    let char: string;
 
+    let char: string;
     switch (this.key) {
       // this keys have no actions yet
       // TODO: add deadkeys and modifiers
-      case &#x27;Alt&#x27;:
-      case &#x27;AltGr&#x27;:
-      case &#x27;AltLK&#x27;:
+      case KeyboardClassKey.Alt:
+      case KeyboardClassKey.AltGr:
+      case KeyboardClassKey.AltLk:
         this.altClick.emit();
         break;
 
-      case &#x27;Bksp&#x27;:
+      case KeyboardClassKey.Bksp:
         this.inputValue &#x3D; [value.slice(0, caret - 1), value.slice(caret)].join(&#x27;&#x27;);
         this._setCursorPosition(caret - 1);
         break;
 
-      case &#x27;Caps&#x27;:
+      case KeyboardClassKey.Caps:
         this.capsClick.emit();
         break;
 
-      case &#x27;Enter&#x27;:
+      case KeyboardClassKey.Enter:
         char &#x3D; &#x27;\n\r&#x27;;
         break;
 
-      case &#x27;Shift&#x27;:
+      case KeyboardClassKey.Shift:
         this.shiftClick.emit();
         break;
 
-      case &#x27;Space&#x27;:
+      case KeyboardClassKey.Space:
         char &#x3D; &#x27; &#x27;;
         break;
 
-      case &#x27;Tab&#x27;:
+      case KeyboardClassKey.Tab:
         char &#x3D; &#x27;\t&#x27;;
         break;
 
       default:
-        char &#x3D; this.key;
+        // the key is not mapped or a string
+        char &#x3D; this.key.toString();
         break;
     }
 

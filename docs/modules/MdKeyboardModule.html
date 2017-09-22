@@ -726,7 +726,7 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { LIVE_ANNOUNCER_PROVIDER } from &#x27;@angular/cdk/a11y&#x27;;
 import { OverlayModule } from &#x27;@angular/cdk/overlay&#x27;;
 import { PortalModule } from &#x27;@angular/cdk/portal&#x27;;
-import { MdButtonModule, MdCommonModule, MdIconModule, MdInputModule } from &#x27;@angular/material&#x27;;
+import { MdButtonModule, MdIconModule, MdInputModule } from &#x27;@angular/material&#x27;;
 import { MdKeyboardContainerComponent } from &#x27;./components/keyboard-container/keyboard-container.component&#x27;;
 import { MdKeyboardKeyComponent } from &#x27;./components/keyboard-key/keyboard-key.component&#x27;;
 import { MdKeyboardComponent } from &#x27;./components/keyboard/keyboard.component&#x27;;
@@ -739,16 +739,19 @@ import { MdKeyboardService } from &#x27;./services/keyboard.service&#x27;;
 
 @NgModule({
   imports: [
+    // Angular modules
     CommonModule,
     OverlayModule,
+
+    // Cdk modules
     PortalModule,
+
+    // Material modules
     MdButtonModule,
-    MdCommonModule,
     MdIconModule,
     MdInputModule
   ],
   exports: [
-    MdCommonModule,
     MdKeyboardComponent,
     MdKeyboardContainerComponent,
     MdKeyboardKeyComponent,
@@ -774,8 +777,7 @@ import { MdKeyboardService } from &#x27;./services/keyboard.service&#x27;;
     { provide: MD_KEYBOARD_LAYOUTS, useValue: keyboardLayouts }
   ]
 })
-export class MdKeyboardModule {
-}
+export class MdKeyboardModule {}
 </code></pre>
     </div>
 </div>

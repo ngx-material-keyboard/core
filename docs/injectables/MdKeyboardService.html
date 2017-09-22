@@ -543,6 +543,9 @@
                                     <li>
                                          <a href="#open">open</a>
                                     </li>
+                                    <li>
+                                         <a href="#openFromComponent">openFromComponent</a>
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
@@ -556,12 +559,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_overlay: Overlay, _live: LiveAnnouncer, _layouts: , _parentKeyboard: <a href="../injectables/MdKeyboardService.html">MdKeyboardService</a>)</code>
+                                    <code>constructor(_overlay: Overlay, _live: LiveAnnouncer, _defaultLocale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _layouts: , _parentKeyboard: <a href="../injectables/MdKeyboardService.html">MdKeyboardService</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/services/keyboard.service.ts:47</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/services/keyboard.service.ts:48</a></div>
                                         </td>
                                     </tr>
             
@@ -592,6 +595,15 @@
                                                               <td>_live</td>
                                                               <td>
                                                                         <code>LiveAnnouncer</code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>_defaultLocale</td>
+                                                              <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -645,7 +657,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/services/keyboard.service.ts:146</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/services/keyboard.service.ts:137</a></div>
                                         </td>
                                     </tr>
             
@@ -679,7 +691,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">src/services/keyboard.service.ts:174</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/services/keyboard.service.ts:170</a></div>
                                         </td>
                                     </tr>
             
@@ -740,12 +752,14 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/services/keyboard.service.ts:152</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">src/services/keyboard.service.ts:148</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Map a given locale to a layout name.</p>
+            </div>
             
                                         <div class="io-description">
                                                 <b>Parameters :</b>
@@ -778,7 +792,8 @@
             
                                         </div>
                                             <div class="io-description">
-                                                
+                                                <p>The layout name</p>
+            
                                             </div>
                                 </td>
                             </tr>
@@ -794,14 +809,14 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>open(layoutOrLocale?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, config: <a href="../classes/MdKeyboardConfig.html">MdKeyboardConfig</a>)</code>
+            <code>open(layoutOrLocale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, config: <a href="../classes/MdKeyboardConfig.html">MdKeyboardConfig</a>)</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/services/keyboard.service.ts:118</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/services/keyboard.service.ts:128</a></div>
                                         </td>
                                     </tr>
             
@@ -828,9 +843,8 @@
                                                                       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
                                                               <td>
-                                                                  true
                                                               </td>
-                                                              <td><p>[Optional] A string representing the locale or the layout name to be used.</p>
+                                                              <td><p>A string representing the locale or the layout name to be used.</p>
             </td>
                                                             </tr>
                                                             <tr>
@@ -841,6 +855,81 @@
                                                               <td>
                                                               </td>
                                                               <td><p>Additional configuration options for the keyboard.</p>
+            </td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="../classes/MdKeyboardRef.html" target="_self" >MdKeyboardRef&lt;&gt;</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="openFromComponent"></a>
+                                    <span class="name"><b> openFromComponent</b><a href="#openFromComponent"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>openFromComponent(layoutOrLocale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, config: <a href="../classes/MdKeyboardConfig.html">MdKeyboardConfig</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/services/keyboard.service.ts:67</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Creates and dispatches a keyboard with a custom component for the content, removing any
+            currently opened keyboards.</p>
+            </div>
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>layoutOrLocale</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td><p>layout or locale to use.</p>
+            </td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>config</td>
+                                                              <td>
+                                                                      <code><a href="../classes/MdKeyboardConfig.html" target="_self" >MdKeyboardConfig</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td><p>Extra configuration for the keyboard.</p>
             </td>
                                                             </tr>
                                                     </tbody>
@@ -876,13 +965,13 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>_openedKeyboardRef:     <code><a href="../classes/MdKeyboardRef.html" target="_self" >MdKeyboardRef&lt;any&gt;</a></code>
+                                    <code>_openedKeyboardRef:     <code><a href="../classes/MdKeyboardRef.html" target="_self" >MdKeyboardRef | null</a></code>
             </code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code><a href="../classes/MdKeyboardRef.html" target="_self" >MdKeyboardRef&lt;any&gt;</a></code>
+                                        <i>Type : </i>    <code><a href="../classes/MdKeyboardRef.html" target="_self" >MdKeyboardRef | null</a></code>
             
                                     </td>
                                 </tr>
@@ -923,7 +1012,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/services/keyboard.service.ts:41</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/services/keyboard.service.ts:42</a></div>
                                         </td>
                                     </tr>
             
@@ -952,7 +1041,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/services/keyboard.service.ts:45</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/services/keyboard.service.ts:46</a></div>
                                         </td>
                                     </tr>
             
@@ -964,18 +1053,18 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
-import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from &#x27;@angular/material&#x27;;
-import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from &#x27;../configs/keyboard-layouts.config&#x27;;
-import { MdKeyboardContainerComponent } from &#x27;../components/keyboard-container/keyboard-container.component&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+import { LiveAnnouncer } from &#x27;@angular/cdk/a11y&#x27;;
+import { Overlay, OverlayConfig, OverlayRef } from &#x27;@angular/cdk/overlay&#x27;;
+import { ComponentPortal } from &#x27;@angular/cdk/portal&#x27;;
+import { MD_KEYBOARD_LAYOUTS } from &#x27;../configs/keyboard-layouts.config&#x27;;
+import { ILocaleMap } from &#x27;../interfaces/locale-map.interface&#x27;;
+import { IKeyboardLayouts } from &#x27;../interfaces/keyboard-layouts.interface&#x27;;
+import { IKeyboardLayout } from &#x27;../interfaces/keyboard-layout.interface&#x27;;
 import { MdKeyboardRef } from &#x27;../utils/keyboard-ref.class&#x27;;
+import { MdKeyboardContainerComponent } from &#x27;../components/keyboard-container/keyboard-container.component&#x27;;
 import { MdKeyboardComponent } from &#x27;../components/keyboard/keyboard.component&#x27;;
 import { MdKeyboardConfig } from &#x27;../configs/keyboard.config&#x27;;
-import { throwLayoutNotFound } from &#x27;../utils/keyboard-errors&#x27;;
-
-export interface ILocaleMap {
-  [locale: string]: string;
-}
 
 /**
  * Service to dispatch Material Design keyboard.
@@ -987,14 +1076,15 @@ export class MdKeyboardService {
    * If there is a parent keyboard service, all operations should delegate to that parent
    * via &#x60;_openedKeyboardRef&#x60;.
    */
-  private _keyboardRefAtThisLevel: MdKeyboardRef&lt;any&gt;;
+  private _keyboardRefAtThisLevel: MdKeyboardRef&lt;MdKeyboardComponent&gt; | null &#x3D; null;
 
   /** Reference to the currently opened keyboard at *any* level. */
-  get _openedKeyboardRef(): MdKeyboardRef&lt;any&gt; {
-    return this._parentKeyboard ? this._parentKeyboard._openedKeyboardRef : this._keyboardRefAtThisLevel;
+  get _openedKeyboardRef(): MdKeyboardRef&lt;MdKeyboardComponent&gt; | null {
+    const parent &#x3D; this._parentKeyboard;
+    return parent ? parent._openedKeyboardRef : this._keyboardRefAtThisLevel;
   }
 
-  set _openedKeyboardRef(value: MdKeyboardRef&lt;any&gt;) {
+  set _openedKeyboardRef(value: MdKeyboardRef&lt;MdKeyboardComponent&gt;) {
     if (this._parentKeyboard) {
       this._parentKeyboard._openedKeyboardRef &#x3D; value;
     } else {
@@ -1002,7 +1092,7 @@ export class MdKeyboardService {
     }
   }
 
-  private _availableLocales: ILocaleMap;
+  private _availableLocales: ILocaleMap &#x3D; {};
 
   get availableLocales(): ILocaleMap {
     return this._availableLocales;
@@ -1014,35 +1104,40 @@ export class MdKeyboardService {
 
   constructor(private _overlay: Overlay,
               private _live: LiveAnnouncer,
+              @Inject(LOCALE_ID) private _defaultLocale: string,
               @Inject(MD_KEYBOARD_LAYOUTS) private _layouts,
               @Optional() @SkipSelf() private _parentKeyboard: MdKeyboardService) {
     // prepare available layouts mapping
-    this._availableLocales &#x3D; {};
-    Object
-      .keys(this._layouts)
-      .forEach(layout &#x3D;&gt; {
-        if (this._layouts[layout].lang) {
-          this._layouts[layout].lang.forEach(lang &#x3D;&gt; {
-            this._availableLocales[lang] &#x3D; layout;
-          });
-        }
-      });
+    this._availableLocales &#x3D; _applyAvailableLayouts(_layouts);
   }
 
   /**
    * Creates and dispatches a keyboard with a custom component for the content, removing any
    * currently opened keyboards.
    *
-   * @param component Component to be instantiated.
-   * @param config Extra configuration for the keyboard.
+   * @param {string} layoutOrLocale layout or locale to use.
+   * @param {MdKeyboardConfig} config Extra configuration for the keyboard.
+   * @returns {MdKeyboardRef&lt;MdKeyboardComponent&gt;}
    */
-  private _openFromComponent&lt;T&gt;(component: ComponentType&lt;T&gt;, config?: MdKeyboardConfig): MdKeyboardRef&lt;T&gt; {
-    const _config &#x3D; _applyConfigDefaults(config);
-    const overlayRef &#x3D; this._createOverlay();
-    const keyboardContainer &#x3D; this._attachKeyboardContainer(overlayRef, _config);
-    const keyboardRef &#x3D; this._attachKeyboardContent(component, keyboardContainer, overlayRef);
+  openFromComponent(layoutOrLocale: string, config: MdKeyboardConfig): MdKeyboardRef&lt;MdKeyboardComponent&gt; {
+    const keyboardRef: MdKeyboardRef&lt;MdKeyboardComponent&gt; &#x3D; this._attachKeyboardContent(config);
 
-    keyboardContainer.darkTheme &#x3D; _config.darkTheme;
+    keyboardRef.darkTheme &#x3D; config.darkTheme;
+    keyboardRef.hasAction &#x3D; config.hasAction;
+    keyboardRef.isDebug &#x3D; config.isDebug;
+
+    // a locale is provided
+    if (this.availableLocales[layoutOrLocale]) {
+      keyboardRef.instance.locale &#x3D; layoutOrLocale;
+      keyboardRef.instance.layout &#x3D; this.getLayoutForLocale(layoutOrLocale);
+    }
+
+    // a layout name is provided
+    if (this._layouts[layoutOrLocale]) {
+      keyboardRef.instance.layout &#x3D; this._layouts[layoutOrLocale];
+      keyboardRef.instance.locale &#x3D; this._layouts[layoutOrLocale].lang &amp;&amp;
+        this._layouts[layoutOrLocale].lang.pop();
+    }
 
     // When the keyboard is dismissed, clear the reference to it.
     keyboardRef.afterDismissed().subscribe(() &#x3D;&gt; {
@@ -1052,15 +1147,15 @@ export class MdKeyboardService {
       }
     });
 
-    // If a keyboard is already in view, dismiss it and enter the new keyboard after exit
-    // animation is complete.
     if (this._openedKeyboardRef) {
+      // If a keyboard is already in view, dismiss it and enter the
+      // new keyboard after exit animation is complete.
       this._openedKeyboardRef.afterDismissed().subscribe(() &#x3D;&gt; {
         keyboardRef.containerInstance.enter();
       });
       this._openedKeyboardRef.dismiss();
-      // If no keyboard is in view, enter the new keyboard.
     } else {
+      // If no keyboard is in view, enter the new keyboard.
       keyboardRef.containerInstance.enter();
     }
 
@@ -1071,39 +1166,24 @@ export class MdKeyboardService {
     //   });
     // }
 
-    this._live.announce(_config.announcementMessage, _config.politeness);
+    if (config.announcementMessage) {
+      this._live.announce(config.announcementMessage, config.politeness);
+    }
+
     this._openedKeyboardRef &#x3D; keyboardRef;
     return this._openedKeyboardRef;
   }
 
   /**
    * Opens a keyboard with a message and an optional action.
-   * @param layoutOrLocale [Optional] A string representing the locale or the layout name to be used.
-   * @param config Additional configuration options for the keyboard.
+   * @param {string} layoutOrLocale A string representing the locale or the layout name to be used.
+   * @param {MdKeyboardConfig} config Additional configuration options for the keyboard.
+   * @returns {MdKeyboardRef&lt;MdKeyboardComponent&gt;}
    */
-  open(layoutOrLocale?: string, config: MdKeyboardConfig &#x3D; {}): MdKeyboardRef&lt;MdKeyboardComponent&gt; {
+  open(layoutOrLocale: string &#x3D; this._defaultLocale, config: MdKeyboardConfig &#x3D; {}): MdKeyboardRef&lt;MdKeyboardComponent&gt; {
     const _config &#x3D; _applyConfigDefaults(config);
-    const keyboardComponentRef &#x3D; this._openFromComponent&lt;MdKeyboardComponent&gt;(MdKeyboardComponent, _config);
 
-    keyboardComponentRef.instance.keyboardRef &#x3D; keyboardComponentRef;
-    keyboardComponentRef.darkTheme &#x3D; config.darkTheme;
-    keyboardComponentRef.hasAction &#x3D; config.hasAction;
-    keyboardComponentRef.isDebug &#x3D; config.isDebug;
-
-    // a locale is provided
-    if (this.availableLocales[layoutOrLocale]) {
-      keyboardComponentRef.instance.locale &#x3D; layoutOrLocale;
-      keyboardComponentRef.instance.layout &#x3D; this.getLayoutForLocale(layoutOrLocale);
-    }
-
-    // a layout name is provided
-    if (this._layouts[layoutOrLocale]) {
-      keyboardComponentRef.instance.layout &#x3D; this._layouts[layoutOrLocale];
-      keyboardComponentRef.instance.locale &#x3D; this._layouts[layoutOrLocale].lang &amp;&amp;
-                                             this._layouts[layoutOrLocale].lang.pop();
-    }
-
-    return keyboardComponentRef;
+    return this.openFromComponent(layoutOrLocale, _config);
   }
 
   /**
@@ -1115,7 +1195,12 @@ export class MdKeyboardService {
     }
   }
 
-  mapLocale(locale: string): string {
+  /**
+   * Map a given locale to a layout name.
+   * @param {string} locale
+   * @returns {string} The layout name
+   */
+  mapLocale(locale: string &#x3D; this._defaultLocale): string {
     let layout: string;
     const country &#x3D; locale.split(&#x27;-&#x27;).shift();
 
@@ -1131,7 +1216,7 @@ export class MdKeyboardService {
     }
 
     if (!layout) {
-      throwLayoutNotFound(locale);
+      throw Error(&#x60;No layout found for locale ${locale}&#x60;);
     }
 
     return layout;
@@ -1144,11 +1229,12 @@ export class MdKeyboardService {
   /**
    * Attaches the keyboard container component to the overlay.
    */
-  private _attachKeyboardContainer(overlayRef: OverlayRef,
-                                   config: MdKeyboardConfig): MdKeyboardContainerComponent {
+  private _attachKeyboardContainer(overlayRef: OverlayRef, config: MdKeyboardConfig): MdKeyboardContainerComponent {
     const containerPortal &#x3D; new ComponentPortal(MdKeyboardContainerComponent, config.viewContainerRef);
     const containerRef: ComponentRef&lt;MdKeyboardContainerComponent&gt; &#x3D; overlayRef.attach(containerPortal);
+
     containerRef.instance.keyboardConfig &#x3D; config;
+    containerRef.instance.darkTheme &#x3D; config.darkTheme;
 
     return containerRef.instance;
   }
@@ -1156,23 +1242,25 @@ export class MdKeyboardService {
   /**
    * Places a new component as the content of the keyboard container.
    */
-  private _attachKeyboardContent&lt;T&gt;(component: ComponentType&lt;T&gt;,
-                                    container: MdKeyboardContainerComponent,
-                                    overlayRef: OverlayRef): MdKeyboardRef&lt;T&gt; {
-    const portal &#x3D; new ComponentPortal(component);
+  private _attachKeyboardContent(config: MdKeyboardConfig): MdKeyboardRef&lt;MdKeyboardComponent&gt; {
+    const overlayRef &#x3D; this._createOverlay();
+    const container &#x3D; this._attachKeyboardContainer(overlayRef, config);
+    const portal &#x3D; new ComponentPortal(MdKeyboardComponent);
     const contentRef &#x3D; container.attachComponentPortal(portal);
-    return new MdKeyboardRef(contentRef.instance, container, overlayRef) as MdKeyboardRef&lt;T&gt;;
+    return new MdKeyboardRef(contentRef.instance, container, overlayRef) as MdKeyboardRef&lt;MdKeyboardComponent&gt;;
   }
 
   /**
    * Creates a new overlay and places it in the correct location.
    */
   private _createOverlay(): OverlayRef {
-    const state &#x3D; new OverlayState();
+    const state &#x3D; new OverlayConfig();
+
     state.positionStrategy &#x3D; this._overlay.position().global()
-                                 .centerHorizontally()
-                                 .bottom(&#x27;0&#x27;)
-                                 .width(&#x27;100%&#x27;);
+      .centerHorizontally()
+      .bottom(&#x27;0&#x27;)
+      .width(&#x27;100%&#x27;);
+
     return this._overlay.create(state);
   }
 }
@@ -1181,9 +1269,32 @@ export class MdKeyboardService {
  * Applies default options to the keyboard configs.
  * @param config The configuration to which the defaults will be applied.
  * @returns The new configuration object with defaults applied.
+ * @private
  */
 function _applyConfigDefaults(config: MdKeyboardConfig): MdKeyboardConfig {
   return Object.assign(new MdKeyboardConfig(), config);
+}
+
+/**
+ * Applies available layouts.
+ * @param {IKeyboardLayouts} layouts
+ * @returns {ILocaleMap}
+ * @private
+ */
+function _applyAvailableLayouts(layouts: IKeyboardLayouts): ILocaleMap {
+  const _availableLocales: ILocaleMap &#x3D; {};
+
+  Object
+    .keys(layouts)
+    .forEach(layout &#x3D;&gt; {
+      if (layouts[layout].lang) {
+        layouts[layout].lang.forEach(lang &#x3D;&gt; {
+          _availableLocales[lang] &#x3D; layout;
+        });
+      }
+    });
+
+  return _availableLocales;
 }
 </code></pre>
     </div>

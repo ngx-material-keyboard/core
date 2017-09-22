@@ -1,11 +1,12 @@
 import { ElementRef, EventEmitter, OnInit } from '@angular/core';
 import { MdInput } from '@angular/material';
+import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
 export declare class MdKeyboardKeyComponent implements OnInit {
     private _deadkeys;
     private _icons;
     private _deadkeyKeys;
     private _iconKeys;
-    key: string;
+    key: string | KeyboardClassKey;
     active: boolean;
     input?: ElementRef;
     control?: MdInput;

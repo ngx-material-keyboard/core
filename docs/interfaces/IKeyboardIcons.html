@@ -490,7 +490,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/configs/keyboard-icons.config.ts</code>
+            <code>src/interfaces/keyboard-icons.interface.ts</code>
         </p>
 
 
@@ -509,7 +509,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/configs/keyboard-icons.config.ts:3</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">src/interfaces/keyboard-icons.interface.ts:1</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -520,22 +520,9 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { InjectionToken } from &#x27;@angular/core&#x27;;
-
-interface IKeyboardIcons {
+        <pre class="line-numbers"><code class="language-typescript">export interface IKeyboardIcons {
   [key: string]: string;
 }
-
-const MD_KEYBOARD_ICONS &#x3D; new InjectionToken&lt;IKeyboardIcons&gt;(&#x27;keyboard-icons.config&#x27;);
-const keyboardIcons: IKeyboardIcons &#x3D; {
-  &#x27;bksp&#x27;: &#x27;keyboard_backspace&#x27;,
-  &#x27;caps&#x27;: &#x27;keyboard_capslock&#x27;,
-  &#x27;enter&#x27;: &#x27;keyboard_return&#x27;,
-  &#x27;space&#x27;: &#x27;&#x27;,
-  &#x27;tab&#x27;: &#x27;keyboard_tab&#x27;
-};
-
-export { IKeyboardIcons, MD_KEYBOARD_ICONS, keyboardIcons };
 </code></pre>
     </div>
 </div>

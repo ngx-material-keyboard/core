@@ -1,17 +1,17 @@
-import { LiveAnnouncer, Overlay } from '@angular/material';
-import { IKeyboardLayout } from '../configs/keyboard-layouts.config';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { Overlay } from '@angular/cdk/overlay';
+import { ILocaleMap } from '../interfaces/locale-map.interface';
+import { IKeyboardLayout } from '../interfaces/keyboard-layout.interface';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardConfig } from '../configs/keyboard.config';
-export interface ILocaleMap {
-    [locale: string]: string;
-}
 /**
  * Service to dispatch Material Design keyboard.
  */
 export declare class MdKeyboardService {
     private _overlay;
     private _live;
+    private _defaultLocale;
     private _layouts;
     private _parentKeyboard;
     /**
@@ -21,30 +21,37 @@ export declare class MdKeyboardService {
      */
     private _keyboardRefAtThisLevel;
     /** Reference to the currently opened keyboard at *any* level. */
-    _openedKeyboardRef: MdKeyboardRef<any>;
+    _openedKeyboardRef: MdKeyboardRef<MdKeyboardComponent> | null;
     private _availableLocales;
     readonly availableLocales: ILocaleMap;
     readonly isOpened: boolean;
-    constructor(_overlay: Overlay, _live: LiveAnnouncer, _layouts: any, _parentKeyboard: MdKeyboardService);
+    constructor(_overlay: Overlay, _live: LiveAnnouncer, _defaultLocale: string, _layouts: any, _parentKeyboard: MdKeyboardService);
     /**
      * Creates and dispatches a keyboard with a custom component for the content, removing any
      * currently opened keyboards.
      *
-     * @param component Component to be instantiated.
-     * @param config Extra configuration for the keyboard.
+     * @param {string} layoutOrLocale layout or locale to use.
+     * @param {MdKeyboardConfig} config Extra configuration for the keyboard.
+     * @returns {MdKeyboardRef<MdKeyboardComponent>}
      */
-    private _openFromComponent<T>(component, config?);
+    openFromComponent(layoutOrLocale: string, config: MdKeyboardConfig): MdKeyboardRef<MdKeyboardComponent>;
     /**
      * Opens a keyboard with a message and an optional action.
-     * @param layoutOrLocale [Optional] A string representing the locale or the layout name to be used.
-     * @param config Additional configuration options for the keyboard.
+     * @param {string} layoutOrLocale A string representing the locale or the layout name to be used.
+     * @param {MdKeyboardConfig} config Additional configuration options for the keyboard.
+     * @returns {MdKeyboardRef<MdKeyboardComponent>}
      */
     open(layoutOrLocale?: string, config?: MdKeyboardConfig): MdKeyboardRef<MdKeyboardComponent>;
     /**
      * Dismisses the currently-visible keyboard.
      */
     dismiss(): void;
-    mapLocale(locale: string): string;
+    /**
+     * Map a given locale to a layout name.
+     * @param {string} locale
+     * @returns {string} The layout name
+     */
+    mapLocale(locale?: string): string;
     getLayoutForLocale(locale: string): IKeyboardLayout;
     /**
      * Attaches the keyboard container component to the overlay.
@@ -53,7 +60,7 @@ export declare class MdKeyboardService {
     /**
      * Places a new component as the content of the keyboard container.
      */
-    private _attachKeyboardContent<T>(component, container, overlayRef);
+    private _attachKeyboardContent(config);
     /**
      * Creates a new overlay and places it in the correct location.
      */

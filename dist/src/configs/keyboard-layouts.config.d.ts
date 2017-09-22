@@ -1,12 +1,5 @@
 import { InjectionToken } from '@angular/core';
-interface IKeyboardLayout {
-    name: string;
-    keys: string[][][];
-    lang?: string[];
-}
-interface IKeyboardLayouts {
-    [layout: string]: IKeyboardLayout;
-}
+import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
 declare const MD_KEYBOARD_LAYOUTS: InjectionToken<IKeyboardLayouts>;
 declare const keyboardLayouts: IKeyboardLayouts;
-export { IKeyboardLayout, IKeyboardLayouts, keyboardLayouts, MD_KEYBOARD_LAYOUTS };
+export { keyboardLayouts, MD_KEYBOARD_LAYOUTS };
