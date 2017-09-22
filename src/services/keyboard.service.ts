@@ -5,8 +5,6 @@ import { MdKeyboardContainerComponent } from '../components/keyboard-container/k
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardConfig } from '../configs/keyboard.config';
-import { throwLayoutNotFound } from '../utils/keyboard-errors';
-
 import { ILocaleMap } from '../interfaces/locale-map.interface';
 
 /**
@@ -163,7 +161,7 @@ export class MdKeyboardService {
     }
 
     if (!layout) {
-      throwLayoutNotFound(locale);
+      throw Error(`No layout found for locale ${locale}`);
     }
 
     return layout;

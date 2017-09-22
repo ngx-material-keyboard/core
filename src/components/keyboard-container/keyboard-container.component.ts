@@ -6,7 +6,6 @@ import { BasePortalHost, ComponentPortal, PortalHostDirective } from '@angular/c
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { KeyboardState } from '../../enums/keyboard-state.enum';
-import { throwContentAlreadyAttached } from '../../utils/keyboard-errors';
 import { MdKeyboardConfig } from '../../configs/keyboard.config';
 
 // TODO(jelbourn): we can't use constants from animation.ts here because you can't use
@@ -65,7 +64,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   /** Attach a component portal as content to this keyboard container. */
   attachComponentPortal<T>(portal: ComponentPortal<T>): ComponentRef<T> {
     if (this._portalHost.hasAttached()) {
-      throwContentAlreadyAttached();
+      throw Error('Attempting to attach keyboard content after content is already attached');
     }
 
     return this._portalHost.attachComponentPortal(portal);
