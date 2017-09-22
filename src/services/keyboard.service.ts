@@ -1,11 +1,15 @@
-import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from '@angular/core';
-import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
-import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from '../configs/keyboard-layouts.config';
-import { MdKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf } from '@angular/core';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { MD_KEYBOARD_LAYOUTS } from '../configs/keyboard-layouts.config';
+import { ILocaleMap } from '../interfaces/locale-map.interface';
+import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
+import { IKeyboardLayout } from '../interfaces/keyboard-layout.interface';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
+import { MdKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardConfig } from '../configs/keyboard.config';
-import { ILocaleMap } from '../interfaces/locale-map.interface';
 
 /**
  * Service to dispatch Material Design keyboard.
@@ -17,14 +21,15 @@ export class MdKeyboardService {
    * If there is a parent keyboard service, all operations should delegate to that parent
    * via `_openedKeyboardRef`.
    */
-  private _keyboardRefAtThisLevel: MdKeyboardRef<any>;
+  private _keyboardRefAtThisLevel: MdKeyboardRef<MdKeyboardComponent> | null = null;
 
   /** Reference to the currently opened keyboard at *any* level. */
-  get _openedKeyboardRef(): MdKeyboardRef<any> {
-    return this._parentKeyboard ? this._parentKeyboard._openedKeyboardRef : this._keyboardRefAtThisLevel;
+  get _openedKeyboardRef(): MdKeyboardRef<MdKeyboardComponent> | null {
+    const parent = this._parentKeyboard;
+    return parent ? parent._openedKeyboardRef : this._keyboardRefAtThisLevel;
   }
 
-  set _openedKeyboardRef(value: MdKeyboardRef<any>) {
+  set _openedKeyboardRef(value: MdKeyboardRef<MdKeyboardComponent>) {
     if (this._parentKeyboard) {
       this._parentKeyboard._openedKeyboardRef = value;
     } else {
@@ -32,7 +37,7 @@ export class MdKeyboardService {
     }
   }
 
-  private _availableLocales: ILocaleMap;
+  private _availableLocales: ILocaleMap = {};
 
   get availableLocales(): ILocaleMap {
     return this._availableLocales;
@@ -44,35 +49,40 @@ export class MdKeyboardService {
 
   constructor(private _overlay: Overlay,
               private _live: LiveAnnouncer,
+              @Inject(LOCALE_ID) private _defaultLocale: string,
               @Inject(MD_KEYBOARD_LAYOUTS) private _layouts,
               @Optional() @SkipSelf() private _parentKeyboard: MdKeyboardService) {
     // prepare available layouts mapping
-    this._availableLocales = {};
-    Object
-      .keys(this._layouts)
-      .forEach(layout => {
-        if (this._layouts[layout].lang) {
-          this._layouts[layout].lang.forEach(lang => {
-            this._availableLocales[lang] = layout;
-          });
-        }
-      });
+    this._availableLocales = _applyAvailableLayouts(_layouts);
   }
 
   /**
    * Creates and dispatches a keyboard with a custom component for the content, removing any
    * currently opened keyboards.
    *
-   * @param component Component to be instantiated.
-   * @param config Extra configuration for the keyboard.
+   * @param {string} layoutOrLocale layout or locale to use.
+   * @param {MdKeyboardConfig} config Extra configuration for the keyboard.
+   * @returns {MdKeyboardRef<MdKeyboardComponent>}
    */
-  private _openFromComponent<T>(component: ComponentType<T>, config?: MdKeyboardConfig): MdKeyboardRef<T> {
-    const _config = _applyConfigDefaults(config);
-    const overlayRef = this._createOverlay();
-    const keyboardContainer = this._attachKeyboardContainer(overlayRef, _config);
-    const keyboardRef = this._attachKeyboardContent(component, keyboardContainer, overlayRef);
+  openFromComponent(layoutOrLocale: string, config: MdKeyboardConfig): MdKeyboardRef<MdKeyboardComponent> {
+    const keyboardRef: MdKeyboardRef<MdKeyboardComponent> = this._attachKeyboardContent(config);
 
-    keyboardContainer.darkTheme = _config.darkTheme;
+    keyboardRef.darkTheme = config.darkTheme;
+    keyboardRef.hasAction = config.hasAction;
+    keyboardRef.isDebug = config.isDebug;
+
+    // a locale is provided
+    if (this.availableLocales[layoutOrLocale]) {
+      keyboardRef.instance.locale = layoutOrLocale;
+      keyboardRef.instance.layout = this.getLayoutForLocale(layoutOrLocale);
+    }
+
+    // a layout name is provided
+    if (this._layouts[layoutOrLocale]) {
+      keyboardRef.instance.layout = this._layouts[layoutOrLocale];
+      keyboardRef.instance.locale = this._layouts[layoutOrLocale].lang &&
+        this._layouts[layoutOrLocale].lang.pop();
+    }
 
     // When the keyboard is dismissed, clear the reference to it.
     keyboardRef.afterDismissed().subscribe(() => {
@@ -82,15 +92,15 @@ export class MdKeyboardService {
       }
     });
 
-    // If a keyboard is already in view, dismiss it and enter the new keyboard after exit
-    // animation is complete.
     if (this._openedKeyboardRef) {
+      // If a keyboard is already in view, dismiss it and enter the
+      // new keyboard after exit animation is complete.
       this._openedKeyboardRef.afterDismissed().subscribe(() => {
         keyboardRef.containerInstance.enter();
       });
       this._openedKeyboardRef.dismiss();
-      // If no keyboard is in view, enter the new keyboard.
     } else {
+      // If no keyboard is in view, enter the new keyboard.
       keyboardRef.containerInstance.enter();
     }
 
@@ -101,39 +111,24 @@ export class MdKeyboardService {
     //   });
     // }
 
-    this._live.announce(_config.announcementMessage, _config.politeness);
+    if (config.announcementMessage) {
+      this._live.announce(config.announcementMessage, config.politeness);
+    }
+
     this._openedKeyboardRef = keyboardRef;
     return this._openedKeyboardRef;
   }
 
   /**
    * Opens a keyboard with a message and an optional action.
-   * @param layoutOrLocale [Optional] A string representing the locale or the layout name to be used.
-   * @param config Additional configuration options for the keyboard.
+   * @param {string} layoutOrLocale A string representing the locale or the layout name to be used.
+   * @param {MdKeyboardConfig} config Additional configuration options for the keyboard.
+   * @returns {MdKeyboardRef<MdKeyboardComponent>}
    */
-  open(layoutOrLocale?: string, config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
+  open(layoutOrLocale: string = this._defaultLocale, config: MdKeyboardConfig = {}): MdKeyboardRef<MdKeyboardComponent> {
     const _config = _applyConfigDefaults(config);
-    const keyboardComponentRef = this._openFromComponent<MdKeyboardComponent>(MdKeyboardComponent, _config);
 
-    keyboardComponentRef.instance.keyboardRef = keyboardComponentRef;
-    keyboardComponentRef.darkTheme = config.darkTheme;
-    keyboardComponentRef.hasAction = config.hasAction;
-    keyboardComponentRef.isDebug = config.isDebug;
-
-    // a locale is provided
-    if (this.availableLocales[layoutOrLocale]) {
-      keyboardComponentRef.instance.locale = layoutOrLocale;
-      keyboardComponentRef.instance.layout = this.getLayoutForLocale(layoutOrLocale);
-    }
-
-    // a layout name is provided
-    if (this._layouts[layoutOrLocale]) {
-      keyboardComponentRef.instance.layout = this._layouts[layoutOrLocale];
-      keyboardComponentRef.instance.locale = this._layouts[layoutOrLocale].lang &&
-                                             this._layouts[layoutOrLocale].lang.pop();
-    }
-
-    return keyboardComponentRef;
+    return this.openFromComponent(layoutOrLocale, _config);
   }
 
   /**
@@ -145,7 +140,12 @@ export class MdKeyboardService {
     }
   }
 
-  mapLocale(locale: string): string {
+  /**
+   * Map a given locale to a layout name.
+   * @param {string} locale
+   * @returns {string} The layout name
+   */
+  mapLocale(locale: string = this._defaultLocale): string {
     let layout: string;
     const country = locale.split('-').shift();
 
@@ -174,11 +174,12 @@ export class MdKeyboardService {
   /**
    * Attaches the keyboard container component to the overlay.
    */
-  private _attachKeyboardContainer(overlayRef: OverlayRef,
-                                   config: MdKeyboardConfig): MdKeyboardContainerComponent {
+  private _attachKeyboardContainer(overlayRef: OverlayRef, config: MdKeyboardConfig): MdKeyboardContainerComponent {
     const containerPortal = new ComponentPortal(MdKeyboardContainerComponent, config.viewContainerRef);
     const containerRef: ComponentRef<MdKeyboardContainerComponent> = overlayRef.attach(containerPortal);
+
     containerRef.instance.keyboardConfig = config;
+    containerRef.instance.darkTheme = config.darkTheme;
 
     return containerRef.instance;
   }
@@ -186,23 +187,25 @@ export class MdKeyboardService {
   /**
    * Places a new component as the content of the keyboard container.
    */
-  private _attachKeyboardContent<T>(component: ComponentType<T>,
-                                    container: MdKeyboardContainerComponent,
-                                    overlayRef: OverlayRef): MdKeyboardRef<T> {
-    const portal = new ComponentPortal(component);
+  private _attachKeyboardContent(config: MdKeyboardConfig): MdKeyboardRef<MdKeyboardComponent> {
+    const overlayRef = this._createOverlay();
+    const container = this._attachKeyboardContainer(overlayRef, config);
+    const portal = new ComponentPortal(MdKeyboardComponent);
     const contentRef = container.attachComponentPortal(portal);
-    return new MdKeyboardRef(contentRef.instance, container, overlayRef) as MdKeyboardRef<T>;
+    return new MdKeyboardRef(contentRef.instance, container, overlayRef) as MdKeyboardRef<MdKeyboardComponent>;
   }
 
   /**
    * Creates a new overlay and places it in the correct location.
    */
   private _createOverlay(): OverlayRef {
-    const state = new OverlayState();
+    const state = new OverlayConfig();
+
     state.positionStrategy = this._overlay.position().global()
-                                 .centerHorizontally()
-                                 .bottom('0')
-                                 .width('100%');
+      .centerHorizontally()
+      .bottom('0')
+      .width('100%');
+
     return this._overlay.create(state);
   }
 }
@@ -211,7 +214,30 @@ export class MdKeyboardService {
  * Applies default options to the keyboard configs.
  * @param config The configuration to which the defaults will be applied.
  * @returns The new configuration object with defaults applied.
+ * @private
  */
 function _applyConfigDefaults(config: MdKeyboardConfig): MdKeyboardConfig {
   return Object.assign(new MdKeyboardConfig(), config);
+}
+
+/**
+ * Applies available layouts.
+ * @param {IKeyboardLayouts} layouts
+ * @returns {ILocaleMap}
+ * @private
+ */
+function _applyAvailableLayouts(layouts: IKeyboardLayouts): ILocaleMap {
+  const _availableLocales: ILocaleMap = {};
+
+  Object
+    .keys(layouts)
+    .forEach(layout => {
+      if (layouts[layout].lang) {
+        layouts[layout].lang.forEach(lang => {
+          _availableLocales[lang] = layout;
+        });
+      }
+    });
+
+  return _availableLocales;
 }
