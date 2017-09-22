@@ -78,11 +78,11 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   /** Handle end of animations, updating the state of the keyboard. */
   @HostListener('@state.done', ['$event'])
   onAnimationEnd(event: AnimationEvent) {
-    if (event.toState === `${KeyboardState.Hidden}` || event.toState === `${KeyboardState.Hidden}`) {
+    if (event.toState === KeyboardState.Hidden.toString() || event.toState === KeyboardState.Hidden.toString()) {
       this._completeExit();
     }
 
-    if (event.toState === `${KeyboardState.Visible}`) {
+    if (event.toState === KeyboardState.Visible.toString()) {
       // Note: we shouldn't use `this` inside the zone callback,
       // because it can cause a memory leak.
       const onEnter = this.onEnter;

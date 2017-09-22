@@ -39,7 +39,7 @@ export class MdKeyboardComponent implements OnInit {
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
 
-  private _inputInstance$: AsyncSubject<any> = new AsyncSubject();
+  private _inputInstance$: AsyncSubject<ElementRef> = new AsyncSubject();
 
   get inputInstance(): Observable<ElementRef> {
     return this._inputInstance$.asObservable();
@@ -69,38 +69,52 @@ export class MdKeyboardComponent implements OnInit {
   }
 
   isActive(key: string): boolean {
-    return this.modifier === KeyboardModifier[key] || (this.modifier === KeyboardModifier.ShiftAlt && KeyboardModifier[key] > KeyboardModifier.None);
+    return this.modifier.toString() === key || (this.modifier === KeyboardModifier.ShiftAlt && key !== KeyboardModifier.None.toString());
   }
 
   onAltClick() {
-    if (this.modifier === KeyboardModifier.None) {
-      this.modifier = KeyboardModifier.Alt;
-    }
-    else if (this.modifier === KeyboardModifier.Shift) {
-      this.modifier = KeyboardModifier.ShiftAlt;
-    }
-    else if (this.modifier === KeyboardModifier.ShiftAlt) {
-      this.modifier = KeyboardModifier.Shift;
-    }
-    else if (this.modifier === KeyboardModifier.Alt) {
-      this.modifier = KeyboardModifier.None;
+    switch (this.modifier) {
+      case KeyboardModifier.None:
+        this.modifier = KeyboardModifier.Alt;
+        break;
+
+      case KeyboardModifier.Shift:
+        this.modifier = KeyboardModifier.ShiftAlt;
+        break;
+
+      case KeyboardModifier.ShiftAlt:
+        this.modifier = KeyboardModifier.Shift;
+        break;
+
+      case KeyboardModifier.Alt:
+        this.modifier = KeyboardModifier.None;
+        break;
     }
   }
 
-  onCapsClick() {}
+  onCapsClick() {
+    switch (this.modifier) {
+      // not implemented
+    }
+  }
 
   onShiftClick() {
-    if (this.modifier === KeyboardModifier.None) {
-      this.modifier = KeyboardModifier.Shift;
-    }
-    else if (this.modifier === KeyboardModifier.Alt) {
-      this.modifier = KeyboardModifier.ShiftAlt;
-    }
-    else if (this.modifier === KeyboardModifier.ShiftAlt) {
-      this.modifier = KeyboardModifier.Alt;
-    }
-    else if (this.modifier === KeyboardModifier.Shift) {
-      this.modifier = KeyboardModifier.None;
+    switch (this.modifier) {
+      case KeyboardModifier.None:
+        this.modifier = KeyboardModifier.Shift;
+        break;
+
+      case KeyboardModifier.Alt:
+        this.modifier = KeyboardModifier.ShiftAlt;
+        break;
+
+      case KeyboardModifier.ShiftAlt:
+        this.modifier = KeyboardModifier.Alt;
+        break;
+
+      case KeyboardModifier.Shift:
+        this.modifier = KeyboardModifier.None;
+        break;
     }
   }
 

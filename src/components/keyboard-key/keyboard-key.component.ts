@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, I
 import { MdInput } from '@angular/material';
 import { MD_KEYBOARD_DEADKEYS } from '../../configs/keyboard-deadkey.config';
 import { MD_KEYBOARD_ICONS } from '../../configs/keyboard-icons.config';
-import { KeyboardKey } from '../../enums/keyboard-key.enum';
+import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
 
 @Component({
   selector: 'md-keyboard-key',
@@ -16,7 +16,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   private _iconKeys: string[] = [];
 
-  @Input() key: string | KeyboardKey;
+  @Input() key: string | KeyboardClassKey;
 
   @Input() active: boolean;
 
@@ -31,19 +31,19 @@ export class MdKeyboardKeyComponent implements OnInit {
   @Output() shiftClick = new EventEmitter<void>();
 
   get lowerKey(): string {
-    return this.key.toLowerCase();
+    return this.key.toString().toLowerCase();
   }
 
   get charCode(): number {
-    return this.key.charCodeAt(0);
+    return this.key.toString().charCodeAt(0);
   }
 
   get isClassKey(): boolean {
-    return !!KeyboardKey[this.key];
+    return this.key in KeyboardClassKey;
   }
 
   get isDeadKey(): boolean {
-    return !!this._deadkeyKeys.find((deadKey: string) => deadKey === this.key);
+    return !!this._deadkeyKeys.find((deadKey: string) => deadKey === this.key.toString());
   }
 
   get hasIcon(): boolean {
@@ -59,7 +59,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
     if (this.isClassKey) {
       classes.push('mat-keyboard-key-modifier');
-      classes.push(`mat-keyboard-key-${KeyboardKey[this.key]}`);
+      classes.push(`mat-keyboard-key-${this.lowerKey}`);
     }
 
     if (this.isDeadKey) {
@@ -112,44 +112,45 @@ export class MdKeyboardKeyComponent implements OnInit {
     // Manipulate the focused input / textarea value
     const value = this.inputValue;
     const caret = this.input ? this._getCursorPosition() : 0;
-    let char: string;
 
+    let char: string;
     switch (this.key) {
       // this keys have no actions yet
       // TODO: add deadkeys and modifiers
-      case KeyboardKey.Alt:
-      case KeyboardKey.AltGr:
-      case KeyboardKey.AltLk:
+      case KeyboardClassKey.Alt:
+      case KeyboardClassKey.AltGr:
+      case KeyboardClassKey.AltLk:
         this.altClick.emit();
         break;
 
-      case KeyboardKey.Bksp:
+      case KeyboardClassKey.Bksp:
         this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
         this._setCursorPosition(caret - 1);
         break;
 
-      case KeyboardKey.Caps:
+      case KeyboardClassKey.Caps:
         this.capsClick.emit();
         break;
 
-      case KeyboardKey.Enter:
+      case KeyboardClassKey.Enter:
         char = '\n\r';
         break;
 
-      case KeyboardKey.Shift:
+      case KeyboardClassKey.Shift:
         this.shiftClick.emit();
         break;
 
-      case KeyboardKey.Space:
+      case KeyboardClassKey.Space:
         char = ' ';
         break;
 
-      case KeyboardKey.Tab:
+      case KeyboardClassKey.Tab:
         char = '\t';
         break;
 
       default:
-        char = this.key;
+        // the key is not mapped or a string
+        char = this.key.toString();
         break;
     }
 
