@@ -50,5 +50,6 @@
     "tslint": "^5.5.0",
     "tslint-microsoft-contrib": "^5.0.1",
     "zone.js": "^0.8.14"
-  }
+  },
+  "metadata": "core.metadata.json"
 }

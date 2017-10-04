@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/AsyncSubject'), require('rxjs/operator/finally'), require('rxjs/operator/catch'), require('rxjs/operator/do'), require('rxjs/operator/map'), require('rxjs/operator/filter'), require('rxjs/operator/share'), require('rxjs/operator/first'), require('rxjs/operator/switchMap'), require('rxjs/operator/startWith'), require('rxjs/operator/debounceTime'), require('rxjs/operator/auditTime'), require('rxjs/operator/takeUntil'), require('@angular/common'), require('rxjs/Subject'), require('@angular/platform-browser'), require('rxjs/observable/merge'), require('rxjs/BehaviorSubject'), require('rxjs/Subscription'), require('rxjs/observable/fromEvent'), require('rxjs/observable/of'), require('@angular/forms'), require('@angular/animations'), require('@angular/http'), require('rxjs/Observable'), require('rxjs/observable/throw'), require('rxjs/observable/forkJoin')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', 'rxjs/AsyncSubject', 'rxjs/operator/finally', 'rxjs/operator/catch', 'rxjs/operator/do', 'rxjs/operator/map', 'rxjs/operator/filter', 'rxjs/operator/share', 'rxjs/operator/first', 'rxjs/operator/switchMap', 'rxjs/operator/startWith', 'rxjs/operator/debounceTime', 'rxjs/operator/auditTime', 'rxjs/operator/takeUntil', '@angular/common', 'rxjs/Subject', '@angular/platform-browser', 'rxjs/observable/merge', 'rxjs/BehaviorSubject', 'rxjs/Subscription', 'rxjs/observable/fromEvent', 'rxjs/observable/of', '@angular/forms', '@angular/animations', '@angular/http', 'rxjs/Observable', 'rxjs/observable/throw', 'rxjs/observable/forkJoin'], factory) :
-	(factory((global.core = {}),global.ng.core,global.Rx,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.Rx.Observable.prototype,global.ng.common,global.Rx,global.ng.platformBrowser,global.Rx.Observable,global.Rx,global.Rx,global.Rx.Observable,global.Rx.Observable,global.ng.forms,global.ng.animations,global.ng.http,global.Rx,global.Rx.Observable,global.Rx.Observable));
-}(this, (function (exports,core,AsyncSubject,_finally,_catch,_do,map,filter,share,first,switchMap,startWith,debounceTime,auditTime,takeUntil,common,Subject,platformBrowser,merge,BehaviorSubject,Subscription,fromEvent,of,forms,animations,http,Observable,_throw,forkJoin) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs/AsyncSubject'), require('@angular/cdk'), require('@angular/platform-browser'), require('@angular/common'), require('rxjs/Subject'), require('rxjs/Subscription'), require('rxjs/observable/fromEvent'), require('rxjs/observable/merge'), require('rxjs/observable/of'), require('@angular/forms'), require('@angular/animations'), require('@angular/http'), require('rxjs/Observable'), require('rxjs/observable/throw'), require('rxjs/observable/forkJoin')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', 'rxjs/AsyncSubject', '@angular/cdk', '@angular/platform-browser', '@angular/common', 'rxjs/Subject', 'rxjs/Subscription', 'rxjs/observable/fromEvent', 'rxjs/observable/merge', 'rxjs/observable/of', '@angular/forms', '@angular/animations', '@angular/http', 'rxjs/Observable', 'rxjs/observable/throw', 'rxjs/observable/forkJoin'], factory) :
+	(factory((global.core = {}),global.ng.core,global.Rx,global.ng.cdk,global.ng.platformBrowser,global.ng.common,global.Rx,global.Rx,global.Rx.Observable,global.Rx.Observable,global.Rx.Observable,global.ng.forms,global.ng.animations,global.ng.http,global.Rx,global.Rx.Observable,global.Rx.Observable));
+}(this, (function (exports,core,AsyncSubject,cdk,platformBrowser,common,Subject,Subscription,fromEvent,merge,of,forms,animations,http,Observable,_throw,forkJoin) { 'use strict';
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -48,2844 +48,6 @@ function __extends(d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
- * Coerces a data-bound value (typically a string) to a boolean.
- * @param {?} value
- * @return {?}
- */
-function coerceBooleanProperty(value) {
-    return value != null && "" + value !== 'false';
-}
-// Whether the current platform supports the V8 Break Iterator. The V8 check
-// is necessary to detect all Blink based browsers.
-var hasV8BreakIterator = (typeof (Intl) !== 'undefined' && ((Intl)).v8BreakIterator);
-/**
- * Service to detect the current platform by comparing the userAgent strings and
- * checking browser-specific global properties.
- * \@docs-private
- */
-var Platform = (function () {
-    function Platform() {
-        this.isBrowser = typeof document === 'object' && !!document;
-        /**
-         * Layout Engines
-         */
-        this.EDGE = this.isBrowser && /(edge)/i.test(navigator.userAgent);
-        this.TRIDENT = this.isBrowser && /(msie|trident)/i.test(navigator.userAgent);
-        // EdgeHTML and Trident mock Blink specific things and need to be excluded from this check.
-        this.BLINK = this.isBrowser &&
-            (!!(((window)).chrome || hasV8BreakIterator) && !!CSS && !this.EDGE && !this.TRIDENT);
-        // Webkit is part of the userAgent in EdgeHTML, Blink and Trident. Therefore we need to
-        // ensure that Webkit runs standalone and is not used as another engine's base.
-        this.WEBKIT = this.isBrowser &&
-            /AppleWebKit/i.test(navigator.userAgent) && !this.BLINK && !this.EDGE && !this.TRIDENT;
-        /**
-         * Browsers and Platform Types
-         */
-        this.IOS = this.isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        // It's difficult to detect the plain Gecko engine, because most of the browsers identify
-        // them self as Gecko-like browsers and modify the userAgent's according to that.
-        // Since we only cover one explicit Firefox case, we can simply check for Firefox
-        // instead of having an unstable check for Gecko.
-        this.FIREFOX = this.isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
-        // Trident on mobile adds the android platform to the userAgent to trick detections.
-        this.ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT;
-        // Safari browsers will include the Safari keyword in their userAgent. Some browsers may fake
-        // this and just place the Safari keyword in the userAgent. To be more safe about Safari every
-        // Safari browser should also use Webkit as its layout engine.
-        this.SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
-    }
-    return Platform;
-}());
-Platform.decorators = [
-    { type: core.Injectable },
-];
-/**
- * @nocollapse
- */
-Platform.ctorParameters = function () { return []; };
-/**
- * Utility for checking the interactivity of an element, such as whether is is focusable or
- * tabbable.
- */
-var InteractivityChecker = (function () {
-    /**
-     * @param {?} _platform
-     */
-    function InteractivityChecker(_platform) {
-        this._platform = _platform;
-    }
-    /**
-     * Gets whether an element is disabled.
-     *
-     * @param {?} element Element to be checked.
-     * @return {?} Whether the element is disabled.
-     */
-    InteractivityChecker.prototype.isDisabled = function (element) {
-        // This does not capture some cases, such as a non-form control with a disabled attribute or
-        // a form control inside of a disabled form, but should capture the most common cases.
-        return element.hasAttribute('disabled');
-    };
-    /**
-     * Gets whether an element is visible for the purposes of interactivity.
-     *
-     * This will capture states like `display: none` and `visibility: hidden`, but not things like
-     * being clipped by an `overflow: hidden` parent or being outside the viewport.
-     *
-     * @param {?} element
-     * @return {?} Whether the element is visible.
-     */
-    InteractivityChecker.prototype.isVisible = function (element) {
-        return hasGeometry(element) && getComputedStyle(element).visibility === 'visible';
-    };
-    /**
-     * Gets whether an element can be reached via Tab key.
-     * Assumes that the element has already been checked with isFocusable.
-     *
-     * @param {?} element Element to be checked.
-     * @return {?} Whether the element is tabbable.
-     */
-    InteractivityChecker.prototype.isTabbable = function (element) {
-        // Nothing is tabbable on the the server 😎
-        if (!this._platform.isBrowser) {
-            return false;
-        }
-        var /** @type {?} */ frameElement = (getWindow(element).frameElement);
-        if (frameElement) {
-            var /** @type {?} */ frameType = frameElement && frameElement.nodeName.toLowerCase();
-            // Frame elements inherit their tabindex onto all child elements.
-            if (getTabIndexValue(frameElement) === -1) {
-                return false;
-            }
-            // Webkit and Blink consider anything inside of an <object> element as non-tabbable.
-            if ((this._platform.BLINK || this._platform.WEBKIT) && frameType === 'object') {
-                return false;
-            }
-            // Webkit and Blink disable tabbing to an element inside of an invisible frame.
-            if ((this._platform.BLINK || this._platform.WEBKIT) && !this.isVisible(frameElement)) {
-                return false;
-            }
-        }
-        var /** @type {?} */ nodeName = element.nodeName.toLowerCase();
-        var /** @type {?} */ tabIndexValue = getTabIndexValue(element);
-        if (element.hasAttribute('contenteditable')) {
-            return tabIndexValue !== -1;
-        }
-        if (nodeName === 'iframe') {
-            // The frames may be tabbable depending on content, but it's not possibly to reliably
-            // investigate the content of the frames.
-            return false;
-        }
-        if (nodeName === 'audio') {
-            if (!element.hasAttribute('controls')) {
-                // By default an <audio> element without the controls enabled is not tabbable.
-                return false;
-            }
-            else if (this._platform.BLINK) {
-                // In Blink <audio controls> elements are always tabbable.
-                return true;
-            }
-        }
-        if (nodeName === 'video') {
-            if (!element.hasAttribute('controls') && this._platform.TRIDENT) {
-                // In Trident a <video> element without the controls enabled is not tabbable.
-                return false;
-            }
-            else if (this._platform.BLINK || this._platform.FIREFOX) {
-                // In Chrome and Firefox <video controls> elements are always tabbable.
-                return true;
-            }
-        }
-        if (nodeName === 'object' && (this._platform.BLINK || this._platform.WEBKIT)) {
-            // In all Blink and WebKit based browsers <object> elements are never tabbable.
-            return false;
-        }
-        // In iOS the browser only considers some specific elements as tabbable.
-        if (this._platform.WEBKIT && this._platform.IOS && !isPotentiallyTabbableIOS(element)) {
-            return false;
-        }
-        return element.tabIndex >= 0;
-    };
-    /**
-     * Gets whether an element can be focused by the user.
-     *
-     * @param {?} element Element to be checked.
-     * @return {?} Whether the element is focusable.
-     */
-    InteractivityChecker.prototype.isFocusable = function (element) {
-        // Perform checks in order of left to most expensive.
-        // Again, naive approach that does not capture many edge cases and browser quirks.
-        return isPotentiallyFocusable(element) && !this.isDisabled(element) && this.isVisible(element);
-    };
-    return InteractivityChecker;
-}());
-InteractivityChecker.decorators = [
-    { type: core.Injectable },
-];
-/**
- * @nocollapse
- */
-InteractivityChecker.ctorParameters = function () {
-    return [
-        { type: Platform, },
-    ];
-};
-/**
- * Checks whether the specified element has any geometry / rectangles.
- * @param {?} element
- * @return {?}
- */
-function hasGeometry(element) {
-    // Use logic from jQuery to check for an invisible element.
-    // See https://github.com/jquery/jquery/blob/master/src/css/hiddenVisibleSelectors.js#L12
-    return !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
-}
-/**
- * Gets whether an element's
- * @param {?} element
- * @return {?}
- */
-function isNativeFormElement(element) {
-    var /** @type {?} */ nodeName = element.nodeName.toLowerCase();
-    return nodeName === 'input' ||
-        nodeName === 'select' ||
-        nodeName === 'button' ||
-        nodeName === 'textarea';
-}
-/**
- * Gets whether an element is an <input type="hidden">.
- * @param {?} element
- * @return {?}
- */
-function isHiddenInput(element) {
-    return isInputElement(element) && element.type == 'hidden';
-}
-/**
- * Gets whether an element is an anchor that has an href attribute.
- * @param {?} element
- * @return {?}
- */
-function isAnchorWithHref(element) {
-    return isAnchorElement(element) && element.hasAttribute('href');
-}
-/**
- * Gets whether an element is an input element.
- * @param {?} element
- * @return {?}
- */
-function isInputElement(element) {
-    return element.nodeName.toLowerCase() == 'input';
-}
-/**
- * Gets whether an element is an anchor element.
- * @param {?} element
- * @return {?}
- */
-function isAnchorElement(element) {
-    return element.nodeName.toLowerCase() == 'a';
-}
-/**
- * Gets whether an element has a valid tabindex.
- * @param {?} element
- * @return {?}
- */
-function hasValidTabIndex(element) {
-    if (!element.hasAttribute('tabindex') || element.tabIndex === undefined) {
-        return false;
-    }
-    var /** @type {?} */ tabIndex = element.getAttribute('tabindex');
-    // IE11 parses tabindex="" as the value "-32768"
-    if (tabIndex == '-32768') {
-        return false;
-    }
-    return !!(tabIndex && !isNaN(parseInt(tabIndex, 10)));
-}
-/**
- * Returns the parsed tabindex from the element attributes instead of returning the
- * evaluated tabindex from the browsers defaults.
- * @param {?} element
- * @return {?}
- */
-function getTabIndexValue(element) {
-    if (!hasValidTabIndex(element)) {
-        return null;
-    }
-    // See browser issue in Gecko https://bugzilla.mozilla.org/show_bug.cgi?id=1128054
-    var /** @type {?} */ tabIndex = parseInt(element.getAttribute('tabindex') || '', 10);
-    return isNaN(tabIndex) ? -1 : tabIndex;
-}
-/**
- * Checks whether the specified element is potentially tabbable on iOS
- * @param {?} element
- * @return {?}
- */
-function isPotentiallyTabbableIOS(element) {
-    var /** @type {?} */ nodeName = element.nodeName.toLowerCase();
-    var /** @type {?} */ inputType = nodeName === 'input' && ((element)).type;
-    return inputType === 'text'
-        || inputType === 'password'
-        || nodeName === 'select'
-        || nodeName === 'textarea';
-}
-/**
- * Gets whether an element is potentially focusable without taking current visible/disabled state
- * into account.
- * @param {?} element
- * @return {?}
- */
-function isPotentiallyFocusable(element) {
-    // Inputs are potentially focusable *unless* they're type="hidden".
-    if (isHiddenInput(element)) {
-        return false;
-    }
-    return isNativeFormElement(element) ||
-        isAnchorWithHref(element) ||
-        element.hasAttribute('contenteditable') ||
-        hasValidTabIndex(element);
-}
-/**
- * Gets the parent window of a DOM node with regards of being inside of an iframe.
- * @param {?} node
- * @return {?}
- */
-function getWindow(node) {
-    return node.ownerDocument.defaultView || window;
-}
-/**
- * Utility class used to chain RxJS operators.
- *
- * This class is the concrete implementation, but the type used by the user when chaining
- * is StrictRxChain. The strict chain enforces types on the operators to the same level as
- * the prototype-added equivalents.
- */
-var RxChain = (function () {
-    /**
-     * @param {?} _context
-     */
-    function RxChain(_context) {
-        this._context = _context;
-    }
-    /**
-     * Starts a new chain and specifies the initial `this` value.
-     * @template T
-     * @param {?} context Initial `this` value for the chain.
-     * @return {?}
-     */
-    RxChain.from = function (context) {
-        return new RxChain(context);
-    };
-    /**
-     * Invokes an RxJS operator as a part of the chain.
-     * @param {?} operator Operator to be invoked.
-     * @param {...?} args Arguments to be passed to the operator.
-     * @return {?}
-     */
-    RxChain.prototype.call = function (operator) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
-        this._context = operator.call.apply(operator, [this._context].concat(args));
-        return this;
-    };
-    /**
-     * Subscribes to the result of the chain.
-     * @param {?} fn Callback to be invoked when the result emits a value.
-     * @return {?}
-     */
-    RxChain.prototype.subscribe = function (fn) {
-        return this._context.subscribe(fn);
-    };
-    /**
-     * Returns the result of the chain.
-     * @return {?}
-     */
-    RxChain.prototype.result = function () {
-        return this._context;
-    };
-    return RxChain;
-}());
-// We add `Function` to the type intersection to make this nomically different from
-// `finallyOperatorType` while still being structurally the same. Without this, TypeScript tries to
-// reduce `typeof _finallyOperator & FinallyBrand` to `finallyOperatorType<T>` and then fails
-// because `T` isn't known.
-var finallyOperator = (_finally._finally);
-var catchOperator = (_catch._catch);
-var doOperator = (_do._do);
-var map$1$1 = (map.map);
-var filter$1$1 = (filter.filter);
-var share$1$1 = (share.share);
-var first$1$1 = (first.first);
-var switchMap$1$1 = (switchMap.switchMap);
-var startWith$1$1 = (startWith.startWith);
-var debounceTime$1$1 = (debounceTime.debounceTime);
-var auditTime$1$1 = (auditTime.auditTime);
-var takeUntil$1$1 = (takeUntil.takeUntil);
-/**
- * Class that allows for trapping focus within a DOM element.
- *
- * NOTE: This class currently uses a very simple (naive) approach to focus trapping.
- * It assumes that the tab order is the same as DOM order, which is not necessarily true.
- * Things like tabIndex > 0, flex `order`, and shadow roots can cause to two to misalign.
- * This will be replaced with a more intelligent solution before the library is considered stable.
- */
-var FocusTrap = (function () {
-    /**
-     * @param {?} _element
-     * @param {?} _platform
-     * @param {?} _checker
-     * @param {?} _ngZone
-     * @param {?=} deferAnchors
-     */
-    function FocusTrap(_element, _platform, _checker, _ngZone, deferAnchors) {
-        if (deferAnchors === void 0) {
-            deferAnchors = false;
-        }
-        this._element = _element;
-        this._platform = _platform;
-        this._checker = _checker;
-        this._ngZone = _ngZone;
-        this._enabled = true;
-        if (!deferAnchors) {
-            this.attachAnchors();
-        }
-    }
-    Object.defineProperty(FocusTrap.prototype, "enabled", {
-        /**
-         * Whether the focus trap is active.
-         * @return {?}
-         */
-        get: function () { return this._enabled; },
-        /**
-         * @param {?} val
-         * @return {?}
-         */
-        set: function (val) {
-            this._enabled = val;
-            if (this._startAnchor && this._endAnchor) {
-                this._startAnchor.tabIndex = this._endAnchor.tabIndex = this._enabled ? 0 : -1;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * Destroys the focus trap by cleaning up the anchors.
-     * @return {?}
-     */
-    FocusTrap.prototype.destroy = function () {
-        if (this._startAnchor && this._startAnchor.parentNode) {
-            this._startAnchor.parentNode.removeChild(this._startAnchor);
-        }
-        if (this._endAnchor && this._endAnchor.parentNode) {
-            this._endAnchor.parentNode.removeChild(this._endAnchor);
-        }
-        this._startAnchor = this._endAnchor = null;
-    };
-    /**
-     * Inserts the anchors into the DOM. This is usually done automatically
-     * in the constructor, but can be deferred for cases like directives with `*ngIf`.
-     * @return {?}
-     */
-    FocusTrap.prototype.attachAnchors = function () {
-        var _this = this;
-        // If we're not on the browser, there can be no focus to trap.
-        if (!this._platform.isBrowser) {
-            return;
-        }
-        if (!this._startAnchor) {
-            this._startAnchor = this._createAnchor();
-        }
-        if (!this._endAnchor) {
-            this._endAnchor = this._createAnchor();
-        }
-        this._ngZone.runOutsideAngular(function () {
-            ((_this._startAnchor)).addEventListener('focus', function () { return _this.focusLastTabbableElement(); }); /** @type {?} */
-            ((_this._endAnchor)).addEventListener('focus', function () { return _this.focusFirstTabbableElement(); });
-            if (_this._element.parentNode) {
-                _this._element.parentNode.insertBefore(/** @type {?} */ ((_this._startAnchor)), _this._element);
-                _this._element.parentNode.insertBefore(/** @type {?} */ ((_this._endAnchor)), _this._element.nextSibling);
-            }
-        });
-    };
-    /**
-     * Waits for the zone to stabilize, then either focuses the first element that the
-     * user specified, or the first tabbable element..
-     * @return {?}
-     */
-    FocusTrap.prototype.focusInitialElementWhenReady = function () {
-        var _this = this;
-        this._executeOnStable(function () { return _this.focusInitialElement(); });
-    };
-    /**
-     * Waits for the zone to stabilize, then focuses
-     * the first tabbable element within the focus trap region.
-     * @return {?}
-     */
-    FocusTrap.prototype.focusFirstTabbableElementWhenReady = function () {
-        var _this = this;
-        this._executeOnStable(function () { return _this.focusFirstTabbableElement(); });
-    };
-    /**
-     * Waits for the zone to stabilize, then focuses
-     * the last tabbable element within the focus trap region.
-     * @return {?}
-     */
-    FocusTrap.prototype.focusLastTabbableElementWhenReady = function () {
-        var _this = this;
-        this._executeOnStable(function () { return _this.focusLastTabbableElement(); });
-    };
-    /**
-     * Get the specified boundary element of the trapped region.
-     * @param {?} bound The boundary to get (start or end of trapped region).
-     * @return {?} The boundary element.
-     */
-    FocusTrap.prototype._getRegionBoundary = function (bound) {
-        // Contains the deprecated version of selector, for temporary backwards comparability.
-        var /** @type {?} */ markers = (this._element.querySelectorAll("[cdk-focus-region-" + bound + "], " +
-            ("[cdk-focus-" + bound + "]")));
-        for (var /** @type {?} */ i = 0; i < markers.length; i++) {
-            if (markers[i].hasAttribute("cdk-focus-" + bound)) {
-                console.warn("Found use of deprecated attribute 'cdk-focus-" + bound + "'," +
-                    (" use 'cdk-focus-region-" + bound + "' instead."), markers[i]);
-            }
-        }
-        if (bound == 'start') {
-            return markers.length ? markers[0] : this._getFirstTabbableElement(this._element);
-        }
-        return markers.length ?
-            markers[markers.length - 1] : this._getLastTabbableElement(this._element);
-    };
-    /**
-     * Focuses the element that should be focused when the focus trap is initialized.
-     * @return {?}
-     */
-    FocusTrap.prototype.focusInitialElement = function () {
-        var /** @type {?} */ redirectToElement = (this._element.querySelector('[cdk-focus-initial]'));
-        if (redirectToElement) {
-            redirectToElement.focus();
-        }
-        else {
-            this.focusFirstTabbableElement();
-        }
-    };
-    /**
-     * Focuses the first tabbable element within the focus trap region.
-     * @return {?}
-     */
-    FocusTrap.prototype.focusFirstTabbableElement = function () {
-        var /** @type {?} */ redirectToElement = this._getRegionBoundary('start');
-        if (redirectToElement) {
-            redirectToElement.focus();
-        }
-    };
-    /**
-     * Focuses the last tabbable element within the focus trap region.
-     * @return {?}
-     */
-    FocusTrap.prototype.focusLastTabbableElement = function () {
-        var /** @type {?} */ redirectToElement = this._getRegionBoundary('end');
-        if (redirectToElement) {
-            redirectToElement.focus();
-        }
-    };
-    /**
-     * Get the first tabbable element from a DOM subtree (inclusive).
-     * @param {?} root
-     * @return {?}
-     */
-    FocusTrap.prototype._getFirstTabbableElement = function (root) {
-        if (this._checker.isFocusable(root) && this._checker.isTabbable(root)) {
-            return root;
-        }
-        // Iterate in DOM order. Note that IE doesn't have `children` for SVG so we fall
-        // back to `childNodes` which includes text nodes, comments etc.
-        var /** @type {?} */ children = root.children || root.childNodes;
-        for (var /** @type {?} */ i = 0; i < children.length; i++) {
-            var /** @type {?} */ tabbableChild = children[i].nodeType === Node.ELEMENT_NODE ?
-                this._getFirstTabbableElement(/** @type {?} */ (children[i])) :
-                null;
-            if (tabbableChild) {
-                return tabbableChild;
-            }
-        }
-        return null;
-    };
-    /**
-     * Get the last tabbable element from a DOM subtree (inclusive).
-     * @param {?} root
-     * @return {?}
-     */
-    FocusTrap.prototype._getLastTabbableElement = function (root) {
-        if (this._checker.isFocusable(root) && this._checker.isTabbable(root)) {
-            return root;
-        }
-        // Iterate in reverse DOM order.
-        var /** @type {?} */ children = root.children || root.childNodes;
-        for (var /** @type {?} */ i = children.length - 1; i >= 0; i--) {
-            var /** @type {?} */ tabbableChild = children[i].nodeType === Node.ELEMENT_NODE ?
-                this._getLastTabbableElement(/** @type {?} */ (children[i])) :
-                null;
-            if (tabbableChild) {
-                return tabbableChild;
-            }
-        }
-        return null;
-    };
-    /**
-     * Creates an anchor element.
-     * @return {?}
-     */
-    FocusTrap.prototype._createAnchor = function () {
-        var /** @type {?} */ anchor = document.createElement('div');
-        anchor.tabIndex = this._enabled ? 0 : -1;
-        anchor.classList.add('cdk-visually-hidden');
-        anchor.classList.add('cdk-focus-trap-anchor');
-        return anchor;
-    };
-    /**
-     * Executes a function when the zone is stable.
-     * @param {?} fn
-     * @return {?}
-     */
-    FocusTrap.prototype._executeOnStable = function (fn) {
-        if (this._ngZone.isStable) {
-            fn();
-        }
-        else {
-            first$1$1.call(this._ngZone.onStable).subscribe(fn);
-        }
-    };
-    return FocusTrap;
-}());
-/**
- * Factory that allows easy instantiation of focus traps.
- */
-var FocusTrapFactory = (function () {
-    /**
-     * @param {?} _checker
-     * @param {?} _platform
-     * @param {?} _ngZone
-     */
-    function FocusTrapFactory(_checker, _platform, _ngZone) {
-        this._checker = _checker;
-        this._platform = _platform;
-        this._ngZone = _ngZone;
-    }
-    /**
-     * @param {?} element
-     * @param {?=} deferAnchors
-     * @return {?}
-     */
-    FocusTrapFactory.prototype.create = function (element, deferAnchors) {
-        if (deferAnchors === void 0) {
-            deferAnchors = false;
-        }
-        return new FocusTrap(element, this._platform, this._checker, this._ngZone, deferAnchors);
-    };
-    return FocusTrapFactory;
-}());
-FocusTrapFactory.decorators = [
-    { type: core.Injectable },
-];
-/**
- * @nocollapse
- */
-FocusTrapFactory.ctorParameters = function () {
-    return [
-        { type: InteractivityChecker, },
-        { type: Platform, },
-        { type: core.NgZone, },
-    ];
-};
-/**
- * Directive for trapping focus within a region.
- * @deprecated
- */
-var FocusTrapDeprecatedDirective = (function () {
-    /**
-     * @param {?} _elementRef
-     * @param {?} _focusTrapFactory
-     */
-    function FocusTrapDeprecatedDirective(_elementRef, _focusTrapFactory) {
-        this._elementRef = _elementRef;
-        this._focusTrapFactory = _focusTrapFactory;
-        this.focusTrap = this._focusTrapFactory.create(this._elementRef.nativeElement, true);
-    }
-    Object.defineProperty(FocusTrapDeprecatedDirective.prototype, "disabled", {
-        /**
-         * Whether the focus trap is active.
-         * @return {?}
-         */
-        get: function () { return !this.focusTrap.enabled; },
-        /**
-         * @param {?} val
-         * @return {?}
-         */
-        set: function (val) {
-            this.focusTrap.enabled = !coerceBooleanProperty(val);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * @return {?}
-     */
-    FocusTrapDeprecatedDirective.prototype.ngOnDestroy = function () {
-        this.focusTrap.destroy();
-    };
-    /**
-     * @return {?}
-     */
-    FocusTrapDeprecatedDirective.prototype.ngAfterContentInit = function () {
-        this.focusTrap.attachAnchors();
-    };
-    return FocusTrapDeprecatedDirective;
-}());
-FocusTrapDeprecatedDirective.decorators = [
-    { type: core.Directive, args: [{
-                selector: 'cdk-focus-trap',
-            },] },
-];
-/**
- * @nocollapse
- */
-FocusTrapDeprecatedDirective.ctorParameters = function () {
-    return [
-        { type: core.ElementRef, },
-        { type: FocusTrapFactory, },
-    ];
-};
-FocusTrapDeprecatedDirective.propDecorators = {
-    'disabled': [{ type: core.Input },],
-};
-/**
- * Directive for trapping focus within a region.
- */
-var FocusTrapDirective = (function () {
-    /**
-     * @param {?} _elementRef
-     * @param {?} _focusTrapFactory
-     */
-    function FocusTrapDirective(_elementRef, _focusTrapFactory) {
-        this._elementRef = _elementRef;
-        this._focusTrapFactory = _focusTrapFactory;
-        this.focusTrap = this._focusTrapFactory.create(this._elementRef.nativeElement, true);
-    }
-    Object.defineProperty(FocusTrapDirective.prototype, "enabled", {
-        /**
-         * Whether the focus trap is active.
-         * @return {?}
-         */
-        get: function () { return this.focusTrap.enabled; },
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        set: function (value) { this.focusTrap.enabled = coerceBooleanProperty(value); },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * @return {?}
-     */
-    FocusTrapDirective.prototype.ngOnDestroy = function () {
-        this.focusTrap.destroy();
-    };
-    /**
-     * @return {?}
-     */
-    FocusTrapDirective.prototype.ngAfterContentInit = function () {
-        this.focusTrap.attachAnchors();
-    };
-    return FocusTrapDirective;
-}());
-FocusTrapDirective.decorators = [
-    { type: core.Directive, args: [{
-                selector: '[cdkTrapFocus]',
-                exportAs: 'cdkTrapFocus',
-            },] },
-];
-/**
- * @nocollapse
- */
-FocusTrapDirective.ctorParameters = function () {
-    return [
-        { type: core.ElementRef, },
-        { type: FocusTrapFactory, },
-    ];
-};
-FocusTrapDirective.propDecorators = {
-    'enabled': [{ type: core.Input, args: ['cdkTrapFocus',] },],
-};
-var LIVE_ANNOUNCER_ELEMENT_TOKEN = new core.InjectionToken('liveAnnouncerElement');
-var LiveAnnouncer = (function () {
-    /**
-     * @param {?} elementToken
-     * @param {?} platform
-     */
-    function LiveAnnouncer(elementToken, platform) {
-        // Only do anything if we're on the browser platform.
-        if (platform.isBrowser) {
-            // We inject the live element as `any` because the constructor signature cannot reference
-            // browser globals (HTMLElement) on non-browser environments, since having a class decorator
-            // causes TypeScript to preserve the constructor signature types.
-            this._liveElement = elementToken || this._createLiveElement();
-        }
-    }
-    /**
-     * Announces a message to screenreaders.
-     * @param {?} message Message to be announced to the screenreader
-     * @param {?=} politeness The politeness of the announcer element
-     * @return {?}
-     */
-    LiveAnnouncer.prototype.announce = function (message, politeness) {
-        var _this = this;
-        if (politeness === void 0) {
-            politeness = 'polite';
-        }
-        this._liveElement.textContent = '';
-        // TODO: ensure changing the politeness works on all environments we support.
-        this._liveElement.setAttribute('aria-live', politeness);
-        // This 100ms timeout is necessary for some browser + screen-reader combinations:
-        // - Both JAWS and NVDA over IE11 will not announce anything without a non-zero timeout.
-        // - With Chrome and IE11 with NVDA or JAWS, a repeated (identical) message won't be read a
-        //   second time without clearing and then using a non-zero delay.
-        // (using JAWS 17 at time of this writing).
-        setTimeout(function () { return _this._liveElement.textContent = message; }, 100);
-    };
-    /**
-     * Removes the aria-live element from the DOM.
-     * @return {?}
-     */
-    LiveAnnouncer.prototype._removeLiveElement = function () {
-        if (this._liveElement && this._liveElement.parentNode) {
-            this._liveElement.parentNode.removeChild(this._liveElement);
-        }
-    };
-    /**
-     * @return {?}
-     */
-    LiveAnnouncer.prototype._createLiveElement = function () {
-        var /** @type {?} */ liveEl = document.createElement('div');
-        liveEl.classList.add('cdk-visually-hidden');
-        liveEl.setAttribute('aria-atomic', 'true');
-        liveEl.setAttribute('aria-live', 'polite');
-        document.body.appendChild(liveEl);
-        return liveEl;
-    };
-    return LiveAnnouncer;
-}());
-LiveAnnouncer.decorators = [
-    { type: core.Injectable },
-];
-/**
- * @nocollapse
- */
-LiveAnnouncer.ctorParameters = function () {
-    return [
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [LIVE_ANNOUNCER_ELEMENT_TOKEN,] },] },
-        { type: Platform, },
-    ];
-};
-/**
- * @param {?} parentDispatcher
- * @param {?} liveElement
- * @param {?} platform
- * @return {?}
- */
-function LIVE_ANNOUNCER_PROVIDER_FACTORY(parentDispatcher, liveElement, platform) {
-    return parentDispatcher || new LiveAnnouncer(liveElement, platform);
-}
-var LIVE_ANNOUNCER_PROVIDER = {
-    // If there is already a LiveAnnouncer available, use that. Otherwise, provide a new one.
-    provide: LiveAnnouncer,
-    deps: [
-        [new core.Optional(), new core.SkipSelf(), LiveAnnouncer],
-        [new core.Optional(), new core.Inject(LIVE_ANNOUNCER_ELEMENT_TOKEN)],
-        Platform,
-    ],
-    useFactory: LIVE_ANNOUNCER_PROVIDER_FACTORY
-};
-/**
- * Cached result Set of input types support by the current browser.
- */
-var supportedInputTypes;
-/**
- * Types of <input> that *might* be supported.
- */
-var candidateInputTypes = [
-    // `color` must come first. Chrome 56 shows a warning if we change the type to `color` after
-    // first changing it to something else:
-    // The specified value "" does not conform to the required format.
-    // The format is "#rrggbb" where rr, gg, bb are two-digit hexadecimal numbers.
-    'color',
-    'button',
-    'checkbox',
-    'date',
-    'datetime-local',
-    'email',
-    'file',
-    'hidden',
-    'image',
-    'month',
-    'number',
-    'password',
-    'radio',
-    'range',
-    'reset',
-    'search',
-    'submit',
-    'tel',
-    'text',
-    'time',
-    'url',
-    'week',
-];
-/**
- * @return {?} The input types supported by this browser.
- */
-function getSupportedInputTypes() {
-    // Result is cached.
-    if (supportedInputTypes) {
-        return supportedInputTypes;
-    }
-    // We can't check if an input type is not supported until we're on the browser, so say that
-    // everything is supported when not on the browser. We don't use `Platform` here since it's
-    // just a helper function and can't inject it.
-    if (typeof document !== 'object' || !document) {
-        supportedInputTypes = new Set(candidateInputTypes);
-        return supportedInputTypes;
-    }
-    var /** @type {?} */ featureTestInput = document.createElement('input');
-    supportedInputTypes = new Set(candidateInputTypes.filter(function (value) {
-        featureTestInput.setAttribute('type', value);
-        return featureTestInput.type === value;
-    }));
-    return supportedInputTypes;
-}
-var PlatformModule = (function () {
-    function PlatformModule() {
-    }
-    return PlatformModule;
-}());
-PlatformModule.decorators = [
-    { type: core.NgModule, args: [{
-                providers: [Platform]
-            },] },
-];
-/**
- * @nocollapse
- */
-PlatformModule.ctorParameters = function () { return []; };
-/**
- * Screenreaders will often fire fake mousedown events when a focusable element
- * is activated using the keyboard. We can typically distinguish between these faked
- * mousedown events and real mousedown events using the "buttons" property. While
- * real mousedowns will indicate the mouse button that was pressed (e.g. "1" for
- * the left mouse button), faked mousedowns will usually set the property value to 0.
- * @param {?} event
- * @return {?}
- */
-function isFakeMousedownFromScreenReader(event) {
-    return event.buttons === 0;
-}
-var UP_ARROW = 38;
-var DOWN_ARROW = 40;
-var RIGHT_ARROW = 39;
-var LEFT_ARROW = 37;
-var PAGE_UP = 33;
-var PAGE_DOWN = 34;
-var HOME = 36;
-var END = 35;
-var ENTER = 13;
-var SPACE = 32;
-var TAB = 9;
-var ESCAPE = 27;
-/**
- * This class manages keyboard events for selectable lists. If you pass it a query list
- * of items, it will set the active item correctly when arrow events occur.
- */
-var ListKeyManager = (function () {
-    /**
-     * @param {?} _items
-     */
-    function ListKeyManager(_items) {
-        this._items = _items;
-        this._activeItemIndex = -1;
-        this._tabOut = new Subject.Subject();
-        this._wrap = false;
-    }
-    /**
-     * Turns on wrapping mode, which ensures that the active item will wrap to
-     * the other end of list when there are no more items in the given direction.
-     *
-     * @return {?} The ListKeyManager that the method was called on.
-     */
-    ListKeyManager.prototype.withWrap = function () {
-        this._wrap = true;
-        return this;
-    };
-    /**
-     * Sets the active item to the item at the index specified.
-     *
-     * @param {?} index The index of the item to be set as active.
-     * @return {?}
-     */
-    ListKeyManager.prototype.setActiveItem = function (index) {
-        this._activeItemIndex = index;
-        this._activeItem = this._items.toArray()[index];
-    };
-    /**
-     * Sets the active item depending on the key event passed in.
-     * @param {?} event Keyboard event to be used for determining which element should be active.
-     * @return {?}
-     */
-    ListKeyManager.prototype.onKeydown = function (event) {
-        switch (event.keyCode) {
-            case DOWN_ARROW:
-                this.setNextItemActive();
-                break;
-            case UP_ARROW:
-                this.setPreviousItemActive();
-                break;
-            case TAB:
-                // Note that we shouldn't prevent the default action on tab.
-                this._tabOut.next();
-                return;
-            default:
-                return;
-        }
-        event.preventDefault();
-    };
-    Object.defineProperty(ListKeyManager.prototype, "activeItemIndex", {
-        /**
-         * Index of the currently active item.
-         * @return {?}
-         */
-        get: function () {
-            return this._activeItemIndex;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(ListKeyManager.prototype, "activeItem", {
-        /**
-         * The active item.
-         * @return {?}
-         */
-        get: function () {
-            return this._activeItem;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * Sets the active item to the first enabled item in the list.
-     * @return {?}
-     */
-    ListKeyManager.prototype.setFirstItemActive = function () {
-        this._setActiveItemByIndex(0, 1);
-    };
-    /**
-     * Sets the active item to the last enabled item in the list.
-     * @return {?}
-     */
-    ListKeyManager.prototype.setLastItemActive = function () {
-        this._setActiveItemByIndex(this._items.length - 1, -1);
-    };
-    /**
-     * Sets the active item to the next enabled item in the list.
-     * @return {?}
-     */
-    ListKeyManager.prototype.setNextItemActive = function () {
-        this._activeItemIndex < 0 ? this.setFirstItemActive() : this._setActiveItemByDelta(1);
-    };
-    /**
-     * Sets the active item to a previous enabled item in the list.
-     * @return {?}
-     */
-    ListKeyManager.prototype.setPreviousItemActive = function () {
-        this._activeItemIndex < 0 && this._wrap ? this.setLastItemActive()
-            : this._setActiveItemByDelta(-1);
-    };
-    /**
-     * Allows setting of the activeItemIndex without any other effects.
-     * @param {?} index The new activeItemIndex.
-     * @return {?}
-     */
-    ListKeyManager.prototype.updateActiveItemIndex = function (index) {
-        this._activeItemIndex = index;
-    };
-    Object.defineProperty(ListKeyManager.prototype, "tabOut", {
-        /**
-         * Observable that emits any time the TAB key is pressed, so components can react
-         * when focus is shifted off of the list.
-         * @return {?}
-         */
-        get: function () {
-            return this._tabOut.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * This method sets the active item, given a list of items and the delta between the
-     * currently active item and the new active item. It will calculate differently
-     * depending on whether wrap mode is turned on.
-     * @param {?} delta
-     * @param {?=} items
-     * @return {?}
-     */
-    ListKeyManager.prototype._setActiveItemByDelta = function (delta, items) {
-        if (items === void 0) {
-            items = this._items.toArray();
-        }
-        this._wrap ? this._setActiveInWrapMode(delta, items)
-            : this._setActiveInDefaultMode(delta, items);
-    };
-    /**
-     * Sets the active item properly given "wrap" mode. In other words, it will continue to move
-     * down the list until it finds an item that is not disabled, and it will wrap if it
-     * encounters either end of the list.
-     * @param {?} delta
-     * @param {?} items
-     * @return {?}
-     */
-    ListKeyManager.prototype._setActiveInWrapMode = function (delta, items) {
-        // when active item would leave menu, wrap to beginning or end
-        this._activeItemIndex =
-            (this._activeItemIndex + delta + items.length) % items.length;
-        // skip all disabled menu items recursively until an enabled one is reached
-        if (items[this._activeItemIndex].disabled) {
-            this._setActiveInWrapMode(delta, items);
-        }
-        else {
-            this.setActiveItem(this._activeItemIndex);
-        }
-    };
-    /**
-     * Sets the active item properly given the default mode. In other words, it will
-     * continue to move down the list until it finds an item that is not disabled. If
-     * it encounters either end of the list, it will stop and not wrap.
-     * @param {?} delta
-     * @param {?} items
-     * @return {?}
-     */
-    ListKeyManager.prototype._setActiveInDefaultMode = function (delta, items) {
-        this._setActiveItemByIndex(this._activeItemIndex + delta, delta, items);
-    };
-    /**
-     * Sets the active item to the first enabled item starting at the index specified. If the
-     * item is disabled, it will move in the fallbackDelta direction until it either
-     * finds an enabled item or encounters the end of the list.
-     * @param {?} index
-     * @param {?} fallbackDelta
-     * @param {?=} items
-     * @return {?}
-     */
-    ListKeyManager.prototype._setActiveItemByIndex = function (index, fallbackDelta, items) {
-        if (items === void 0) {
-            items = this._items.toArray();
-        }
-        if (!items[index]) {
-            return;
-        }
-        while (items[index].disabled) {
-            index += fallbackDelta;
-            if (!items[index]) {
-                return;
-            }
-        }
-        this.setActiveItem(index);
-    };
-    return ListKeyManager;
-}());
-var ActiveDescendantKeyManager$1 = (function (_super) {
-    __extends(ActiveDescendantKeyManager, _super);
-    function ActiveDescendantKeyManager() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    /**
-     * This method sets the active item to the item at the specified index.
-     * It also adds active styles to the newly active item and removes active
-     * styles from the previously active item.
-     * @param {?} index
-     * @return {?}
-     */
-    ActiveDescendantKeyManager.prototype.setActiveItem = function (index) {
-        var _this = this;
-        Promise.resolve().then(function () {
-            if (_this.activeItem) {
-                _this.activeItem.setInactiveStyles();
-            }
-            _super.prototype.setActiveItem.call(_this, index);
-            if (_this.activeItem) {
-                _this.activeItem.setActiveStyles();
-            }
-        });
-    };
-    return ActiveDescendantKeyManager;
-}(ListKeyManager));
-var FocusKeyManager$1 = (function (_super) {
-    __extends(FocusKeyManager, _super);
-    /**
-     * @param {?} items
-     */
-    function FocusKeyManager(items) {
-        return _super.call(this, items) || this;
-    }
-    /**
-     * This method sets the active item to the item at the specified index.
-     * It also adds focuses the newly active item.
-     * @param {?} index
-     * @return {?}
-     */
-    FocusKeyManager.prototype.setActiveItem = function (index) {
-        _super.prototype.setActiveItem.call(this, index);
-        if (this.activeItem) {
-            this.activeItem.focus();
-        }
-    };
-    return FocusKeyManager;
-}(ListKeyManager));
-var A11yModule = (function () {
-    function A11yModule() {
-    }
-    return A11yModule;
-}());
-A11yModule.decorators = [
-    { type: core.NgModule, args: [{
-                imports: [common.CommonModule, PlatformModule],
-                declarations: [FocusTrapDirective, FocusTrapDeprecatedDirective],
-                exports: [FocusTrapDirective, FocusTrapDeprecatedDirective],
-                providers: [InteractivityChecker, FocusTrapFactory, LIVE_ANNOUNCER_PROVIDER]
-            },] },
-];
-/**
- * @nocollapse
- */
-A11yModule.ctorParameters = function () { return []; };
-/**
- * Injection token used to inject the document into Directionality.
- * This is used so that the value can be faked in tests.
- *
- * We can't use the real document in tests because changing the real `dir` causes geometry-based
- * tests in Safari to fail.
- *
- * We also can't re-provide the DOCUMENT token from platform-brower because the unit tests
- * themselves use things like `querySelector` in test code.
- */
-var DIR_DOCUMENT = new core.InjectionToken('md-dir-doc');
-/**
- * The directionality (LTR / RTL) context for the application (or a subtree of it).
- * Exposes the current direction and a stream of direction changes.
- */
-var Directionality = (function () {
-    /**
-     * @param {?=} _document
-     */
-    function Directionality(_document) {
-        this.value = 'ltr';
-        this.change = new core.EventEmitter();
-        if (_document) {
-            // TODO: handle 'auto' value -
-            // We still need to account for dir="auto".
-            // It looks like HTMLElemenet.dir is also "auto" when that's set to the attribute,
-            // but getComputedStyle return either "ltr" or "rtl". avoiding getComputedStyle for now
-            var bodyDir = _document.body ? _document.body.dir : null;
-            var htmlDir = _document.documentElement ? _document.documentElement.dir : null;
-            this.value = (bodyDir || htmlDir || 'ltr');
-        }
-    }
-    return Directionality;
-}());
-Directionality.decorators = [
-    { type: core.Injectable },
-];
-/**
- * @nocollapse
- */
-Directionality.ctorParameters = function () {
-    return [
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [DIR_DOCUMENT,] },] },
-    ];
-};
-/**
- * @param {?} parentDirectionality
- * @param {?} _document
- * @return {?}
- */
-function DIRECTIONALITY_PROVIDER_FACTORY(parentDirectionality, _document) {
-    return parentDirectionality || new Directionality(_document);
-}
-var DIRECTIONALITY_PROVIDER = {
-    // If there is already a Directionality available, use that. Otherwise, provide a new one.
-    provide: Directionality,
-    deps: [[new core.Optional(), new core.SkipSelf(), Directionality], [new core.Optional(), platformBrowser.DOCUMENT]],
-    useFactory: DIRECTIONALITY_PROVIDER_FACTORY
-};
-/**
- * Directive to listen for changes of direction of part of the DOM.
- *
- * Would provide itself in case a component looks for the Directionality service
- */
-var Dir = (function () {
-    function Dir() {
-        /**
-         * Layout direction of the element.
-         */
-        this._dir = 'ltr';
-        /**
-         * Whether the `value` has been set to its initial value.
-         */
-        this._isInitialized = false;
-        /**
-         * Event emitted when the direction changes.
-         */
-        this.change = new core.EventEmitter();
-    }
-    Object.defineProperty(Dir.prototype, "dir", {
-        /**
-         * \@docs-private
-         * @return {?}
-         */
-        get: function () {
-            return this._dir;
-        },
-        /**
-         * @param {?} v
-         * @return {?}
-         */
-        set: function (v) {
-            var /** @type {?} */ old = this._dir;
-            this._dir = v;
-            if (old !== this._dir && this._isInitialized) {
-                this.change.emit();
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Dir.prototype, "value", {
-        /**
-         * Current layout direction of the element.
-         * @return {?}
-         */
-        get: function () { return this.dir; },
-        /**
-         * @param {?} v
-         * @return {?}
-         */
-        set: function (v) { this.dir = v; },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * Initialize once default value has been set.
-     * @return {?}
-     */
-    Dir.prototype.ngAfterContentInit = function () {
-        this._isInitialized = true;
-    };
-    return Dir;
-}());
-Dir.decorators = [
-    { type: core.Directive, args: [{
-                selector: '[dir]',
-                // TODO(hansl): maybe `$implicit` isn't the best option here, but for now that's the best we got.
-                exportAs: '$implicit',
-                providers: [
-                    { provide: Directionality, useExisting: Dir }
-                ]
-            },] },
-];
-/**
- * @nocollapse
- */
-Dir.ctorParameters = function () { return []; };
-Dir.propDecorators = {
-    'change': [{ type: core.Output, args: ['dirChange',] },],
-    'dir': [{ type: core.HostBinding, args: ['attr.dir',] }, { type: core.Input, args: ['dir',] },],
-};
-var BidiModule = (function () {
-    function BidiModule() {
-    }
-    return BidiModule;
-}());
-BidiModule.decorators = [
-    { type: core.NgModule, args: [{
-                exports: [Dir],
-                declarations: [Dir],
-                providers: [
-                    { provide: DIR_DOCUMENT, useExisting: platformBrowser.DOCUMENT },
-                    Directionality,
-                ]
-            },] },
-];
-/**
- * @nocollapse
- */
-BidiModule.ctorParameters = function () { return []; };
-/**
- * Coerces a data-bound value (typically a string) to a number.
- * @param {?} value
- * @param {?=} fallbackValue
- * @return {?}
- */
-function coerceNumberProperty(value, fallbackValue) {
-    if (fallbackValue === void 0) {
-        fallbackValue = 0;
-    }
-    // parseFloat(value) handles most of the cases we're interested in (it treats null, empty string,
-    // and other non-number values as NaN, where Number just uses 0) but it considers the string
-    // '123hello' to be a valid number. Therefore we also check if Number(value) is NaN.
-    return isNaN(parseFloat(/** @type {?} */ (value))) || isNaN(Number(value)) ? fallbackValue : Number(value);
-}
-/**
- * The row template that can be used by the md-table. Should not be used outside of the
- * material library.
- */
-var CDK_ROW_TEMPLATE = "<ng-container cdkCellOutlet></ng-container>";
-/**
- * Base class for the CdkHeaderRowDef and CdkRowDef that handles checking their columns inputs
- * for changes and notifying the table.
- * @abstract
- */
-var BaseRowDef = (function () {
-    /**
-     * @param {?} template
-     * @param {?} _differs
-     */
-    function BaseRowDef(template, _differs) {
-        this.template = template;
-        this._differs = _differs;
-        /**
-         * Event stream that emits when changes are made to the columns.
-         */
-        this.columnsChange = new Subject.Subject();
-        this.viewInitialized = false;
-    }
-    /**
-     * @return {?}
-     */
-    BaseRowDef.prototype.ngAfterViewInit = function () {
-        this.viewInitialized = true;
-    };
-    /**
-     * @param {?} changes
-     * @return {?}
-     */
-    BaseRowDef.prototype.ngOnChanges = function (changes) {
-        // Create a new columns differ if one does not yet exist. Initialize it based on initial value
-        // of the columns property.
-        if (!this._columnsDiffer && changes['columns'].currentValue) {
-            this._columnsDiffer = this._differs.find(changes['columns'].currentValue).create();
-        }
-    };
-    /**
-     * @return {?}
-     */
-    BaseRowDef.prototype.ngDoCheck = function () {
-        if (!this.viewInitialized || !this._columnsDiffer || !this.columns) {
-            return;
-        }
-        // Notify the table if there are any changes to the columns.
-        var /** @type {?} */ changes = this._columnsDiffer.diff(this.columns);
-        if (changes) {
-            this.columnsChange.next();
-        }
-    };
-    return BaseRowDef;
-}());
-/**
- * Header row definition for the CDK table.
- * Captures the header row's template and other header properties such as the columns to display.
- */
-var CdkHeaderRowDef = (function (_super) {
-    __extends(CdkHeaderRowDef, _super);
-    /**
-     * @param {?} template
-     * @param {?} _differs
-     */
-    function CdkHeaderRowDef(template, _differs) {
-        return _super.call(this, template, _differs) || this;
-    }
-    return CdkHeaderRowDef;
-}(BaseRowDef));
-CdkHeaderRowDef.decorators = [
-    { type: core.Directive, args: [{
-                selector: '[cdkHeaderRowDef]',
-                inputs: ['columns: cdkHeaderRowDef'],
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkHeaderRowDef.ctorParameters = function () {
-    return [
-        { type: core.TemplateRef, },
-        { type: core.IterableDiffers, },
-    ];
-};
-/**
- * Data row definition for the CDK table.
- * Captures the header row's template and other row properties such as the columns to display.
- */
-var CdkRowDef = (function (_super) {
-    __extends(CdkRowDef, _super);
-    /**
-     * @param {?} template
-     * @param {?} _differs
-     */
-    function CdkRowDef(template, _differs) {
-        return _super.call(this, template, _differs) || this;
-    }
-    return CdkRowDef;
-}(BaseRowDef));
-CdkRowDef.decorators = [
-    { type: core.Directive, args: [{
-                selector: '[cdkRowDef]',
-                inputs: ['columns: cdkRowDefColumns'],
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkRowDef.ctorParameters = function () {
-    return [
-        { type: core.TemplateRef, },
-        { type: core.IterableDiffers, },
-    ];
-};
-/**
- * Outlet for rendering cells inside of a row or header row.
- * \@docs-private
- */
-var CdkCellOutlet = (function () {
-    /**
-     * @param {?} _viewContainer
-     */
-    function CdkCellOutlet(_viewContainer) {
-        this._viewContainer = _viewContainer;
-        CdkCellOutlet.mostRecentCellOutlet = this;
-    }
-    return CdkCellOutlet;
-}());
-CdkCellOutlet.decorators = [
-    { type: core.Directive, args: [{ selector: '[cdkCellOutlet]' },] },
-];
-/**
- * @nocollapse
- */
-CdkCellOutlet.ctorParameters = function () {
-    return [
-        { type: core.ViewContainerRef, },
-    ];
-};
-/**
- * Header template container that contains the cell outlet. Adds the right class and role.
- */
-var CdkHeaderRow = (function () {
-    function CdkHeaderRow() {
-    }
-    return CdkHeaderRow;
-}());
-CdkHeaderRow.decorators = [
-    { type: core.Component, args: [{
-                selector: 'cdk-header-row',
-                template: CDK_ROW_TEMPLATE,
-                host: {
-                    'class': 'cdk-header-row',
-                    'role': 'row',
-                },
-                changeDetection: core.ChangeDetectionStrategy.OnPush,
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkHeaderRow.ctorParameters = function () { return []; };
-/**
- * Data row template container that contains the cell outlet. Adds the right class and role.
- */
-var CdkRow = (function () {
-    function CdkRow() {
-    }
-    return CdkRow;
-}());
-CdkRow.decorators = [
-    { type: core.Component, args: [{
-                selector: 'cdk-row',
-                template: CDK_ROW_TEMPLATE,
-                host: {
-                    'class': 'cdk-row',
-                    'role': 'row',
-                },
-                changeDetection: core.ChangeDetectionStrategy.OnPush,
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkRow.ctorParameters = function () { return []; };
-/**
- * Cell definition for a CDK table.
- * Captures the template of a column's data row cell as well as cell-specific properties.
- */
-var CdkCellDef = (function () {
-    /**
-     * @param {?} template
-     */
-    function CdkCellDef(template) {
-        this.template = template;
-    }
-    return CdkCellDef;
-}());
-CdkCellDef.decorators = [
-    { type: core.Directive, args: [{ selector: '[cdkCellDef]' },] },
-];
-/**
- * @nocollapse
- */
-CdkCellDef.ctorParameters = function () {
-    return [
-        { type: core.TemplateRef, },
-    ];
-};
-/**
- * Header cell definition for a CDK table.
- * Captures the template of a column's header cell and as well as cell-specific properties.
- */
-var CdkHeaderCellDef = (function () {
-    /**
-     * @param {?} template
-     */
-    function CdkHeaderCellDef(template) {
-        this.template = template;
-    }
-    return CdkHeaderCellDef;
-}());
-CdkHeaderCellDef.decorators = [
-    { type: core.Directive, args: [{ selector: '[cdkHeaderCellDef]' },] },
-];
-/**
- * @nocollapse
- */
-CdkHeaderCellDef.ctorParameters = function () {
-    return [
-        { type: core.TemplateRef, },
-    ];
-};
-/**
- * Column definition for the CDK table.
- * Defines a set of cells available for a table column.
- */
-var CdkColumnDef = (function () {
-    function CdkColumnDef() {
-    }
-    return CdkColumnDef;
-}());
-CdkColumnDef.decorators = [
-    { type: core.Directive, args: [{ selector: '[cdkColumnDef]' },] },
-];
-/**
- * @nocollapse
- */
-CdkColumnDef.ctorParameters = function () { return []; };
-CdkColumnDef.propDecorators = {
-    'name': [{ type: core.Input, args: ['cdkColumnDef',] },],
-    'cell': [{ type: core.ContentChild, args: [CdkCellDef,] },],
-    'headerCell': [{ type: core.ContentChild, args: [CdkHeaderCellDef,] },],
-};
-/**
- * Header cell template container that adds the right classes and role.
- */
-var CdkHeaderCell = (function () {
-    /**
-     * @param {?} columnDef
-     * @param {?} elementRef
-     * @param {?} renderer
-     */
-    function CdkHeaderCell(columnDef, elementRef, renderer) {
-        this.columnDef = columnDef;
-        this.elementRef = elementRef;
-        this.renderer = renderer;
-        this.renderer.addClass(elementRef.nativeElement, "cdk-column-" + columnDef.name);
-    }
-    return CdkHeaderCell;
-}());
-CdkHeaderCell.decorators = [
-    { type: core.Directive, args: [{
-                selector: 'cdk-header-cell',
-                host: {
-                    'class': 'cdk-header-cell',
-                    'role': 'columnheader',
-                },
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkHeaderCell.ctorParameters = function () {
-    return [
-        { type: CdkColumnDef, },
-        { type: core.ElementRef, },
-        { type: core.Renderer2, },
-    ];
-};
-/**
- * Cell template container that adds the right classes and role.
- */
-var CdkCell = (function () {
-    /**
-     * @param {?} columnDef
-     * @param {?} elementRef
-     * @param {?} renderer
-     */
-    function CdkCell(columnDef, elementRef, renderer) {
-        this.columnDef = columnDef;
-        this.elementRef = elementRef;
-        this.renderer = renderer;
-        this.renderer.addClass(elementRef.nativeElement, "cdk-column-" + columnDef.name);
-    }
-    return CdkCell;
-}());
-CdkCell.decorators = [
-    { type: core.Directive, args: [{
-                selector: 'cdk-cell',
-                host: {
-                    'class': 'cdk-cell',
-                    'role': 'gridcell',
-                },
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkCell.ctorParameters = function () {
-    return [
-        { type: CdkColumnDef, },
-        { type: core.ElementRef, },
-        { type: core.Renderer2, },
-    ];
-};
-/**
- * Returns an error to be thrown when attempting to find an unexisting column.
- * \@docs-private
- * @param {?} id Id whose lookup failed.
- * @return {?}
- */
-function getTableUnknownColumnError(id) {
-    return new Error("cdk-table: Could not find column with id \"" + id + "\".");
-}
-/**
- * Provides a handle for the table to grab the view container's ng-container to insert data rows.
- * \@docs-private
- */
-var RowPlaceholder = (function () {
-    /**
-     * @param {?} viewContainer
-     */
-    function RowPlaceholder(viewContainer) {
-        this.viewContainer = viewContainer;
-    }
-    return RowPlaceholder;
-}());
-RowPlaceholder.decorators = [
-    { type: core.Directive, args: [{ selector: '[rowPlaceholder]' },] },
-];
-/**
- * @nocollapse
- */
-RowPlaceholder.ctorParameters = function () {
-    return [
-        { type: core.ViewContainerRef, },
-    ];
-};
-/**
- * Provides a handle for the table to grab the view container's ng-container to insert the header.
- * \@docs-private
- */
-var HeaderRowPlaceholder = (function () {
-    /**
-     * @param {?} viewContainer
-     */
-    function HeaderRowPlaceholder(viewContainer) {
-        this.viewContainer = viewContainer;
-    }
-    return HeaderRowPlaceholder;
-}());
-HeaderRowPlaceholder.decorators = [
-    { type: core.Directive, args: [{ selector: '[headerRowPlaceholder]' },] },
-];
-/**
- * @nocollapse
- */
-HeaderRowPlaceholder.ctorParameters = function () {
-    return [
-        { type: core.ViewContainerRef, },
-    ];
-};
-/**
- * The table template that can be used by the md-table. Should not be used outside of the
- * material library.
- */
-var CDK_TABLE_TEMPLATE = "\n  <ng-container headerRowPlaceholder></ng-container>\n  <ng-container rowPlaceholder></ng-container>";
-/**
- * A data table that connects with a data source to retrieve data of type T and renders
- * a header row and data rows. Updates the rows when new data is provided by the data source.
- */
-var CdkTable = (function () {
-    /**
-     * @param {?} _differs
-     * @param {?} _changeDetectorRef
-     * @param {?} elementRef
-     * @param {?} renderer
-     * @param {?} role
-     */
-    function CdkTable(_differs, _changeDetectorRef, elementRef, renderer, role) {
-        this._differs = _differs;
-        this._changeDetectorRef = _changeDetectorRef;
-        /**
-         * Subject that emits when the component has been destroyed.
-         */
-        this._onDestroy = new Subject.Subject();
-        /**
-         * Flag set to true after the component has been initialized.
-         */
-        this._isViewInitialized = false;
-        /**
-         * Latest data provided by the data source through the connect interface.
-         */
-        this._data = [];
-        /**
-         * Map of all the user's defined columns identified by name.
-         * Contains the header and data-cell templates.
-         */
-        this._columnDefinitionsByName = new Map();
-        /**
-         * Stream containing the latest information on what rows are being displayed on screen.
-         * Can be used by the data source to as a heuristic of what data should be provided.
-         */
-        this.viewChange = new BehaviorSubject.BehaviorSubject({ start: 0, end: Number.MAX_VALUE });
-        if (!role) {
-            renderer.setAttribute(elementRef.nativeElement, 'role', 'grid');
-        }
-    }
-    Object.defineProperty(CdkTable.prototype, "trackBy", {
-        /**
-         * @return {?}
-         */
-        get: function () { return this._trackByFn; },
-        /**
-         * Tracking function that will be used to check the differences in data changes. Used similarly
-         * to ngFor trackBy function. Optimize row operations by identifying a row based on its data
-         * relative to the function to know if a row should be added/removed/moved.
-         * Accepts a function that takes two parameters, `index` and `item`.
-         * @param {?} fn
-         * @return {?}
-         */
-        set: function (fn) {
-            if (core.isDevMode() &&
-                fn != null && typeof fn !== 'function' && (console) && (console.warn)) {
-                console.warn("trackBy must be a function, but received " + JSON.stringify(fn) + ".");
-            }
-            this._trackByFn = fn;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(CdkTable.prototype, "dataSource", {
-        /**
-         * Provides a stream containing the latest data array to render. Influenced by the table's
-         * stream of view window (what rows are currently on screen).
-         * @return {?}
-         */
-        get: function () { return this._dataSource; },
-        /**
-         * @param {?} dataSource
-         * @return {?}
-         */
-        set: function (dataSource) {
-            if (this._dataSource !== dataSource) {
-                this._switchDataSource(dataSource);
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * @return {?}
-     */
-    CdkTable.prototype.ngOnDestroy = function () {
-        this._onDestroy.next();
-        this._onDestroy.complete();
-        if (this.dataSource) {
-            this.dataSource.disconnect(this);
-        }
-    };
-    /**
-     * @return {?}
-     */
-    CdkTable.prototype.ngOnInit = function () {
-        // TODO(andrewseguin): Setup a listener for scroll events
-        //   and emit the calculated view to this.viewChange
-    };
-    /**
-     * @return {?}
-     */
-    CdkTable.prototype.ngAfterContentInit = function () {
-        var _this = this;
-        // TODO(andrewseguin): Throw an error if two columns share the same name
-        this._columnDefinitions.forEach(function (columnDef) {
-            _this._columnDefinitionsByName.set(columnDef.name, columnDef);
-        });
-        // Re-render the rows if any of their columns change.
-        // TODO(andrewseguin): Determine how to only re-render the rows that have their columns changed.
-        var /** @type {?} */ columnChangeEvents = this._rowDefinitions.map(function (rowDef) { return rowDef.columnsChange; });
-        takeUntil.takeUntil.call(merge.merge.apply(void 0, columnChangeEvents), this._onDestroy).subscribe(function () {
-            // Reset the data to an empty array so that renderRowChanges will re-render all new rows.
-            _this._rowPlaceholder.viewContainer.clear();
-            _this._dataDiffer.diff([]);
-            _this._renderRowChanges();
-        });
-        // Re-render the header row if the columns change
-        takeUntil.takeUntil.call(this._headerDefinition.columnsChange, this._onDestroy).subscribe(function () {
-            _this._headerRowPlaceholder.viewContainer.clear();
-            _this._renderHeaderRow();
-        });
-    };
-    /**
-     * @return {?}
-     */
-    CdkTable.prototype.ngAfterViewInit = function () {
-        // Find and construct an iterable differ that can be used to find the diff in an array.
-        this._dataDiffer = this._differs.find([]).create(this._trackByFn);
-        this._isViewInitialized = true;
-    };
-    /**
-     * @return {?}
-     */
-    CdkTable.prototype.ngDoCheck = function () {
-        if (this._isViewInitialized && this.dataSource && !this._renderChangeSubscription) {
-            this._renderHeaderRow();
-            if (this.dataSource && !this._renderChangeSubscription) {
-                this._observeRenderChanges();
-            }
-        }
-    };
-    /**
-     * Switch to the provided data source by resetting the data and unsubscribing from the current
-     * render change subscription if one exists. If the data source is null, interpret this by
-     * clearing the row placeholder. Otherwise start listening for new data.
-     * @param {?} dataSource
-     * @return {?}
-     */
-    CdkTable.prototype._switchDataSource = function (dataSource) {
-        this._data = [];
-        if (this._dataSource) {
-            this.dataSource.disconnect(this);
-        }
-        this._dataSource = dataSource;
-        if (this._isViewInitialized) {
-            if (this._renderChangeSubscription) {
-                this._renderChangeSubscription.unsubscribe();
-            }
-            if (this._dataSource) {
-                this._observeRenderChanges();
-            }
-            else {
-                this._rowPlaceholder.viewContainer.clear();
-            }
-        }
-    };
-    /**
-     * Set up a subscription for the data provided by the data source.
-     * @return {?}
-     */
-    CdkTable.prototype._observeRenderChanges = function () {
-        var _this = this;
-        this._renderChangeSubscription = takeUntil.takeUntil.call(this.dataSource.connect(this), this._onDestroy)
-            .subscribe(function (data) {
-            _this._data = data;
-            _this._renderRowChanges();
-        });
-    };
-    /**
-     * Create the embedded view for the header template and place it in the header row view container.
-     * @return {?}
-     */
-    CdkTable.prototype._renderHeaderRow = function () {
-        var /** @type {?} */ cells = this._getHeaderCellTemplatesForRow(this._headerDefinition);
-        if (!cells.length) {
-            return;
-        }
-        // TODO(andrewseguin): add some code to enforce that exactly
-        //   one CdkCellOutlet was instantiated as a result
-        //   of `createEmbeddedView`.
-        this._headerRowPlaceholder.viewContainer
-            .createEmbeddedView(this._headerDefinition.template, { cells: cells });
-        cells.forEach(function (cell) {
-            CdkCellOutlet.mostRecentCellOutlet._viewContainer.createEmbeddedView(cell.template, {});
-        });
-        this._changeDetectorRef.markForCheck();
-    };
-    /**
-     * Check for changes made in the data and render each change (row added/removed/moved).
-     * @return {?}
-     */
-    CdkTable.prototype._renderRowChanges = function () {
-        var _this = this;
-        var /** @type {?} */ changes = this._dataDiffer.diff(this._data);
-        if (!changes) {
-            return;
-        }
-        var /** @type {?} */ viewContainer = this._rowPlaceholder.viewContainer;
-        changes.forEachOperation(function (item, adjustedPreviousIndex, currentIndex) {
-            if (item.previousIndex == null) {
-                _this._insertRow(_this._data[currentIndex], currentIndex);
-            }
-            else if (currentIndex == null) {
-                viewContainer.remove(adjustedPreviousIndex);
-            }
-            else {
-                var /** @type {?} */ view = viewContainer.get(adjustedPreviousIndex);
-                viewContainer.move(/** @type {?} */ ((view)), currentIndex);
-            }
-        });
-        this._updateRowContext();
-    };
-    /**
-     * Create the embedded view for the data row template and place it in the correct index location
-     * within the data row view container.
-     * @param {?} rowData
-     * @param {?} index
-     * @return {?}
-     */
-    CdkTable.prototype._insertRow = function (rowData, index) {
-        // TODO(andrewseguin): Add when predicates to the row definitions
-        //   to find the right template to used based on
-        //   the data rather than choosing the first row definition.
-        var /** @type {?} */ row = this._rowDefinitions.first;
-        // Row context that will be provided to both the created embedded row view and its cells.
-        var /** @type {?} */ context = { $implicit: rowData };
-        // TODO(andrewseguin): add some code to enforce that exactly one
-        //   CdkCellOutlet was instantiated as a result  of `createEmbeddedView`.
-        this._rowPlaceholder.viewContainer.createEmbeddedView(row.template, context, index);
-        // Insert empty cells if there is no data to improve rendering time.
-        var /** @type {?} */ cells = rowData ? this._getCellTemplatesForRow(row) : [];
-        cells.forEach(function (cell) {
-            CdkCellOutlet.mostRecentCellOutlet._viewContainer.createEmbeddedView(cell.template, context);
-        });
-        this._changeDetectorRef.markForCheck();
-    };
-    /**
-     * Updates the context for each row to reflect any data changes that may have caused
-     * rows to be added, removed, or moved. The view container contains the same context
-     * that was provided to each of its cells.
-     * @return {?}
-     */
-    CdkTable.prototype._updateRowContext = function () {
-        var /** @type {?} */ viewContainer = this._rowPlaceholder.viewContainer;
-        for (var /** @type {?} */ index = 0, /** @type {?} */ count = viewContainer.length; index < count; index++) {
-            var /** @type {?} */ viewRef = (viewContainer.get(index));
-            viewRef.context.index = index;
-            viewRef.context.count = count;
-            viewRef.context.first = index === 0;
-            viewRef.context.last = index === count - 1;
-            viewRef.context.even = index % 2 === 0;
-            viewRef.context.odd = index % 2 !== 0;
-        }
-    };
-    /**
-     * Returns the cell template definitions to insert into the header
-     * as defined by its list of columns to display.
-     * @param {?} headerDef
-     * @return {?}
-     */
-    CdkTable.prototype._getHeaderCellTemplatesForRow = function (headerDef) {
-        var _this = this;
-        if (!headerDef.columns) {
-            return [];
-        }
-        return headerDef.columns.map(function (columnId) {
-            var /** @type {?} */ column = _this._columnDefinitionsByName.get(columnId);
-            if (!column) {
-                throw getTableUnknownColumnError(columnId);
-            }
-            return column.headerCell;
-        });
-    };
-    /**
-     * Returns the cell template definitions to insert in the provided row
-     * as defined by its list of columns to display.
-     * @param {?} rowDef
-     * @return {?}
-     */
-    CdkTable.prototype._getCellTemplatesForRow = function (rowDef) {
-        var _this = this;
-        if (!rowDef.columns) {
-            return [];
-        }
-        return rowDef.columns.map(function (columnId) {
-            var /** @type {?} */ column = _this._columnDefinitionsByName.get(columnId);
-            if (!column) {
-                throw getTableUnknownColumnError(columnId);
-            }
-            return column.cell;
-        });
-    };
-    return CdkTable;
-}());
-CdkTable.decorators = [
-    { type: core.Component, args: [{
-                selector: 'cdk-table',
-                template: CDK_TABLE_TEMPLATE,
-                host: {
-                    'class': 'cdk-table',
-                },
-                encapsulation: core.ViewEncapsulation.None,
-                changeDetection: core.ChangeDetectionStrategy.OnPush,
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkTable.ctorParameters = function () {
-    return [
-        { type: core.IterableDiffers, },
-        { type: core.ChangeDetectorRef, },
-        { type: core.ElementRef, },
-        { type: core.Renderer2, },
-        { type: undefined, decorators: [{ type: core.Attribute, args: ['role',] },] },
-    ];
-};
-CdkTable.propDecorators = {
-    'trackBy': [{ type: core.Input },],
-    'dataSource': [{ type: core.Input },],
-    '_rowPlaceholder': [{ type: core.ViewChild, args: [RowPlaceholder,] },],
-    '_headerRowPlaceholder': [{ type: core.ViewChild, args: [HeaderRowPlaceholder,] },],
-    '_columnDefinitions': [{ type: core.ContentChildren, args: [CdkColumnDef,] },],
-    '_headerDefinition': [{ type: core.ContentChild, args: [CdkHeaderRowDef,] },],
-    '_rowDefinitions': [{ type: core.ContentChildren, args: [CdkRowDef,] },],
-};
-/**
- * @abstract
- */
-var DataSource = (function () {
-    function DataSource() {
-    }
-    /**
-     * Connects a collection viewer (such as a data-table) to this data source.
-     * @abstract
-     * @param {?} collectionViewer The component that exposes a view over the data provided by this
-     *     data source.
-     * @return {?} Observable that emits a new value when the data changes.
-     */
-    DataSource.prototype.connect = function (collectionViewer) { };
-    /**
-     * Disconnects a collection viewer (such as a data-table) from this data source. Can be used
-     * to perform any clean-up or tear-down operations when a view is being destroyed.
-     *
-     * @abstract
-     * @param {?} collectionViewer The component that exposes a view over the data provided by this
-     *     data source.
-     * @return {?}
-     */
-    DataSource.prototype.disconnect = function (collectionViewer) { };
-    return DataSource;
-}());
-var EXPORTED_DECLARATIONS = [
-    CdkTable,
-    CdkRowDef,
-    CdkCellDef,
-    CdkCellOutlet,
-    CdkHeaderCellDef,
-    CdkColumnDef,
-    CdkCell,
-    CdkRow,
-    CdkHeaderCell,
-    CdkHeaderRow,
-    CdkHeaderRowDef,
-    RowPlaceholder,
-    HeaderRowPlaceholder,
-];
-var CdkTableModule = (function () {
-    function CdkTableModule() {
-    }
-    return CdkTableModule;
-}());
-CdkTableModule.decorators = [
-    { type: core.NgModule, args: [{
-                imports: [common.CommonModule],
-                exports: [EXPORTED_DECLARATIONS],
-                declarations: [EXPORTED_DECLARATIONS]
-            },] },
-];
-/**
- * @nocollapse
- */
-CdkTableModule.ctorParameters = function () { return []; };
-/**
- * Throws an exception when attempting to attach a null portal to a host.
- * \@docs-private
- * @return {?}
- */
-function throwNullPortalError() {
-    throw Error('Must provide a portal to attach');
-}
-/**
- * Throws an exception when attempting to attach a portal to a host that is already attached.
- * \@docs-private
- * @return {?}
- */
-function throwPortalAlreadyAttachedError() {
-    throw Error('Host already has a portal attached');
-}
-/**
- * Throws an exception when attempting to attach a portal to an already-disposed host.
- * \@docs-private
- * @return {?}
- */
-function throwPortalHostAlreadyDisposedError() {
-    throw Error('This PortalHost has already been disposed');
-}
-/**
- * Throws an exception when attempting to attach an unknown portal type.
- * \@docs-private
- * @return {?}
- */
-function throwUnknownPortalTypeError() {
-    throw Error('Attempting to attach an unknown Portal type. BasePortalHost accepts either' +
-        'a ComponentPortal or a TemplatePortal.');
-}
-/**
- * Throws an exception when attempting to attach a portal to a null host.
- * \@docs-private
- * @return {?}
- */
-function throwNullPortalHostError() {
-    throw Error('Attempting to attach a portal to a null PortalHost');
-}
-/**
- * Throws an exception when attempting to detach a portal that is not attached.
- * \@docs-privatew
- * @return {?}
- */
-function throwNoPortalAttachedError() {
-    throw Error('Attempting to detach a portal that is not attached to a host');
-}
-/**
- * A `Portal` is something that you want to render somewhere else.
- * It can be attach to / detached from a `PortalHost`.
- * @abstract
- */
-var Portal = (function () {
-    function Portal() {
-    }
-    /**
-     * Attach this portal to a host.
-     * @param {?} host
-     * @return {?}
-     */
-    Portal.prototype.attach = function (host) {
-        if (host == null) {
-            throwNullPortalHostError();
-        }
-        if (host.hasAttached()) {
-            throwPortalAlreadyAttachedError();
-        }
-        this._attachedHost = host;
-        return (host.attach(this));
-    };
-    /**
-     * Detach this portal from its host
-     * @return {?}
-     */
-    Portal.prototype.detach = function () {
-        var /** @type {?} */ host = this._attachedHost;
-        if (host == null) {
-            throwNoPortalAttachedError();
-        }
-        else {
-            this._attachedHost = null;
-            host.detach();
-        }
-    };
-    Object.defineProperty(Portal.prototype, "isAttached", {
-        /**
-         * Whether this portal is attached to a host.
-         * @return {?}
-         */
-        get: function () {
-            return this._attachedHost != null;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * Sets the PortalHost reference without performing `attach()`. This is used directly by
-     * the PortalHost when it is performing an `attach()` or `detach()`.
-     * @param {?} host
-     * @return {?}
-     */
-    Portal.prototype.setAttachedHost = function (host) {
-        this._attachedHost = host;
-    };
-    return Portal;
-}());
-/**
- * A `ComponentPortal` is a portal that instantiates some Component upon attachment.
- */
-var ComponentPortal = (function (_super) {
-    __extends(ComponentPortal, _super);
-    /**
-     * @param {?} component
-     * @param {?=} viewContainerRef
-     * @param {?=} injector
-     */
-    function ComponentPortal(component, viewContainerRef, injector) {
-        var _this = _super.call(this) || this;
-        _this.component = component;
-        _this.viewContainerRef = viewContainerRef;
-        _this.injector = injector;
-        return _this;
-    }
-    return ComponentPortal;
-}(Portal));
-/**
- * A `TemplatePortal` is a portal that represents some embedded template (TemplateRef).
- */
-var TemplatePortal = (function (_super) {
-    __extends(TemplatePortal, _super);
-    /**
-     * @param {?} template
-     * @param {?} viewContainerRef
-     */
-    function TemplatePortal(template, viewContainerRef) {
-        var _this = _super.call(this) || this;
-        /**
-         * Additional locals for the instantiated embedded view.
-         * These locals can be seen as "exports" for the template, such as how ngFor has
-         * index / event / odd.
-         * See https://angular.io/docs/ts/latest/api/core/EmbeddedViewRef-class.html
-         */
-        _this.locals = new Map();
-        _this.templateRef = template;
-        _this.viewContainerRef = viewContainerRef;
-        return _this;
-    }
-    Object.defineProperty(TemplatePortal.prototype, "origin", {
-        /**
-         * @return {?}
-         */
-        get: function () {
-            return this.templateRef.elementRef;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * @param {?} host
-     * @param {?=} locals
-     * @return {?}
-     */
-    TemplatePortal.prototype.attach = function (host, locals) {
-        this.locals = locals == null ? new Map() : locals;
-        return _super.prototype.attach.call(this, host);
-    };
-    /**
-     * @return {?}
-     */
-    TemplatePortal.prototype.detach = function () {
-        this.locals = new Map();
-        return _super.prototype.detach.call(this);
-    };
-    return TemplatePortal;
-}(Portal));
-/**
- * Partial implementation of PortalHost that only deals with attaching either a
- * ComponentPortal or a TemplatePortal.
- * @abstract
- */
-var BasePortalHost = (function () {
-    function BasePortalHost() {
-        /**
-         * Whether this host has already been permanently disposed.
-         */
-        this._isDisposed = false;
-    }
-    /**
-     * Whether this host has an attached portal.
-     * @return {?}
-     */
-    BasePortalHost.prototype.hasAttached = function () {
-        return !!this._attachedPortal;
-    };
-    /**
-     * @param {?} portal
-     * @return {?}
-     */
-    BasePortalHost.prototype.attach = function (portal) {
-        if (!portal) {
-            throwNullPortalError();
-        }
-        if (this.hasAttached()) {
-            throwPortalAlreadyAttachedError();
-        }
-        if (this._isDisposed) {
-            throwPortalHostAlreadyDisposedError();
-        }
-        if (portal instanceof ComponentPortal) {
-            this._attachedPortal = portal;
-            return this.attachComponentPortal(portal);
-        }
-        else if (portal instanceof TemplatePortal) {
-            this._attachedPortal = portal;
-            return this.attachTemplatePortal(portal);
-        }
-        throwUnknownPortalTypeError();
-    };
-    /**
-     * @abstract
-     * @template T
-     * @param {?} portal
-     * @return {?}
-     */
-    BasePortalHost.prototype.attachComponentPortal = function (portal) { };
-    /**
-     * @abstract
-     * @param {?} portal
-     * @return {?}
-     */
-    BasePortalHost.prototype.attachTemplatePortal = function (portal) { };
-    /**
-     * @return {?}
-     */
-    BasePortalHost.prototype.detach = function () {
-        if (this._attachedPortal) {
-            this._attachedPortal.setAttachedHost(null);
-            this._attachedPortal = null;
-        }
-        this._invokeDisposeFn();
-    };
-    /**
-     * @return {?}
-     */
-    BasePortalHost.prototype.dispose = function () {
-        if (this.hasAttached()) {
-            this.detach();
-        }
-        this._invokeDisposeFn();
-        this._isDisposed = true;
-    };
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    BasePortalHost.prototype.setDisposeFn = function (fn) {
-        this._disposeFn = fn;
-    };
-    /**
-     * @return {?}
-     */
-    BasePortalHost.prototype._invokeDisposeFn = function () {
-        if (this._disposeFn) {
-            this._disposeFn();
-            this._disposeFn = null;
-        }
-    };
-    return BasePortalHost;
-}());
-/**
- * A PortalHost for attaching portals to an arbitrary DOM element outside of the Angular
- * application context.
- *
- * This is the only part of the portal core that directly touches the DOM.
- */
-var DomPortalHost = (function (_super) {
-    __extends(DomPortalHost, _super);
-    /**
-     * @param {?} _hostDomElement
-     * @param {?} _componentFactoryResolver
-     * @param {?} _appRef
-     * @param {?} _defaultInjector
-     */
-    function DomPortalHost(_hostDomElement, _componentFactoryResolver, _appRef, _defaultInjector) {
-        var _this = _super.call(this) || this;
-        _this._hostDomElement = _hostDomElement;
-        _this._componentFactoryResolver = _componentFactoryResolver;
-        _this._appRef = _appRef;
-        _this._defaultInjector = _defaultInjector;
-        return _this;
-    }
-    /**
-     * Attach the given ComponentPortal to DOM element using the ComponentFactoryResolver.
-     * @template T
-     * @param {?} portal Portal to be attached
-     * @return {?}
-     */
-    DomPortalHost.prototype.attachComponentPortal = function (portal) {
-        var _this = this;
-        var /** @type {?} */ componentFactory = this._componentFactoryResolver.resolveComponentFactory(portal.component);
-        var /** @type {?} */ componentRef;
-        // If the portal specifies a ViewContainerRef, we will use that as the attachment point
-        // for the component (in terms of Angular's component tree, not rendering).
-        // When the ViewContainerRef is missing, we use the factory to create the component directly
-        // and then manually attach the view to the application.
-        if (portal.viewContainerRef) {
-            componentRef = portal.viewContainerRef.createComponent(componentFactory, portal.viewContainerRef.length, portal.injector || portal.viewContainerRef.parentInjector);
-            this.setDisposeFn(function () { return componentRef.destroy(); });
-        }
-        else {
-            componentRef = componentFactory.create(portal.injector || this._defaultInjector);
-            this._appRef.attachView(componentRef.hostView);
-            this.setDisposeFn(function () {
-                _this._appRef.detachView(componentRef.hostView);
-                componentRef.destroy();
-            });
-        }
-        // At this point the component has been instantiated, so we move it to the location in the DOM
-        // where we want it to be rendered.
-        this._hostDomElement.appendChild(this._getComponentRootNode(componentRef));
-        return componentRef;
-    };
-    /**
-     * Attaches a template portal to the DOM as an embedded view.
-     * @param {?} portal Portal to be attached.
-     * @return {?}
-     */
-    DomPortalHost.prototype.attachTemplatePortal = function (portal) {
-        var _this = this;
-        var /** @type {?} */ viewContainer = portal.viewContainerRef;
-        var /** @type {?} */ viewRef = viewContainer.createEmbeddedView(portal.templateRef);
-        viewRef.detectChanges();
-        // The method `createEmbeddedView` will add the view as a child of the viewContainer.
-        // But for the DomPortalHost the view can be added everywhere in the DOM (e.g Overlay Container)
-        // To move the view to the specified host element. We just re-append the existing root nodes.
-        viewRef.rootNodes.forEach(function (rootNode) { return _this._hostDomElement.appendChild(rootNode); });
-        this.setDisposeFn((function () {
-            var /** @type {?} */ index = viewContainer.indexOf(viewRef);
-            if (index !== -1) {
-                viewContainer.remove(index);
-            }
-        }));
-        // TODO(jelbourn): Return locals from view.
-        return new Map();
-    };
-    /**
-     * Clears out a portal from the DOM.
-     * @return {?}
-     */
-    DomPortalHost.prototype.dispose = function () {
-        _super.prototype.dispose.call(this);
-        if (this._hostDomElement.parentNode != null) {
-            this._hostDomElement.parentNode.removeChild(this._hostDomElement);
-        }
-    };
-    /**
-     * Gets the root HTMLElement for an instantiated component.
-     * @param {?} componentRef
-     * @return {?}
-     */
-    DomPortalHost.prototype._getComponentRootNode = function (componentRef) {
-        return (((componentRef.hostView)).rootNodes[0]);
-    };
-    return DomPortalHost;
-}(BasePortalHost));
-/**
- * Directive version of a `TemplatePortal`. Because the directive *is* a TemplatePortal,
- * the directive instance itself can be attached to a host, enabling declarative use of portals.
- *
- * Usage:
- * <ng-template portal #greeting>
- *   <p> Hello {{name}} </p>
- * </ng-template>
- */
-var TemplatePortalDirective = (function (_super) {
-    __extends(TemplatePortalDirective, _super);
-    /**
-     * @param {?} templateRef
-     * @param {?} viewContainerRef
-     */
-    function TemplatePortalDirective(templateRef, viewContainerRef) {
-        return _super.call(this, templateRef, viewContainerRef) || this;
-    }
-    return TemplatePortalDirective;
-}(TemplatePortal));
-TemplatePortalDirective.decorators = [
-    { type: core.Directive, args: [{
-                selector: '[cdk-portal], [cdkPortal], [portal]',
-                exportAs: 'cdkPortal',
-            },] },
-];
-/**
- * @nocollapse
- */
-TemplatePortalDirective.ctorParameters = function () {
-    return [
-        { type: core.TemplateRef, },
-        { type: core.ViewContainerRef, },
-    ];
-};
-/**
- * Directive version of a PortalHost. Because the directive *is* a PortalHost, portals can be
- * directly attached to it, enabling declarative use.
- *
- * Usage:
- * <ng-template [cdkPortalHost]="greeting"></ng-template>
- */
-var PortalHostDirective = (function (_super) {
-    __extends(PortalHostDirective, _super);
-    /**
-     * @param {?} _componentFactoryResolver
-     * @param {?} _viewContainerRef
-     */
-    function PortalHostDirective(_componentFactoryResolver, _viewContainerRef) {
-        var _this = _super.call(this) || this;
-        _this._componentFactoryResolver = _componentFactoryResolver;
-        _this._viewContainerRef = _viewContainerRef;
-        /**
-         * The attached portal.
-         */
-        _this._portal = null;
-        return _this;
-    }
-    Object.defineProperty(PortalHostDirective.prototype, "_deprecatedPortal", {
-        /**
-         * @deprecated
-         * @return {?}
-         */
-        get: function () { return this.portal; },
-        /**
-         * @param {?} v
-         * @return {?}
-         */
-        set: function (v) { this.portal = v; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(PortalHostDirective.prototype, "portal", {
-        /**
-         * Portal associated with the Portal host.
-         * @return {?}
-         */
-        get: function () {
-            return this._portal;
-        },
-        /**
-         * @param {?} portal
-         * @return {?}
-         */
-        set: function (portal) {
-            if (this.hasAttached()) {
-                _super.prototype.detach.call(this);
-            }
-            if (portal) {
-                _super.prototype.attach.call(this, portal);
-            }
-            this._portal = portal;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * @return {?}
-     */
-    PortalHostDirective.prototype.ngOnDestroy = function () {
-        _super.prototype.dispose.call(this);
-        this._portal = null;
-    };
-    /**
-     * Attach the given ComponentPortal to this PortalHost using the ComponentFactoryResolver.
-     *
-     * @template T
-     * @param {?} portal Portal to be attached to the portal host.
-     * @return {?}
-     */
-    PortalHostDirective.prototype.attachComponentPortal = function (portal) {
-        portal.setAttachedHost(this);
-        // If the portal specifies an origin, use that as the logical location of the component
-        // in the application tree. Otherwise use the location of this PortalHost.
-        var /** @type {?} */ viewContainerRef = portal.viewContainerRef != null ?
-            portal.viewContainerRef :
-            this._viewContainerRef;
-        var /** @type {?} */ componentFactory = this._componentFactoryResolver.resolveComponentFactory(portal.component);
-        var /** @type {?} */ ref = viewContainerRef.createComponent(componentFactory, viewContainerRef.length, portal.injector || viewContainerRef.parentInjector);
-        _super.prototype.setDisposeFn.call(this, function () { return ref.destroy(); });
-        this._portal = portal;
-        return ref;
-    };
-    /**
-     * Attach the given TemplatePortal to this PortlHost as an embedded View.
-     * @param {?} portal Portal to be attached.
-     * @return {?}
-     */
-    PortalHostDirective.prototype.attachTemplatePortal = function (portal) {
-        var _this = this;
-        portal.setAttachedHost(this);
-        this._viewContainerRef.createEmbeddedView(portal.templateRef);
-        _super.prototype.setDisposeFn.call(this, function () { return _this._viewContainerRef.clear(); });
-        this._portal = portal;
-        // TODO(jelbourn): return locals from view
-        return new Map();
-    };
-    return PortalHostDirective;
-}(BasePortalHost));
-PortalHostDirective.decorators = [
-    { type: core.Directive, args: [{
-                selector: '[cdkPortalHost], [portalHost]',
-                inputs: ['portal: cdkPortalHost']
-            },] },
-];
-/**
- * @nocollapse
- */
-PortalHostDirective.ctorParameters = function () {
-    return [
-        { type: core.ComponentFactoryResolver, },
-        { type: core.ViewContainerRef, },
-    ];
-};
-PortalHostDirective.propDecorators = {
-    '_deprecatedPortal': [{ type: core.Input, args: ['portalHost',] },],
-};
-var PortalModule = (function () {
-    function PortalModule() {
-    }
-    return PortalModule;
-}());
-PortalModule.decorators = [
-    { type: core.NgModule, args: [{
-                exports: [TemplatePortalDirective, PortalHostDirective],
-                declarations: [TemplatePortalDirective, PortalHostDirective],
-            },] },
-];
-/**
- * @nocollapse
- */
-PortalModule.ctorParameters = function () { return []; };
-/**
- * Factory that creates a new MutationObserver and allows us to stub it out in unit tests.
- * \@docs-private
- */
-var MdMutationObserverFactory = (function () {
-    function MdMutationObserverFactory() {
-    }
-    /**
-     * @param {?} callback
-     * @return {?}
-     */
-    MdMutationObserverFactory.prototype.create = function (callback) {
-        return typeof MutationObserver === 'undefined' ? null : new MutationObserver(callback);
-    };
-    return MdMutationObserverFactory;
-}());
-MdMutationObserverFactory.decorators = [
-    { type: core.Injectable },
-];
-/**
- * @nocollapse
- */
-MdMutationObserverFactory.ctorParameters = function () { return []; };
-/**
- * Directive that triggers a callback whenever the content of
- * its associated element has changed.
- */
-var ObserveContent = (function () {
-    /**
-     * @param {?} _mutationObserverFactory
-     * @param {?} _elementRef
-     */
-    function ObserveContent(_mutationObserverFactory, _elementRef) {
-        this._mutationObserverFactory = _mutationObserverFactory;
-        this._elementRef = _elementRef;
-        /**
-         * Event emitted for each change in the element's content.
-         */
-        this.event = new core.EventEmitter();
-        /**
-         * Used for debouncing the emitted values to the observeContent event.
-         */
-        this._debouncer = new Subject.Subject();
-    }
-    /**
-     * @return {?}
-     */
-    ObserveContent.prototype.ngAfterContentInit = function () {
-        var _this = this;
-        if (this.debounce > 0) {
-            RxChain.from(this._debouncer)
-                .call(debounceTime$1$1, this.debounce)
-                .subscribe(function (mutations) { return _this.event.emit(mutations); });
-        }
-        else {
-            this._debouncer.subscribe(function (mutations) { return _this.event.emit(mutations); });
-        }
-        this._observer = this._mutationObserverFactory.create(function (mutations) {
-            _this._debouncer.next(mutations);
-        });
-        if (this._observer) {
-            this._observer.observe(this._elementRef.nativeElement, {
-                characterData: true,
-                childList: true,
-                subtree: true
-            });
-        }
-    };
-    /**
-     * @return {?}
-     */
-    ObserveContent.prototype.ngOnDestroy = function () {
-        if (this._observer) {
-            this._observer.disconnect();
-            this._debouncer.complete();
-        }
-    };
-    return ObserveContent;
-}());
-ObserveContent.decorators = [
-    { type: core.Directive, args: [{
-                selector: '[cdkObserveContent]'
-            },] },
-];
-/**
- * @nocollapse
- */
-ObserveContent.ctorParameters = function () {
-    return [
-        { type: MdMutationObserverFactory, },
-        { type: core.ElementRef, },
-    ];
-};
-ObserveContent.propDecorators = {
-    'event': [{ type: core.Output, args: ['cdkObserveContent',] },],
-    'debounce': [{ type: core.Input },],
-};
-var ObserveContentModule = (function () {
-    function ObserveContentModule() {
-    }
-    return ObserveContentModule;
-}());
-ObserveContentModule.decorators = [
-    { type: core.NgModule, args: [{
-                exports: [ObserveContent],
-                declarations: [ObserveContent],
-                providers: [MdMutationObserverFactory]
-            },] },
-];
-/**
- * @nocollapse
- */
-ObserveContentModule.ctorParameters = function () { return []; };
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -3064,8 +226,8 @@ var MdCommonModule = (function () {
 }());
 MdCommonModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [CompatibilityModule, BidiModule],
-                exports: [CompatibilityModule, BidiModule],
+                imports: [CompatibilityModule, cdk.BidiModule],
+                exports: [CompatibilityModule, cdk.BidiModule],
                 providers: [{
                         provide: MATERIAL_SANITY_CHECKS, useValue: true,
                     }],
@@ -3515,7 +677,7 @@ var ScrollDispatcher = (function () {
         // In the case of a 0ms delay, use an observable without auditTime
         // since it does add a perceptible delay in processing overhead.
         var /** @type {?} */ observable = auditTimeInMs > 0 ?
-            auditTime$1$1.call(this._scrolled.asObservable(), auditTimeInMs) :
+            cdk.auditTime.call(this._scrolled.asObservable(), auditTimeInMs) :
             this._scrolled.asObservable();
         this._scrolledCount++;
         if (!this._globalSubscription) {
@@ -3586,7 +748,7 @@ ScrollDispatcher.decorators = [
 ScrollDispatcher.ctorParameters = function () {
     return [
         { type: core.NgZone, },
-        { type: Platform, },
+        { type: cdk.Platform, },
     ];
 };
 /**
@@ -3601,7 +763,7 @@ function SCROLL_DISPATCHER_PROVIDER_FACTORY(parentDispatcher, ngZone, platform) 
 var SCROLL_DISPATCHER_PROVIDER = {
     // If there is already a ScrollDispatcher available, use that. Otherwise, provide a new one.
     provide: ScrollDispatcher,
-    deps: [[new core.Optional(), new core.SkipSelf(), ScrollDispatcher], core.NgZone, Platform],
+    deps: [[new core.Optional(), new core.SkipSelf(), ScrollDispatcher], core.NgZone, cdk.Platform],
     useFactory: SCROLL_DISPATCHER_PROVIDER_FACTORY
 };
 /**
@@ -3822,7 +984,7 @@ MdRipple.ctorParameters = function () {
         { type: core.ElementRef, },
         { type: core.NgZone, },
         { type: ViewportRuler, },
-        { type: Platform, },
+        { type: cdk.Platform, },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MD_RIPPLE_GLOBAL_OPTIONS,] },] },
     ];
 };
@@ -4143,7 +1305,7 @@ var ScrollDispatchModule = (function () {
 }());
 ScrollDispatchModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [PlatformModule],
+                imports: [cdk.PlatformModule],
                 exports: [Scrollable],
                 declarations: [Scrollable],
                 providers: [SCROLL_DISPATCHER_PROVIDER, ScrollStrategyOptions],
@@ -4160,7 +1322,7 @@ var MdRippleModule = (function () {
 }());
 MdRippleModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [MdCommonModule, PlatformModule, ScrollDispatchModule],
+                imports: [MdCommonModule, cdk.PlatformModule, ScrollDispatchModule],
                 exports: [MdRipple, MdCommonModule],
                 declarations: [MdRipple],
                 providers: [VIEWPORT_RULER_PROVIDER],
@@ -4338,7 +1500,7 @@ function mixinDisabled(base) {
              * @param {?} value
              * @return {?}
              */
-            set: function (value) { this._disabled = coerceBooleanProperty(value); },
+            set: function (value) { this._disabled = cdk.coerceBooleanProperty(value); },
             enumerable: true,
             configurable: true
         });
@@ -4471,7 +1633,7 @@ var MdOption = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disabled = coerceBooleanProperty(value); },
+        set: function (value) { this._disabled = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -4549,7 +1711,7 @@ var MdOption = (function () {
      * @return {?}
      */
     MdOption.prototype._handleKeydown = function (event) {
-        if (event.keyCode === ENTER || event.keyCode === SPACE) {
+        if (event.keyCode === cdk.ENTER || event.keyCode === cdk.SPACE) {
             this._selectViaInteraction();
             // Prevent the page from scrolling down and form submits.
             event.preventDefault();
@@ -5755,7 +2917,7 @@ var Overlay = (function () {
      * @return {?} A portal host for the given DOM element.
      */
     Overlay.prototype._createPortalHost = function (pane) {
-        return new DomPortalHost(pane, this._componentFactoryResolver, this._appRef, this._injector);
+        return new cdk.DomPortalHost(pane, this._componentFactoryResolver, this._appRef, this._injector);
     };
     /**
      * Creates an OverlayRef for an overlay in the given DOM element.
@@ -5863,7 +3025,7 @@ var ConnectedOverlayDirective = (function () {
          * Event emitted when the overlay has been detached.
          */
         this.detach = new core.EventEmitter();
-        this._templatePortal = new TemplatePortal(templateRef, viewContainerRef);
+        this._templatePortal = new cdk.TemplatePortal(templateRef, viewContainerRef);
     }
     Object.defineProperty(ConnectedOverlayDirective.prototype, "offsetX", {
         /**
@@ -5920,7 +3082,7 @@ var ConnectedOverlayDirective = (function () {
          * @return {?}
          */
         set: function (value) {
-            this._hasBackdrop = coerceBooleanProperty(value);
+            this._hasBackdrop = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -6090,7 +3252,7 @@ var ConnectedOverlayDirective = (function () {
     ConnectedOverlayDirective.prototype._initEscapeListener = function () {
         var _this = this;
         this._escapeListener = this._renderer.listen('document', 'keydown', function (event) {
-            if (event.keyCode === ESCAPE) {
+            if (event.keyCode === cdk.ESCAPE) {
                 _this._detachOverlay();
             }
         });
@@ -6112,7 +3274,7 @@ ConnectedOverlayDirective.ctorParameters = function () {
         { type: core.Renderer2, },
         { type: core.TemplateRef, },
         { type: core.ViewContainerRef, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
     ];
 };
 ConnectedOverlayDirective.propDecorators = {
@@ -6219,7 +3381,7 @@ var OverlayModule = (function () {
 }());
 OverlayModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [PortalModule, ScrollDispatchModule],
+                imports: [cdk.PortalModule, ScrollDispatchModule],
                 exports: [ConnectedOverlayDirective, OverlayOrigin, ScrollDispatchModule],
                 declarations: [ConnectedOverlayDirective, OverlayOrigin],
                 providers: [OVERLAY_PROVIDERS],
@@ -6825,7 +3987,7 @@ FocusOriginMonitor.decorators = [
 FocusOriginMonitor.ctorParameters = function () {
     return [
         { type: core.NgZone, },
-        { type: Platform, },
+        { type: cdk.Platform, },
     ];
 };
 /**
@@ -6890,7 +4052,7 @@ function FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY(parentDispatcher, ngZone, platfor
 var FOCUS_ORIGIN_MONITOR_PROVIDER = {
     // If there is already a FocusOriginMonitor available, use that. Otherwise, provide a new one.
     provide: FocusOriginMonitor,
-    deps: [[new core.Optional(), new core.SkipSelf(), FocusOriginMonitor], core.NgZone, Platform],
+    deps: [[new core.Optional(), new core.SkipSelf(), FocusOriginMonitor], core.NgZone, cdk.Platform],
     useFactory: FOCUS_ORIGIN_MONITOR_PROVIDER_FACTORY
 };
 /**
@@ -6913,7 +4075,7 @@ var StyleModule = (function () {
 }());
 StyleModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [PlatformModule],
+                imports: [cdk.PlatformModule],
                 declarations: [CdkMonitorFocus],
                 exports: [CdkMonitorFocus],
                 providers: [FOCUS_ORIGIN_MONITOR_PROVIDER],
@@ -7488,23 +4650,23 @@ MdCoreModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
                     MdLineModule,
-                    BidiModule,
+                    cdk.BidiModule,
                     MdRippleModule,
-                    ObserveContentModule,
-                    PortalModule,
+                    cdk.ObserveContentModule,
+                    cdk.PortalModule,
                     OverlayModule,
-                    A11yModule,
+                    cdk.A11yModule,
                     MdOptionModule,
                     MdSelectionModule,
                 ],
                 exports: [
                     MdLineModule,
-                    BidiModule,
+                    cdk.BidiModule,
                     MdRippleModule,
-                    ObserveContentModule,
-                    PortalModule,
+                    cdk.ObserveContentModule,
+                    cdk.PortalModule,
                     OverlayModule,
-                    A11yModule,
+                    cdk.A11yModule,
                     MdOptionModule,
                     MdSelectionModule,
                 ],
@@ -7622,7 +4784,7 @@ var MdButtonToggleGroup = (function (_super) {
          * @return {?}
          */
         set: function (value) {
-            this._vertical = coerceBooleanProperty(value);
+            this._vertical = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -7803,7 +4965,7 @@ var MdButtonToggleGroupMultiple = (function (_super) {
          * @return {?}
          */
         set: function (value) {
-            this._vertical = coerceBooleanProperty(value);
+            this._vertical = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -7965,7 +5127,7 @@ var MdButtonToggle = (function () {
          * @return {?}
          */
         set: function (value) {
-            this._disabled = coerceBooleanProperty(value);
+            this._disabled = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -8281,7 +5443,7 @@ var MdButton = (function (_super) {
          * @param {?} v
          * @return {?}
          */
-        set: function (v) { this._disableRipple = coerceBooleanProperty(v); },
+        set: function (v) { this._disableRipple = cdk.coerceBooleanProperty(v); },
         enumerable: true,
         configurable: true
     });
@@ -8357,7 +5519,7 @@ MdButton.ctorParameters = function () {
     return [
         { type: core.Renderer2, },
         { type: core.ElementRef, },
-        { type: Platform, },
+        { type: cdk.Platform, },
         { type: FocusOriginMonitor, },
     ];
 };
@@ -8420,7 +5582,7 @@ MdAnchor.decorators = [
  */
 MdAnchor.ctorParameters = function () {
     return [
-        { type: Platform, },
+        { type: cdk.Platform, },
         { type: FocusOriginMonitor, },
         { type: core.ElementRef, },
         { type: core.Renderer2, },
@@ -8588,7 +5750,7 @@ var MdCheckbox = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableRipple = coerceBooleanProperty(value); },
+        set: function (value) { this._disableRipple = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -8613,7 +5775,7 @@ var MdCheckbox = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._required = coerceBooleanProperty(value); },
+        set: function (value) { this._required = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -8960,7 +6122,7 @@ var MdCheckboxModule = (function () {
 }());
 MdCheckboxModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [common.CommonModule, MdRippleModule, MdCommonModule, ObserveContentModule],
+                imports: [common.CommonModule, MdRippleModule, MdCommonModule, cdk.ObserveContentModule],
                 exports: [MdCheckbox, MdCommonModule],
                 declarations: [MdCheckbox],
                 providers: [FocusOriginMonitor]
@@ -9389,7 +6551,7 @@ var MdRadioButton = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableRipple = coerceBooleanProperty(value); },
+        set: function (value) { this._disableRipple = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -9507,7 +6669,7 @@ var MdRadioButton = (function (_super) {
          * @return {?}
          */
         set: function (value) {
-            this._disabled = coerceBooleanProperty(value);
+            this._disabled = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -9722,7 +6884,7 @@ var FocusKeyManager = (function (_super) {
         }
     };
     return FocusKeyManager;
-}(ListKeyManager));
+}(cdk.ListKeyManager));
 /**
  * This animation shrinks the placeholder text to 75% of its normal size and translates
  * it to either the top left corner (ltr) or top right corner (rtl) of the trigger,
@@ -10023,7 +7185,7 @@ var MdSelect = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._required = coerceBooleanProperty(value); },
+        set: function (value) { this._required = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -10041,7 +7203,7 @@ var MdSelect = (function (_super) {
             if (this._selectionModel) {
                 throw getMdSelectDynamicMultipleError();
             }
-            this._multiple = coerceBooleanProperty(value);
+            this._multiple = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -10103,7 +7265,7 @@ var MdSelect = (function (_super) {
     MdSelect.prototype.ngAfterContentInit = function () {
         var _this = this;
         this._initKeyManager();
-        this._changeSubscription = startWith$1$1.call(this.options.changes, null).subscribe(function () {
+        this._changeSubscription = cdk.startWith.call(this.options.changes, null).subscribe(function () {
             _this._resetOptions();
             if (_this._control) {
                 // Defer setting the value in order to avoid the "Expression
@@ -10266,11 +7428,11 @@ var MdSelect = (function (_super) {
      */
     MdSelect.prototype._handleClosedKeydown = function (event) {
         if (!this.disabled) {
-            if (event.keyCode === ENTER || event.keyCode === SPACE) {
+            if (event.keyCode === cdk.ENTER || event.keyCode === cdk.SPACE) {
                 event.preventDefault(); // prevents the page from scrolling down when pressing space
                 this.open();
             }
-            else if (event.keyCode === UP_ARROW || event.keyCode === DOWN_ARROW) {
+            else if (event.keyCode === cdk.UP_ARROW || event.keyCode === cdk.DOWN_ARROW) {
                 this._handleArrowKey(event);
             }
         }
@@ -10281,9 +7443,9 @@ var MdSelect = (function (_super) {
      * @return {?}
      */
     MdSelect.prototype._handlePanelKeydown = function (event) {
-        if (event.keyCode === HOME || event.keyCode === END) {
+        if (event.keyCode === cdk.HOME || event.keyCode === cdk.END) {
             event.preventDefault();
-            event.keyCode === HOME ? this._keyManager.setFirstItemActive() :
+            event.keyCode === cdk.HOME ? this._keyManager.setFirstItemActive() :
                 this._keyManager.setLastItemActive();
         }
         else {
@@ -10437,7 +7599,7 @@ var MdSelect = (function (_super) {
      */
     MdSelect.prototype._listenToOptions = function () {
         var _this = this;
-        this._optionSubscription = filter$1$1.call(this.optionSelectionChanges, function (event) { return event.isUserInput; }).subscribe(function (event) {
+        this._optionSubscription = cdk.filter.call(this.optionSelectionChanges, function (event) { return event.isUserInput; }).subscribe(function (event) {
             _this._onSelect(event.source);
             _this._setValueWidth();
             if (!_this.multiple) {
@@ -10913,7 +8075,7 @@ MdSelect.ctorParameters = function () {
         { type: core.ChangeDetectorRef, },
         { type: core.Renderer2, },
         { type: core.ElementRef, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
         { type: forms.NgControl, decorators: [{ type: core.Self }, { type: core.Optional },] },
         { type: undefined, decorators: [{ type: core.Attribute, args: ['tabindex',] },] },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MD_PLACEHOLDER_GLOBAL_OPTIONS,] },] },
@@ -11057,7 +8219,7 @@ var MdSlideToggle = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._required = coerceBooleanProperty(value); },
+        set: function (value) { this._required = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -11071,7 +8233,7 @@ var MdSlideToggle = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableRipple = coerceBooleanProperty(value); },
+        set: function (value) { this._disableRipple = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -11289,7 +8451,7 @@ MdSlideToggle.ctorParameters = function () {
     return [
         { type: core.ElementRef, },
         { type: core.Renderer2, },
-        { type: Platform, },
+        { type: cdk.Platform, },
         { type: FocusOriginMonitor, },
         { type: core.ChangeDetectorRef, },
     ];
@@ -11390,7 +8552,7 @@ var MdSlideToggleModule = (function () {
 }());
 MdSlideToggleModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [forms.FormsModule, MdRippleModule, MdCommonModule, PlatformModule],
+                imports: [forms.FormsModule, MdRippleModule, MdCommonModule, cdk.PlatformModule],
                 exports: [MdSlideToggle, MdCommonModule],
                 declarations: [MdSlideToggle],
                 providers: [
@@ -11519,7 +8681,7 @@ var MdSlider = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._invert = coerceBooleanProperty(value); },
+        set: function (value) { this._invert = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -11536,7 +8698,7 @@ var MdSlider = (function (_super) {
          * @return {?}
          */
         set: function (v) {
-            this._max = coerceNumberProperty(v, this._max);
+            this._max = cdk.coerceNumberProperty(v, this._max);
             this._percent = this._calculatePercentage(this._value);
         },
         enumerable: true,
@@ -11555,7 +8717,7 @@ var MdSlider = (function (_super) {
          * @return {?}
          */
         set: function (v) {
-            this._min = coerceNumberProperty(v, this._min);
+            this._min = cdk.coerceNumberProperty(v, this._min);
             // If the value wasn't explicitly set by the user, set it to the min.
             if (this._value === null) {
                 this.value = this._min;
@@ -11576,7 +8738,7 @@ var MdSlider = (function (_super) {
          * @return {?}
          */
         set: function (v) {
-            this._step = coerceNumberProperty(v, this._step);
+            this._step = cdk.coerceNumberProperty(v, this._step);
             if (this._step % 1 !== 0) {
                 this._roundLabelTo = ((this._step.toString().split('.').pop())).length;
             }
@@ -11594,7 +8756,7 @@ var MdSlider = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._thumbLabel = coerceBooleanProperty(value); },
+        set: function (value) { this._thumbLabel = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -11628,7 +8790,7 @@ var MdSlider = (function (_super) {
                 this._tickInterval = 'auto';
             }
             else if (typeof value === 'number' || typeof value === 'string') {
-                this._tickInterval = coerceNumberProperty(value, /** @type {?} */ (this._tickInterval));
+                this._tickInterval = cdk.coerceNumberProperty(value, /** @type {?} */ (this._tickInterval));
             }
             else {
                 this._tickInterval = 0;
@@ -11668,7 +8830,7 @@ var MdSlider = (function (_super) {
          * @return {?}
          */
         set: function (v) {
-            this._value = coerceNumberProperty(v, this._value || 0);
+            this._value = cdk.coerceNumberProperty(v, this._value || 0);
             this._percent = this._calculatePercentage(this._value);
         },
         enumerable: true,
@@ -11684,7 +8846,7 @@ var MdSlider = (function (_super) {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._vertical = coerceBooleanProperty(value); },
+        set: function (value) { this._vertical = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -11968,19 +9130,19 @@ var MdSlider = (function (_super) {
             return;
         }
         switch (event.keyCode) {
-            case PAGE_UP:
+            case cdk.PAGE_UP:
                 this._increment(10);
                 break;
-            case PAGE_DOWN:
+            case cdk.PAGE_DOWN:
                 this._increment(-10);
                 break;
-            case END:
+            case cdk.END:
                 this.value = this.max;
                 break;
-            case HOME:
+            case cdk.HOME:
                 this.value = this.min;
                 break;
-            case LEFT_ARROW:
+            case cdk.LEFT_ARROW:
                 // NOTE: For a sighted user it would make more sense that when they press an arrow key on an
                 // inverted slider the thumb moves in that direction. However for a blind user, nothing
                 // about the slider indicates that it is inverted. They will expect left to be decrement,
@@ -11990,14 +9152,14 @@ var MdSlider = (function (_super) {
                 // sighted users, therefore we do not swap the meaning.
                 this._increment(this._direction == 'rtl' ? 1 : -1);
                 break;
-            case UP_ARROW:
+            case cdk.UP_ARROW:
                 this._increment(1);
                 break;
-            case RIGHT_ARROW:
+            case cdk.RIGHT_ARROW:
                 // See comment on LEFT_ARROW about the conditions under which we flip the meaning.
                 this._increment(this._direction == 'rtl' ? -1 : 1);
                 break;
-            case DOWN_ARROW:
+            case cdk.DOWN_ARROW:
                 this._increment(-1);
                 break;
             default:
@@ -12221,7 +9383,7 @@ MdSlider.ctorParameters = function () {
         { type: core.Renderer2, },
         { type: core.ElementRef, },
         { type: FocusOriginMonitor, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
     ];
 };
 MdSlider.propDecorators = {
@@ -12277,7 +9439,7 @@ var MdSliderModule = (function () {
 }());
 MdSliderModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [common.CommonModule, forms.FormsModule, MdCommonModule, StyleModule, BidiModule],
+                imports: [common.CommonModule, forms.FormsModule, MdCommonModule, StyleModule, cdk.BidiModule],
                 exports: [MdSlider, MdCommonModule],
                 declarations: [MdSlider],
                 providers: [{ provide: platformBrowser.HAMMER_GESTURE_CONFIG, useClass: GestureConfig }]
@@ -12412,7 +9574,7 @@ var MdSidenav = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableClose = coerceBooleanProperty(value); },
+        set: function (value) { this._disableClose = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -12477,7 +9639,7 @@ var MdSidenav = (function () {
          * @return {?}
          */
         set: function (v) {
-            this.toggle(coerceBooleanProperty(v));
+            this.toggle(cdk.coerceBooleanProperty(v));
         },
         enumerable: true,
         configurable: true
@@ -12539,7 +9701,7 @@ var MdSidenav = (function () {
      * @return {?}
      */
     MdSidenav.prototype.handleKeydown = function (event) {
-        if (event.keyCode === ESCAPE && !this.disableClose) {
+        if (event.keyCode === cdk.ESCAPE && !this.disableClose) {
             this.close();
             event.stopPropagation();
         }
@@ -12691,7 +9853,7 @@ MdSidenav.decorators = [
 MdSidenav.ctorParameters = function () {
     return [
         { type: core.ElementRef, },
-        { type: FocusTrapFactory, },
+        { type: cdk.FocusTrapFactory, },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [platformBrowser.DOCUMENT,] },] },
     ];
 };
@@ -12770,7 +9932,7 @@ var MdSidenavContainer = (function () {
         });
         this._validateDrawers();
         // Give the view a chance to render the initial state, then enable transitions.
-        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._enableTransitions = true; });
+        cdk.first.call(this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._enableTransitions = true; });
     };
     /**
      * Calls `open` of both start and end sidenavs
@@ -12818,7 +9980,7 @@ var MdSidenavContainer = (function () {
         }
         // NOTE: We need to wait for the microtask queue to be empty before validating,
         // since both drawers may be swapping sides at the same time.
-        sidenav.onAlignChanged.subscribe(function () { return first$1$1.call(_this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._validateDrawers(); }); });
+        sidenav.onAlignChanged.subscribe(function () { return cdk.first.call(_this._ngZone.onMicrotaskEmpty).subscribe(function () { return _this._validateDrawers(); }); });
     };
     /**
      * Toggles the 'mat-sidenav-opened' class on the main 'md-sidenav-container' element.
@@ -12974,7 +10136,7 @@ MdSidenavContainer.decorators = [
  */
 MdSidenavContainer.ctorParameters = function () {
     return [
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
         { type: core.ElementRef, },
         { type: core.Renderer2, },
         { type: core.NgZone, },
@@ -12991,7 +10153,7 @@ var MdSidenavModule = (function () {
 }());
 MdSidenavModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [common.CommonModule, MdCommonModule, A11yModule, OverlayModule],
+                imports: [common.CommonModule, MdCommonModule, cdk.A11yModule, OverlayModule],
                 exports: [MdSidenavContainer, MdSidenav, MdCommonModule],
                 declarations: [MdSidenavContainer, MdSidenav],
             },] },
@@ -13033,7 +10195,7 @@ var MdList = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableRipple = coerceBooleanProperty(value); },
+        set: function (value) { this._disableRipple = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -13194,7 +10356,7 @@ var MdListItem = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableRipple = coerceBooleanProperty(value); },
+        set: function (value) { this._disableRipple = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -14088,7 +11250,7 @@ MdGridList.ctorParameters = function () {
     return [
         { type: core.Renderer2, },
         { type: core.ElementRef, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
     ];
 };
 MdGridList.propDecorators = {
@@ -14532,7 +11694,7 @@ var MdChip = (function (_super) {
          * @return {?}
          */
         set: function (value) {
-            this._selected = coerceBooleanProperty(value);
+            this._selected = cdk.coerceBooleanProperty(value);
             (this.selected ? this.select : this.deselect).emit({ chip: this });
         },
         enumerable: true,
@@ -14673,7 +11835,7 @@ var MdChipList = (function () {
          * @return {?}
          */
         set: function (value) {
-            this._selectable = coerceBooleanProperty(value);
+            this._selectable = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -14697,7 +11859,7 @@ var MdChipList = (function () {
         // If they are on a chip, check for space/left/right, otherwise pass to our key manager
         if (target && target.classList.contains('mat-chip')) {
             switch (event.keyCode) {
-                case SPACE:
+                case cdk.SPACE:
                     // If we are selectable, toggle the focused chip
                     if (this.selectable) {
                         this._toggleSelectOnFocusedChip();
@@ -14705,11 +11867,11 @@ var MdChipList = (function () {
                     // Always prevent space from scrolling the page since the list has focus
                     event.preventDefault();
                     break;
-                case LEFT_ARROW:
+                case cdk.LEFT_ARROW:
                     this._keyManager.setPreviousItemActive();
                     event.preventDefault();
                     break;
-                case RIGHT_ARROW:
+                case cdk.RIGHT_ARROW:
                     this._keyManager.setNextItemActive();
                     event.preventDefault();
                     break;
@@ -15035,9 +12197,9 @@ var MdIconRegistry = (function () {
         if (cachedIcon) {
             return of.of(cloneSvg(cachedIcon));
         }
-        return RxChain.from(this._loadSvgIconFromConfig(new SvgIconConfig(url)))
-            .call(doOperator, function (svg) { return _this._cachedIconsByUrl.set(/** @type {?} */ ((url)), svg); })
-            .call(map$1$1, function (svg) { return cloneSvg(svg); })
+        return cdk.RxChain.from(this._loadSvgIconFromConfig(new SvgIconConfig(url)))
+            .call(cdk.doOperator, function (svg) { return _this._cachedIconsByUrl.set(/** @type {?} */ ((url)), svg); })
+            .call(cdk.map, function (svg) { return cloneSvg(svg); })
             .result();
     };
     /**
@@ -15078,9 +12240,9 @@ var MdIconRegistry = (function () {
         }
         else {
             // Fetch the icon from the config's URL, cache it, and return a copy.
-            return RxChain.from(this._loadSvgIconFromConfig(config))
-                .call(doOperator, function (svg) { return config.svgElement = svg; })
-                .call(map$1$1, function (svg) { return cloneSvg(svg); })
+            return cdk.RxChain.from(this._loadSvgIconFromConfig(config))
+                .call(cdk.doOperator, function (svg) { return config.svgElement = svg; })
+                .call(cdk.map, function (svg) { return cloneSvg(svg); })
                 .result();
         }
     };
@@ -15111,15 +12273,15 @@ var MdIconRegistry = (function () {
         var /** @type {?} */ iconSetFetchRequests = iconSetConfigs
             .filter(function (iconSetConfig) { return !iconSetConfig.svgElement; })
             .map(function (iconSetConfig) {
-            return RxChain.from(_this._loadSvgIconSetFromConfig(iconSetConfig))
-                .call(catchOperator, function (err) {
+            return cdk.RxChain.from(_this._loadSvgIconSetFromConfig(iconSetConfig))
+                .call(cdk.catchOperator, function (err) {
                 var /** @type {?} */ url = _this._sanitizer.sanitize(core.SecurityContext.RESOURCE_URL, iconSetConfig.url);
                 // Swallow errors fetching individual URLs so the combined Observable won't
                 // necessarily fail.
                 console.log("Loading icon set URL: " + url + " failed: " + err);
                 return of.of(null);
             })
-                .call(doOperator, function (svg) {
+                .call(cdk.doOperator, function (svg) {
                 // Cache the SVG element.
                 if (svg) {
                     iconSetConfig.svgElement = svg;
@@ -15129,7 +12291,7 @@ var MdIconRegistry = (function () {
         });
         // Fetch all the icon set URLs. When the requests complete, every IconSet should have a
         // cached SVG element (unless the request failed), and we can check again for the icon.
-        return map$1$1.call(forkJoin.forkJoin.call(Observable.Observable, iconSetFetchRequests), function () {
+        return cdk.map.call(forkJoin.forkJoin.call(Observable.Observable, iconSetFetchRequests), function () {
             var /** @type {?} */ foundIcon = _this._extractIconWithNameFromAnySet(name, iconSetConfigs);
             if (!foundIcon) {
                 throw getMdIconNameNotFoundError(name);
@@ -15166,7 +12328,7 @@ var MdIconRegistry = (function () {
      */
     MdIconRegistry.prototype._loadSvgIconFromConfig = function (config) {
         var _this = this;
-        return map$1$1.call(this._fetchUrl(config.url), function (svgText) { return _this._createSvgElementForSingleIcon(svgText); });
+        return cdk.map.call(this._fetchUrl(config.url), function (svgText) { return _this._createSvgElementForSingleIcon(svgText); });
     };
     /**
      * Loads the content of the icon set URL specified in the SvgIconConfig and creates an SVG element
@@ -15177,7 +12339,7 @@ var MdIconRegistry = (function () {
     MdIconRegistry.prototype._loadSvgIconSetFromConfig = function (config) {
         var _this = this;
         // TODO: Document that icons should only be loaded from trusted sources.
-        return map$1$1.call(this._fetchUrl(config.url), function (svgText) { return _this._svgElementFromString(svgText); });
+        return cdk.map.call(this._fetchUrl(config.url), function (svgText) { return _this._svgElementFromString(svgText); });
     };
     /**
      * Creates a DOM element from the given SVG string, and adds default attributes.
@@ -15293,10 +12455,10 @@ var MdIconRegistry = (function () {
         }
         // TODO(jelbourn): for some reason, the `finally` operator "loses" the generic type on the
         // Observable. Figure out why and fix it.
-        var /** @type {?} */ req = RxChain.from(this._http.get(url))
-            .call(map$1$1, function (response) { return response.text(); })
-            .call(finallyOperator, function () { return _this._inProgressUrlFetches.delete(url); })
-            .call(share$1$1)
+        var /** @type {?} */ req = cdk.RxChain.from(this._http.get(url))
+            .call(cdk.map, function (response) { return response.text(); })
+            .call(cdk.finallyOperator, function () { return _this._inProgressUrlFetches.delete(url); })
+            .call(cdk.share)
             .result();
         this._inProgressUrlFetches.set(url, req);
         return req;
@@ -15454,7 +12616,7 @@ var MdIcon = (function (_super) {
         if (changedInputs.indexOf('svgIcon') != -1 || changedInputs.indexOf('svgSrc') != -1) {
             if (this.svgIcon) {
                 var _a = this._splitIconName(this.svgIcon), namespace = _a[0], iconName = _a[1];
-                first$1$1.call(this._mdIconRegistry.getNamedSvgIcon(iconName, namespace)).subscribe(function (svg) { return _this._setSvgElement(svg); }, function (err) { return console.log("Error retrieving icon: " + err.message); });
+                cdk.first.call(this._mdIconRegistry.getNamedSvgIcon(iconName, namespace)).subscribe(function (svg) { return _this._setSvgElement(svg); }, function (err) { return console.log("Error retrieving icon: " + err.message); });
             }
         }
         if (this._usingFontIcon()) {
@@ -16360,7 +13522,7 @@ var MdInputDirective = (function () {
             'month',
             'time',
             'week'
-        ].filter(function (t) { return getSupportedInputTypes().has(t); });
+        ].filter(function (t) { return cdk.getSupportedInputTypes().has(t); });
         // Force setter to be called in case id was not specified.
         this.id = this.id;
         this._errorOptions = errorOptions ? errorOptions : {};
@@ -16379,7 +13541,7 @@ var MdInputDirective = (function () {
          * @return {?}
          */
         set: function (value) {
-            this._disabled = coerceBooleanProperty(value);
+            this._disabled = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -16427,7 +13589,7 @@ var MdInputDirective = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._required = coerceBooleanProperty(value); },
+        set: function (value) { this._required = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -16447,7 +13609,7 @@ var MdInputDirective = (function () {
             // When using Angular inputs, developers are no longer able to set the properties on the native
             // input element. To ensure that bindings for `type` work, we need to sync the setter
             // with the native property. Textarea elements don't support the type property or attribute.
-            if (!this._isTextarea() && getSupportedInputTypes().has(this._type)) {
+            if (!this._isTextarea() && cdk.getSupportedInputTypes().has(this._type)) {
                 this._renderer.setProperty(this._elementRef.nativeElement, 'type', this._type);
             }
         },
@@ -16587,7 +13749,7 @@ MdInputDirective.ctorParameters = function () {
     return [
         { type: core.ElementRef, },
         { type: core.Renderer2, },
-        { type: Platform, },
+        { type: cdk.Platform, },
         { type: forms.NgControl, decorators: [{ type: core.Optional }, { type: core.Self },] },
         { type: forms.NgForm, decorators: [{ type: core.Optional },] },
         { type: forms.FormGroupDirective, decorators: [{ type: core.Optional },] },
@@ -16654,7 +13816,7 @@ var MdInputContainer = (function () {
          * @return {?}
          */
         set: function (value) {
-            this._hideRequiredMarker = coerceBooleanProperty(value);
+            this._hideRequiredMarker = cdk.coerceBooleanProperty(value);
         },
         enumerable: true,
         configurable: true
@@ -17104,7 +14266,7 @@ MdInputModule.decorators = [
                 imports: [
                     common.CommonModule,
                     forms.FormsModule,
-                    PlatformModule,
+                    cdk.PlatformModule,
                 ],
                 exports: [
                     MdErrorDirective,
@@ -17381,13 +14543,13 @@ var MdSnackBarContainer = (function (_super) {
         // Note: we shouldn't use `this` inside the zone callback,
         // because it can cause a memory leak.
         var /** @type {?} */ onExit = this.onExit;
-        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
+        cdk.first.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
             onExit.next();
             onExit.complete();
         });
     };
     return MdSnackBarContainer;
-}(BasePortalHost));
+}(cdk.BasePortalHost));
 MdSnackBarContainer.decorators = [
     { type: core.Component, args: [{ selector: 'snack-bar-container',
                 template: "<ng-template cdkPortalHost></ng-template>",
@@ -17419,7 +14581,7 @@ MdSnackBarContainer.ctorParameters = function () {
     ];
 };
 MdSnackBarContainer.propDecorators = {
-    '_portalHost': [{ type: core.ViewChild, args: [PortalHostDirective,] },],
+    '_portalHost': [{ type: core.ViewChild, args: [cdk.PortalHostDirective,] },],
 };
 /**
  * A component used to open as the default snack bar, matching material spec.
@@ -17615,7 +14777,7 @@ var MdSnackBar = (function () {
      * @return {?}
      */
     MdSnackBar.prototype._attachSnackBarContainer = function (overlayRef, config) {
-        var /** @type {?} */ containerPortal = new ComponentPortal(MdSnackBarContainer, config.viewContainerRef);
+        var /** @type {?} */ containerPortal = new cdk.ComponentPortal(MdSnackBarContainer, config.viewContainerRef);
         var /** @type {?} */ containerRef = overlayRef.attach(containerPortal);
         containerRef.instance.snackBarConfig = config;
         // The snackbar animation needs the content to be resolved in order to transform the bar
@@ -17633,7 +14795,7 @@ var MdSnackBar = (function () {
      * @return {?}
      */
     MdSnackBar.prototype._attachSnackbarContent = function (component, container, overlayRef) {
-        var /** @type {?} */ portal = new ComponentPortal(component);
+        var /** @type {?} */ portal = new cdk.ComponentPortal(component);
         var /** @type {?} */ contentRef = container.attachComponentPortal(portal);
         return new MdSnackBarRef(contentRef.instance, container, overlayRef);
     };
@@ -17659,7 +14821,7 @@ MdSnackBar.decorators = [
 MdSnackBar.ctorParameters = function () {
     return [
         { type: Overlay, },
-        { type: LiveAnnouncer, },
+        { type: cdk.LiveAnnouncer, },
         { type: MdSnackBar, decorators: [{ type: core.Optional }, { type: core.SkipSelf },] },
     ];
 };
@@ -17680,14 +14842,14 @@ MdSnackBarModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
                     OverlayModule,
-                    PortalModule,
+                    cdk.PortalModule,
                     common.CommonModule,
                     MdCommonModule,
                 ],
                 exports: [MdSnackBarContainer, MdCommonModule],
                 declarations: [MdSnackBarContainer, SimpleSnackBar],
                 entryComponents: [MdSnackBarContainer, SimpleSnackBar],
-                providers: [MdSnackBar, LIVE_ANNOUNCER_PROVIDER]
+                providers: [MdSnackBar, cdk.LIVE_ANNOUNCER_PROVIDER]
             },] },
 ];
 /**
@@ -17697,7 +14859,7 @@ MdSnackBarModule.ctorParameters = function () { return []; };
 /**
  * Workaround for https://github.com/angular/angular/issues/17849
  */
-var _MdTabLabelBaseClass = TemplatePortalDirective;
+var _MdTabLabelBaseClass = cdk.TemplatePortalDirective;
 /**
  * Used to flag tab labels for use with the portal directive
  */
@@ -17775,7 +14937,7 @@ var MdTab = (function (_super) {
      * @return {?}
      */
     MdTab.prototype.ngOnInit = function () {
-        this._contentPortal = new TemplatePortal(this._content, this._viewContainerRef);
+        this._contentPortal = new cdk.TemplatePortal(this._content, this._viewContainerRef);
     };
     return MdTab;
 }(_MdTabMixinBase));
@@ -17860,7 +15022,7 @@ var MdTabGroup = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._dynamicHeight = coerceBooleanProperty(value); },
+        set: function (value) { this._dynamicHeight = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -17888,7 +15050,7 @@ var MdTabGroup = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableRipple = coerceBooleanProperty(value); },
+        set: function (value) { this._disableRipple = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -17912,7 +15074,7 @@ var MdTabGroup = (function () {
          * @return {?}
          */
         get: function () {
-            return map$1$1.call(this.selectChange, function (event) { return event.index; });
+            return cdk.map.call(this.selectChange, function (event) { return event.index; });
         },
         enumerable: true,
         configurable: true
@@ -18224,9 +15386,9 @@ var MdTabNav = (function () {
         this._resizeSubscription = this._ngZone.runOutsideAngular(function () {
             var /** @type {?} */ dirChange = _this._dir ? _this._dir.change : of.of(null);
             var /** @type {?} */ resize = typeof window !== 'undefined' ?
-                auditTime$1$1.call(fromEvent.fromEvent(window, 'resize'), 10) :
+                cdk.auditTime.call(fromEvent.fromEvent(window, 'resize'), 10) :
                 of.of(null);
-            return takeUntil$1$1.call(merge.merge(dirChange, resize), _this._onDestroy)
+            return cdk.takeUntil.call(merge.merge(dirChange, resize), _this._onDestroy)
                 .subscribe(function () { return _this._alignInkBar(); });
         });
     };
@@ -18271,7 +15433,7 @@ MdTabNav.decorators = [
  */
 MdTabNav.ctorParameters = function () {
     return [
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
         { type: core.NgZone, },
     ];
 };
@@ -18370,7 +15532,7 @@ MdTabLink.ctorParameters = function () {
         { type: core.ElementRef, },
         { type: core.NgZone, },
         { type: ViewportRuler, },
-        { type: Platform, },
+        { type: cdk.Platform, },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MD_RIPPLE_GLOBAL_OPTIONS,] },] },
     ];
 };
@@ -18536,11 +15698,11 @@ MdTabBody.decorators = [
 MdTabBody.ctorParameters = function () {
     return [
         { type: core.ElementRef, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
     ];
 };
 MdTabBody.propDecorators = {
-    '_portalHost': [{ type: core.ViewChild, args: [PortalHostDirective,] },],
+    '_portalHost': [{ type: core.ViewChild, args: [cdk.PortalHostDirective,] },],
     'onCentering': [{ type: core.Output },],
     'onCentered': [{ type: core.Output },],
     '_content': [{ type: core.Input, args: ['content',] },],
@@ -18638,7 +15800,7 @@ var MdTabHeader = (function () {
          * @param {?} value
          * @return {?}
          */
-        set: function (value) { this._disableRipple = coerceBooleanProperty(value); },
+        set: function (value) { this._disableRipple = cdk.coerceBooleanProperty(value); },
         enumerable: true,
         configurable: true
     });
@@ -18672,13 +15834,13 @@ var MdTabHeader = (function () {
      */
     MdTabHeader.prototype._handleKeydown = function (event) {
         switch (event.keyCode) {
-            case RIGHT_ARROW:
+            case cdk.RIGHT_ARROW:
                 this._focusNextTab();
                 break;
-            case LEFT_ARROW:
+            case cdk.LEFT_ARROW:
                 this._focusPreviousTab();
                 break;
-            case ENTER:
+            case cdk.ENTER:
                 this.selectFocusedIndex.emit(this.focusIndex);
                 break;
         }
@@ -18692,9 +15854,9 @@ var MdTabHeader = (function () {
         this._realignInkBar = this._ngZone.runOutsideAngular(function () {
             var /** @type {?} */ dirChange = _this._dir ? _this._dir.change : of.of(null);
             var /** @type {?} */ resize = typeof window !== 'undefined' ?
-                auditTime$1$1.call(fromEvent.fromEvent(window, 'resize'), 10) :
+                cdk.auditTime.call(fromEvent.fromEvent(window, 'resize'), 10) :
                 of.of(null);
-            return startWith$1$1.call(merge.merge(dirChange, resize), null).subscribe(function () {
+            return cdk.startWith.call(merge.merge(dirChange, resize), null).subscribe(function () {
                 _this._updatePagination();
                 _this._alignInkBarToSelectedTab();
             });
@@ -18981,7 +16143,7 @@ MdTabHeader.ctorParameters = function () {
         { type: core.ElementRef, },
         { type: core.NgZone, },
         { type: core.Renderer2, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
     ];
 };
 MdTabHeader.propDecorators = {
@@ -19003,9 +16165,9 @@ MdTabsModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
                     common.CommonModule,
-                    PortalModule,
+                    cdk.PortalModule,
                     MdRippleModule,
-                    ObserveContentModule,
+                    cdk.ObserveContentModule,
                     ScrollDispatchModule,
                 ],
                 // Don't export all components because some are only to be used internally.
@@ -19207,7 +16369,7 @@ var MdTooltip = (function () {
          * @return {?}
          */
         set: function (value) {
-            this._disabled = coerceBooleanProperty(value);
+            this._disabled = cdk.coerceBooleanProperty(value);
             // If tooltip is disabled, hide immediately.
             if (this._disabled) {
                 this.hide(0);
@@ -19420,7 +16582,7 @@ var MdTooltip = (function () {
     MdTooltip.prototype._createTooltip = function () {
         var _this = this;
         var /** @type {?} */ overlayRef = this._createOverlay();
-        var /** @type {?} */ portal = new ComponentPortal(TooltipComponent, this._viewContainerRef);
+        var /** @type {?} */ portal = new cdk.ComponentPortal(TooltipComponent, this._viewContainerRef);
         this._tooltipInstance = overlayRef.attach(portal).instance; /** @type {?} */
         ((
         // Dispose the overlay when finished the shown tooltip.
@@ -19527,7 +16689,7 @@ var MdTooltip = (function () {
         if (this._tooltipInstance) {
             this._tooltipInstance.message = message;
             this._tooltipInstance._markForCheck();
-            first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
+            cdk.first.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
                 if (_this._tooltipInstance) {
                     ((_this._overlayRef)).updatePosition();
                 }
@@ -19568,8 +16730,8 @@ MdTooltip.ctorParameters = function () {
         { type: core.ViewContainerRef, },
         { type: core.NgZone, },
         { type: core.Renderer2, },
-        { type: Platform, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Platform, },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
     ];
 };
 MdTooltip.propDecorators = {
@@ -19764,7 +16926,7 @@ TooltipComponent.decorators = [
  */
 TooltipComponent.ctorParameters = function () {
     return [
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
         { type: core.ChangeDetectorRef, },
     ];
 };
@@ -19779,7 +16941,7 @@ MdTooltipModule.decorators = [
                     common.CommonModule,
                     OverlayModule,
                     MdCommonModule,
-                    PlatformModule
+                    cdk.PlatformModule
                 ],
                 exports: [MdTooltip, TooltipComponent, MdCommonModule],
                 declarations: [MdTooltip, TooltipComponent],
@@ -20041,7 +17203,7 @@ var MdMenu = (function () {
      */
     MdMenu.prototype._handleKeydown = function (event) {
         switch (event.keyCode) {
-            case ESCAPE:
+            case cdk.ESCAPE:
                 this._emitCloseEvent();
                 return;
             default:
@@ -20330,7 +17492,7 @@ var MdMenuTrigger = (function () {
      */
     MdMenuTrigger.prototype._createOverlay = function () {
         if (!this._overlayRef) {
-            this._portal = new TemplatePortal(this.menu.templateRef, this._viewContainerRef);
+            this._portal = new cdk.TemplatePortal(this.menu.templateRef, this._viewContainerRef);
             var /** @type {?} */ config = this._getOverlayConfig();
             this._subscribeToPositions(/** @type {?} */ (config.positionStrategy));
             this._overlayRef = this._overlay.create(config);
@@ -20405,7 +17567,7 @@ var MdMenuTrigger = (function () {
      * @return {?}
      */
     MdMenuTrigger.prototype._handleMousedown = function (event) {
-        if (!isFakeMousedownFromScreenReader(event)) {
+        if (!cdk.isFakeMousedownFromScreenReader(event)) {
             this._openedByMouse = true;
         }
     };
@@ -20430,7 +17592,7 @@ MdMenuTrigger.ctorParameters = function () {
         { type: Overlay, },
         { type: core.ElementRef, },
         { type: core.ViewContainerRef, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
     ];
 };
 MdMenuTrigger.propDecorators = {
@@ -20553,7 +17715,7 @@ var MdDialogRef = (function () {
          * Subject for notifying the user that the dialog has finished closing.
          */
         this._afterClosed = new Subject.Subject();
-        filter$1$1.call(_containerInstance._onAnimationStateChange, function (event) { return event.toState === 'exit'; })
+        cdk.filter.call(_containerInstance._onAnimationStateChange, function (event) { return event.toState === 'exit'; })
             .subscribe(function () { return _this._overlayRef.dispose(); }, undefined, function () {
             _this._afterClosed.next(_this._result);
             _this._afterClosed.complete();
@@ -20748,7 +17910,7 @@ var MdDialogContainer = (function (_super) {
         }
     };
     return MdDialogContainer;
-}(BasePortalHost));
+}(cdk.BasePortalHost));
 MdDialogContainer.decorators = [
     { type: core.Component, args: [{ selector: 'md-dialog-container, mat-dialog-container',
                 template: "<ng-template cdkPortalHost></ng-template>",
@@ -20782,12 +17944,12 @@ MdDialogContainer.ctorParameters = function () {
     return [
         { type: core.NgZone, },
         { type: core.ElementRef, },
-        { type: FocusTrapFactory, },
+        { type: cdk.FocusTrapFactory, },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [platformBrowser.DOCUMENT,] },] },
     ];
 };
 MdDialogContainer.propDecorators = {
-    '_portalHost': [{ type: core.ViewChild, args: [PortalHostDirective,] },],
+    '_portalHost': [{ type: core.ViewChild, args: [cdk.PortalHostDirective,] },],
 };
 var MD_DIALOG_DATA = new core.InjectionToken('MdDialogData');
 /**
@@ -20928,7 +18090,7 @@ var MdDialog = (function () {
      * @return {?} A promise resolving to a ComponentRef for the attached container.
      */
     MdDialog.prototype._attachDialogContainer = function (overlay, config) {
-        var /** @type {?} */ containerPortal = new ComponentPortal(MdDialogContainer, config.viewContainerRef);
+        var /** @type {?} */ containerPortal = new cdk.ComponentPortal(MdDialogContainer, config.viewContainerRef);
         var /** @type {?} */ containerRef = overlay.attach(containerPortal);
         containerRef.instance._config = config;
         return containerRef.instance;
@@ -20956,11 +18118,11 @@ var MdDialog = (function () {
             });
         }
         if (componentOrTemplateRef instanceof core.TemplateRef) {
-            dialogContainer.attachTemplatePortal(new TemplatePortal(componentOrTemplateRef, /** @type {?} */ ((null))));
+            dialogContainer.attachTemplatePortal(new cdk.TemplatePortal(componentOrTemplateRef, /** @type {?} */ ((null))));
         }
         else {
             var /** @type {?} */ injector = this._createInjector(config, dialogRef, dialogContainer);
-            var /** @type {?} */ contentRef = dialogContainer.attachComponentPortal(new ComponentPortal(componentOrTemplateRef, undefined, injector));
+            var /** @type {?} */ contentRef = dialogContainer.attachComponentPortal(new cdk.ComponentPortal(componentOrTemplateRef, undefined, injector));
             dialogRef.componentInstance = contentRef.instance;
         }
         dialogRef
@@ -21010,7 +18172,7 @@ var MdDialog = (function () {
     MdDialog.prototype._handleKeydown = function (event) {
         var /** @type {?} */ topDialog = this._openDialogs[this._openDialogs.length - 1];
         var /** @type {?} */ canClose = topDialog ? !topDialog.disableClose : false;
-        if (event.keyCode === ESCAPE && canClose) {
+        if (event.keyCode === cdk.ESCAPE && canClose) {
             topDialog.close();
         }
     };
@@ -21183,8 +18345,8 @@ MdDialogModule.decorators = [
                 imports: [
                     common.CommonModule,
                     OverlayModule,
-                    PortalModule,
-                    A11yModule,
+                    cdk.PortalModule,
+                    cdk.A11yModule,
                     MdCommonModule,
                 ],
                 exports: [
@@ -21237,7 +18399,7 @@ var ActiveDescendantKeyManager = (function (_super) {
         });
     };
     return ActiveDescendantKeyManager;
-}(ListKeyManager));
+}(cdk.ListKeyManager));
 /**
  * Autocomplete IDs need to be unique across components, so this counter exists outside of
  * the component definition.
@@ -21525,7 +18687,7 @@ var MdAutocompleteTrigger = (function () {
             if (!this._document) {
                 return of.of(null);
             }
-            return RxChain.from(merge.merge(fromEvent.fromEvent(this._document, 'click'), fromEvent.fromEvent(this._document, 'touchend'))).call(filter$1$1, function (event) {
+            return cdk.RxChain.from(merge.merge(fromEvent.fromEvent(this._document, 'click'), fromEvent.fromEvent(this._document, 'touchend'))).call(cdk.filter, function (event) {
                 var /** @type {?} */ clickTarget = (event.target);
                 var /** @type {?} */ inputContainer = _this._inputContainer ?
                     _this._inputContainer._elementRef.nativeElement : null;
@@ -21577,16 +18739,16 @@ var MdAutocompleteTrigger = (function () {
      */
     MdAutocompleteTrigger.prototype._handleKeydown = function (event) {
         var _this = this;
-        if (event.keyCode === ESCAPE && this.panelOpen) {
+        if (event.keyCode === cdk.ESCAPE && this.panelOpen) {
             this.closePanel();
         }
-        else if (this.activeOption && event.keyCode === ENTER) {
+        else if (this.activeOption && event.keyCode === cdk.ENTER) {
             this.activeOption._selectViaInteraction();
             event.preventDefault();
         }
         else {
             var /** @type {?} */ prevActiveItem_1 = this.autocomplete._keyManager.activeItem;
-            var /** @type {?} */ isArrowKey_1 = event.keyCode === UP_ARROW || event.keyCode === DOWN_ARROW;
+            var /** @type {?} */ isArrowKey_1 = event.keyCode === cdk.UP_ARROW || event.keyCode === cdk.DOWN_ARROW;
             this.autocomplete._keyManager.onKeydown(event);
             if (isArrowKey_1) {
                 this.openPanel();
@@ -21665,12 +18827,12 @@ var MdAutocompleteTrigger = (function () {
     MdAutocompleteTrigger.prototype._subscribeToClosingActions = function () {
         var _this = this;
         // When the zone is stable initially, and when the option list changes...
-        return RxChain.from(merge.merge(first$1$1.call(this._zone.onStable), this.autocomplete.options.changes))
-            .call(switchMap$1$1, function () {
+        return cdk.RxChain.from(merge.merge(cdk.first.call(this._zone.onStable), this.autocomplete.options.changes))
+            .call(cdk.switchMap, function () {
             _this._resetPanel();
             return _this.panelClosingActions;
         })
-            .call(first$1$1)
+            .call(cdk.first)
             .subscribe(function (event) { return _this._setValueAndClose(event); });
     };
     /**
@@ -21726,7 +18888,7 @@ var MdAutocompleteTrigger = (function () {
      * @return {?}
      */
     MdAutocompleteTrigger.prototype._createOverlay = function () {
-        this._portal = new TemplatePortal(this.autocomplete.template, this._viewContainerRef);
+        this._portal = new cdk.TemplatePortal(this.autocomplete.template, this._viewContainerRef);
         this._overlayRef = this._overlay.create(this._getOverlayConfig());
     };
     /**
@@ -21819,7 +18981,7 @@ MdAutocompleteTrigger.ctorParameters = function () {
         { type: core.ViewContainerRef, },
         { type: core.NgZone, },
         { type: core.ChangeDetectorRef, },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
         { type: MdInputContainer, decorators: [{ type: core.Optional }, { type: core.Host },] },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [platformBrowser.DOCUMENT,] },] },
     ];
@@ -22523,7 +19685,7 @@ var MdCalendar = (function () {
     MdCalendar.prototype._focusActiveCell = function () {
         var _this = this;
         this._ngZone.runOutsideAngular(function () {
-            return first$1$1.call(_this._ngZone.onStable).subscribe(function () {
+            return cdk.first.call(_this._ngZone.onStable).subscribe(function () {
                 _this._elementRef.nativeElement.querySelector('.mat-calendar-body-active').focus();
             });
         });
@@ -22547,36 +19709,36 @@ var MdCalendar = (function () {
      */
     MdCalendar.prototype._handleCalendarBodyKeydownInMonthView = function (event) {
         switch (event.keyCode) {
-            case LEFT_ARROW:
+            case cdk.LEFT_ARROW:
                 this._activeDate = this._dateAdapter.addCalendarDays(this._activeDate, -1);
                 break;
-            case RIGHT_ARROW:
+            case cdk.RIGHT_ARROW:
                 this._activeDate = this._dateAdapter.addCalendarDays(this._activeDate, 1);
                 break;
-            case UP_ARROW:
+            case cdk.UP_ARROW:
                 this._activeDate = this._dateAdapter.addCalendarDays(this._activeDate, -7);
                 break;
-            case DOWN_ARROW:
+            case cdk.DOWN_ARROW:
                 this._activeDate = this._dateAdapter.addCalendarDays(this._activeDate, 7);
                 break;
-            case HOME:
+            case cdk.HOME:
                 this._activeDate = this._dateAdapter.addCalendarDays(this._activeDate, 1 - this._dateAdapter.getDate(this._activeDate));
                 break;
-            case END:
+            case cdk.END:
                 this._activeDate = this._dateAdapter.addCalendarDays(this._activeDate, (this._dateAdapter.getNumDaysInMonth(this._activeDate) -
                     this._dateAdapter.getDate(this._activeDate)));
                 break;
-            case PAGE_UP:
+            case cdk.PAGE_UP:
                 this._activeDate = event.altKey ?
                     this._dateAdapter.addCalendarYears(this._activeDate, -1) :
                     this._dateAdapter.addCalendarMonths(this._activeDate, -1);
                 break;
-            case PAGE_DOWN:
+            case cdk.PAGE_DOWN:
                 this._activeDate = event.altKey ?
                     this._dateAdapter.addCalendarYears(this._activeDate, 1) :
                     this._dateAdapter.addCalendarMonths(this._activeDate, 1);
                 break;
-            case ENTER:
+            case cdk.ENTER:
                 if (this._dateFilterForViews(this._activeDate)) {
                     this._dateSelected(this._activeDate);
                     // Prevent unexpected default actions such as form submission.
@@ -22598,33 +19760,33 @@ var MdCalendar = (function () {
      */
     MdCalendar.prototype._handleCalendarBodyKeydownInYearView = function (event) {
         switch (event.keyCode) {
-            case LEFT_ARROW:
+            case cdk.LEFT_ARROW:
                 this._activeDate = this._dateAdapter.addCalendarMonths(this._activeDate, -1);
                 break;
-            case RIGHT_ARROW:
+            case cdk.RIGHT_ARROW:
                 this._activeDate = this._dateAdapter.addCalendarMonths(this._activeDate, 1);
                 break;
-            case UP_ARROW:
+            case cdk.UP_ARROW:
                 this._activeDate = this._prevMonthInSameCol(this._activeDate);
                 break;
-            case DOWN_ARROW:
+            case cdk.DOWN_ARROW:
                 this._activeDate = this._nextMonthInSameCol(this._activeDate);
                 break;
-            case HOME:
+            case cdk.HOME:
                 this._activeDate = this._dateAdapter.addCalendarMonths(this._activeDate, -this._dateAdapter.getMonth(this._activeDate));
                 break;
-            case END:
+            case cdk.END:
                 this._activeDate = this._dateAdapter.addCalendarMonths(this._activeDate, 11 - this._dateAdapter.getMonth(this._activeDate));
                 break;
-            case PAGE_UP:
+            case cdk.PAGE_UP:
                 this._activeDate =
                     this._dateAdapter.addCalendarYears(this._activeDate, event.altKey ? -10 : -1);
                 break;
-            case PAGE_DOWN:
+            case cdk.PAGE_DOWN:
                 this._activeDate =
                     this._dateAdapter.addCalendarYears(this._activeDate, event.altKey ? 10 : 1);
                 break;
-            case ENTER:
+            case cdk.ENTER:
                 this._monthSelected(this._activeDate);
                 break;
             default:
@@ -22722,7 +19884,7 @@ var MdDatepickerContent = (function () {
      * @return {?}
      */
     MdDatepickerContent.prototype._handleKeydown = function (event) {
-        if (event.keyCode === ESCAPE) {
+        if (event.keyCode === cdk.ESCAPE) {
             this.datepicker.close();
             event.preventDefault();
         }
@@ -22953,7 +20115,7 @@ var MdDatepicker = (function () {
     MdDatepicker.prototype._openAsPopup = function () {
         var _this = this;
         if (!this._calendarPortal) {
-            this._calendarPortal = new ComponentPortal(MdDatepickerContent, this._viewContainerRef);
+            this._calendarPortal = new cdk.ComponentPortal(MdDatepickerContent, this._viewContainerRef);
         }
         if (!this._popupRef) {
             this._createPopup();
@@ -22962,7 +20124,7 @@ var MdDatepicker = (function () {
             var /** @type {?} */ componentRef = this._popupRef.attach(this._calendarPortal);
             componentRef.instance.datepicker = this;
             // Update the position once the calendar has rendered.
-            first$1$1.call(this._ngZone.onStable).subscribe(function () { return _this._popupRef.updatePosition(); });
+            cdk.first.call(this._ngZone.onStable).subscribe(function () { return _this._popupRef.updatePosition(); });
         }
         this._popupRef.backdropClick().subscribe(function () { return _this.close(); });
     };
@@ -23007,7 +20169,7 @@ MdDatepicker.ctorParameters = function () {
         { type: core.NgZone, },
         { type: core.ViewContainerRef, },
         { type: DateAdapter, decorators: [{ type: core.Optional },] },
-        { type: Directionality, decorators: [{ type: core.Optional },] },
+        { type: cdk.Directionality, decorators: [{ type: core.Optional },] },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [platformBrowser.DOCUMENT,] },] },
     ];
 };
@@ -23265,7 +20427,7 @@ var MdDatepickerInput = (function () {
      * @return {?}
      */
     MdDatepickerInput.prototype._onKeydown = function (event) {
-        if (event.altKey && event.keyCode === DOWN_ARROW) {
+        if (event.altKey && event.keyCode === cdk.DOWN_ARROW) {
             this._datepicker.open();
             event.preventDefault();
         }
@@ -23389,7 +20551,7 @@ MdDatepickerModule.decorators = [
                     MdDialogModule,
                     OverlayModule,
                     StyleModule,
-                    A11yModule,
+                    cdk.A11yModule,
                 ],
                 exports: [
                     MdDatepicker,
@@ -23454,7 +20616,7 @@ var CdkAccordion = (function () {
          * @param {?} multi
          * @return {?}
          */
-        set: function (multi) { this._multi = coerceBooleanProperty(multi); },
+        set: function (multi) { this._multi = cdk.coerceBooleanProperty(multi); },
         enumerable: true,
         configurable: true
     });
@@ -23468,7 +20630,7 @@ var CdkAccordion = (function () {
          * @param {?} show
          * @return {?}
          */
-        set: function (show) { this._hideToggle = coerceBooleanProperty(show); },
+        set: function (show) { this._hideToggle = cdk.coerceBooleanProperty(show); },
         enumerable: true,
         configurable: true
     });
@@ -23808,8 +20970,8 @@ var MdExpansionPanelHeader = (function () {
     MdExpansionPanelHeader.prototype._keyup = function (event) {
         switch (event.keyCode) {
             // Toggle for space and enter keys.
-            case SPACE:
-            case ENTER:
+            case cdk.SPACE:
+            case cdk.ENTER:
                 event.preventDefault();
                 this._toggle();
                 break;
@@ -23937,7 +21099,7 @@ MdExpansionModule.ctorParameters = function () { return []; };
 /**
  * Workaround for https://github.com/angular/angular/issues/17849
  */
-var _MdTable = CdkTable;
+var _MdTable = cdk.CdkTable;
 /**
  * Wrapper for the CdkTable with Material design styles.
  */
@@ -23950,7 +21112,7 @@ var MdTable = (function (_super) {
 }(_MdTable));
 MdTable.decorators = [
     { type: core.Component, args: [{ selector: 'md-table, mat-table',
-                template: CDK_TABLE_TEMPLATE,
+                template: cdk.CDK_TABLE_TEMPLATE,
                 styles: [".mat-table{display:block}.mat-header-row,.mat-row{display:flex;border-bottom-width:1px;border-bottom-style:solid;align-items:center;height:48px;padding:0 24px}.mat-cell,.mat-header-cell{flex:1}"],
                 host: {
                     'class': 'mat-table',
@@ -23966,8 +21128,8 @@ MdTable.ctorParameters = function () { return []; };
 /**
  * Workaround for https://github.com/angular/angular/issues/17849
  */
-var _MdHeaderCellBase = CdkHeaderCell;
-var _MdCell = CdkCell;
+var _MdHeaderCellBase = cdk.CdkHeaderCell;
+var _MdCell = cdk.CdkCell;
 /**
  * Header cell template container that adds the right classes and role.
  */
@@ -23999,7 +21161,7 @@ MdHeaderCell.decorators = [
  */
 MdHeaderCell.ctorParameters = function () {
     return [
-        { type: CdkColumnDef, },
+        { type: cdk.CdkColumnDef, },
         { type: core.ElementRef, },
         { type: core.Renderer2, },
     ];
@@ -24035,7 +21197,7 @@ MdCell.decorators = [
  */
 MdCell.ctorParameters = function () {
     return [
-        { type: CdkColumnDef, },
+        { type: cdk.CdkColumnDef, },
         { type: core.ElementRef, },
         { type: core.Renderer2, },
     ];
@@ -24043,8 +21205,8 @@ MdCell.ctorParameters = function () {
 /**
  * Workaround for https://github.com/angular/angular/issues/17849
  */
-var _MdHeaderRow = CdkHeaderRow;
-var _MdRow = CdkRow;
+var _MdHeaderRow = cdk.CdkHeaderRow;
+var _MdRow = cdk.CdkRow;
 /**
  * Header template container that contains the cell outlet. Adds the right class and role.
  */
@@ -24058,7 +21220,7 @@ var MdHeaderRow = (function (_super) {
 MdHeaderRow.decorators = [
     { type: core.Component, args: [{
                 selector: 'md-header-row, mat-header-row',
-                template: CDK_ROW_TEMPLATE,
+                template: cdk.CDK_ROW_TEMPLATE,
                 host: {
                     'class': 'mat-header-row',
                     'role': 'row',
@@ -24083,7 +21245,7 @@ var MdRow = (function (_super) {
 MdRow.decorators = [
     { type: core.Component, args: [{
                 selector: 'md-row, mat-row',
-                template: CDK_ROW_TEMPLATE,
+                template: cdk.CDK_ROW_TEMPLATE,
                 host: {
                     'class': 'mat-row',
                     'role': 'row',
@@ -24102,7 +21264,7 @@ var MdTableModule = (function () {
 }());
 MdTableModule.decorators = [
     { type: core.NgModule, args: [{
-                imports: [CdkTableModule, common.CommonModule, MdCommonModule],
+                imports: [cdk.CdkTableModule, common.CommonModule, MdCommonModule],
                 exports: [MdTable, MdHeaderCell, MdCell, MdHeaderRow, MdRow],
                 declarations: [MdTable, MdHeaderCell, MdCell, MdHeaderRow, MdRow],
             },] },
@@ -24167,7 +21329,7 @@ var MdSort = (function () {
          * @param {?} v
          * @return {?}
          */
-        set: function (v) { this._disableClear = coerceBooleanProperty(v); },
+        set: function (v) { this._disableClear = cdk.coerceBooleanProperty(v); },
         enumerable: true,
         configurable: true
     });
@@ -24328,7 +21490,7 @@ var MdSortHeader = (function () {
          * @param {?} v
          * @return {?}
          */
-        set: function (v) { this._disableClear = coerceBooleanProperty(v); },
+        set: function (v) { this._disableClear = cdk.coerceBooleanProperty(v); },
         enumerable: true,
         configurable: true
     });
@@ -24390,7 +21552,7 @@ MdSortHeader.ctorParameters = function () {
         { type: MdSortHeaderIntl, },
         { type: core.ChangeDetectorRef, },
         { type: MdSort, decorators: [{ type: core.Optional },] },
-        { type: CdkColumnDef, decorators: [{ type: core.Optional },] },
+        { type: cdk.CdkColumnDef, decorators: [{ type: core.Optional },] },
     ];
 };
 MdSortHeader.propDecorators = {
@@ -24694,13 +21856,13 @@ var MATERIAL_MODULES = [
     MdToolbarModule,
     MdTooltipModule,
     OverlayModule,
-    PortalModule,
-    BidiModule,
+    cdk.PortalModule,
+    cdk.BidiModule,
     StyleModule,
-    A11yModule,
-    PlatformModule,
+    cdk.A11yModule,
+    cdk.PlatformModule,
     MdCommonModule,
-    ObserveContentModule
+    cdk.ObserveContentModule
 ];
 /**
  * @deprecated
@@ -31320,13 +28482,13 @@ var MdKeyboardContainerComponent = /** @class */ (function (_super) {
         // Note: we shouldn't use `this` inside the zone callback,
         // because it can cause a memory leak.
         var /** @type {?} */ onExit = this.onExit;
-        first$1$1.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
+        cdk.first.call(this._ngZone.onMicrotaskEmpty).subscribe(function () {
             onExit.next();
             onExit.complete();
         });
     };
     return MdKeyboardContainerComponent;
-}(BasePortalHost));
+}(cdk.BasePortalHost));
 MdKeyboardContainerComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'md-keyboard-container',
@@ -31354,7 +28516,7 @@ MdKeyboardContainerComponent.ctorParameters = function () { return [
 MdKeyboardContainerComponent.propDecorators = {
     'attrRole': [{ type: core.HostBinding, args: ['attr.role',] },],
     'darkTheme': [{ type: core.HostBinding, args: ['class.dark-theme',] }, { type: core.Input },],
-    '_portalHost': [{ type: core.ViewChild, args: [PortalHostDirective,] },],
+    '_portalHost': [{ type: core.ViewChild, args: [cdk.PortalHostDirective,] },],
     'animationState': [{ type: core.HostBinding, args: ['@state',] },],
     'onAnimationEnd': [{ type: core.HostListener, args: ['@state.done', ['$event'],] },],
 };
@@ -31738,7 +28900,7 @@ var MdKeyboardService = /** @class */ (function () {
      * @return {?}
      */
     MdKeyboardService.prototype._attachKeyboardContainer = function (overlayRef, config) {
-        var /** @type {?} */ containerPortal = new ComponentPortal(MdKeyboardContainerComponent, config.viewContainerRef);
+        var /** @type {?} */ containerPortal = new cdk.ComponentPortal(MdKeyboardContainerComponent, config.viewContainerRef);
         var /** @type {?} */ containerRef = overlayRef.attach(containerPortal);
         containerRef.instance.keyboardConfig = config;
         return containerRef.instance;
@@ -31752,7 +28914,7 @@ var MdKeyboardService = /** @class */ (function () {
      * @return {?}
      */
     MdKeyboardService.prototype._attachKeyboardContent = function (component, container, overlayRef) {
-        var /** @type {?} */ portal = new ComponentPortal(component);
+        var /** @type {?} */ portal = new cdk.ComponentPortal(component);
         var /** @type {?} */ contentRef = container.attachComponentPortal(portal);
         return /** @type {?} */ (new MdKeyboardRef(contentRef.instance, container, overlayRef));
     };
@@ -31778,7 +28940,7 @@ MdKeyboardService.decorators = [
  */
 MdKeyboardService.ctorParameters = function () { return [
     { type: Overlay, },
-    { type: LiveAnnouncer, },
+    { type: cdk.LiveAnnouncer, },
     { type: undefined, decorators: [{ type: core.Inject, args: [MD_KEYBOARD_LAYOUTS,] },] },
     { type: MdKeyboardService, decorators: [{ type: core.Optional }, { type: core.SkipSelf },] },
 ]; };
@@ -32435,6 +29597,12 @@ var MdKeyboardDirective = /** @class */ (function () {
             this._keyboardRef.dismiss();
         }
     };
+    /**
+     * @return {?}
+     */
+    MdKeyboardDirective.prototype.ngOnDestroy = function () {
+        this._hideKeyboard();
+    };
     return MdKeyboardDirective;
 }());
 MdKeyboardDirective.decorators = [
@@ -32492,7 +29660,7 @@ MdKeyboardModule.decorators = [
     { type: core.NgModule, args: [{
                 imports: [
                     OverlayModule,
-                    PortalModule,
+                    cdk.PortalModule,
                     common.CommonModule,
                     MdButtonModule,
                     MdCommonModule,
@@ -32519,7 +29687,7 @@ MdKeyboardModule.decorators = [
                 ],
                 providers: [
                     MdKeyboardService,
-                    LIVE_ANNOUNCER_PROVIDER,
+                    cdk.LIVE_ANNOUNCER_PROVIDER,
                     { provide: MD_KEYBOARD_DEADKEYS, useValue: keyboardDeadkeys },
                     { provide: MD_KEYBOARD_ICONS, useValue: keyboardIcons },
                     { provide: MD_KEYBOARD_LAYOUTS, useValue: keyboardLayouts }
