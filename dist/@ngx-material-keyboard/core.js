@@ -28824,35 +28824,37 @@ MdKeyboardComponent.decorators = [
     { type: Component, args: [{
                 selector: 'md-keyboard',
                 template: `
-    <nav class="mat-keyboard-layout">
-      <div
-        class="mat-keyboard-row"
-        *ngFor="let row of layout.keys"
-      >
-        <ng-container *ngFor="let key of row">
-          <md-keyboard-key
-            class="mat-keyboard-col"
-            *ngIf="key[modifier]"
-            [key]="key[modifier]"
-            [ngControl]="ngControl"
-            [active]="isActive(key[modifier])"
-            [input]="inputInstance | async"
-            (altClick)="onAltClick()"
-            (capsClick)="onCapsClick()"
-            (shiftClick)="onShiftClick()"
-          ></md-keyboard-key>
-        </ng-container>
-      </div>
-    </nav>
+    <div class="md-keyboard-wrapper">
+      <nav class="mat-keyboard-layout">
+        <div
+          class="mat-keyboard-row"
+          *ngFor="let row of layout.keys"
+        >
+          <ng-container *ngFor="let key of row">
+            <md-keyboard-key
+              class="mat-keyboard-col"
+              *ngIf="key[modifier]"
+              [key]="key[modifier]"
+              [ngControl]="ngControl"
+              [active]="isActive(key[modifier])"
+              [input]="inputInstance | async"
+              (altClick)="onAltClick()"
+              (capsClick)="onCapsClick()"
+              (shiftClick)="onShiftClick()"
+            ></md-keyboard-key>
+          </ng-container>
+        </div>
+      </nav>
 
-    <button
-      md-icon-button
-      class="mat-keyboard-action"
-      *ngIf="hasAction"
-      (click)="dismiss()"
-    >
-      <md-icon>close</md-icon>
-    </button>
+      <button
+        md-icon-button
+        class="mat-keyboard-action"
+        *ngIf="hasAction"
+        (click)="dismiss()"
+      >
+        <md-icon>close</md-icon>
+      </button>
+    </div>
   `,
                 styles: [`
     /**
