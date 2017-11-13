@@ -49,8 +49,8 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./license.html"
-                                        >
+                                        <a href="../license.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -153,6 +153,7 @@
                                 </li>
                         </ul>
                     </li>
+            
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -270,8 +271,8 @@
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./license.html"
-                                               >
+                                               <a href="../license.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -375,6 +376,7 @@
                                </ul>
                            </li>
                    
+                   
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
                                        data-target="#interfaces-links"
@@ -468,6 +470,7 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Interfaces</li>
   <li>ILocaleMap</li>
@@ -509,7 +512,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/services/keyboard.service.ts:10</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/services/keyboard.service.ts:12</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -521,7 +524,9 @@
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
-import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from &#x27;@angular/material&#x27;;
+import { ComponentPortal, ComponentType } from &#x27;@angular/cdk/portal&#x27;;
+import { Overlay, OverlayRef, OverlayConfig } from &#x27;@angular/cdk/overlay&#x27;;
+import { LiveAnnouncer } from &#x27;@angular/cdk/a11y&#x27;;
 import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from &#x27;../configs/keyboard-layouts.config&#x27;;
 import { MdKeyboardContainerComponent } from &#x27;../components/keyboard-container/keyboard-container.component&#x27;;
 import { MdKeyboardRef } from &#x27;../utils/keyboard-ref.class&#x27;;
@@ -724,7 +729,7 @@ export class MdKeyboardService {
    * Creates a new overlay and places it in the correct location.
    */
   private _createOverlay(): OverlayRef {
-    const state &#x3D; new OverlayState();
+    const state &#x3D; new OverlayConfig();
     state.positionStrategy &#x3D; this._overlay.position().global()
                                  .centerHorizontally()
                                  .bottom(&#x27;0&#x27;)

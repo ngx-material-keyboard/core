@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, LOCALE_ID, OnInit } from '@angular/core';
-import { MdInput } from '@angular/material';
+import { MatInput } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { IKeyboardLayout } from '../../configs/keyboard-layouts.config';
@@ -34,7 +34,7 @@ export class MdKeyboardComponent implements OnInit {
 
   modifier: KeyboardModifier = KeyboardModifier.None;
 
-  control: MdInput;
+  control: MatInput;
 
   // The instance of the component making up the content of the keyboard.
   keyboardRef: MdKeyboardRef<MdKeyboardComponent>;
@@ -45,7 +45,7 @@ export class MdKeyboardComponent implements OnInit {
     return this._inputInstance$.asObservable();
   }
 
-  setInputInstance(inputInstance: ElementRef, control: MdInput) {
+  setInputInstance(inputInstance: ElementRef, control: MatInput) {
     this.control = control;
     this._inputInstance$.next(inputInstance);
     this._inputInstance$.complete();

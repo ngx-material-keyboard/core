@@ -3,23 +3,25 @@
   "lib": {
     "entryFile": "./public_api.ts",
     "externals": {
+      "@angular/material": "ng.material",
       "rxjs/observable/forkJoin": "Rx.Observable",
       "rxjs/observable/fromEvent": "Rx.Observable",
       "rxjs/observable/merge": "Rx.Observable",
       "rxjs/observable/of": "Rx.Observable",
       "rxjs/observable/throw": "Rx.Observable",
-      "rxjs/operator/auditTime": "Rx.Observable.prototype",
-      "rxjs/operator/catch": "Rx.Observable.prototype",
-      "rxjs/operator/debounceTime": "Rx.Observable.prototype",
-      "rxjs/operator/do": "Rx.Observable.prototype",
-      "rxjs/operator/filter": "Rx.Observable.prototype",
-      "rxjs/operator/finally": "Rx.Observable.prototype",
-      "rxjs/operator/first": "Rx.Observable.prototype",
-      "rxjs/operator/map": "Rx.Observable.prototype",
-      "rxjs/operator/share": "Rx.Observable.prototype",
-      "rxjs/operator/startWith": "Rx.Observable.prototype",
-      "rxjs/operator/switchMap": "Rx.Observable.prototype",
-      "rxjs/operator/takeUntil": "Rx.Observable.prototype"
+      "rxjs/operators/auditTime": "Rx.Observable.prototype",
+      "rxjs/operators/catch": "Rx.Observable.prototype",
+      "rxjs/operators/debounceTime": "Rx.Observable.prototype",
+      "rxjs/operators/do": "Rx.Observable.prototype",
+      "rxjs/operators/filter": "Rx.Observable.prototype",
+      "rxjs/operators/finally": "Rx.Observable.prototype",
+      "rxjs/operators/first": "Rx.Observable.prototype",
+      "rxjs/operators/map": "Rx.Observable.prototype",
+      "rxjs/operators/tap": "Rx.Observable.prototype",
+      "rxjs/operators/share": "Rx.Observable.prototype",
+      "rxjs/operators/startWith": "Rx.Observable.prototype",
+      "rxjs/operators/switchMap": "Rx.Observable.prototype",
+      "rxjs/operators/takeUntil": "Rx.Observable.prototype"
     }
   }
 }

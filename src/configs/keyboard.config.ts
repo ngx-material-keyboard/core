@@ -1,5 +1,5 @@
 import { ViewContainerRef } from '@angular/core';
-import { AriaLivePoliteness } from '@angular/material';
+import { AriaLivePoliteness } from '@angular/cdk/a11y';
 import { NgControl } from '@angular/forms';
 
 export class MdKeyboardConfig {

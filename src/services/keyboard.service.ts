@@ -1,5 +1,7 @@
 import { ComponentRef, Inject, Injectable, Optional, SkipSelf } from '@angular/core';
-import { ComponentPortal, ComponentType, LiveAnnouncer, Overlay, OverlayRef, OverlayState } from '@angular/material';
+import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
+import { Overlay, OverlayRef, OverlayConfig } from '@angular/cdk/overlay';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { IKeyboardLayout, MD_KEYBOARD_LAYOUTS } from '../configs/keyboard-layouts.config';
 import { MdKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
@@ -202,7 +204,7 @@ export class MdKeyboardService {
    * Creates a new overlay and places it in the correct location.
    */
   private _createOverlay(): OverlayRef {
-    const state = new OverlayState();
+    const state = new OverlayConfig();
     state.positionStrategy = this._overlay.position().global()
                                  .centerHorizontally()
                                  .bottom('0')

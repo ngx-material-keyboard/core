@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { MdInput } from '@angular/material';
+import { MatInput } from '@angular/material';
 import { MdKeyboardService } from '../services/keyboard.service';
 export declare class MdKeyboardDirective {
     private _elementRef;
@@ -13,5 +13,5 @@ export declare class MdKeyboardDirective {
     isDebug: boolean;
     private _showKeyboard();
     private _hideKeyboard();
-    constructor(_elementRef: ElementRef, _keyboardService: MdKeyboardService, _control?: MdInput);
+    constructor(_elementRef: ElementRef, _keyboardService: MdKeyboardService, _control?: MatInput);
 }

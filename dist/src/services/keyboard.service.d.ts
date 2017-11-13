@@ -1,4 +1,5 @@
-import { LiveAnnouncer, Overlay } from '@angular/material';
+import { Overlay } from '@angular/cdk/overlay';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { IKeyboardLayout } from '../configs/keyboard-layouts.config';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';

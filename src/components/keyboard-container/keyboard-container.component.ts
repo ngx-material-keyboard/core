@@ -1,6 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AnimationEvent } from '@angular/animations/src/animation_event';
-import { first } from '@angular/cdk/rxjs';
 import { ChangeDetectorRef, Component, ComponentRef, EmbeddedViewRef, HostBinding, HostListener, Input, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { BasePortalHost, ComponentPortal, PortalHostDirective } from '@angular/cdk/portal';
 import { Observable } from 'rxjs/Observable';
@@ -58,7 +57,7 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
   private _destroyed = false;
 
   constructor(private _ngZone: NgZone,
-              private _changeDetectorRef: ChangeDetectorRef) {
+    private _changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
@@ -136,10 +135,10 @@ export class MdKeyboardContainerComponent extends BasePortalHost implements OnDe
     // Note: we shouldn't use `this` inside the zone callback,
     // because it can cause a memory leak.
     const onExit = this.onExit;
-
-    first.call(this._ngZone.onMicrotaskEmpty.asObservable()).subscribe(() => {
-      onExit.next();
-      onExit.complete();
-    });
+    this._ngZone.onMicrotaskEmpty.asObservable()
+      .subscribe(() => {
+        onExit.next();
+        onExit.complete();
+      });
   }
 }
