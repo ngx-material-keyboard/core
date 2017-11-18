@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { MdInput } from '@angular/material';
+import { MatInput } from '@angular/material';
+
 import { MD_KEYBOARD_DEADKEYS } from '../../configs/keyboard-deadkey.config';
 import { MD_KEYBOARD_ICONS } from '../../configs/keyboard-icons.config';
 import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
@@ -22,7 +23,7 @@ export class MdKeyboardKeyComponent implements OnInit {
 
   @Input() input?: ElementRef;
 
-  @Input() control?: MdInput;
+  @Input() control?: MatInput;
 
   @Output() altClick = new EventEmitter<void>();
 

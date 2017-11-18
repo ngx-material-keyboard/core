@@ -1,4 +1,5 @@
 import { ViewContainerRef } from '@angular/core';
+import { NgControl } from '@angular/forms';
 import { AriaLivePoliteness } from '@angular/cdk/a11y';
 
 export class MdKeyboardConfig {
@@ -22,4 +23,7 @@ export class MdKeyboardConfig {
 
   /** Enable the debug view **/
   isDebug? = false;
+
+  /** Enable the debug view **/
+  ngControl?: NgControl;
 }

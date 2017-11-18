@@ -49,8 +49,8 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./license.html"
-                                        >
+                                        <a href="../license.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -153,6 +153,7 @@
                                 </li>
                         </ul>
                     </li>
+            
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -270,8 +271,8 @@
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./license.html"
-                                               >
+                                               <a href="../license.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -375,6 +376,7 @@
                                </ul>
                            </li>
                    
+                   
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
                                        data-target="#interfaces-links"
@@ -467,7 +469,7 @@
   <li>MdKeyboardModule</li>
 </ol>
 
-      <div class="text-center">
+      <div class="text-center module-graph-container">
           <div id="module-graph-svg">
               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -637,6 +639,7 @@
 </svg>
 
           </div>
+          <i id="fullscreen" class="fa fa-expand module-graph-fullscreen-btn" aria-hidden="true"></i>
           <div class="btn-group">
               <button id="zoom-in" class="btn btn-default btn-sm">Zoom in</button>
               <button id="reset" class="btn btn-default btn-sm">Reset</button>
@@ -694,7 +697,7 @@
                     <h3>Providers<a href="https://angular.io/api/core/NgModule#providers" target="_blank" title="Official documentation about module providers"><span class="fa fa-info-circle"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="../injectables/MdKeyboardService.html" >MdKeyboardService</a>
+                                     <a href="../injectables/MdKeyboardService.html" >MdKeyboardService</a>
                             </li>
                     </ul>
                 </div>
@@ -726,7 +729,7 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { LIVE_ANNOUNCER_PROVIDER } from &#x27;@angular/cdk/a11y&#x27;;
 import { OverlayModule } from &#x27;@angular/cdk/overlay&#x27;;
 import { PortalModule } from &#x27;@angular/cdk/portal&#x27;;
-import { MdButtonModule, MdIconModule, MdInputModule } from &#x27;@angular/material&#x27;;
+import { MatButtonModule, MatCommonModule, MatIconModule, MatInputModule } from &#x27;@angular/material&#x27;;
 import { MdKeyboardContainerComponent } from &#x27;./components/keyboard-container/keyboard-container.component&#x27;;
 import { MdKeyboardKeyComponent } from &#x27;./components/keyboard-key/keyboard-key.component&#x27;;
 import { MdKeyboardComponent } from &#x27;./components/keyboard/keyboard.component&#x27;;
@@ -739,19 +742,16 @@ import { MdKeyboardService } from &#x27;./services/keyboard.service&#x27;;
 
 @NgModule({
   imports: [
-    // Angular modules
     CommonModule,
     OverlayModule,
-
-    // Cdk modules
     PortalModule,
-
-    // Material modules
-    MdButtonModule,
-    MdIconModule,
-    MdInputModule
+    MatButtonModule,
+    MatCommonModule,
+    MatIconModule,
+    MatInputModule
   ],
   exports: [
+    MatCommonModule,
     MdKeyboardComponent,
     MdKeyboardContainerComponent,
     MdKeyboardKeyComponent,
@@ -777,10 +777,12 @@ import { MdKeyboardService } from &#x27;./services/keyboard.service&#x27;;
     { provide: MD_KEYBOARD_LAYOUTS, useValue: keyboardLayouts }
   ]
 })
-export class MdKeyboardModule {}
+export class MdKeyboardModule {
+}
 </code></pre>
     </div>
 </div>
+
 
 
 
