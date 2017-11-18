@@ -1,5 +1,5 @@
 import { ViewContainerRef } from '@angular/core';
-import { AriaLivePoliteness } from '@angular/material';
+import { AriaLivePoliteness } from '@angular/cdk/a11y';
 import { NgControl } from '@angular/forms';
 export declare class MdKeyboardConfig {
     /** The politeness level for the MdAriaLiveAnnouncer announcement. */

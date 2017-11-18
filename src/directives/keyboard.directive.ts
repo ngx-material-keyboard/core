@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Input, Optional, Self } from '@angular/core';
-import { MdInput } from '@angular/material';
+import { MatInput } from '@angular/material';
 import { MdKeyboardRef } from '../utils/keyboard-ref.class';
 import { MdKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MdKeyboardService } from '../services/keyboard.service';
@@ -41,6 +41,6 @@ export class MdKeyboardDirective {
 
   constructor(private _elementRef: ElementRef,
               private _keyboardService: MdKeyboardService,
-              @Optional() @Self() private _control?: MdInput) {}
+              @Optional() @Self() private _control?: MatInput) {}
 
 }
