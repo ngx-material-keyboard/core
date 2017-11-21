@@ -13,11 +13,11 @@
   },
   "homepage": "https://github.com/ngx-material-keyboard/core#readme",
   "peerDependencies": {
-    "@angular/animations": "^5.0.1",
-    "@angular/cdk": "5.0.0-rc0",
-    "@angular/common": "^5.0.1",
-    "@angular/core": "^5.0.1",
-    "@angular/material": "5.0.0-rc0",
+    "@angular/animations": "^5.0.0",
+    "@angular/cdk": "5.0.0-rc.1",
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/material": "5.0.0-rc.1",
     "rxjs": "^5.5.2"
   }
 }
