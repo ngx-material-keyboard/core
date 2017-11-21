@@ -13,9 +13,8 @@ install:
 # the jobs for building and deplyoing docs and demo
 jobs:
   include:
-    - stage: build docs
+    - stage: build docs and demo
       script: npm run build:docs
-    - stage: build demo
       script: npm run build:demo
     - stage: deploy docs
       deploy:
