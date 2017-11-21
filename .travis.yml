@@ -31,8 +31,8 @@ jobs:
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         local_dir: dist/demo
-        repo: demo
-        target_branch: gh-pages
+        repo: ngx-material-keyboard/demo
+        target_branch: master
         on:
           repo: ngx-material-keyboard/core
           branch: master
