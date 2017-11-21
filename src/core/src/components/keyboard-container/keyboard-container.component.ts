@@ -1,6 +1,6 @@
 import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal } from '@angular/cdk/portal';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, EmbeddedViewRef, HostBinding, HostListener, Input, NgZone, OnDestroy, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, EmbeddedViewRef, HostBinding, HostListener, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { AnimationCurves, AnimationDurations } from '@angular/material/core';
 
 import { Observable } from 'rxjs/Observable';
@@ -28,16 +28,16 @@ export const HIDE_ANIMATION = `${AnimationDurations.EXITING} ${AnimationCurves.A
   preserveWhitespaces: false,
   // animations: [
   //   trigger('state', [
-  //     state('visible-top, visible-bottom', style({transform: 'translateY(0%)'})),
-  //     transition('visible-top => hidden-top, visible-bottom => hidden-bottom', animate(HIDE_ANIMATION)),
-  //     transition('void => visible-top, void => visible-bottom', animate(SHOW_ANIMATION)),
+  //     state('visible', style({transform: 'translateY(0%)'})),
+  //     transition('visible => hidden', animate(HIDE_ANIMATION)),
+  //     transition('void => visible', animate(SHOW_ANIMATION)),
   //   ])
   // ]
   animations: [
     trigger('state', [
-      state(KeyboardAnimationState.Visible.toString(), style({ transform: 'translateY(0%)' })),
-      transition(KeyboardAnimationTransition.Hide.toString(), animate(HIDE_ANIMATION)),
-      transition(KeyboardAnimationTransition.Show.toString(), animate(SHOW_ANIMATION))
+      state(`${KeyboardAnimationState.Visible}`, style({ transform: 'translateY(0%)' })),
+      transition(`${KeyboardAnimationTransition.Hide}`, animate(HIDE_ANIMATION)),
+      transition(`${KeyboardAnimationTransition.Show}`, animate(SHOW_ANIMATION))
     ])
   ]
 })

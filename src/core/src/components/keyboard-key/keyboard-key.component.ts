@@ -68,15 +68,11 @@ export class MatKeyboardKeyComponent implements OnInit {
   shiftClick = new EventEmitter<void>();
 
   get lowerKey(): string {
-    return this.key
-      .toString()
-      .toLowerCase();
+    return `${this.key}`.toLowerCase();
   }
 
   get charCode(): number {
-    return this.key
-      .toString()
-      .charCodeAt(0);
+    return `${this.key}`.charCodeAt(0);
   }
 
   get isClassKey(): boolean {
