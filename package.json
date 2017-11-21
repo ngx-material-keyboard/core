@@ -1,6 +1,6 @@
 {
   "name": "@ngx-material-keyboard/demo",
-  "version": "0.0.5-SNAPSHOT",
+  "version": "0.0.5",
   "description": "Onscreen virtual keyboard for Angular ≥ 5 (https://angular.io/) using Material 2 (https://material.angular.io/).",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "start:demo": "ng serve --host 0.0.0.0 --disable-host-check",
     "build": "npm run build:core && npm run build:demo && npm run build:docs",
     "build:core": "ng-packagr",
-    "build:demo": "ng build --prod --locale=de --progress=false",
+    "build:demo": "ng build --prod --locale=de --progress=false --base-href=/demo/",
     "build:docs": "compodoc ./src/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs",
     "test": "ng test",
     "lint": "npm run lint:ts && npm run lint:sass",
