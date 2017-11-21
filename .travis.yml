@@ -23,15 +23,17 @@ jobs:
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         local_dir: dist/docs
+        target_branch: docs
         on:
           repo: ngx-material-keyboard/core
-          branch: docs
+          branch: master
     - stage: deploy demo
       deploy:
         provider: pages
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         local_dir: dist/demo
+        target_branch: demo
         on:
           repo: ngx-material-keyboard/core
-          branch: demo
+          branch: master
