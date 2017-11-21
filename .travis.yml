@@ -1,5 +1,37 @@
+# this is a node build
 language: node_js
+
+# cache node modules
+cache:
+  directories:
+    - "node_modules"
+
+# install dependencies
+install:
+  - npm install --silent
+
+# the jobs for building and deplyoing docs and demo
 jobs:
   include:
-    - stage: build
+    - stage: build docs
       script: npm run build:docs
+    - stage: build demo
+      script: npm run build:demo
+    - stage: deploy docs
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist/docs
+        on:
+          repo: ngx-material-keyboard/core
+          branch: docs
+    - stage: deploy demo
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist/demo
+        on:
+          repo: ngx-material-keyboard/core
+          branch: demo

@@ -2,35 +2,26 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2015",
+    "noUnusedParameters": false,
+    "target": "es5",
     "typeRoots": [
       "node_modules/@types"
     ],
-    "types": [],
     "lib": [
-      "es2015",
+      "es2017",
       "dom"
     ],
     "paths": {
-      "@ngx-material-keyboard/core": [
-        "./public_api.ts"
-      ]
-    },
-    "include": [
-      "**/*.ts"
-    ],
-    "exclude": [
-      "**/*.d.ts",
-      "./.ng_build",
-      "./src/test.ts",
-      "./src/**/*.spec.ts"
-    ]
-  }
+      "@ngx-material-keyboard/core": [ "src/core/src/public_api.ts" ]
+    }
+  },
+  "exclude": [
+    ".ng_build"
+  ]
 }

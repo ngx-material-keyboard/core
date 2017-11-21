@@ -1,8 +1,6 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer",
-    "node_modules/tslint-microsoft-contrib",
-    "node_modules/rxjs-tslint-rules"
+    "node_modules/codelyzer"
   ],
   "extends": [
     "rxjs-tslint-rules"
@@ -34,8 +32,17 @@
     "member-access": false,
     "member-ordering": [
       true,
-      "static-before-instance",
-      "variables-before-functions"
+      {
+        "order": [
+          "public-static-field",
+          "public-static-method",
+          "private-instance-field",
+          "public-instance-field",
+          "public-constructor",
+          "public-instance-method",
+          "private-instance-method"
+        ]
+      }
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -70,6 +77,7 @@
       true,
       "check-open-brace",
       "check-catch",
+      "check-else",
       "check-whitespace"
     ],
     "prefer-const": true,
@@ -79,6 +87,7 @@
     ],
     "radix": true,
     "semicolon": [
+      true,
       "always"
     ],
     "triple-equals": [
@@ -106,30 +115,42 @@
       "check-separator",
       "check-type"
     ],
+    "angular-whitespace": [
+      true,
+      "check-interpolation",
+      "check-semicolon"
+    ],
+    "banana-in-box": true,
+    "templates-no-negated-async": true,
     "directive-selector": [
       true,
       "attribute",
-      "mdKeyboard",
+      "matKeyboard",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "md-keyboard",
+      "mat-keyboard",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
     "no-input-rename": true,
     "no-output-rename": true,
+    "no-forward-ref": false,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
+    "pipe-naming": [
+      true,
+      "camelCase",
+      "matKeyboard"
+    ],
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "no-access-missing-member": true,
-    "templates-use-public": true,
-    "invoke-injectable": true,
+    "no-access-missing-member": false,
     "rxjs-add": {
       "severity": "error"
     },

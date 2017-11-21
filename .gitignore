@@ -1,29 +1,40 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Output Directories #
+build/
+dist/
+docs/
+target/
 
-# IDEs and editors
-/.idea
-/.vscode
-.project
 .classpath
-.c9/
-*.launch
 .settings/
 
-# dependencies
-/node_modules
-/bower_components
-
-# misc
-/.sass-cache
 /.ng_build
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
-yarn.lock
+/.temp
+/tmp
 
-#System Files
+.vscode
+
+# Dependency directory #
+# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+node_modules
+
+# Optional npm cache directory #
+.npm
+npm
+npm-debug.log
+
+# IDE Directories #
+.idea
+!.idea/codeStyleSettings.xml
+!.idea/ngx-material-keyboard.iml
+
+# External tool builders #
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations" #
+*.launch
+
+# OS Files #
 .DS_Store
-Thumbs.db
+
+# Misc #
+*~

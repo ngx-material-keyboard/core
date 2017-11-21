@@ -1,0 +1,28 @@
+.content {
+  margin: 40px 30px;
+}
+
+.row {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.col {
+  box-sizing: border-box;
+  flex: 1 1 33.333333%;
+  margin: 0 10px;
+}
+
+.mat-raised-button {
+  width: 100%;
+
+  .mat-select + & {
+    margin-top: 20px;
+  }
+}
+
+.mat-select {
+  display: block;
+}

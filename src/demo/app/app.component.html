@@ -1,0 +1,143 @@
+<mat-tab-group>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>keyboard</mat-icon>
+      Keyboard variants
+    </ng-template>
+
+    <form class="content">
+
+      <section class="row">
+        <div class="col">
+          <mat-slide-toggle
+              [checked]="isDebug"
+              [disabled]="!keyboardVisible"
+              (change)="toggleDebug($event)"
+          >
+            Debug special keys
+          </mat-slide-toggle>
+        </div>
+
+        <div class="col">
+          <mat-slide-toggle
+              [checked]="darkTheme"
+              [disabled]="!keyboardVisible"
+              (change)="toggleDarkTheme($event)"
+          >
+            Dark theme
+          </mat-slide-toggle>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="col">
+          <button
+              mat-raised-button
+              type="button"
+              (click)="openKeyboard(defaultLocale)"
+              aria-label="Open default keyboard"
+          >
+            Open default keyboard ({{defaultLocale}})
+          </button>
+        </div>
+
+        <div class="col">
+          <mat-select
+              name="layout"
+              [placeholder]="'select layout'"
+              [(ngModel)]="locale"
+          >
+            <mat-option
+                *ngFor="let layout of layouts"
+                [value]="layout.layout.lang && layout.layout.lang[0] || layout.name"
+            >
+              {{layout.layout.name}}
+              <ng-container *ngIf="layout.layout.name !== layout.name">({{layout.name}})</ng-container>
+            </mat-option>
+          </mat-select>
+
+          <button
+              mat-raised-button
+              type="button"
+              (click)="openKeyboard(locale)"
+              aria-label="Open selected keyboard"
+          >
+            Open selected keyboard ({{locale}})
+          </button>
+        </div>
+
+        <div class="col">
+          <button
+              mat-raised-button
+              type="button"
+              (click)="closeCurrentKeyboard()"
+              aria-label="Hide the example keyboard"
+          >
+            Close keyboard
+          </button>
+        </div>
+      </section>
+
+    </form>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>assignment</mat-icon>
+      Test form
+    </ng-template>
+
+    <form novalidate
+          class="content"
+          #form="ngForm"
+          (ngSubmit)="form.valid && submitForm(form)"
+    >
+
+      <section class="row">
+        <mat-input-container class="col">
+          <input
+              matInput
+              matKeyboard
+              placeholder="Locale"
+              name="sushi"
+              [ngModel]="'Sushi'"
+              (enterClick)="submitForm(form)"
+          >
+        </mat-input-container>
+
+        <mat-input-container class="col">
+          <input
+              matInput
+              placeholder="de-CH"
+              name="emmentaler"
+              [matKeyboard]="'de-CH'"
+              [ngModel]="'Emmentaler'"
+              (enterClick)="submitForm(form)"
+          >
+        </mat-input-container>
+
+        <mat-input-container class="col">
+          <input
+              matInput
+              placeholder="Azərbaycanca"
+              [matKeyboard]="'Azərbaycanca'"
+              (enterClick)="submitForm(form)"
+          >
+        </mat-input-container>
+      </section>
+
+      <section class="row">
+        <button
+            mat-raised-button
+            type="submit"
+            aria-label="Submit form"
+        >
+          Submit
+        </button>
+      </section>
+
+    </form>
+  </mat-tab>
+
+</mat-tab-group>
