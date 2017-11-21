@@ -69,8 +69,8 @@ export class MatKeyboardService {
   openFromComponent(layoutOrLocale: string, config: MatKeyboardConfig): MatKeyboardRef<MatKeyboardComponent> {
     const keyboardRef: MatKeyboardRef<MatKeyboardComponent> = this._attachKeyboardContent(config);
 
-    keyboardRef.darkTheme = config.darkTheme;
-    keyboardRef.isDebug = config.isDebug;
+    keyboardRef.instance.darkTheme = config.darkTheme;
+    keyboardRef.instance.isDebug = config.isDebug;
 
     // a locale is provided
     if (this.availableLocales[layoutOrLocale]) {
