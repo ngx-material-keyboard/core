@@ -84,11 +84,11 @@ export class MatKeyboardKeyComponent implements OnInit {
   }
 
   get isDeadKey(): boolean {
-    return this._deadkeyKeys.includes(`${this.key}`);
+    return this._deadkeyKeys.some((deadKey: string) => deadKey === `${this.key}`);
   }
 
   get hasIcon(): boolean {
-    return this._iconKeys.includes(`${this.key}`);
+    return this._iconKeys.some((iconKey: string) => iconKey === `${this.key}`);
   }
 
   get icon(): string {
