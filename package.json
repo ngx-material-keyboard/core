@@ -19,7 +19,7 @@
     "build": "npm run build:core && npm run build:demo && npm run build:docs",
     "build:core": "ng-packagr",
     "build:demo": "ng build --prod --locale=de --progress=false",
-    "build:docs": "compodoc ./src/core -p ./tsconfig.json --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs",
+    "build:docs": "compodoc ./src/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs",
     "test": "ng test",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "ng lint --type-check=true",
