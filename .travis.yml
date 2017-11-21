@@ -13,11 +13,8 @@ install:
 # the jobs for building and deplyoing docs and demo
 jobs:
   include:
-    - stage: build docs and demo
+    - stage: docs
       script: npm run build:docs
-    - # stage name not required, will continue to use `build docs and demo`
-      script: npm run build:demo
-    - stage: deploy docs
       deploy:
         provider: pages
         skip_cleanup: true
@@ -27,7 +24,8 @@ jobs:
         on:
           repo: ngx-material-keyboard/core
           branch: master
-    - stage: deploy demo
+    - stage: demo
+      script: npm run build:demo
       deploy:
         provider: pages
         skip_cleanup: true
