@@ -15,6 +15,7 @@ jobs:
   include:
     - stage: build docs and demo
       script: npm run build:docs
+    - # stage name not required, will continue to use `build docs and demo`
       script: npm run build:demo
     - stage: deploy docs
       deploy:
