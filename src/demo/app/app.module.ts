@@ -10,9 +10,24 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 
-import { MatKeyboardModule } from '@ngx-material-keyboard/core';
+import { IKeyboardLayouts, keyboardLayouts, MAT_KEYBOARD_LAYOUTS, MatKeyboardModule } from '@ngx-material-keyboard/core';
 
 import { AppComponent } from './app.component';
+
+const customLyouts: IKeyboardLayouts = {
+  ...keyboardLayouts,
+  'Tolles Layout': {
+    'name': 'Awesome layout',
+    'keys': [
+      [
+        ['1', '!'],
+        ['2', '@'],
+        ['3', '#']
+      ]
+    ],
+    'lang': ['de-CH']
+  }
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +49,9 @@ import { AppComponent } from './app.component';
 
     MatKeyboardModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_KEYBOARD_LAYOUTS, useValue: customLyouts }
+  ],
   bootstrap: [
     AppComponent
   ]
