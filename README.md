@@ -57,7 +57,7 @@ All layouts are based on (or directly inherited from) the [angular-virtual-keybo
 > Note that this will most likely be changed in the near future. But for now a huge range of layouts is already usable because of the 
 [great contribution][VKI Credits] back then.
 
-But basicly you just provide the configuration of your new layout in your `AppModule`:
+But basically you just provide the configuration of your new layout in your `AppModule`:
 ```:typescript
 import { IKeyboardLayouts, keyboardLayouts, MAT_KEYBOARD_LAYOUTS, MatKeyboardModule } from '@ngx-material-keyboard/core';
 

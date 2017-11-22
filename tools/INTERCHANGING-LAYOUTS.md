@@ -2,8 +2,8 @@
 
 ## Requirements (or good to know)
 When talking about keboard layouts it is hard to find a beginning, but it's even harder to find an end. Just keep in mind that most 
-layouts have been developed for typewriters. And since we do not have enough space to show all (even most of the time irrelevant) signs, 
-keys can have several meanings. Thus we have special keys like [`modifiers`][modifier] and [`dead keys`][dead key].
+layouts have been developed for typewriters. And since we do not have enough space to show all (even most of the time irrelevant) 
+characters, keys can have several meanings. Thus we have special keys like [`modifiers`][modifier] and [`dead keys`][dead key].
 
 Some modifiers can be called by a combination of other keys, like [`AltGraph` means `Control`+`Alt`][AltGraph].
 
