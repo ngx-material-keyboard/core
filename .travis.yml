@@ -13,7 +13,19 @@ install:
 # the jobs for building and deplyoing docs and demo
 jobs:
   include:
-    - stage: build docs and demo
+    - stage: build core, docs and demo
+      script: npm run build:core
+      deploy:
+        provider: npm
+        skip_cleanup: true
+        email: $NPM_EMAIL
+        api_key:
+          secure: $NPM_KEY
+        on:
+          tags: true
+          repo: ngx-material-keyboard/core
+          branch: master
+    - # stage name not required, will continue to use `build core, docs and demo`
       script: npm run build:docs
       deploy:
         provider: pages
@@ -24,7 +36,7 @@ jobs:
         on:
           repo: ngx-material-keyboard/core
           branch: master
-    - # stage name not required, will continue to use `build docs and demo`
+    - # stage name not required, will continue to use `build core, docs and demo`
       script: npm run build:demo
       deploy:
         provider: pages
