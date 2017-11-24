@@ -18,6 +18,7 @@ jobs:
       deploy:
         provider: npm
         skip_cleanup: true
+        local_dir: dist/core
         email: $NPM_EMAIL
         api_key: $NPM_KEY
         on:
@@ -29,8 +30,8 @@ jobs:
       deploy:
         provider: pages
         skip_cleanup: true
-        github_token: $GITHUB_TOKEN
         local_dir: dist/docs
+        github_token: $GITHUB_TOKEN
         target_branch: gh-pages
         on:
           repo: ngx-material-keyboard/core
@@ -40,8 +41,8 @@ jobs:
       deploy:
         provider: pages
         skip_cleanup: true
-        github_token: $GITHUB_TOKEN
         local_dir: dist/demo
+        github_token: $GITHUB_TOKEN
         repo: ngx-material-keyboard/demo
         target_branch: master
         on:
