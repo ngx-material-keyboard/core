@@ -12,6 +12,9 @@
     "url": "https://github.com/ngx-material-keyboard/ngx-material-keyboard/issues"
   },
   "homepage": "https://github.com/ngx-material-keyboard/ngx-material-keyboard.git#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "ng": "ng",
     "start": "npm run start:demo",
