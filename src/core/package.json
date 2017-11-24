@@ -1,6 +1,6 @@
 {
   "name": "@ngx-material-keyboard/core",
-  "version": "0.0.7-SNAPSHOT",
+  "version": "0.0.12-SNAPSHOT",
   "description": "Onscreen virtual keyboard for Angular ≥ 5 (https://angular.io/) using Material 2 (https://material.angular.io/).",
   "repository": {
     "type": "git",
@@ -12,6 +12,9 @@
     "url": "https://github.com/ngx-material-keyboard/core/issues"
   },
   "homepage": "https://github.com/ngx-material-keyboard/core#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/cdk": "5.0.0-rc.1",

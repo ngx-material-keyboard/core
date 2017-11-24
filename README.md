@@ -4,6 +4,8 @@
 Onscreen virtual keyboard for [Angular] using [Angular Material].
 > Please note that the project is at a very early stage. Therefore one should refrain from productive usage.
 
+![ngx-material-keyboard in action](https://cdn.rawgit.com/ngx-material-keyboard/core/develop/screenshots/ngxmk-2.gif)
+
 ## Demo
 A demo can be found [here][demo].
 

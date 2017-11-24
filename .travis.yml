@@ -6,6 +6,10 @@ cache:
   directories:
     - "node_modules"
 
+# use npm 5.3.0 due to a bug (https://github.com/npm/npm/issues/19222)
+before_install:
+  - npm i -g npm@5.3.0
+
 # install dependencies
 install:
   - npm install --silent
@@ -13,24 +17,37 @@ install:
 # the jobs for building and deplyoing docs and demo
 jobs:
   include:
-    - stage: build docs and demo
+    - stage: build core, docs and demo
+      script: npm run build:core
+      before_deploy:
+        - cd dist/core
+      deploy:
+        provider: npm
+        skip_cleanup: true
+        email: $NPM_EMAIL
+        api_key: $NPM_KEY
+        on:
+          tags: true
+          repo: ngx-material-keyboard/core
+          branch: master
+    - # stage name not required, will continue to use `build core, docs and demo`
       script: npm run build:docs
       deploy:
         provider: pages
         skip_cleanup: true
-        github_token: $GITHUB_TOKEN
         local_dir: dist/docs
+        github_token: $GITHUB_TOKEN
         target_branch: gh-pages
         on:
           repo: ngx-material-keyboard/core
           branch: master
-    - # stage name not required, will continue to use `build docs and demo`
+    - # stage name not required, will continue to use `build core, docs and demo`
       script: npm run build:demo
       deploy:
         provider: pages
         skip_cleanup: true
-        github_token: $GITHUB_TOKEN
         local_dir: dist/demo
+        github_token: $GITHUB_TOKEN
         repo: ngx-material-keyboard/demo
         target_branch: master
         on:
