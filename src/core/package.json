@@ -12,6 +12,9 @@
     "url": "https://github.com/ngx-material-keyboard/core/issues"
   },
   "homepage": "https://github.com/ngx-material-keyboard/core#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/cdk": "5.0.0-rc.1",

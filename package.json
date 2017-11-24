@@ -1,5 +1,5 @@
 {
-  "name": "@ngx-material-keyboard/demo",
+  "name": "ngx-material-keyboard-src",
   "version": "0.0.8-SNAPSHOT",
   "description": "Onscreen virtual keyboard for Angular ≥ 5 (https://angular.io/) using Material 2 (https://material.angular.io/).",
   "repository": {
@@ -12,9 +12,6 @@
     "url": "https://github.com/ngx-material-keyboard/ngx-material-keyboard/issues"
   },
   "homepage": "https://github.com/ngx-material-keyboard/ngx-material-keyboard.git#readme",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "ng": "ng",
     "start": "npm run start:demo",
