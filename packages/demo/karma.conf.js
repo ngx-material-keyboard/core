@@ -19,7 +19,7 @@ module.exports = function (config) {
       { pattern: './src/demo/test.ts', watched: false }
     ],
     preprocessors: {
-      './src/demo/test.ts': ['@angular/cli']
+      './src/test.ts': ['@angular/cli']
     },
     mime: {
       'text/x-typescript': ['ts', 'tsx']

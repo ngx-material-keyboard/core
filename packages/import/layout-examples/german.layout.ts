@@ -1,4 +1,4 @@
-import { KeyboardClassKey } from '../src/core/src/enums/keyboard-class-key.enum';
+import { KeyboardClassKey } from '../packages/core/src/enums/keyboard-class-key.enum';
 
 export const LAYOUT_GERMAN: any = {
   'name': 'Deutsch',

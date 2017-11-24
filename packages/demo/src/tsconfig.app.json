@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../tsconfig.json",
   "angularCompilerOptions": {
     "paths": {
       "@ngx-material-keyboard/core": [ "../core/src/public_api.ts" ]

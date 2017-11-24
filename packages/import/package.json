@@ -1,0 +1,21 @@
+{
+  "name": "@ngx-material-keyboard/import",
+  "version": "0.0.12-SNAPSHOT",
+  "description": "Import Microsoft `*.klc` and `macOS *.keylayout` files in ngx-material-keyboard layouts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngx-material-keyboard/core.git"
+  },
+  "author": "David Enke <post@davidenke.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngx-material-keyboard/core/issues"
+  },
+  "homepage": "https://github.com/ngx-material-keyboard/core#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "commander": "2.12.1"
+  }
+}
