@@ -50,7 +50,7 @@ export class MatKeyboardComponent implements OnInit {
   @HostBinding('class.mat-keyboard')
   cssClass = true;
 
-  click: EventEmitter<any> = new EventEmitter<any>();
+  anyClick: EventEmitter<any> = new EventEmitter<any>();
 
   enterClick: EventEmitter<void> = new EventEmitter<void>();
 
@@ -183,9 +183,9 @@ export class MatKeyboardComponent implements OnInit {
   /**
    * bubbles event if submit is potentially triggered
    */
-  onClick(input) {
+  onAnyClick(input) {
     // notify subscribers
-    this.click.next(input);
+    this.anyClick.next(input);
   }
 
   onEnterClick() {
