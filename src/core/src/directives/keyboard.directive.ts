@@ -50,7 +50,7 @@ export class MatKeyboardDirective implements OnDestroy {
     this._keyboardRef.instance.setInputInstance(this._elementRef, this._control);
 
     // connect outputs
-    this._keyboardRef.instance.click.subscribe( input => {this.ngModelChange.next(input);});    
+    this._keyboardRef.instance.anyClick.subscribe( input => {this.ngModelChange.next(input);});
     this._keyboardRef.instance.enterClick.subscribe(() => this.enterClick.next());
     this._keyboardRef.instance.capsClick.subscribe(() => this.capsClick.next());
     this._keyboardRef.instance.altClick.subscribe(() => this.altClick.next());
