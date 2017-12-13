@@ -102,14 +102,6 @@ export class MatKeyboardComponent implements OnInit {
     }
   }
 
-  ngAfterViewInit() {
-    this._keys.forEach((key: MatKeyboardKeyComponent) => {
-      key.click.subscribe( input => {
-        this.click.next(input);
-      });
-    });
-  }
-
   /**
    * dismisses the keyboard
    */
@@ -191,6 +183,11 @@ export class MatKeyboardComponent implements OnInit {
   /**
    * bubbles event if submit is potentially triggered
    */
+  onClick(input) {
+    // notify subscribers
+    this.click.next(input);
+  }
+
   onEnterClick() {
     // notify subscribers
     this.enterClick.next();
