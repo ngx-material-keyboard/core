@@ -50,6 +50,8 @@ export class MatKeyboardComponent implements OnInit {
   @HostBinding('class.mat-keyboard')
   cssClass = true;
 
+  click: EventEmitter<any> = new EventEmitter<any>();
+
   enterClick: EventEmitter<void> = new EventEmitter<void>();
 
   capsClick: EventEmitter<void> = new EventEmitter<void>();
@@ -98,6 +100,7 @@ export class MatKeyboardComponent implements OnInit {
       this.locale = this._keyboardService.mapLocale(this._locale) ? this._locale : 'en-US';
       this.layout = this._keyboardService.getLayoutForLocale(this.locale);
     }
+    this._keys.click.subscribe( input => this.click.next(input));
   }
 
   /**

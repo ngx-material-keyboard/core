@@ -56,6 +56,9 @@ export class MatKeyboardKeyComponent implements OnInit {
   control?: MatInput;
 
   @Output()
+  click = new EventEmitter<any>();
+
+  @Output()
   enterClick = new EventEmitter<void>();
 
   @Output()
@@ -197,6 +200,7 @@ export class MatKeyboardKeyComponent implements OnInit {
       this.inputValue = [value.slice(0, caret), char, value.slice(caret)].join('');
       this._setCursorPosition(caret + 1);
     }
+    this.click.emit(this.inputValue);
   }
 
   private _triggerKeyEvent(): Event {
