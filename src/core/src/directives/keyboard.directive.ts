@@ -20,7 +20,7 @@ export class MatKeyboardDirective implements OnDestroy {
 
   @Input() isDebug: boolean;
 
-  @Output() click: EventEmitter<void> = new EventEmitter<void>();
+  @Output() ngModelChange: EventEmitter<any> = new EventEmitter<any>();
   
   @Output() enterClick: EventEmitter<void> = new EventEmitter<void>();
 
@@ -50,10 +50,7 @@ export class MatKeyboardDirective implements OnDestroy {
     this._keyboardRef.instance.setInputInstance(this._elementRef, this._control);
 
     // connect outputs
-    this._keyboardRef.instance.click.subscribe( input => {
-      console.log(input);
-      this.click.next(input);
-    });    
+    this._keyboardRef.instance.click.subscribe( input => {this.ngModelChange.next(input);});    
     this._keyboardRef.instance.enterClick.subscribe(() => this.enterClick.next());
     this._keyboardRef.instance.capsClick.subscribe(() => this.capsClick.next());
     this._keyboardRef.instance.altClick.subscribe(() => this.altClick.next());

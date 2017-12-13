@@ -100,7 +100,14 @@ export class MatKeyboardComponent implements OnInit {
       this.locale = this._keyboardService.mapLocale(this._locale) ? this._locale : 'en-US';
       this.layout = this._keyboardService.getLayoutForLocale(this.locale);
     }
-    this._keys.click.subscribe( input => this.click.next(input));
+  }
+
+  ngAfterViewInit() {
+    this._keys.forEach((key: MatKeyboardKeyComponent) => {
+      key.click.subscribe( input => {
+        this.click.next(input);
+      });
+    });
   }
 
   /**
