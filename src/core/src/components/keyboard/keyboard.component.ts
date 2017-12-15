@@ -44,11 +44,21 @@ export class MatKeyboardComponent implements OnInit {
 
   control: MatInput;
 
+  type: string;
+
+  inputLabel: string;
+
+  inputElement: ElementRef;
+
+  inputModel: string;
+
   // the instance of the component making up the content of the keyboard
   keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
 
   @HostBinding('class.mat-keyboard')
   cssClass = true;
+
+  anyClick: EventEmitter<any> = new EventEmitter<any>();
 
   enterClick: EventEmitter<void> = new EventEmitter<void>();
 
@@ -87,9 +97,13 @@ export class MatKeyboardComponent implements OnInit {
   constructor(@Inject(LOCALE_ID) private _locale,
               private _keyboardService: MatKeyboardService) {}
 
-  setInputInstance(inputInstance: ElementRef, control: MatInput) {
+  setInputInstance(inputInstance: ElementRef, control: MatInput, type?: string, inputLabel?: string) {
+    this.type = type;
+    this.inputLabel = inputLabel;
     this.control = control;
     this._inputInstance$.next(inputInstance);
+    this.inputElement = inputInstance;
+    this.inputModel = inputInstance.nativeElement.value;
   }
 
   ngOnInit() {
@@ -154,6 +168,7 @@ export class MatKeyboardComponent implements OnInit {
     if (event.key === KeyboardClassKey.Shift && this._modifier !== KeyboardModifier.Shift && this._modifier !== KeyboardModifier.ShiftAlt) {
       this.onShiftClick();
     }
+    this.inputModel = this.inputElement.nativeElement.value;
   }
 
   /**
@@ -176,11 +191,18 @@ export class MatKeyboardComponent implements OnInit {
     if (event.key === KeyboardClassKey.Shift && (this._modifier === KeyboardModifier.Shift || this._modifier === KeyboardModifier.ShiftAlt)) {
       this.onShiftClick();
     }
+    this.inputModel = this.inputElement.nativeElement.value;
   }
 
   /**
    * bubbles event if submit is potentially triggered
    */
+  onAnyClick(input) {
+    // notify subscribers
+    this.inputModel = input;
+    this.anyClick.next(input);
+  }
+
   onEnterClick() {
     // notify subscribers
     this.enterClick.next();
