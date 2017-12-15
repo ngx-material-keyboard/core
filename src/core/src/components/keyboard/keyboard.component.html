@@ -1,8 +1,16 @@
+
 <div class="mat-keyboard-wrapper"
      [class.dark-theme]="darkTheme$ | async"
      [class.debug]="isDebug$ | async"
 >
+    
   <nav class="mat-keyboard-layout">
+    <div class="mat-keyboard-row" *ngIf="inputLabel">
+        <mat-form-field style="width: 100%;">
+          <input matInput type="{{type}}" disabled value="{{inputModel}}">
+          <span matPrefix>{{inputLabel + '&nbsp;'}}</span>
+        </mat-form-field>
+    </div>  
     <div class="mat-keyboard-row"
          *ngFor="let row of layout.keys"
     >
