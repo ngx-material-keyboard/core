@@ -12,6 +12,10 @@ export class MatKeyboardDirective implements OnDestroy {
 
   private _keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
 
+  @Input() type: string;
+
+  @Input() inputLabel: string;
+
   @Input() matKeyboard: string;
 
   @Input() darkTheme: boolean;
@@ -20,8 +24,9 @@ export class MatKeyboardDirective implements OnDestroy {
 
   @Input() isDebug: boolean;
 
+
   @Output() ngModelChange: EventEmitter<any> = new EventEmitter<any>();
-  
+
   @Output() enterClick: EventEmitter<void> = new EventEmitter<void>();
 
   @Output() capsClick: EventEmitter<void> = new EventEmitter<void>();
@@ -47,7 +52,7 @@ export class MatKeyboardDirective implements OnDestroy {
     });
 
     // reference input
-    this._keyboardRef.instance.setInputInstance(this._elementRef, this._control);
+    this._keyboardRef.instance.setInputInstance(this._elementRef, this._control, this.type, this.inputLabel);
 
     // connect outputs
     this._keyboardRef.instance.anyClick.subscribe( input => {this.ngModelChange.next(input);});

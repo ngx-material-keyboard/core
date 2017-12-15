@@ -18,8 +18,24 @@ $mat-keyboard-padding: 14px 24px !default;
     line-height: 20px;
     padding: $mat-keyboard-padding;
 
+    /deep/ .mat-form-field-underline {
+        background-image: none;
+        background-color: mat-color($mat-grey, 800);;
+    }
+
     &.dark-theme {
       background-color: mat-color($mat-grey, 800);
+      color: white;
+      input {
+        opacity: 0.6;
+        color: white;
+      }
+      /deep/ .mat-form-field-underline {
+        background-image: none;
+        background-color: rgb(163, 163, 163);
+      }
+      
+     
     }
   }
 

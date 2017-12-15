@@ -145,8 +145,14 @@ export class MatKeyboardKeyComponent implements OnInit {
     this._triggerKeyEvent();
 
     // Manipulate the focused input / textarea value
-    const value = this.inputValue;
-    const caret = this.input ? this._getCursorPosition() : 0;
+    let value = this.inputValue;
+    const caretStart = this.input ? this._getCursorPosition().start : 0;
+    const caretEnd = this.input ? this._getCursorPosition().end : 0;
+
+    if (caretEnd !== caretStart) {
+      value = [value.slice(0, caretStart), value.slice(caretEnd)].join('');
+      this._setCursorPosition(caretStart);
+    }
 
     let char: string;
     switch (this.key) {
@@ -159,8 +165,13 @@ export class MatKeyboardKeyComponent implements OnInit {
         break;
 
       case KeyboardClassKey.Bksp:
-        this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
-        this._setCursorPosition(caret - 1);
+        if (caretEnd === caretStart && caretStart !== 0)  {
+          this.inputValue = [value.slice(0, caretStart - 1), value.slice(caretStart)].join('');
+          this._setCursorPosition(caretStart - 1);
+        } else {
+          this.inputValue = value;
+          this._setCursorPosition(caretStart);
+        }
         break;
 
       case KeyboardClassKey.Caps:
@@ -197,8 +208,8 @@ export class MatKeyboardKeyComponent implements OnInit {
     }
 
     if (char && this.input) {
-      this.inputValue = [value.slice(0, caret), char, value.slice(caret)].join('');
-      this._setCursorPosition(caret + 1);
+      this.inputValue = [value.slice(0, caretStart), char, value.slice(caretStart)].join('');
+      this._setCursorPosition(caretStart + 1);
     }
     this.anyClick.emit(this.inputValue);
   }
@@ -224,26 +235,60 @@ export class MatKeyboardKeyComponent implements OnInit {
   }
 
   // inspired by:
-  // ref https://stackoverflow.com/a/2897510/1146207
-  private _getCursorPosition(): number {
+  // ref https://stackoverflow.com/a/4207763
+  private _getCursorPosition(): {start: number, end: number} {
     if (!this.input) {
       return;
     }
 
-    if ('selectionStart' in this.input.nativeElement) {
+    if ('selectionEnd' in this.input.nativeElement && 'selectionStart' in this.input.nativeElement) {
       // Standard-compliant browsers
-      return this.input.nativeElement.selectionStart;
+      return {
+          start: this.input.nativeElement.selectionStart,
+          end: this.input.nativeElement.selectionEnd
+      };
     } else if (window.document['selection']) {
       // IE
       this.input.nativeElement.focus();
-      const sel = window.document['selection'].createRange();
-      const selLen = window.document['selection'].createRange().text.length;
-      sel.moveStart('character', -this.control.value.length);
+      const el = this.input.nativeElement;
+      const range = window.document['selection'].createRange();
+      let start = 0;
+      let end = 0;
+      if (range && range.parentElement() === el) {
+          const len = el.value.length;
+          const normalizedValue = el.value.replace(/\r\n/g, '\n');
 
-      return sel.text.length - selLen;
+          // Create a working TextRange that lives only in the input
+          const textInputRange = el.createTextRange();
+          textInputRange.moveToBookmark(range.getBookmark());
+
+          // Check if the start and end of the selection are at the very end
+          // of the input, since moveStart/moveEnd doesn't return what we want
+          // in those cases
+          const endRange = el.createTextRange();
+          endRange.collapse(false);
+
+          if (textInputRange.compareEndPoints('StartToEnd', endRange) > -1) {
+              start = end = len;
+          } else {
+              start = -textInputRange.moveStart('character', -len);
+              start += normalizedValue.slice(0, start).split('\n').length - 1;
+
+              if (textInputRange.compareEndPoints('EndToEnd', endRange) > -1) {
+                  end = len;
+              } else {
+                  end = -textInputRange.moveEnd('character', -len);
+                  end += normalizedValue.slice(0, end).split('\n').length - 1;
+              }
+          }
+      }
+
+      return {
+          start: start,
+          end: end
+      };
     }
   }
-
   // inspired by:
   // ref https://stackoverflow.com/a/12518737/1146207
   // tslint:disable one-line
