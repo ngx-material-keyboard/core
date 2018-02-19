@@ -1,0 +1,37 @@
+0 silly input [ 'start' ]
+1 silly flags { _: [ 'run' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   scope: '@ngx-material-keyboard/demo',
+1 silly flags   script: 'start',
+1 silly flags   args: [] }
+2 verbose rootPath D:\projects\davidenke\ngx-material-keyboard\core
+3 info version 2.9.0
+4 silly existsSync D:\projects\davidenke\ngx-material-keyboard\core\VERSION
+5 info scope @ngx-material-keyboard/demo
+6 silly initialize attempt
+7 silly initialize success
+8 silly execute attempt
+9 silly runScriptInDir start [] demo
+10 silly getExecOpts { cwd: 'D:\\projects\\davidenke\\ngx-material-keyboard\\core\\packages\\demo' }
+11 error start Errored while running script in '@ngx-material-keyboard/demo'
+12 error execute callback with error
+13 error Error: Command failed: npm run start
+13 error [31mPort 4200 is already in use. Use '--port' to specify a different port.[39m
+13 error [37;40mnpm[0m [0m[31;40mERR![0m [0m[35mcode[0m ELIFECYCLE
+13 error [0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35merrno[0m 1
+13 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m @ngx-material-keyboard/demo@0.0.12-SNAPSHOT start: `ng serve --host 0.0.0.0 --disable-host-check`
+13 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m Exit status 1
+13 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m
+13 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m Failed at the @ngx-material-keyboard/demo@0.0.12-SNAPSHOT start script.
+13 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m This is probably not a problem with npm. There is likely additional logging output above.
+13 error [0m
+13 error [37;40mnpm[0m [0m[31;40mERR![0m[35m[0m A complete log of this run can be found in:
+13 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m     C:\Users\david\AppData\Roaming\npm-cache\_logs\2018-02-19T21_49_29_582Z-debug.log
+13 error [0m
+13 error > @ngx-material-keyboard/demo@0.0.12-SNAPSHOT start D:\projects\davidenke\ngx-material-keyboard\core\packages\demo
+13 error > ng serve --host 0.0.0.0 --disable-host-check
+13 error
+13 error
+13 error     at Promise.all.then.arr (D:\projects\davidenke\ngx-material-keyboard\core\node_modules\lerna\node_modules\execa\index.js:236:11)
+13 error     at <anonymous>

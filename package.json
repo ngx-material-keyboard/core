@@ -15,11 +15,11 @@
   "scripts": {
     "lerna": "cd node_modules && cd .bin && lerna",
     "ng": "ng",
-    "start": "lerna run start",
-    "start:demo": "npm run start -- --scope demo",
+    "start": "npm run start:demo",
+    "start:demo": "lerna run --stream --scope @ngx-material-keyboard/demo start",
     "build": "lerna run --parallel build",
-    "build:core": "npm run build -- --scope core",
-    "build:demo": "npm run build -- --scope demo",
+    "build:core": "lerna run --scope @ngx-material-keyboard/core build",
+    "build:demo": "lerna run --scope @ngx-material-keyboard/demo build",
     "build:docs": "compodoc ./packages/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs"
   },
   "devDependencies": {

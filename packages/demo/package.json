@@ -14,7 +14,7 @@
   "homepage": "https://github.com/ngx-material-keyboard/core",
   "scripts": {
     "postinstall": "npm rebuild node-sass",
-    "build": "ng build --prod --locale=de --progress=false --base-href=/demo/ && cpx -p README.md dist/demo",
+    "build": "ng build --prod --locale=de --progress=false --base-href=/demo/ && cpx -p ../../README.md dist/demo",
     "start": "ng serve --host 0.0.0.0 --disable-host-check"
   },
   "publishConfig": {

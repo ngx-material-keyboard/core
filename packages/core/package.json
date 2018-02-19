@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/ngx-material-keyboard/core",
   "scripts": {
-    "build": "ng-packagr && cpx -p README.md dist/core"
+    "build": "ng-packagr && cpx -p ../../README.md dist/core"
   },
   "publishConfig": {
     "access": "public"

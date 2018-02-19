@@ -89,7 +89,8 @@ export class AppModule {}
 ```
 
 ## Development
-This repository is managed by and layed out for [ng-packagr].
+This monorepo is [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/),
+the core package is managed by [ng-packagr].
 
 ### Versioning
 The application uses [semver][SemVer] and is developed with the [git flow branching model][Git-Flow].
