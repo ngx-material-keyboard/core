@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.layouts = Object
       .keys(this._layouts)
       .map((name: string) => ({
-        name: name,
+        name,
         layout: this._layouts[name]
       }))
       .sort((a, b) => a.layout.name.localeCompare(b.layout.name));

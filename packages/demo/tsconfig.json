@@ -18,7 +18,9 @@
       "es2017"
     ],
     "paths": {
-      "@ngx-material-keyboard/core": [ "src/core/src/public_api.ts" ]
+      "@ngx-material-keyboard/core": [
+        "packages/core/src/public_api.ts"
+      ]
     }
   },
   "exclude": [

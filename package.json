@@ -13,15 +13,13 @@
   },
   "homepage": "https://github.com/ngx-material-keyboard/core",
   "scripts": {
+    "lerna": "cd node_modules && cd .bin && lerna",
     "ng": "ng",
-    "install": "npm run install:core && npm run install:demo",
-    "install:core": "cd packages && cd core && npm install --silent",
-    "install:demo": "cd packages && cd demo && npm install --silent",
-    "start": "npm run start:demo",
-    "start:demo": "cd packages && cd demo && ng serve --host 0.0.0.0 --disable-host-check",
-    "build": "npm run build:core && npm run build:demo && npm run build:docs",
-    "build:core": "cd packages && cd core && ng-packagr && cpx -p README.md dist/core",
-    "build:demo": "cd packages && cd demo && ng build --prod --locale=de --progress=false --base-href=/demo/ && cpx -p README.md dist/demo",
+    "start": "lerna run start",
+    "start:demo": "npm run start -- --scope demo",
+    "build": "lerna run --parallel build",
+    "build:core": "npm run build -- --scope core",
+    "build:demo": "npm run build -- --scope demo",
     "build:docs": "compodoc ./packages/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs"
   },
   "devDependencies": {
@@ -33,20 +31,10 @@
     "@compodoc/compodoc": "1.0.7",
     "@types/node": "9.4.6",
     "cpx": "1.5.0",
-    "ng-packagr": "2.0.0",
+    "lerna": "2.9.0",
     "pkg": "4.3.0",
     "rxjs-tslint-rules": "3.13.1",
-    "ts-node": "4.1.0",
     "tslint": "5.9.1",
     "typescript": "2.6.2"
-  },
-  "dependencies": {
-    "@angular/animations": "^5.2.5",
-    "@angular/cdk": "^5.2.1",
-    "@angular/common": "^5.2.5",
-    "@angular/core": "^5.2.5",
-    "@angular/forms": "^5.2.5",
-    "@angular/material": "^5.2.1",
-    "rxjs": "^5.5.6"
   }
 }

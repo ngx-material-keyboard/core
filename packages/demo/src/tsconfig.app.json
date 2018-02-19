@@ -1,18 +1,9 @@
 {
   "extends": "../tsconfig.json",
-  "angularCompilerOptions": {
-    "paths": {
-      "@ngx-material-keyboard/core": [ "../core/src/public_api.ts" ]
-    }
-  },
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
     "module": "es2015",
-    "baseUrl": ".",
-    "types": [],
-    "paths": {
-      "@ngx-material-keyboard/core": [ "../core/src/public_api.ts" ]
-    }
+    "types": []
   },
   "exclude": [
     "test.ts",

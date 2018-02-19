@@ -12,6 +12,9 @@
     "url": "https://github.com/ngx-material-keyboard/core/issues"
   },
   "homepage": "https://github.com/ngx-material-keyboard/core",
+  "scripts": {
+    "build": "ng-packagr && cpx -p README.md dist/core"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -23,19 +26,13 @@
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/material": "5.2.1",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
     "rxjs": "^5.5.2"
   },
   "devDependencies": {
-    "codelyzer": "4.1.0"
-  },
-  "dependencies": {
-    "@angular/animations": "^5.2.5",
-    "@angular/cdk": "^5.2.1",
-    "@angular/common": "^5.2.5",
-    "@angular/compiler": "^5.2.5",
-    "@angular/core": "^5.2.5",
-    "@angular/forms": "^5.2.5",
-    "@angular/material": "^5.2.1",
-    "rxjs": "^5.5.6"
+    "codelyzer": "4.1.0",
+    "ng-packagr": "2.0.0",
+    "ts-node": "4.1.0"
   }
 }
