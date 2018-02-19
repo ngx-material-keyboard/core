@@ -9,6 +9,7 @@
 //   it included in the distributed script, PLEASE TELL ME if you
 //   have added additional dead keys to the ones below.
 import { InjectionToken } from '@angular/core';
+
 import { IKeyboardDeadkeys } from '../interfaces/keyboard-deadkeys.interface';
 
 const MAT_KEYBOARD_DEADKEYS = new InjectionToken<IKeyboardDeadkeys>('keyboard-deadkey.config');

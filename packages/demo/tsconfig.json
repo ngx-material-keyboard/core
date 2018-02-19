@@ -14,8 +14,8 @@
       "node_modules/@types"
     ],
     "lib": [
-      "es2017",
-      "dom"
+      "dom",
+      "es2017"
     ],
     "paths": {
       "@ngx-material-keyboard/core": [ "src/core/src/public_api.ts" ]

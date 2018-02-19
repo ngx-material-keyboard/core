@@ -3,8 +3,8 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MatKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
 
 /**
  * Reference to a keyboard dispatched from the keyboard service.

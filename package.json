@@ -4,14 +4,14 @@
   "description": "Onscreen virtual keyboard for Angular ≥ 5 (https://angular.io/) using Material 2 (https://material.angular.io/).",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngx-material-keyboard/ngx-material-keyboard.git"
+    "url": "git+https://github.com/ngx-material-keyboard/core.git"
   },
   "author": "David Enke <post@davidenke.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ngx-material-keyboard/ngx-material-keyboard/issues"
+    "url": "https://github.com/ngx-material-keyboard/core/issues"
   },
-  "homepage": "https://github.com/ngx-material-keyboard/ngx-material-keyboard.git#readme",
+  "homepage": "https://github.com/ngx-material-keyboard/core",
   "scripts": {
     "ng": "ng",
     "install": "npm run install:core && npm run install:demo",
@@ -25,19 +25,28 @@
     "build:docs": "compodoc ./packages/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs"
   },
   "devDependencies": {
-    "@angular/cli": "1.5.4",
-    "@angular/compiler-cli": "5.0.3",
-    "@angular/language-service": "5.0.3",
+    "@angular/cli": "1.7.0",
+    "@angular/compiler": "^5.2.5",
+    "@angular/compiler-cli": "5.2.5",
+    "@angular/language-service": "5.2.5",
     "@angular/tsc-wrapped": "4.4.6",
-    "@compodoc/compodoc": "1.0.4",
-    "@types/node": "8.0.53",
-    "codelyzer": "4.0.1",
+    "@compodoc/compodoc": "1.0.7",
+    "@types/node": "9.4.6",
     "cpx": "1.5.0",
-    "ng-packagr": "2.0.0-rc.3",
-    "pkg": "4.3.0-beta.4",
-    "rxjs-tslint-rules": "3.1.2",
-    "ts-node": "3.3.0",
-    "tslint": "5.8.0",
-    "typescript": "2.6.1"
+    "ng-packagr": "2.0.0",
+    "pkg": "4.3.0",
+    "rxjs-tslint-rules": "3.13.1",
+    "ts-node": "4.1.0",
+    "tslint": "5.9.1",
+    "typescript": "2.6.2"
+  },
+  "dependencies": {
+    "@angular/animations": "^5.2.5",
+    "@angular/cdk": "^5.2.1",
+    "@angular/common": "^5.2.5",
+    "@angular/core": "^5.2.5",
+    "@angular/forms": "^5.2.5",
+    "@angular/material": "^5.2.1",
+    "rxjs": "^5.5.6"
   }
 }

@@ -100,6 +100,7 @@
  *
  */
 import { InjectionToken } from '@angular/core';
+
 import { KeyboardClassKey } from '../enums/keyboard-class-key.enum';
 import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
 

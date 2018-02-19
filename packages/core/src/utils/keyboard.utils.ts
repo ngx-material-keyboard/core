@@ -1,6 +1,6 @@
-import { ILocaleMap } from '../interfaces/locale-map.interface';
-import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
 import { MatKeyboardConfig } from '../configs/keyboard.config';
+import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
+import { ILocaleMap } from '../interfaces/locale-map.interface';
 
 /**
  * Applies default options to the keyboard configs.
@@ -23,12 +23,11 @@ export function _applyAvailableLayouts(layouts: IKeyboardLayouts): ILocaleMap {
 
   Object
     .keys(layouts)
-    .forEach(layout => {
-      if (layouts[layout].lang) {
-        layouts[layout].lang.forEach(lang => {
+    .filter((layout: string) => 'lang' in layouts[layout])
+    .forEach((layout: string) => {
+        layouts[layout].lang.forEach((lang: string) => {
           _availableLocales[lang] = layout;
         });
-      }
     });
 
   return _availableLocales;

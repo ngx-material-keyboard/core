@@ -12,19 +12,19 @@
     "directive-selector": [
       true,
       "attribute",
-      "matKeyboardDemo",
+      "matKeyboard",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "mat-keyboard-demo",
+      "mat-keyboard",
       "kebab-case"
     ],
     "pipe-naming": [
       true,
       "camelCase",
-      "matKeyboardDemo"
+      "matKeyboard"
     ]
   }
 }

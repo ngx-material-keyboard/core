@@ -1,15 +1,15 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { MatInput } from '@angular/material/input';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
-import { IKeyboardLayout } from '../../interfaces/keyboard-layout.interface';
-import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
-import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
 import { MatKeyboardRef } from '../../classes/keyboard-ref.class';
+import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
+import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
+import { IKeyboardLayout } from '../../interfaces/keyboard-layout.interface';
 import { MatKeyboardService } from '../../services/keyboard.service';
-import { MatKeyboardKeyComponent } from '../../components/keyboard-key/keyboard-key.component';
+import { MatKeyboardKeyComponent } from '../keyboard-key/keyboard-key.component';
 
 /**
  * A component used to open as the default keyboard, matching material spec.

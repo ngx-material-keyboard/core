@@ -4,8 +4,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, Em
 import { AnimationCurves, AnimationDurations } from '@angular/material/core';
 
 import { Observable } from 'rxjs/Observable';
+import { first } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/first';
 
 import { MatKeyboardConfig } from '../../configs/keyboard.config';
 import { KeyboardAnimationState } from '../../enums/keyboard-animation-state.enum';
@@ -140,7 +140,7 @@ export class MatKeyboardContainerComponent extends BasePortalOutlet implements O
   private _completeExit() {
     this._ngZone.onMicrotaskEmpty
       .asObservable()
-      .first()
+      .pipe(first())
       .subscribe(() => {
         this.onExit.next();
         this.onExit.complete();

@@ -229,7 +229,7 @@ export class MatKeyboardKeyComponent implements OnInit {
     if ('selectionStart' in this.input.nativeElement) {
       // Standard-compliant browsers
       return this.input.nativeElement.selectionStart;
-    } else if (window.document['selection']) {
+    } else if ('selection' in window.document) {
       // IE
       this.input.nativeElement.focus();
       const sel = window.document['selection'].createRange();

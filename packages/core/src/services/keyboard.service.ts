@@ -1,17 +1,17 @@
-import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
+import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf } from '@angular/core';
 
-import { _applyAvailableLayouts, _applyConfigDefaults } from '../utils/keyboard.utils';
-import { ILocaleMap } from '../interfaces/locale-map.interface';
-import { IKeyboardLayout } from '../interfaces/keyboard-layout.interface';
-import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
+import { MatKeyboardRef } from '../classes/keyboard-ref.class';
+import { MatKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MAT_KEYBOARD_LAYOUTS } from '../configs/keyboard-layouts.config';
 import { MatKeyboardConfig } from '../configs/keyboard.config';
-import { MatKeyboardRef } from '../classes/keyboard-ref.class';
-import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
-import { MatKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { IKeyboardLayout } from '../interfaces/keyboard-layout.interface';
+import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
+import { ILocaleMap } from '../interfaces/locale-map.interface';
+import { _applyAvailableLayouts, _applyConfigDefaults } from '../utils/keyboard.utils';
 
 /**
  * Service to dispatch Material Design keyboard.

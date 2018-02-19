@@ -1,9 +1,9 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Optional, Output, Self } from '@angular/core';
-import { MatInput } from '@angular/material';
+import { MatInput } from '@angular/material/input';
 
 import { MatKeyboardRef } from '../classes/keyboard-ref.class';
-import { MatKeyboardService } from '../services/keyboard.service';
 import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
+import { MatKeyboardService } from '../services/keyboard.service';
 
 @Directive({
   selector: 'input[matKeyboard], textarea[matKeyboard]'

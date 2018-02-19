@@ -20,6 +20,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "mat-keyboard-demo",
       "styles": [
+        "../node_modules/reset-css/_reset.scss",
         "styles.scss"
       ],
       "scripts": [],
