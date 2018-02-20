@@ -27,7 +27,7 @@
 12 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m This is probably not a problem with npm. There is likely additional logging output above.
 12 error [0m
 12 error [37;40mnpm[0m [0m[31;40mERR![0m[35m[0m A complete log of this run can be found in:
-12 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m     C:\Users\david\AppData\Roaming\npm-cache\_logs\2018-02-20T00_38_21_912Z-debug.log
+12 error [0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m     C:\Users\david\AppData\Roaming\npm-cache\_logs\2018-02-20T01_02_46_587Z-debug.log
 12 error [0m
 12 error
 12 error > @ngx-material-keyboard/demo@0.0.12 start D:\projects\davidenke\ngx-material-keyboard\core\packages\demo

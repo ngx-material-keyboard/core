@@ -1,6 +1,6 @@
 {
   "name": "@ngx-material-keyboard/demo",
-  "version": "0.0.12-SNAPSHOT",
+  "version": "0.0.12",
   "description": "Demo for testing the ngx-material-keboard components and library.",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "@angular/platform-browser": "5.2.5",
     "@angular/platform-browser-dynamic": "5.2.5",
     "@angular/router": "5.2.5",
-    "@ngx-material-keyboard/core": "*",
+    "@ngx-material-keyboard/core": "0.0.12",
     "classlist.js": "1.1.20150312",
     "core-js": "2.5.3",
     "hammerjs": "2.0.8",
