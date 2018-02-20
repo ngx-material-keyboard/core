@@ -6,7 +6,6 @@ import { ILocaleMap } from '../interfaces/locale-map.interface';
  * Applies default options to the keyboard configs.
  * @param config The configuration to which the defaults will be applied.
  * @returns The new configuration object with defaults applied.
- * @private
  */
 export function _applyConfigDefaults(config: MatKeyboardConfig): MatKeyboardConfig {
   return Object.assign(new MatKeyboardConfig(), config);
@@ -14,9 +13,7 @@ export function _applyConfigDefaults(config: MatKeyboardConfig): MatKeyboardConf
 
 /**
  * Applies available layouts.
- * @param {IKeyboardLayouts} layouts
- * @returns {ILocaleMap}
- * @private
+ * @param layouts
  */
 export function _applyAvailableLayouts(layouts: IKeyboardLayouts): ILocaleMap {
   const _availableLocales: ILocaleMap = {};

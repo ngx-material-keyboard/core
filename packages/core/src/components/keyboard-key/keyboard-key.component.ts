@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { MatInput } from '@angular/material/input';
+import { NgControl } from '@angular/forms';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -53,7 +53,7 @@ export class MatKeyboardKeyComponent implements OnInit {
   input?: ElementRef;
 
   @Input()
-  control?: MatInput;
+  control?: NgControl;
 
   @Output()
   enterClick = new EventEmitter<void>();
@@ -117,9 +117,10 @@ export class MatKeyboardKeyComponent implements OnInit {
   }
 
   set inputValue(inputValue: string) {
+    console.log(inputValue, this.control)
     if (this.control) {
-      this.control.value = inputValue;
-    } else if (this.input) {
+      this.control.viewToModelUpdate(inputValue);
+    } else if (this.input && this.input.nativeElement) {
       this.input.nativeElement.value = inputValue;
     }
   }
