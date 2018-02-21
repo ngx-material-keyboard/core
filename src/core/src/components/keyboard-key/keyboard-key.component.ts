@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { MatInput } from '@angular/material/input';
+import { FormControl } from '@angular/forms';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { MAT_KEYBOARD_DEADKEYS } from '../../configs/keyboard-deadkey.config';
 import { MAT_KEYBOARD_ICONS } from '../../configs/keyboard-icons.config';
 import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
+import { IKeyboardDeadkeys } from '../../interfaces/keyboard-deadkeys.interface';
+import { IKeyboardIcons } from '../../interfaces/keyboard-icons.interface';
 
 export const VALUE_NEWLINE = '\n\r';
 export const VALUE_SPACE = ' ';
@@ -53,19 +55,34 @@ export class MatKeyboardKeyComponent implements OnInit {
   input?: ElementRef;
 
   @Input()
-  control?: MatInput;
+  control?: FormControl;
 
   @Output()
-  enterClick = new EventEmitter<void>();
+  genericClick = new EventEmitter<MouseEvent>();
 
   @Output()
-  capsClick = new EventEmitter<void>();
+  enterClick = new EventEmitter<MouseEvent>();
 
   @Output()
-  altClick = new EventEmitter<void>();
+  bkspClick = new EventEmitter<MouseEvent>();
 
   @Output()
-  shiftClick = new EventEmitter<void>();
+  capsClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  altClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  shiftClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  spaceClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  tabClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  keyClick = new EventEmitter<MouseEvent>();
 
   get lowerKey(): string {
     return `${this.key}`.toLowerCase();
@@ -118,15 +135,15 @@ export class MatKeyboardKeyComponent implements OnInit {
 
   set inputValue(inputValue: string) {
     if (this.control) {
-      this.control.value = inputValue;
-    } else if (this.input) {
+      this.control.setValue(inputValue);
+    } else if (this.input && this.input.nativeElement) {
       this.input.nativeElement.value = inputValue;
     }
   }
 
   // Inject dependencies
-  constructor(@Inject(MAT_KEYBOARD_DEADKEYS) private _deadkeys,
-              @Inject(MAT_KEYBOARD_ICONS) private _icons) {}
+  constructor(@Inject(MAT_KEYBOARD_DEADKEYS) private _deadkeys: IKeyboardDeadkeys,
+              @Inject(MAT_KEYBOARD_ICONS) private _icons: IKeyboardIcons) {}
 
   ngOnInit() {
     // read the deadkeys
@@ -136,10 +153,13 @@ export class MatKeyboardKeyComponent implements OnInit {
     this._iconKeys = Object.keys(this._icons);
   }
 
-  onClick() {
+  onClick(event: MouseEvent) {
     // Trigger a global key event
-    // TODO: determine whether an output should bubble the pressed key similar to the keybboard action or not
+    // TODO: investigate
     this._triggerKeyEvent();
+
+    // Trigger generic click event
+    this.genericClick.emit(event);
 
     // Manipulate the focused input / textarea value
     const value = this.inputValue;
@@ -152,23 +172,24 @@ export class MatKeyboardKeyComponent implements OnInit {
       case KeyboardClassKey.Alt:
       case KeyboardClassKey.AltGr:
       case KeyboardClassKey.AltLk:
-        this.altClick.next();
+        this.altClick.emit(event);
         break;
 
       case KeyboardClassKey.Bksp:
         this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
         this._setCursorPosition(caret - 1);
+        this.bkspClick.emit(event);
         break;
 
       case KeyboardClassKey.Caps:
-        this.capsClick.next();
+        this.capsClick.emit(event);
         break;
 
       case KeyboardClassKey.Enter:
         if (this._isTextarea()) {
           char = VALUE_NEWLINE;
         } else {
-          this.enterClick.next();
+          this.enterClick.emit(event);
           // TODO: trigger submit / onSubmit / ngSubmit properly (for the time being this has to be handled by the user himself)
           // console.log(this.control.ngControl.control.root)
           // this.input.nativeElement.form.submit();
@@ -176,20 +197,23 @@ export class MatKeyboardKeyComponent implements OnInit {
         break;
 
       case KeyboardClassKey.Shift:
-        this.shiftClick.next();
+        this.shiftClick.emit(event);
         break;
 
       case KeyboardClassKey.Space:
         char = VALUE_SPACE;
+        this.spaceClick.emit(event);
         break;
 
       case KeyboardClassKey.Tab:
         char = VALUE_TAB;
+        this.tabClick.emit(event);
         break;
 
       default:
         // the key is not mapped or a string
         char = `${this.key}`;
+        this.keyClick.emit(event);
         break;
     }
 
@@ -229,7 +253,7 @@ export class MatKeyboardKeyComponent implements OnInit {
     if ('selectionStart' in this.input.nativeElement) {
       // Standard-compliant browsers
       return this.input.nativeElement.selectionStart;
-    } else if (window.document['selection']) {
+    } else if ('selection' in window.document) {
       // IE
       this.input.nativeElement.focus();
       const sel = window.document['selection'].createRange();

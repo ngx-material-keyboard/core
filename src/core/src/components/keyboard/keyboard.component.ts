@@ -1,15 +1,15 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
-import { MatInput } from '@angular/material/input';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
-import { IKeyboardLayout } from '../../interfaces/keyboard-layout.interface';
-import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
-import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
 import { MatKeyboardRef } from '../../classes/keyboard-ref.class';
+import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
+import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
+import { IKeyboardLayout } from '../../interfaces/keyboard-layout.interface';
 import { MatKeyboardService } from '../../services/keyboard.service';
-import { MatKeyboardKeyComponent } from '../../components/keyboard-key/keyboard-key.component';
+import { MatKeyboardKeyComponent } from '../keyboard-key/keyboard-key.component';
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -42,7 +42,7 @@ export class MatKeyboardComponent implements OnInit {
 
   layout: IKeyboardLayout;
 
-  control: MatInput;
+  control: AbstractControl;
 
   // the instance of the component making up the content of the keyboard
   keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
@@ -84,12 +84,15 @@ export class MatKeyboardComponent implements OnInit {
   }
 
   // inject dependencies
-  constructor(@Inject(LOCALE_ID) private _locale,
+  constructor(@Inject(LOCALE_ID) private _locale: string,
               private _keyboardService: MatKeyboardService) {}
 
-  setInputInstance(inputInstance: ElementRef, control: MatInput) {
-    this.control = control;
+  setInputInstance(inputInstance: ElementRef) {
     this._inputInstance$.next(inputInstance);
+  }
+
+  attachControl(control: AbstractControl) {
+    this.control = control;
   }
 
   ngOnInit() {
@@ -109,8 +112,8 @@ export class MatKeyboardComponent implements OnInit {
 
   /**
    * checks if a given key is currently pressed
-   * @param {(string | KeyboardClassKey)[]} key
-   * @returns {boolean}
+   * @param key
+   * @param
    */
   isActive(key: (string | KeyboardClassKey)[]): boolean {
     const modifiedKey: string = this.getModifiedKey(key);
@@ -133,7 +136,7 @@ export class MatKeyboardComponent implements OnInit {
 
   /**
    * listens to users keyboard inputs to simulate on virtual keyboard, too
-   * @param {KeyboardEvent} event
+   * @param event
    */
   @HostListener('document:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
@@ -158,7 +161,7 @@ export class MatKeyboardComponent implements OnInit {
 
   /**
    * listens to users keyboard inputs to simulate on virtual keyboard, too
-   * @param {KeyboardEvent} event
+   * @param event
    */
   @HostListener('document:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent) {
@@ -188,7 +191,7 @@ export class MatKeyboardComponent implements OnInit {
 
   /**
    * simulates clicking `CapsLock` key
-   * @param {boolean} targetState
+   * @param targetState
    */
   onCapsClick(targetState = !this._capsLocked) {
     // not implemented
