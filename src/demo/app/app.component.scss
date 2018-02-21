@@ -1,28 +1,47 @@
 .content {
-  margin: 40px 30px;
+  margin: 40px 32px;
 }
 
 .row {
   align-items: flex-end;
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  padding: 8px;
+
+  .content-test-form &:last-of-type > .col:last-of-type {
+    align-self: flex-start;
+    padding-top: 8px;
+  }
 }
 
 .col {
-  box-sizing: border-box;
-  flex: 1 1 33.333333%;
-  margin: 0 10px;
+  position: relative;
+
+  > .mat-input-container {
+    display: block;
+  }
 }
 
 .mat-raised-button {
   width: 100%;
 
   .mat-select + & {
-    margin-top: 20px;
+    margin-top: 24px;
   }
 }
 
 .mat-select {
   display: block;
+}
+
+pre {
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  display: block;
+  font: 11px/1.5 Monospaced, monospace;
+  margin: 8px 0;
+  min-height: 16px;
+  padding: 4px 8px;
+  white-space: normal;
 }
