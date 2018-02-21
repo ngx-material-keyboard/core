@@ -55,19 +55,34 @@ export class MatKeyboardKeyComponent implements OnInit {
   input?: ElementRef;
 
   @Input()
-  control?: MatInput;
+  control?: FormControl;
 
   @Output()
-  enterClick = new EventEmitter<void>();
+  genericClick = new EventEmitter<MouseEvent>();
 
   @Output()
-  capsClick = new EventEmitter<void>();
+  enterClick = new EventEmitter<MouseEvent>();
 
   @Output()
-  altClick = new EventEmitter<void>();
+  bkspClick = new EventEmitter<MouseEvent>();
 
   @Output()
-  shiftClick = new EventEmitter<void>();
+  capsClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  altClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  shiftClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  spaceClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  tabClick = new EventEmitter<MouseEvent>();
+
+  @Output()
+  keyClick = new EventEmitter<MouseEvent>();
 
   get lowerKey(): string {
     return `${this.key}`.toLowerCase();
@@ -138,10 +153,13 @@ export class MatKeyboardKeyComponent implements OnInit {
     this._iconKeys = Object.keys(this._icons);
   }
 
-  onClick() {
+  onClick(event: MouseEvent) {
     // Trigger a global key event
-    // TODO: determine whether an output should bubble the pressed key similar to the keybboard action or not
+    // TODO: investigate
     this._triggerKeyEvent();
+
+    // Trigger generic click event
+    this.genericClick.emit(event);
 
     // Manipulate the focused input / textarea value
     const value = this.inputValue;
@@ -154,23 +172,24 @@ export class MatKeyboardKeyComponent implements OnInit {
       case KeyboardClassKey.Alt:
       case KeyboardClassKey.AltGr:
       case KeyboardClassKey.AltLk:
-        this.altClick.next();
+        this.altClick.emit(event);
         break;
 
       case KeyboardClassKey.Bksp:
         this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
         this._setCursorPosition(caret - 1);
+        this.bkspClick.emit(event);
         break;
 
       case KeyboardClassKey.Caps:
-        this.capsClick.next();
+        this.capsClick.emit(event);
         break;
 
       case KeyboardClassKey.Enter:
         if (this._isTextarea()) {
           char = VALUE_NEWLINE;
         } else {
-          this.enterClick.next();
+          this.enterClick.emit(event);
           // TODO: trigger submit / onSubmit / ngSubmit properly (for the time being this has to be handled by the user himself)
           // console.log(this.control.ngControl.control.root)
           // this.input.nativeElement.form.submit();
@@ -178,20 +197,23 @@ export class MatKeyboardKeyComponent implements OnInit {
         break;
 
       case KeyboardClassKey.Shift:
-        this.shiftClick.next();
+        this.shiftClick.emit(event);
         break;
 
       case KeyboardClassKey.Space:
         char = VALUE_SPACE;
+        this.spaceClick.emit(event);
         break;
 
       case KeyboardClassKey.Tab:
         char = VALUE_TAB;
+        this.tabClick.emit(event);
         break;
 
       default:
         // the key is not mapped or a string
         char = `${this.key}`;
+        this.keyClick.emit(event);
         break;
     }
 
