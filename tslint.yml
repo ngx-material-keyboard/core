@@ -1,28 +1,24 @@
-rulesDirectory:
-- node_modules/codelyzer
 extends:
+- tslint:latest
 - rxjs-tslint-rules
 rules:
-  callable-types: true
-  class-name: true
-  comment-format:
+  # tslint rules
+  array-type:
   - true
-  - check-space
-  curly: true
-  eofline: true
-  forin: true
-  import-blacklist:
+  - array
+  experimentalDecorators:
   - true
-  - rxjs
-  import-spacing: true
-  indent:
+  quotemark:
   - true
-  - spaces
-  interface-over-type-literal: true
-  label-position: true
+  - single
+  interface-name:
+  - never-prefix
   max-line-length:
-  - false
-  member-access: false
+  - true
+  - 180
+  member-access:
+  - true
+  - no-public
   member-ordering:
   - true
   - order:
@@ -33,50 +29,13 @@ rules:
     - public-constructor
     - public-instance-method
     - private-instance-method
-  no-arg: true
-  no-bitwise: true
-  no-console:
-  - true
-  - debug
-  - info
-  - time
-  - timeEnd
-  - trace
-  no-construct: true
-  no-debugger: true
-  no-duplicate-variable: true
-  no-empty: false
-  no-empty-interface: true
-  no-eval: true
-  no-inferrable-types:
-  - true
-  - ignore-params
-  no-shadowed-variable: true
+  no-console: false
   no-string-literal: false
-  no-string-throw: true
-  no-switch-case-fall-through: true
-  no-trailing-whitespace: true
-  no-unused-expression: true
-  no-use-before-declare: true
-  no-var-keyword: true
+  no-submodule-imports: false
+  object-literal-key-quotes:
+  - consistent-as-needed
   object-literal-sort-keys: false
-  one-line:
-  - true
-  - check-open-brace
-  - check-catch
-  - check-else
-  - check-whitespace
-  prefer-const: true
-  quotemark:
-  - true
-  - single
-  radix: true
-  semicolon:
-  - true
-  - always
-  triple-equals:
-  - true
-  - allow-null-check
+  trailing-comma: false
   typedef-whitespace:
   - true
   - call-signature: nospace
@@ -84,51 +43,17 @@ rules:
     parameter: nospace
     property-declaration: nospace
     variable-declaration: nospace
-  typeof-compare: true
-  unified-signatures: true
-  variable-name: false
-  whitespace:
+  variable-name:
   - true
-  - check-branch
-  - check-decl
-  - check-operator
-  - check-separator
-  - check-type
-  angular-whitespace:
-  - true
-  - check-interpolation
-  - check-semicolon
-  banana-in-box: true
-  templates-no-negated-async: true
-  directive-selector:
-  - true
-  - attribute
-  - matKeyboard
-  - camelCase
-  component-selector:
-  - true
-  - element
-  - mat-keyboard
-  - kebab-case
-  use-input-property-decorator: true
-  use-output-property-decorator: true
-  use-host-property-decorator: true
-  no-attribute-parameter-decorator: true
-  no-input-rename: true
-  no-output-rename: true
-  no-forward-ref: false
-  use-life-cycle-interface: true
-  use-pipe-transform-interface: true
-  pipe-naming:
-  - true
-  - camelCase
-  - matKeyboard
-  component-class-suffix: true
-  directive-class-suffix: true
-  no-access-missing-member: false
-  rxjs-add:
+  - check-format
+  - allow-leading-underscore
+
+  # rxjs-tslint-rules
+  rxjs-no-add:
     severity: error
-  rxjs-no-unused-add:
+  rxjs-no-operator:
+    severity: error
+  rxjs-no-patched:
     severity: error
   rxjs-no-wholesale:
     severity: error
