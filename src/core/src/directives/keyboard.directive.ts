@@ -1,9 +1,9 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Optional, Output, Self } from '@angular/core';
-import { MatInput } from '@angular/material';
+import { NgControl } from '@angular/forms';
 
 import { MatKeyboardRef } from '../classes/keyboard-ref.class';
-import { MatKeyboardService } from '../services/keyboard.service';
 import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
+import { MatKeyboardService } from '../services/keyboard.service';
 
 @Directive({
   selector: 'input[matKeyboard], textarea[matKeyboard]'
@@ -30,7 +30,7 @@ export class MatKeyboardDirective implements OnDestroy {
 
   constructor(private _elementRef: ElementRef,
               private _keyboardService: MatKeyboardService,
-              @Optional() @Self() private _control?: MatInput) {}
+              @Optional() @Self() private _control?: NgControl) {}
 
   ngOnDestroy() {
     this._hideKeyboard();
