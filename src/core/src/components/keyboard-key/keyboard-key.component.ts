@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { MatInput } from '@angular/material/input';
+import { FormControl } from '@angular/forms';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -120,8 +120,8 @@ export class MatKeyboardKeyComponent implements OnInit {
 
   set inputValue(inputValue: string) {
     if (this.control) {
-      this.control.value = inputValue;
-    } else if (this.input) {
+      this.control.setValue(inputValue);
+    } else if (this.input && this.input.nativeElement) {
       this.input.nativeElement.value = inputValue;
     }
   }

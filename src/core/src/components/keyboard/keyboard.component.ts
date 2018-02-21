@@ -1,5 +1,5 @@
-import { MatInput } from '@angular/material/input';
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -42,7 +42,7 @@ export class MatKeyboardComponent implements OnInit {
 
   layout: IKeyboardLayout;
 
-  control: MatInput;
+  control: AbstractControl;
 
   // the instance of the component making up the content of the keyboard
   keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
@@ -87,9 +87,12 @@ export class MatKeyboardComponent implements OnInit {
   constructor(@Inject(LOCALE_ID) private _locale: string,
               private _keyboardService: MatKeyboardService) {}
 
-  setInputInstance(inputInstance: ElementRef, control: MatInput) {
-    this.control = control;
+  setInputInstance(inputInstance: ElementRef) {
     this._inputInstance$.next(inputInstance);
+  }
+
+  attachControl(control: AbstractControl) {
+    this.control = control;
   }
 
   ngOnInit() {
