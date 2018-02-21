@@ -14,27 +14,21 @@
   "homepage": "https://github.com/ngx-material-keyboard/core",
   "scripts": {
     "lerna": "cd node_modules && cd .bin && lerna",
-    "ng": "ng",
     "start": "npm run start:demo",
     "start:demo": "lerna run --stream --scope @ngx-material-keyboard/demo start",
     "build": "lerna run --parallel build",
-    "build:core": "lerna run --scope @ngx-material-keyboard/core build",
-    "build:demo": "lerna run --scope @ngx-material-keyboard/demo build",
+    "build:core": "lerna run --stream --scope @ngx-material-keyboard/core build",
+    "build:demo": "lerna run --stream --scope @ngx-material-keyboard/demo build",
     "build:docs": "compodoc ./packages/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs"
   },
   "devDependencies": {
-    "@angular/cli": "1.7.0",
-    "@angular/compiler": "^5.2.5",
-    "@angular/compiler-cli": "5.2.5",
-    "@angular/language-service": "5.2.5",
-    "@angular/tsc-wrapped": "4.4.6",
     "@compodoc/compodoc": "1.0.7",
     "@types/node": "9.4.6",
     "cpx": "1.5.0",
-    "lerna": "^2.9.0",
+    "lerna": "2.9.0",
     "pkg": "4.3.0",
     "rxjs-tslint-rules": "3.13.1",
     "tslint": "5.9.1",
-    "typescript": "2.6.2"
+    "typescript": "2.7.2"
   }
 }

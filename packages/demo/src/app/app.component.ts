@@ -1,8 +1,8 @@
-import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
-import { IKeyboardLayout, MAT_KEYBOARD_LAYOUTS, MatKeyboardComponent, MatKeyboardRef, MatKeyboardService } from '@ngx-material-keyboard/core';
+import { IKeyboardLayout, IKeyboardLayouts, MAT_KEYBOARD_LAYOUTS, MatKeyboardComponent, MatKeyboardRef, MatKeyboardService } from '@ngx-material-keyboard/core';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -20,6 +20,9 @@ export class AppComponent implements OnInit, OnDestroy {
   private _keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
 
   private _submittedForms = new BehaviorSubject<{ control: string, value: string }[][]>([]);
+
+  @ViewChild('form')
+  private _form: NgForm;
 
   get submittedForms(): Observable<{ control: string, value: string }[][]> {
     return this._submittedForms.asObservable();
@@ -49,8 +52,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   constructor(private _keyboardService: MatKeyboardService,
-              @Inject(LOCALE_ID) public locale,
-              @Inject(MAT_KEYBOARD_LAYOUTS) private _layouts) {}
+              @Inject(LOCALE_ID) public locale: string,
+              @Inject(MAT_KEYBOARD_LAYOUTS) private _layouts: IKeyboardLayouts) {}
 
   ngOnInit() {
     this.defaultLocale = ` ${this.locale}`.slice(1);
@@ -67,7 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.closeCurrentKeyboard();
   }
 
-  submitForm(form?: NgForm) {
+  submitForm(form: NgForm) {
     const submittedForms = this._submittedForms.getValue();
     const submittedForm = Object
       .keys(form.controls)
@@ -86,7 +89,7 @@ export class AppComponent implements OnInit, OnDestroy {
       isDebug: this.isDebug
     });
     this._enterSubscription = this._keyboardRef.instance.enterClick.subscribe(() => {
-      this.submitForm();
+      this.submitForm(this._form);
     });
   }
 

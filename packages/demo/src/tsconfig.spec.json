@@ -8,10 +8,7 @@
     "types": [
       "jasmine",
       "node"
-    ],
-    "paths": {
-      "@ngx-material-keyboard/core": [ "../core/src/public_api.ts" ]
-    }
+    ]
   },
   "files": [
     "test.ts"

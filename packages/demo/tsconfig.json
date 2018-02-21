@@ -2,13 +2,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "baseUrl": "../../",
+    "baseUrl": "./",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noStrictGenericChecks": true,
     "noUnusedParameters": false,
+    "skipLibCheck": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -16,7 +18,10 @@
     "lib": [
       "dom",
       "es2017"
-    ]
+    ],
+    "paths": {
+      "@ngx-material-keyboard/core": [ "../../core/src/public_api.ts" ]
+    }
   },
   "exclude": [
     ".ng_build"
