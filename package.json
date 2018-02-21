@@ -1,6 +1,6 @@
 {
   "name": "ngx-material-keyboard-src",
-  "version": "0.0.12-SNAPSHOT",
+  "version": "0.1.0",
   "description": "Onscreen virtual keyboard for Angular ≥ 5 (https://angular.io/) using Material 2 (https://material.angular.io/).",
   "repository": {
     "type": "git",
