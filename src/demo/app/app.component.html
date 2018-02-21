@@ -6,7 +6,7 @@
       Keyboard variants
     </ng-template>
 
-    <form class="content">
+    <form class="content content-keyboard-variants">
 
       <section class="row">
         <div class="col">
@@ -89,52 +89,98 @@
     </ng-template>
 
     <form novalidate
-          class="content"
+          class="content content-test-form"
           #form="ngForm"
           (ngSubmit)="form.valid && submitForm(form)"
     >
 
       <section class="row">
-        <mat-input-container class="col">
-          <input
-              matInput
-              matKeyboard
-              placeholder="Locale"
-              name="sushi"
-              [ngModel]="'Sushi'"
-              (enterClick)="submitForm(form)"
-          >
-        </mat-input-container>
+        <div class="col">
+          <mat-input-container>
+            <input
+                matInput
+                matKeyboard
+                placeholder="From detected locale ({{ locale }})"
+                name="sushi"
+                [(ngModel)]="testModelValue"
+                (enterClick)="submitForm(form)"
+            >
+            <mat-hint>Using <code>ngModel</code> two way binding</mat-hint>
+          </mat-input-container>
 
-        <mat-input-container class="col">
-          <input
-              matInput
-              placeholder="de-CH"
-              name="emmentaler"
-              [matKeyboard]="'de-CH'"
-              [ngModel]="'Emmentaler'"
-              (enterClick)="submitForm(form)"
-          >
-        </mat-input-container>
+          <pre>{{ testModelValue }}</pre>
+        </div>
 
-        <mat-input-container class="col">
-          <input
-              matInput
-              placeholder="Azərbaycanca"
-              [matKeyboard]="'Azərbaycanca'"
-              (enterClick)="submitForm(form)"
-          >
-        </mat-input-container>
+        <div class="col">
+          <mat-input-container>
+            <input
+                #testSimpleValue
+                type="number"
+                matInput
+                placeholder="Swiss bank combination lock"
+                name="safe"
+                [matKeyboard]="'de-CH'"
+                [value]="123"
+                (enterClick)="submitForm(form)"
+            >
+            <mat-hint>Simple <code>Element.value</code> binding</mat-hint>
+          </mat-input-container>
+
+          <pre>{{ testSimpleValue.value }}</pre>
+        </div>
+
+        <div class="col">
+          <mat-input-container>
+            <input
+                matInput
+                matKeyboard
+                placeholder="Something with cheese"
+                name="emmentaler"
+                [formControl]="testControlValue"
+                (enterClick)="submitForm(form)"
+            >
+            <mat-hint>Reactive binding with <code>formControl</code></mat-hint>
+          </mat-input-container>
+
+          <pre>{{ testControlValue.value }}</pre>
+        </div>
+
+        <div class="col">
+          <mat-input-container>
+            <input
+                matInput
+                ngModel
+                #testModelReference="ngModel"
+                name="azerbaijani"
+                placeholder="Azərbaycanca"
+                [matKeyboard]="'Azərbaycanca'"
+                (enterClick)="submitForm(form)"
+            >
+            <mat-hint><code>ngModel</code> access by template binding</mat-hint>
+          </mat-input-container>
+
+          <pre>{{ testModelReference.value }}</pre>
+        </div>
       </section>
 
       <section class="row">
-        <button
-            mat-raised-button
-            type="submit"
-            aria-label="Submit form"
-        >
-          Submit
-        </button>
+        <div class="col">
+          <pre *ngFor="let submittedForm of submittedForms | async">
+            <ng-container *ngFor="let submitedValue of submittedForm">
+              {{ submitedValue.control }}: {{ submitedValue.value }}<br>
+            </ng-container>
+          </pre>
+        </div>
+
+        <div class="col">
+          <button
+              mat-raised-button
+              type="submit"
+              aria-label="Submit form"
+          >
+            Submit
+          </button>
+        </div>
       </section>
 
     </form>

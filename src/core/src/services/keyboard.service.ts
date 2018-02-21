@@ -1,17 +1,17 @@
-import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
+import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf } from '@angular/core';
 
-import { _applyAvailableLayouts, _applyConfigDefaults } from '../utils/keyboard.utils';
-import { ILocaleMap } from '../interfaces/locale-map.interface';
-import { IKeyboardLayout } from '../interfaces/keyboard-layout.interface';
-import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
+import { MatKeyboardRef } from '../classes/keyboard-ref.class';
+import { MatKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
 import { MAT_KEYBOARD_LAYOUTS } from '../configs/keyboard-layouts.config';
 import { MatKeyboardConfig } from '../configs/keyboard.config';
-import { MatKeyboardRef } from '../classes/keyboard-ref.class';
-import { MatKeyboardComponent } from '../components/keyboard/keyboard.component';
-import { MatKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
+import { IKeyboardLayout } from '../interfaces/keyboard-layout.interface';
+import { IKeyboardLayouts } from '../interfaces/keyboard-layouts.interface';
+import { ILocaleMap } from '../interfaces/locale-map.interface';
+import { _applyAvailableLayouts, _applyConfigDefaults } from '../utils/keyboard.utils';
 
 /**
  * Service to dispatch Material Design keyboard.
@@ -62,9 +62,8 @@ export class MatKeyboardService {
    * Creates and dispatches a keyboard with a custom component for the content, removing any
    * currently opened keyboards.
    *
-   * @param {string} layoutOrLocale layout or locale to use.
-   * @param {MatKeyboardConfig} config Extra configuration for the keyboard.
-   * @returns {MatKeyboardRef<MatKeyboardComponent>}
+   * @param layoutOrLocale layout or locale to use.
+   * @param config Extra configuration for the keyboard.
    */
   openFromComponent(layoutOrLocale: string, config: MatKeyboardConfig): MatKeyboardRef<MatKeyboardComponent> {
     const keyboardRef: MatKeyboardRef<MatKeyboardComponent> = this._attachKeyboardContent(config);
@@ -125,9 +124,8 @@ export class MatKeyboardService {
 
   /**
    * Opens a keyboard with a message and an optional action.
-   * @param {string} layoutOrLocale A string representing the locale or the layout name to be used.
-   * @param {MatKeyboardConfig} config Additional configuration options for the keyboard.
-   * @returns {MatKeyboardRef<MatKeyboardComponent>}
+   * @param layoutOrLocale A string representing the locale or the layout name to be used.
+   * @param config Additional configuration options for the keyboard.
    */
   open(layoutOrLocale: string = this._defaultLocale, config: MatKeyboardConfig = {}): MatKeyboardRef<MatKeyboardComponent> {
     const _config = _applyConfigDefaults(config);
@@ -146,8 +144,7 @@ export class MatKeyboardService {
 
   /**
    * Map a given locale to a layout name.
-   * @param {string} locale
-   * @returns {string} The layout name
+   * @param locale The layout name
    */
   mapLocale(locale: string = this._defaultLocale): string {
     let layout: string;
@@ -205,13 +202,15 @@ export class MatKeyboardService {
    * Creates a new overlay and places it in the correct location.
    */
   private _createOverlay(): OverlayRef {
-    const state = new OverlayConfig();
+    const state = new OverlayConfig({
+      width: '100%'
+    });
 
-    state.positionStrategy = this._overlay.position()
+    state.positionStrategy = this._overlay
+      .position()
       .global()
       .centerHorizontally()
-      .bottom('0')
-      .width('100%');
+      .bottom('0');
 
     return this._overlay.create(state);
   }
