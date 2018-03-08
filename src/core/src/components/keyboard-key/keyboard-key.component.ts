@@ -140,9 +140,9 @@ export class MatKeyboardKeyComponent implements OnInit {
     // Trigger a global key event
     // TODO: determine whether an output should bubble the pressed key similar to the keybboard action or not
     this._triggerKeyEvent();
-
+    
     // Manipulate the focused input / textarea value
-    const value = this.inputValue;
+    const value = this.inputValue == null ? "" : this.inputValue;
     const caret = this.input ? this._getCursorPosition() : 0;
 
     let char: string;
@@ -156,7 +156,7 @@ export class MatKeyboardKeyComponent implements OnInit {
         break;
 
       case KeyboardClassKey.Bksp:
-        this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
+        this.inputValue = [value.slice(0, caret - 1)].join('');
         this._setCursorPosition(caret - 1);
         break;
 
@@ -194,7 +194,7 @@ export class MatKeyboardKeyComponent implements OnInit {
     }
 
     if (char && this.input) {
-      this.inputValue = [value.slice(0, caret), char, value.slice(caret)].join('');
+      this.inputValue = caret ? [value.slice(0, caret), char, value.slice(caret)].join('') : value + char;
       this._setCursorPosition(caret + 1);
     }
   }
