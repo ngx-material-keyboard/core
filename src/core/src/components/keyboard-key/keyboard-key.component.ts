@@ -162,7 +162,7 @@ export class MatKeyboardKeyComponent implements OnInit {
     this.genericClick.emit(event);
 
     // Manipulate the focused input / textarea value
-    const value = this.inputValue;
+    const value = this.inputValue == null ? "" : this.inputValue.toString();
     const caret = this.input ? this._getCursorPosition() : 0;
 
     let char: string;
@@ -176,7 +176,7 @@ export class MatKeyboardKeyComponent implements OnInit {
         break;
 
       case KeyboardClassKey.Bksp:
-        this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
+        this.inputValue = [value.slice(0, caret - 1)].join('');
         this._setCursorPosition(caret - 1);
         this.bkspClick.emit(event);
         break;
@@ -218,7 +218,7 @@ export class MatKeyboardKeyComponent implements OnInit {
     }
 
     if (char && this.input) {
-      this.inputValue = [value.slice(0, caret), char, value.slice(caret)].join('');
+      this.inputValue = caret ? [value.slice(0, caret), char, value.slice(caret)].join('') : value + char;
       this._setCursorPosition(caret + 1);
     }
   }
