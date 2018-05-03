@@ -138,6 +138,8 @@ export class MatKeyboardKeyComponent implements OnInit {
       this.control.setValue(inputValue);
     } else if (this.input && this.input.nativeElement) {
       this.input.nativeElement.value = inputValue;
+      const inputEvent = new Event('input');
+      this.input.nativeElement.dispatchEvent(inputEvent);
     }
   }
 
