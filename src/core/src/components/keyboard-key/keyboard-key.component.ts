@@ -178,8 +178,7 @@ export class MatKeyboardKeyComponent implements OnInit {
         break;
 
       case KeyboardClassKey.Bksp:
-        this.inputValue = [value.slice(0, caret - 1), value.slice(caret)].join('');
-        this._setCursorPosition(caret - 1);
+        this.deleteText();
         this.bkspClick.emit(event);
         break;
 
@@ -220,8 +219,54 @@ export class MatKeyboardKeyComponent implements OnInit {
     }
 
     if (char && this.input) {
-      this.inputValue = [value.slice(0, caret), char, value.slice(caret)].join('');
-      this._setCursorPosition(caret + 1);
+      this.insertText(char);
+    }
+  }
+
+  private insertText(char: string): void {
+    const value = this.inputValue;
+    const caret = this.input ? this._getCursorPosition() : 0;
+    const selectionLength = this._getSelectionLength();
+    const head = value.slice(0, caret);
+    const tail = value.slice(caret + selectionLength);
+    this.inputValue = [head, char, tail].join('');
+
+    this._setCursorPosition(caret + char.length);
+  }
+
+  private deleteText(): void {
+    const selectionLength = this._getSelectionLength();
+    const caret = this.input ? this._getCursorPosition() : 0;
+
+    if (selectionLength > 0) {
+      this.insertText('');
+
+      this._setCursorPosition(caret);
+    } else {
+      const value = this.inputValue;
+      const head = value.slice(0, caret - 1);
+      const tail = value.slice(caret);
+      this.inputValue = [head, tail].join('');
+
+      this._setCursorPosition(caret - 1);
+    }
+  }
+
+  private _getSelectionLength(): number {
+    if (!this.input) {
+      return;
+    }
+
+    if ('selectionEnd' in this.input.nativeElement) {
+      // Standard-compliant browsers
+      return this.input.nativeElement.selectionEnd - this.input.nativeElement.selectionStart;
+    }
+
+    if ('selection' in window.document) {
+      // IE
+      this.input.nativeElement.focus();
+
+      return window.document['selection'].createRange().text.length;
     }
   }
 
@@ -274,7 +319,9 @@ export class MatKeyboardKeyComponent implements OnInit {
       return;
     }
 
-    this.inputValue = this.control.value;
+    if (this.control) {
+      this.inputValue = this.control.value;
+    }
     // ^ this is used to not only get "focus", but
     // to make sure we don't have it everything -selected-
     // (it causes an issue in chrome, and having it doesn't hurt any other browser)
