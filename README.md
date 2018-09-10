@@ -110,3 +110,4 @@ The application uses [semver][SemVer] and is developed with the [git flow branch
 [InjectionToken]: https://angular.io/guide/dependency-injection-in-action#injectiontoken
 [VKI Readme]: https://goo.gl/fCDExr
 [VKI Credits]: https://goo.gl/NYqTwc
+
