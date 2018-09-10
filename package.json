@@ -21,6 +21,7 @@
     "build:demo": "ng build --prod --locale=de --progress=false --base-href=/demo/",
     "build:docs": "compodoc ./src/core -p ./tsconfig.json --silent --disableCoverage --disablePrivateOrInternalSupport --theme readthedocs --output ./dist/docs",
     "test": "ng test",
+    "pretest": "bash tools/prepareTestBeds.sh",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "ng lint --type-check=true",
     "lint:sass": "sass-lint --verbose --no-exit --config ./.sass-lint.yml",

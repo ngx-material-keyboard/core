@@ -8,7 +8,7 @@ TEST_CONFIG=testbeds.json
 TESTS=($(sed -n 's/"\(.*\)":\s*"\(.*\)",*/\1 \2/p' ${TEST_CONFIG}))
 
 # Rename Angular CLI config temporarily
-echo -e "> Rename Angular CLI config temporarily into ${TEMP_NG_CONF}.tmp"
+echo "> Rename Angular CLI config temporarily into ${TEMP_NG_CONF}.tmp"
 mv ${TEMP_NG_CONF} ${TEMP_NG_CONF}.tmp
 
 # Restore Angular CLI config on EXIT
@@ -19,7 +19,7 @@ function finish {
 trap finish EXIT
 
 # Recreate test folder and change into it
-echo -e "> Recreate test folders in ${TEMP_DIR}"
+echo "> Recreate test folders in ${TEMP_DIR}"
 rm -rf ${TEMP_DIR}
 mkdir -p ${TEMP_DIR}
 cd ${TEMP_DIR}
@@ -31,11 +31,11 @@ for i in "${!TESTS[@]}"; do
     _ANGULAR_VERSION=${TESTS[$i-1]}
     _ANGULAR_CLI_VERSION=${TESTS[$i]}
 
-    echo -e "> Create Angular ${_ANGULAR_VERSION} test bed in ${TEMP_DIR}/${_ANGULAR_VERSION}"
+    echo "> Create Angular ${_ANGULAR_VERSION} test bed in ${TEMP_DIR}/${_ANGULAR_VERSION}"
     mkdir -p ${_ANGULAR_VERSION}
     cd ${_ANGULAR_VERSION}
 
-    echo -e "> Install Angular CLI ${_ANGULAR_CLI_VERSION}"
+    echo "> Install Angular CLI ${_ANGULAR_CLI_VERSION}"
     npm init test-ng${_ANGULAR_VERSION} \
       --scope ${TEST_SCOPE} \
       --yes \
@@ -49,7 +49,7 @@ for i in "${!TESTS[@]}"; do
       --loglevel=error \
       &>/dev/null
 
-    echo -e "> Initialize new project"
+    echo "> Initialize new project"
     node_modules/.bin/ng new ${TEST_NAME} \
       --force \
       --skip-tests \
@@ -57,7 +57,7 @@ for i in "${!TESTS[@]}"; do
       --skip-install \
       &>/dev/null
 
-    echo -e "> Installed Angular $(node_modules/.bin/ng --version | sed -En 's/Angular: (.*)/\1/p')"
+    echo "> Installed Angular $(node_modules/.bin/ng --version | sed -En 's/Angular: (.*)/\1/p')"
     cd ..;
   fi
 done
