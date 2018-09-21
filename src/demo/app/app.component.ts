@@ -1,5 +1,5 @@
-import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, NgForm } from '@angular/forms';
+import { Component, ElementRef, Inject, LOCALE_ID, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormControl, NgControl, NgForm, NgModel } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 import { IKeyboardLayout, MAT_KEYBOARD_LAYOUTS, MatKeyboardComponent, MatKeyboardRef, MatKeyboardService } from '@ngx-material-keyboard/core';
@@ -7,6 +7,7 @@ import { IKeyboardLayout, MAT_KEYBOARD_LAYOUTS, MatKeyboardComponent, MatKeyboar
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { MatInput } from '@angular/material';
 
 @Component({
   selector: 'mat-keyboard-demo-root',
@@ -20,6 +21,12 @@ export class AppComponent implements OnInit, OnDestroy {
   private _keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
 
   private _submittedForms = new BehaviorSubject<{ control: string, value: string }[][]>([]);
+
+  @ViewChild('attachTo', { read: ElementRef })
+  private _attachToElement: ElementRef;
+
+  @ViewChild('attachTo', { read: NgModel })
+  private _attachToControl: NgControl;
 
   get submittedForms(): Observable<{ control: string, value: string }[][]> {
     return this._submittedForms.asObservable();
@@ -41,6 +48,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }[];
 
   testModelValue = 'Sushi';
+
+  attachModelValue = '';
 
   testControlValue = new FormControl({ value: 'Emmentaler', disabled: false });
 
@@ -98,6 +107,20 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this._enterSubscription) {
       this._enterSubscription.unsubscribe();
     }
+  }
+
+  openAttachedKeyboard(locale = this.defaultLocale) {
+    this._keyboardRef = this._keyboardService.open(locale, {
+      darkTheme: this.darkTheme,
+      duration: this.duration,
+      isDebug: this.isDebug
+    });
+
+    // reference the input element
+    this._keyboardRef.instance.setInputInstance(this._attachToElement);
+
+    // set control
+    this._keyboardRef.instance.attachControl(this._attachToControl.control);
   }
 
   toggleDebug(toggle: MatSlideToggleChange) {
