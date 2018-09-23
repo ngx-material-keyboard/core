@@ -1,10 +1,13 @@
-import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ElementRef, Inject, LOCALE_ID, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormControl, NgControl, NgForm, NgModel } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 import { IKeyboardLayout, MAT_KEYBOARD_LAYOUTS, MatKeyboardComponent, MatKeyboardRef, MatKeyboardService } from '@ngx-material-keyboard/core';
 
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { MatInput } from '@angular/material';
 
 @Component({
   selector: 'mat-keyboard-demo-root',
@@ -16,6 +19,18 @@ export class AppComponent implements OnInit, OnDestroy {
   private _enterSubscription: Subscription;
 
   private _keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
+
+  private _submittedForms = new BehaviorSubject<{ control: string, value: string }[][]>([]);
+
+  @ViewChild('attachTo', { read: ElementRef })
+  private _attachToElement: ElementRef;
+
+  @ViewChild('attachTo', { read: NgModel })
+  private _attachToControl: NgControl;
+
+  get submittedForms(): Observable<{ control: string, value: string }[][]> {
+    return this._submittedForms.asObservable();
+  }
 
   darkTheme: boolean;
 
@@ -32,6 +47,12 @@ export class AppComponent implements OnInit, OnDestroy {
     layout: IKeyboardLayout;
   }[];
 
+  testModelValue = 'Sushi';
+
+  attachModelValue = '';
+
+  testControlValue = new FormControl({ value: 'Emmentaler', disabled: false });
+
   get keyboardVisible(): boolean {
     return this._keyboardService.isOpened;
   }
@@ -45,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.layouts = Object
       .keys(this._layouts)
       .map((name: string) => ({
-        name: name,
+        name,
         layout: this._layouts[name]
       }))
       .sort((a, b) => a.layout.name.localeCompare(b.layout.name));
@@ -56,7 +77,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   submitForm(form?: NgForm) {
-    console.log('submit form', form);
+    const submittedForms = this._submittedForms.getValue();
+    const submittedForm = Object
+      .keys(form.controls)
+      .map((control: string) => ({
+        control,
+        value: form.controls[control].value
+      }));
+    submittedForms.push(submittedForm);
+    this._submittedForms.next(submittedForms);
   }
 
   openKeyboard(locale = this.defaultLocale) {
@@ -78,6 +107,20 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this._enterSubscription) {
       this._enterSubscription.unsubscribe();
     }
+  }
+
+  openAttachedKeyboard(locale = this.defaultLocale) {
+    this._keyboardRef = this._keyboardService.open(locale, {
+      darkTheme: this.darkTheme,
+      duration: this.duration,
+      isDebug: this.isDebug
+    });
+
+    // reference the input element
+    this._keyboardRef.instance.setInputInstance(this._attachToElement);
+
+    // set control
+    this._keyboardRef.instance.attachControl(this._attachToControl.control);
   }
 
   toggleDebug(toggle: MatSlideToggleChange) {

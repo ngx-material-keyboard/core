@@ -2,6 +2,7 @@
 build/
 dist/
 docs/
+src/core/.ng_pkg_build
 target/
 
 .classpath
@@ -23,9 +24,14 @@ npm
 npm-debug.log
 
 # IDE Directories #
-.idea
+# we do not want to enforce ignored; because this might be user-specific especially for a MonoRepo
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+# User-specific stuff
+.idea/*
+!.idea/runConfigurations/
 !.idea/codeStyleSettings.xml
-!.idea/ngx-material-keyboard.iml
+!.idea/codeStyles
+
 
 # External tool builders #
 .externalToolBuilders/

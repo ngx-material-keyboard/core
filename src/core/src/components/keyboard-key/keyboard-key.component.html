@@ -4,7 +4,7 @@
         [class.mat-keyboard-key-active]="active$ | async"
         [class.mat-keyboard-key-pressed]="pressed$ | async"
         [ngClass]="cssClass"
-        (click)="onClick()"
+        (click)="onClick($event)"
 >
   <mat-icon *ngIf="hasIcon">{{ icon }}</mat-icon>
   <ng-container *ngIf="!hasIcon">{{ key }}</ng-container>
