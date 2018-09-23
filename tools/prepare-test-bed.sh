@@ -35,7 +35,7 @@ node_modules/.bin/ng new ${TEST_NAME} \
   --skip-git \
   --skip-install
 
-echo "> Installed Angular $(node_modules/.bin/ng --version | sed -En 's/Angular: (.*)/\1/p')"
+echo "> Installed Angular $(npm list @angular/core | sed -En 's/^.*@angular\/core@(.*)$/\1/p')"
 cd ${TEST_NAME} && npm install \
   --no-audit \
   --no-optional \
