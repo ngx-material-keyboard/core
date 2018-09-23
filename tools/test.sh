@@ -1,12 +1,15 @@
 #!/bin/bash
 
-TEMP_NG_CONF=.angular-cli.json
-TEMP_DIR=.temp
-TEST_SCOPE=@ngx-material-keyboard
-TEST_NAME=ngx-test
+export TEMP_NG_CONF=.angular-cli.json
+export TEMP_DIR=.temp
+export TEST_SCOPE=@ngx-material-keyboard
+export TEST_NAME=ngx-test
 
-TEST_ANGULAR_VERSION=$1
-TEST_ANGULAR_CLI_VERSION=$2
+export TEST_ANGULAR_VERSION=$1
+export TEST_ANGULAR_CLI_VERSION=$2
 
-./prepare-test-bed.sh
-./configure-tests.sh
+echo "TEST_ANGULAR_VERSION: ${TEST_ANGULAR_VERSION}"
+echo "TEST_ANGULAR_CLI_VERSION: ${TEST_ANGULAR_CLI_VERSION}"
+
+$(dirname "$0")/prepare-test-bed.sh
+$(dirname "$0")/configure-tests.sh

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo "TEST_ANGULAR_VERSION: ${TEST_ANGULAR_VERSION}"
-echo "TEST_ANGULAR_CLI_VERSION: ${TEST_ANGULAR_CLI_VERSION}"
-
 # Rename Angular CLI config temporarily
 echo "> Rename Angular CLI config temporarily into ${TEMP_NG_CONF}.tmp"
 mv ${TEMP_NG_CONF} ${TEMP_NG_CONF}.tmp
