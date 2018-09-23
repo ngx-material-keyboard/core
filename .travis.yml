@@ -4,6 +4,7 @@ language: node_js
 # cache node modules
 cache:
   directories:
+    - ".temp"
     - "node_modules"
 
 # use npm 5.3.0 due to a bug (https://github.com/npm/npm/issues/19222)
@@ -17,7 +18,24 @@ install:
 # the jobs for building and deplyoing docs and demo
 jobs:
   include:
+    - stage: test
+      name: "Test Angular 5.1.*"
+      script: tools/test.sh 5.1.x 1.5.6
+    - # stage name not required, will continue to use `test`
+      name: "Test Angular 5.2.*"
+      script: tools/test.sh 5.2.x 1.7.4
+    - # stage name not required, will continue to use `test`
+      name: "Test Angular 6.0.*"
+      script: tools/test.sh 6.0.x 6.0.8
+    - # stage name not required, will continue to use `test`
+      name: "Test Angular 6.1.*"
+      script: tools/test.sh 6.1.x 6.2.3
+    - # stage name not required, will continue to use `test`
+      name: "Test Angular 7.0.*"
+      script: tools/test.sh 7.0.x 7.0.0-beta.4
+
     - stage: build core, docs and demo
+      name: "Build and deploy core"
       script: npm run build:core
       before_deploy:
         - cd dist/core
@@ -31,6 +49,7 @@ jobs:
           repo: ngx-material-keyboard/core
           branch: master
     - # stage name not required, will continue to use `build core, docs and demo`
+      name: "Build and deploy documentation"
       script: npm run build:docs
       deploy:
         provider: pages
@@ -42,6 +61,7 @@ jobs:
           repo: ngx-material-keyboard/core
           branch: master
     - # stage name not required, will continue to use `build core, docs and demo`
+      name: "Build and deploy demo"
       script: npm run build:demo
       deploy:
         provider: pages
