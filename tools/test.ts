@@ -1,18 +1,10 @@
 import * as Helpers from './test-helpers';
-import * as ng from './test-ng';
-import * as npm from './test-npm';
+import * as ng from './libs/ng.lib';
+import * as npm from './libs/npm.lib';
 import * as Options from './test-options';
 
 // TODO: provide as separate module
 // TODO: allow providing options as config json (e.g. .ng-testbeds.json
-
-// TODO: implement: prepare ci tests - Add headless chrome launcher for unit tests
-// TODO: implement: prepare ci tests - Add headless chrome launcer for e2e tests
-// TODO: implement: link module
-// TODO: implement: add tests
-// TODO: implement: run unit tests
-// TODO: implement: run e2e tests
-
 let options: Options.TestOptions;
 
 // run preparations
@@ -41,11 +33,25 @@ Promise.resolve()
   .then(() => Helpers.showInfo(`Pin dependencies`))
   .then(() => npm.pin(options.testProjectPackagePath, options.fileEncoding))
 
+  .then(() => Helpers.showInfo(`Add Angular CDK and Material version ${options.angularMaterialVersion}`))
+  .then(() => npm.add(options.testProjectPackagePath, options.silent, {
+    '@angular/cdk': options.angularMaterialVersion,
+    '@angular/material': options.angularMaterialVersion
+  }, npm.SaveType.Save, options.fileEncoding))
+
   .then(() => Helpers.showInfo('Install dependencies'))
   .then(() => npm.install(options.testProjectDir, options.silent))
 
+  // TODO: implement: prepare ci tests - Add headless chrome launcher for unit tests
+  // TODO: implement: prepare ci tests - Add headless chrome launcer for e2e tests
+
   .then(() => Helpers.showInfo('Show installed Angular version'))
   .then(() => ng.version(options.testProjectDir, options.ngBinPath, options.silent))
+
+  // TODO: implement: link module
+  // TODO: implement: add tests
+  // TODO: implement: run unit tests
+  // TODO: implement: run e2e tests
 
   .then(() => Helpers.showInfo('Restore Angular CLI config'))
   .then(() => Helpers.restoreCliConfig(options.angularConfigPath, options.angularConfigTmpPath))

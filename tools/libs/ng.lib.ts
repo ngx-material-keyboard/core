@@ -1,5 +1,5 @@
 import { join as joinPath } from 'path';
-import * as Helpers from './test-helpers';
+import * as Helpers from '../test-helpers';
 
 // (re)initialize new project
 export const initialize = (cwd: string, testProjectName: string, binPath: string, silent = false): Promise<void> => Helpers
