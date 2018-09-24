@@ -136,20 +136,17 @@ const initializeNpmProject = (cwd: string, projectScope: string): Promise<void> 
 const installCli = (cwd: string, cliVersion: string): Promise<void> => _npmInstall(cwd, `@angular/cli@${cliVersion}`);
 
 // (re)initialize new project
-const reinitializeTestProject = (cwd: string, testProjectName: string): Promise<any[]> => Promise
-  .all([
-    rimrafAsync(joinPath(cwd, testProjectName)),
-    spawnAsync(
-      options.ngBinPath,
-      [
-        'new', testProjectName,
-        '--force',
-        '--skip-git',
-        '--skip-install'
-      ],
-      { cwd }
-    )
-  ]);
+const reinitializeTestProject = (cwd: string, testProjectName: string): Promise<void> => rimrafAsync(joinPath(cwd, testProjectName))
+  .then(() => spawnAsync(
+    options.ngBinPath,
+    [
+      'new', testProjectName,
+      '--force',
+      '--skip-git',
+      '--skip-install'
+    ],
+    { cwd }
+  ));
 
 // TODO: implement the following
 // prepare ci tests - Add headless chrome launcher for unit tests
