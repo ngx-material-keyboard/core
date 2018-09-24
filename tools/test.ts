@@ -1,9 +1,10 @@
 import * as argv from 'minimist'; // tslint:disable-line no-implicit-dependencies
 import * as mkdirp from 'mkdirp'; // tslint:disable-line no-implicit-dependencies
 import * as rimraf from 'rimraf'; // tslint:disable-line no-implicit-dependencies
+import { coerce } from 'semver'; // tslint:disable-line no-implicit-dependencies
 
 import { spawn, SpawnOptions } from 'child_process';
-import { rename, renameSync } from 'fs';
+import { readFile, rename, renameSync, writeFile } from 'fs';
 import { EOL } from 'os';
 import { join as joinPath } from 'path';
 import { promisify } from 'util';
@@ -40,7 +41,8 @@ const options = {
   tempDir: '.temp',
   projectScope: '@ngx-material-keyboard',
   testProjectName: 'ngx-test',
-  ngBinPath: 'node_modules/.bin/ng'
+  ngBinPath: 'node_modules/.bin/ng',
+  fileEncoding: 'utf8'
 };
 
 // exit if something is missing
@@ -54,9 +56,12 @@ if (!options.angularCliVersion) {
 // prepare paths
 const cliWorkDir = joinPath(options.tempDir, options.angularVersion);
 const testProjectDir = joinPath(options.tempDir, options.angularVersion, options.testProjectName);
+const testProjectPackagePath = joinPath(testProjectDir, 'package.json');
 
 // turn async functions to return promises
 const renameAsync = promisify(rename);
+const readFileAsync = promisify(readFile);
+const writeFileAsync = promisify(writeFile);
 const mkdirpAsync = promisify(mkdirp);
 const rimrafAsync = promisify(rimraf);
 const spawnAsync = (cmd: string, args: string[], opts: SpawnOptions): Promise<void> => new Promise((resolve, reject) => {
@@ -154,6 +159,25 @@ const reinitializeTestProject = (cwd: string, testProjectName: string): Promise<
 // run unit tests
 // run e2e tests
 
+// pin dependencies
+const pinDependencies = (cwd: string): Promise<void> => readFileAsync(cwd, options.fileEncoding)
+  .then((packageData: string) => JSON.parse(packageData))
+  .then((packageData: any) => {
+    ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'].forEach((depType) => {
+      if (depType in packageData) {
+        Object
+          .keys(packageData[depType])
+          .forEach((depName: string) => {
+            packageData[depType][depName] = coerce(packageData[depType][depName]).format();
+          });
+      }
+    });
+
+    return packageData;
+  })
+  .then((packageData: any) => JSON.stringify(packageData))
+  .then((packageData: string) => writeFileAsync(cwd, packageData, { encoding: options.fileEncoding }));
+
 // install dependencies
 const installDependencies = (cwd: string): Promise<void> => _npmInstall(cwd);
 
@@ -186,6 +210,9 @@ Promise
 
   .then(() => showInfo(`(Re-)Initialize new project with name ${options.testProjectName}`))
   .then(() => reinitializeTestProject(cliWorkDir, options.testProjectName))
+
+  .then(() => showInfo(`Pin dependencies`))
+  .then(() => pinDependencies(testProjectPackagePath))
 
   .then(() => showInfo('Install dependencies'))
   .then(() => installDependencies(testProjectDir))
