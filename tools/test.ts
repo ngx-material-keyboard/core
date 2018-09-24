@@ -198,18 +198,19 @@ Promise
 
   .catch((error) => console.error(error));
 
+// TODO: improve and stabilize
 // TODO: use function on exiting the program
 // force cleanup on exit
 // s. https://stackoverflow.com/a/14032965/1146207
 // s. https://github.com/electron/electron/issues/9626#issuecomment-305581504
-process.stdin.resume();
-
-// catches ctrl+c event
-(process as NodeJS.EventEmitter).on('SIGINT', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
-
-// catches "kill pid" (for example: nodemon restart)
-(process as NodeJS.EventEmitter).on('SIGUSR1', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
-(process as NodeJS.EventEmitter).on('SIGUSR2', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
-
-// catches uncaught exceptions
-(process as NodeJS.EventEmitter).on('uncaughtException', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
+// process.stdin.resume();
+//
+// // catches ctrl+c event
+// (process as NodeJS.EventEmitter).on('SIGINT', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
+//
+// // catches "kill pid" (for example: nodemon restart)
+// (process as NodeJS.EventEmitter).on('SIGUSR1', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
+// (process as NodeJS.EventEmitter).on('SIGUSR2', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
+//
+// // catches uncaught exceptions
+// (process as NodeJS.EventEmitter).on('uncaughtException', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
