@@ -222,8 +222,10 @@ Promise
 
   .catch((error) => {
     // log and exit process
-    throw new Error(error);
-  });
+    console.error(error);
+    throw error;
+  })
+  .catch(() => process.exit(1));
 
 // TODO: improve and stabilize
 // TODO: use function on exiting the program
