@@ -1,225 +1,54 @@
-import * as argv from 'minimist'; // tslint:disable-line no-implicit-dependencies
-import * as mkdirp from 'mkdirp'; // tslint:disable-line no-implicit-dependencies
-import * as rimraf from 'rimraf'; // tslint:disable-line no-implicit-dependencies
-import { coerce } from 'semver'; // tslint:disable-line no-implicit-dependencies
-
-import { spawn, SpawnOptions } from 'child_process';
-import { readFile, rename, renameSync, writeFile } from 'fs';
-import { EOL } from 'os';
-import { join as joinPath } from 'path';
-import { promisify } from 'util';
-
-// get params
-const params = argv(process.argv.slice(2));
-
-// show help message if flag is present
-if ('help' in params || 'h' in params) {
-  const help = [
-    '> Prepares a test bed for a given Angular version using the Angular CLI',
-    ` Command\t\tAlias\tDescription`,
-    ` --angularVersion\t-a\tDefines the name of the Angular version to use, e.g. 5.1.x`,
-    ` --angularCliVersion\t-c\tThe Angular CLI version to use, e.g. 1.5.6`,
-    ` --help\t\t\t-h\tShows this help message`,
-    ` --silent\t\t\tSilences the output`
-  ];
-  console.info(help.join(EOL));
-  process.exit();
-}
+import * as Helpers from './test-helpers';
+import * as ng from './test-ng';
+import * as npm from './test-npm';
+import * as Options from './test-options';
 
 // TODO: provide as separate module
 // TODO: allow providing options as config json (e.g. .ng-testbeds.json
-// TODO: add Angular version to CLI mapping to project
-// TODO: structure functions and utilities
-// TODO: use function to parse params and queue resulting config object through functions
-// prepare options
-const options = {
-  angularVersion: params.angularVersion || params.a,
-  angularCliVersion: params.angularCliVersion || params.c,
-  silent: JSON.parse(params.silent || false),
-  angularConfigPath: '.angular-cli.json',
-  angularConfigTmpPath: '.angular-cli.json.tmp',
-  tempDir: '.temp',
-  projectScope: '@ngx-material-keyboard',
-  testProjectName: 'ngx-test',
-  ngBinPath: 'node_modules/.bin/ng',
-  fileEncoding: 'utf8'
-};
 
-// exit if something is missing
-if (!options.angularVersion) {
-  throw new Error('No Angular Version given. Use --angularVersion or -a flag.');
-}
-if (!options.angularCliVersion) {
-  throw new Error('No Angular CLI Version given. Use --angularCliVersion or -c flag.');
-}
+// TODO: implement: prepare ci tests - Add headless chrome launcher for unit tests
+// TODO: implement: prepare ci tests - Add headless chrome launcer for e2e tests
+// TODO: implement: link module
+// TODO: implement: add tests
+// TODO: implement: run unit tests
+// TODO: implement: run e2e tests
 
-// prepare paths
-const cliWorkDir = joinPath(options.tempDir, options.angularVersion);
-const testProjectDir = joinPath(options.tempDir, options.angularVersion, options.testProjectName);
-const testProjectPackagePath = joinPath(testProjectDir, 'package.json');
+let options: Options.TestOptions;
 
-// turn async functions to return promises
-const renameAsync = promisify(rename);
-const readFileAsync = promisify(readFile);
-const writeFileAsync = promisify(writeFile);
-const mkdirpAsync = promisify(mkdirp);
-const rimrafAsync = promisify(rimraf);
-const spawnAsync = (cmd: string, args: string[], opts: SpawnOptions): Promise<void> => new Promise((resolve, reject) => {
-  const childProcess = spawn(cmd, args, opts);
-  if (!options.silent) {
-    childProcess.stdout.on('data', (data) => process.stdout.write(data));
-  }
-  childProcess.on('error', (error) => reject(error));
-  childProcess.on('exit', () => resolve());
-});
-
-// helper functions
-const showInfo = (message: string): Promise<void> => {
-  if (!options.silent) {
-    console.info(`> ${message}`);
-  }
-
-  return Promise.resolve();
-};
-
-const _npmInstall = (cwd: string, packageName?: string): Promise<void> => {
-  const defaultOptions = [
-    '--no-audit',
-    '--no-optional',
-    '--no-package-lock',
-    '--no-progress',
-    '--loglevel=error'
-  ];
-  const packageOptions = packageName ? [packageName, '--no-save'] : [];
-
-  return spawnAsync(
-    'npm',
-    [
-      'install',
-      ...packageOptions,
-      ...defaultOptions
-    ],
-    { cwd }
-  );
-};
-
-// rename Angular CLI config temporarily
-const backupCliConfig = (configPath: string, tmpPath: string): Promise<void> => renameAsync(configPath, tmpPath);
-
-// restore Angular CLI config on abort or finish
-const restoreCliConfig = (configPath: string, tmpPath: string): Promise<void> => renameAsync(tmpPath, configPath);
-const restoreCliConfigSync = (configPath: string, tmpPath: string) => {
-  try {
-    renameSync(tmpPath, configPath);
-  } catch (error) {
-    // noop
-  }
-
-  process.exit();
-};
-
-// create environment and enter it
-const createTempDir = (angularTempDir: string): Promise<{}> => mkdirpAsync(angularTempDir);
-
-// initialize CLI environment
-const initializeNpmProject = (cwd: string, projectScope: string): Promise<void> => spawnAsync(
-  'npm',
-  [
-    'init',
-    '--yes',
-    `--scope ${projectScope}`
-  ],
-  { cwd }
-);
-
-// install CLI
-const installCli = (cwd: string, cliVersion: string): Promise<void> => _npmInstall(cwd, `@angular/cli@${cliVersion}`);
-
-// (re)initialize new project
-const reinitializeTestProject = (cwd: string, testProjectName: string): Promise<void> => rimrafAsync(joinPath(cwd, testProjectName))
-  .then(() => spawnAsync(
-    options.ngBinPath,
-    [
-      'new', testProjectName,
-      '--force',
-      '--skip-git',
-      '--skip-install'
-    ],
-    { cwd }
-  ));
-
-// TODO: implement the following
-// prepare ci tests - Add headless chrome launcher for unit tests
-// prepare ci tests - Add headless chrome launcer for e2e tests
-// link module
-// add tests
-// run unit tests
-// run e2e tests
-
-// pin dependencies
-// TODO: allow e.g. `beta` builds by disable pinning in config
-const pinDependencies = (cwd: string): Promise<void> => readFileAsync(cwd, options.fileEncoding)
-  .then((packageData: string) => JSON.parse(packageData))
-  .then((packageData: any) => {
-    ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'].forEach((depType) => {
-      if (depType in packageData) {
-        Object
-          .keys(packageData[depType])
-          .forEach((depName: string) => {
-            packageData[depType][depName] = coerce(packageData[depType][depName]).format();
-          });
-      }
-    });
-
-    return packageData;
-  })
-  .then((packageData: any) => JSON.stringify(packageData))
-  .then((packageData: string) => writeFileAsync(cwd, packageData, { encoding: options.fileEncoding }));
-
-// install dependencies
-const installDependencies = (cwd: string): Promise<void> => _npmInstall(cwd);
-
-// show installed angular version
-const installedAngularVersion = (cwd: string): Promise<void> => {
-  if (options.silent) {
-    return Promise.resolve();
-  } else {
-    return spawnAsync(options.ngBinPath, ['--version'], { cwd });
-  }
-};
-
-// TODO: use function to run the program
 // run preparations
-Promise
-  .resolve()
-  .then(() => showInfo(`Preparing test bed for Angular ${options.angularVersion} using Angular CLI version ${options.angularCliVersion}`))
+Promise.resolve()
+  .then(Options.parse)
+  .then(Options.setDefaults)
+  .then(Options.validate)
+  .then(Options.enrich)
+  .then((opts) => options = opts)
 
-  .then(() => showInfo('Backup Angular CLI config temporarily'))
-  .then(() => backupCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
+  .then(() => Helpers.showInfo('Backup Angular CLI config temporarily'))
+  .then(() => Helpers.backupCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
 
-  .then(() => showInfo('Create environment and enter it'))
-  .then(() => createTempDir(cliWorkDir))
+  .then(() => Helpers.showInfo('Create work dir'))
+  .then(() => Helpers.mkdirpAsync(options.cliWorkDir))
 
-  .then(() => showInfo('Initialize CLI environment'))
-  .then(() => initializeNpmProject(cliWorkDir, options.projectScope))
+  .then(() => Helpers.showInfo('Initialize CLI environment'))
+  .then(() => npm.initialize(options.cliWorkDir, options.projectScope, options.silent))
 
-  .then(() => showInfo(`Install Angular CLI version ${options.angularCliVersion}`))
-  .then(() => installCli(cliWorkDir, options.angularCliVersion))
+  .then(() => Helpers.showInfo(`Install Angular CLI version ${options.angularCliVersion}`))
+  .then(() => npm.install(options.cliWorkDir, options.silent, `@angular/cli@${options.angularCliVersion}`))
 
-  .then(() => showInfo(`(Re-)Initialize new project with name ${options.testProjectName}`))
-  .then(() => reinitializeTestProject(cliWorkDir, options.testProjectName))
+  .then(() => Helpers.showInfo(`(Re-)Initialize new project with name ${options.testProjectName}`))
+  .then(() => ng.initialize(options.cliWorkDir, options.testProjectName, options.ngBinPath, options.silent))
 
-  .then(() => showInfo(`Pin dependencies`))
-  .then(() => pinDependencies(testProjectPackagePath))
+  .then(() => Helpers.showInfo(`Pin dependencies`))
+  .then(() => npm.pin(options.testProjectPackagePath, options.fileEncoding))
 
-  .then(() => showInfo('Install dependencies'))
-  .then(() => installDependencies(testProjectDir))
+  .then(() => Helpers.showInfo('Install dependencies'))
+  .then(() => npm.install(options.testProjectDir, options.silent))
 
-  .then(() => showInfo('Show installed Angular version'))
-  .then(() => installedAngularVersion(testProjectDir))
+  .then(() => Helpers.showInfo('Show installed Angular version'))
+  .then(() => ng.version(options.testProjectDir, options.ngBinPath, options.silent))
 
-  .then(() => showInfo('Restore Angular CLI config'))
-  .then(() => restoreCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
+  .then(() => Helpers.showInfo('Restore Angular CLI config'))
+  .then(() => Helpers.restoreCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
 
   .catch((error) => {
     // log and exit process
@@ -228,8 +57,7 @@ Promise
   })
   .catch(() => process.exit(1));
 
-// TODO: improve and stabilize
-// TODO: use function on exiting the program
+// TODO: improve, stabilize and finalize
 // force cleanup on exit
 // s. https://stackoverflow.com/a/14032965/1146207
 // s. https://github.com/electron/electron/issues/9626#issuecomment-305581504
@@ -243,4 +71,5 @@ Promise
 // (process as NodeJS.EventEmitter).on('SIGUSR2', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
 //
 // // catches uncaught exceptions
-// (process as NodeJS.EventEmitter).on('uncaughtException', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
+// (process as NodeJS.EventEmitter).on('uncaughtException', () => restoreCliConfigSync(options.angularConfigPath,
+// options.angularConfigTmpPath));
