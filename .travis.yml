@@ -32,7 +32,9 @@ jobs:
       script: node_modules/.bin/ts-node tools/test.ts --angularVersion 6.1.x --angularCliVersion 6.2.3
     - # stage name not required, will continue to use `test`
       name: "Test Angular 7.0.*"
-      script: node_modules/.bin/ts-node tools/test.ts --angularVersion 7.0.x --angularCliVersion 7.0.0-beta.4
+      # TODO: beta releases are not testable yet, because of semver removing `-beta` when pinning versions
+      #script: node_modules/.bin/ts-node tools/test.ts --angularVersion 7.0.x --angularCliVersion 7.0.0-beta.4
+      script: echo "beta releases are not testable yet, because of semver removing `-beta` when pinning versions" && exit 1
 
     - stage: build core, docs and demo
       name: "Build and deploy core"

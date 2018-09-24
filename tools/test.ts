@@ -157,6 +157,7 @@ const reinitializeTestProject = (cwd: string, testProjectName: string): Promise<
 // run e2e tests
 
 // pin dependencies
+// TODO: allow e.g. `beta` builds by disable pinning in config
 const pinDependencies = (cwd: string): Promise<void> => readFileAsync(cwd, options.fileEncoding)
   .then((packageData: string) => JSON.parse(packageData))
   .then((packageData: any) => {
