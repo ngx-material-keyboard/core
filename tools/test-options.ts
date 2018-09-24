@@ -39,7 +39,7 @@ export const mappings: NgVersionMap = {
   '5.2.x': { cliVersion: '1.7.4', materialVersion: '5.2.5' }, // 5.2.0 - 5.2.11
   '6.0.x': { cliVersion: '6.0.8', materialVersion: '6.0.2' }, // 6.0.0 - 6.0.9
   '6.1.x': { cliVersion: '6.2.3', materialVersion: '6.4.7' }, // 6.1.0 - 6.1.8
-  '7.0.x': { cliVersion: '7.0.0-beta.4', materialVersion: '7.0.0-beta.2' }
+  '7.0.x': { cliVersion: '7.0.0-beta.6', materialVersion: '7.0.0-beta.2' }
 };
 
 export const compatibleNgVersions = Object
