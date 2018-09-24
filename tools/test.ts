@@ -223,7 +223,10 @@ Promise
   .then(() => showInfo('Restore Angular CLI config'))
   .then(() => restoreCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
 
-  .catch((error) => console.error(error));
+  .catch((error) => {
+    // log and exit process
+    throw new Error(error);
+  });
 
 // TODO: improve and stabilize
 // TODO: use function on exiting the program
