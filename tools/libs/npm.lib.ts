@@ -10,7 +10,7 @@ export enum SaveType {
 }
 
 export const mapSaveTypeProp = (saveType: SaveType): string | undefined => {
-  switch(saveType) {
+  switch (saveType) {
     default:
     case SaveType.NoSave:
       return;
@@ -39,10 +39,7 @@ export const add = (cwd: string, silent = false, deps: { [k: string]: string }, 
     .then((packageData: string) => JSON.parse(packageData))
     .then((packageData: any) => {
       const saveProp = mapSaveTypeProp(save);
-      packageData[saveProp] = {
-        ...packageData[saveProp],
-        ...deps
-      }
+      packageData[saveProp] = { ...packageData[saveProp], ...deps };
       return packageData;
     })
     .then((packageData: any) => JSON.stringify(packageData))

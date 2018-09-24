@@ -17,9 +17,5 @@ export const initialize = (cwd: string, testProjectName: string, binPath: string
 
 // show installed angular version
 export const version = (cwd: string, binPath: string, silent = false): Promise<void> => {
-  if (silent) {
-    return Promise.resolve();
-  } else {
-    return Helpers.spawnAsync(binPath, ['--version'], { cwd, silent });
-  }
+  return Helpers.spawnAsync(binPath, ['--version'], { cwd, silent });
 };
