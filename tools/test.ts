@@ -1,6 +1,6 @@
-import * as Helpers from './test-helpers';
 import * as ng from './libs/ng.lib';
 import * as npm from './libs/npm.lib';
+import * as Helpers from './test-helpers';
 import * as Options from './test-options';
 
 // TODO: provide as separate module
@@ -31,7 +31,7 @@ Promise.resolve()
   .then(() => ng.initialize(options.cliWorkDir, options.testProjectName, options.ngBinPath, options.silent))
 
   .then(() => Helpers.showInfo(`Pin dependencies`))
-  .then(() => npm.pin(options.testProjectPackagePath, options.fileEncoding))
+  .then(() => options.skipPinning ? Promise.resolve() : npm.pin(options.testProjectPackagePath, options.fileEncoding))
 
   .then(() => Helpers.showInfo(`Add Angular CDK and Material version ${options.angularMaterialVersion}`))
   .then(() => npm.add(options.testProjectPackagePath, options.silent, {
@@ -46,7 +46,7 @@ Promise.resolve()
   // TODO: implement: prepare ci tests - Add headless chrome launcer for e2e tests
 
   .then(() => Helpers.showInfo('Show installed Angular version'))
-  .then(() => ng.version(options.testProjectDir, options.ngBinPath, options.silent))
+  .then(() => options.silent ? Promise.resolve() : ng.version(options.testProjectDir, options.ngBinPath, options.silent))
 
   // TODO: implement: link module
   // TODO: implement: add tests

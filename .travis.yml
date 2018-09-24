@@ -4,74 +4,73 @@ language: node_js
 # cache node modules
 cache:
   directories:
-    - ".temp"
-    - "node_modules"
+  - ".temp"
+  - "node_modules"
 
 # use npm 5.3.0 due to a bug (https://github.com/npm/npm/issues/19222)
 before_install:
-  - npm i -g npm@5.3.0
+- npm i -g npm@5.3.0
 
 # install dependencies
 install:
-  - npm install --silent
+- npm install --silent
 
 # the jobs for building and deplyoing docs and demo
 jobs:
   include:
-    - stage: test
-      name: "Test Angular 5.1.*"
-      script: node_modules/.bin/ts-node tools/test.ts --angularVersion 5.1.x --angularCliVersion 1.5.6
-    - # stage name not required, will continue to use `test`
-      name: "Test Angular 5.2.*"
-      script: node_modules/.bin/ts-node tools/test.ts --angularVersion 5.2.x --angularCliVersion 1.7.4
-    - # stage name not required, will continue to use `test`
-      name: "Test Angular 6.0.*"
-      script: node_modules/.bin/ts-node tools/test.ts --angularVersion 6.0.x --angularCliVersion 6.0.8
-    - # stage name not required, will continue to use `test`
-      name: "Test Angular 6.1.*"
-      script: node_modules/.bin/ts-node tools/test.ts --angularVersion 6.1.x --angularCliVersion 6.2.3
-    - # stage name not required, will continue to use `test`
-      name: "Test Angular 7.0.*"
-      # TODO: beta releases are not testable yet, because of semver removing `-beta` when pinning versions
-      #script: node_modules/.bin/ts-node tools/test.ts --angularVersion 7.0.x --angularCliVersion 7.0.0-beta.4
-      script: echo "beta releases are not testable yet, because of semver removing `-beta` when pinning versions" && exit 1
+  - stage: test
+    name: "Test Angular 5.1.*"
+    script: node_modules/.bin/ts-node tools/test.ts --angular-version 5.1.x
+  - # stage name not required, will continue to use `test`
+    name: "Test Angular 5.2.*"
+    script: node_modules/.bin/ts-node tools/test.ts --angular-version 5.2.x
+  - # stage name not required, will continue to use `test`
+    name: "Test Angular 6.0.*"
+    script: node_modules/.bin/ts-node tools/test.ts --angular-version 6.0.x
+  - # stage name not required, will continue to use `test`
+    name: "Test Angular 6.1.*"
+    script: node_modules/.bin/ts-node tools/test.ts --angular-version 6.1.x
+  - # stage name not required, will continue to use `test`
+    name: "Test Angular 7.0.*"
+    # beta releases should not be pinned, because of semver removing "-beta" suffix when coarsing versions
+    script: node_modules/.bin/ts-node tools/test.ts --angular-version 7.0.x --skip-pinning
 
-    - stage: build core, docs and demo
-      name: "Build and deploy core"
-      script: npm run build:core
-      before_deploy:
-        - cd dist/core
-      deploy:
-        provider: npm
-        skip_cleanup: true
-        email: $NPM_EMAIL
-        api_key: $NPM_KEY
-        on:
-          tags: true
-          repo: ngx-material-keyboard/core
-          branch: master
-    - # stage name not required, will continue to use `build core, docs and demo`
-      name: "Build and deploy documentation"
-      script: npm run build:docs
-      deploy:
-        provider: pages
-        skip_cleanup: true
-        local_dir: dist/docs
-        github_token: $GITHUB_TOKEN
-        target_branch: gh-pages
-        on:
-          repo: ngx-material-keyboard/core
-          branch: master
-    - # stage name not required, will continue to use `build core, docs and demo`
-      name: "Build and deploy demo"
-      script: npm run build:demo
-      deploy:
-        provider: pages
-        skip_cleanup: true
-        local_dir: dist/demo
-        github_token: $GITHUB_TOKEN
-        repo: ngx-material-keyboard/demo
-        target_branch: master
-        on:
-          repo: ngx-material-keyboard/core
-          branch: master
+  - stage: build
+    name: "Build and deploy core"
+    script: npm run build:core
+    before_deploy:
+    - cd dist/core
+    deploy:
+      provider: npm
+      skip_cleanup: true
+      email: $NPM_EMAIL
+      api_key: $NPM_KEY
+      on:
+        tags: true
+        repo: ngx-material-keyboard/core
+        branch: master
+  - # stage name not required, will continue to use `build core, docs and demo`
+    name: "Build and deploy documentation"
+    script: npm run build:docs
+    deploy:
+      provider: pages
+      skip_cleanup: true
+      local_dir: dist/docs
+      github_token: $GITHUB_TOKEN
+      target_branch: gh-pages
+      on:
+        repo: ngx-material-keyboard/core
+        branch: master
+  - # stage name not required, will continue to use `build core, docs and demo`
+    name: "Build and deploy demo"
+    script: npm run build:demo
+    deploy:
+      provider: pages
+      skip_cleanup: true
+      local_dir: dist/demo
+      github_token: $GITHUB_TOKEN
+      repo: ngx-material-keyboard/demo
+      target_branch: master
+      on:
+        repo: ngx-material-keyboard/core
+        branch: master

@@ -15,6 +15,7 @@ export type NgVersionMap = {
 export interface DefaultTestOptions {
   angularVersion: CompatibleNgVersions;
   silent: boolean;
+  skipPinning: boolean;
   angularConfigPath: string;
   angularConfigTmpPath: string;
   tempDir: string;
@@ -47,6 +48,7 @@ export const compatibleNgVersions = Object
 
 export const defaultTestOptions: Partial<DefaultTestOptions> = {
   silent: false,
+  skipPinning: false,
   angularConfigPath: '.angular-cli.json',
   angularConfigTmpPath: '.angular-cli.json.tmp',
   tempDir: '.temp',
@@ -67,11 +69,12 @@ export const parse = (): Promise<object> => {
       .showInfo([
         '> Prepares a test bed for a given Angular version using the Angular CLI',
         ` Command\t\tAlias\tDescription`,
-        ` --angularVersion\t-a\tDefines the Angular version to use, must be one of`,
+        ` --angular-version\t-av\tDefines the Angular version to use, must be one of`,
         ` \t\t\t\t${compatibleNgVersions}`,
+        ` --silent\t\t-s\tSilences the output`,
+        ` --skip-pinning\t\t\t-sp\tPrevent dependencies from being pinned (semver coarsed)`,
         ` --config\t\t-c\tAn config object`,
-        ` --help\t\t\t-h\tShows this help message`,
-        ` --silent\t\t-s\tSilences the output`
+        ` --help\t\t\t-h\tShows this help message`
       ].join(EOL))
       .then(() => process.exit());
   }
@@ -81,8 +84,9 @@ export const parse = (): Promise<object> => {
 
 export const setDefaults = (params: any): Promise<TestOptions> => Promise.resolve({
   ...defaultTestOptions,
-  angularVersion: params.angularVersion || params.a,
-  silent: JSON.parse(params.silent || params.s || defaultTestOptions.silent),
+  angularVersion: params['angular-version'] || params.av,
+  silent: JSON.parse(params['silent'] || params.s || defaultTestOptions.silent),
+  skipPinning: JSON.parse(params['skip-pinning'] || params.sp || defaultTestOptions.skipPinning),
   ...(params.config || params.c || {})
 });
 
