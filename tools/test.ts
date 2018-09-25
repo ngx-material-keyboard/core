@@ -2,6 +2,7 @@ import * as ng from './libs/ng.lib';
 import * as npm from './libs/npm.lib';
 import * as Helpers from './test-helpers';
 import * as Options from './test-options';
+import * as Run from './test-run';
 
 // TODO: provide as separate module
 // TODO: allow providing options as config json (e.g. .ng-testbeds.json
@@ -14,6 +15,12 @@ Promise.resolve()
   .then(Options.validate)
   .then(Options.enrich)
   .then((opts) => options = opts)
+
+
+  .then(() => Helpers.showInfo('Run e2e tests'))
+  .then(() => Run.e2eTests(options.testProjectDir, options.silent))
+  .then(() => process.exit())
+
 
   .then(() => Helpers.showInfo('Backup Angular CLI config temporarily'))
   .then(() => Helpers.backupCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
@@ -50,8 +57,12 @@ Promise.resolve()
 
   // TODO: implement: copy core
   // TODO: implement: add tests
-  // TODO: implement: run unit tests
-  // TODO: implement: run e2e tests
+
+  .then(() => Helpers.showInfo('Run unit tests'))
+  .then(() => Run.unitTests(options.testProjectDir, options.silent))
+
+  .then(() => Helpers.showInfo('Run e2e tests'))
+  .then(() => Run.e2eTests(options.testProjectDir, options.silent))
 
   .then(() => Helpers.showInfo('Restore Angular CLI config'))
   .then(() => Helpers.restoreCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
@@ -77,5 +88,4 @@ Promise.resolve()
 // (process as NodeJS.EventEmitter).on('SIGUSR2', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));
 //
 // // catches uncaught exceptions
-// (process as NodeJS.EventEmitter).on('uncaughtException', () => restoreCliConfigSync(options.angularConfigPath,
-// options.angularConfigTmpPath));
+// (process as NodeJS.EventEmitter).on('uncaughtException', () => restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath));

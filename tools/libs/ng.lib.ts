@@ -58,14 +58,10 @@ export const addHeadlessChromeToProtractor = (cwd: string, encoding = 'utf8'): P
 };
 
 // modify karma and protractor config
-export const addHeadlessChrome = (cwd: string, encoding = 'utf8'): Promise<any[]> => {
-  let karmaFilePath: string;
-  let protractorFilePath: string;
-  return Promise.all([
-    addHeadlessChromeToKarma(cwd, encoding),
-    addHeadlessChromeToProtractor(cwd, encoding)
-  ]);
-};
+export const addHeadlessChrome = (cwd: string, encoding = 'utf8'): Promise<void[]> => Promise.all([
+  addHeadlessChromeToKarma(cwd, encoding),
+  addHeadlessChromeToProtractor(cwd, encoding)
+]);
 
 // show installed angular version
 export const version = (cwd: string, binPath: string, silent = false): Promise<void> => {

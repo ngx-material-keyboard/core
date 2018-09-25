@@ -72,7 +72,7 @@ export const parse = (): Promise<object> => {
         ` --angular-version\t-av\tDefines the Angular version to use, must be one of`,
         ` \t\t\t\t${compatibleNgVersions}`,
         ` --silent\t\t-s\tSilences the output`,
-        ` --skip-pinning\t\t\t-sp\tPrevent dependencies from being pinned (semver coarsed)`,
+        ` --skip-pinning\t\t-sp\tPrevent dependencies from being pinned (semver coarsed)`,
         ` --config\t\t-c\tAn config object`,
         ` --help\t\t\t-h\tShows this help message`
       ].join(EOL))

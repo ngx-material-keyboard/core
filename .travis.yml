@@ -1,6 +1,14 @@
 # this is a node build
 language: node_js
 
+# add chrome for headless tests
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+
 # cache node modules
 cache:
   directories:

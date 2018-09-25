@@ -87,3 +87,6 @@ export const install = (cwd: string, silent = false, name?: string, save: SaveTy
     { cwd, silent }
   );
 };
+
+export const run = (cwd: string, command: string, flags: string[] = [], silent = false): Promise<void> => Helpers
+  .spawnAsync('npm', ['run', command, '--', ...flags], { cwd, silent });
