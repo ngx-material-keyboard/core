@@ -4,6 +4,7 @@ import * as glob from 'glob'; // tslint:disable-line no-implicit-dependencies
 import * as mkdirp from 'mkdirp'; // tslint:disable-line no-implicit-dependencies
 import * as rimraf from 'rimraf'; // tslint:disable-line no-implicit-dependencies
 import { promisify } from 'util';
+import * as Options from './test-options';
 
 export const renameAsync = promisify(rename);
 
@@ -51,4 +52,16 @@ export const restoreCliConfigSync = (configPath: string, tmpPath: string) => {
   }
 
   process.exit();
+};
+
+export const handleError = (message: string, error: Error, options?: Options.TestOptions) => {
+  console.error(`> Error: ${message}`);
+  console.error(`> ${error.message}`);
+
+  // try to restore cli config
+  if (options) {
+    restoreCliConfigSync(options.angularConfigPath, options.angularConfigTmpPath);
+  }
+
+  process.exit(1);
 };
