@@ -16,11 +16,9 @@ Promise.resolve()
   .then(Options.enrich)
   .then((opts) => options = opts)
 
-
-  .then(() => Helpers.showInfo('Run e2e tests'))
-  .then(() => Run.e2eTests(options.testProjectDir, options.silent))
-  .then(() => process.exit())
-
+  // .then(() => Helpers.showInfo('Run e2e tests'))
+  // .then(() => Run.e2eTests(options.testProjectDir, options.silent))
+  // .then(() => process.exit())
 
   .then(() => Helpers.showInfo('Backup Angular CLI config temporarily'))
   .then(() => Helpers.backupCliConfig(options.angularConfigPath, options.angularConfigTmpPath))
