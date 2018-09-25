@@ -1,5 +1,6 @@
 import { spawn, SpawnOptions } from 'child_process';
 import { readFile, rename, renameSync, writeFile } from 'fs';
+import * as glob from 'glob'; // tslint:disable-line no-implicit-dependencies
 import * as mkdirp from 'mkdirp'; // tslint:disable-line no-implicit-dependencies
 import * as rimraf from 'rimraf'; // tslint:disable-line no-implicit-dependencies
 import { promisify } from 'util';
@@ -13,6 +14,8 @@ export const writeFileAsync = promisify(writeFile);
 export const mkdirpAsync = promisify(mkdirp);
 
 export const rimrafAsync = promisify(rimraf);
+
+export const globAsync = promisify(glob);
 
 export const spawnAsync = (cmd: string, args: string[], opts: SpawnOptions & { silent: boolean }): Promise<void> => {
   return new Promise((resolve, reject) => {

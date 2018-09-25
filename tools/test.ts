@@ -42,13 +42,13 @@ Promise.resolve()
   .then(() => Helpers.showInfo('Install dependencies'))
   .then(() => npm.install(options.testProjectDir, options.silent))
 
-  // TODO: implement: prepare ci tests - Add headless chrome launcher for unit tests
-  // TODO: implement: prepare ci tests - Add headless chrome launcer for e2e tests
-
   .then(() => Helpers.showInfo('Show installed Angular version'))
   .then(() => options.silent ? Promise.resolve() : ng.version(options.testProjectDir, options.ngBinPath, options.silent))
 
-  // TODO: implement: link module
+  .then(() => Helpers.showInfo('Add headless Chrome launcher for unit and e2e tests'))
+  .then(() => ng.addHeadlessChrome(options.testProjectDir, options.fileEncoding))
+
+  // TODO: implement: copy core
   // TODO: implement: add tests
   // TODO: implement: run unit tests
   // TODO: implement: run e2e tests
