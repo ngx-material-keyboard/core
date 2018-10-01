@@ -1,0 +1,52 @@
+{
+  "name": "@ngx-material-keyboard/demo",
+  "version": "0.1.2-SNAPSHOT",
+  "description": "Onscreen virtual keyboard for Angular ≥ 5 (https://angular.io/) using Material 2 (https://material.angular.io/).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngx-material-keyboard/core.git"
+  },
+  "author": "David Enke <post@davidenke.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngx-material-keyboard/core/issues"
+  },
+  "homepage": "https://github.com/ngx-material-keyboard/core",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "dependencies": {
+    "@angular/animations": "6.1.9",
+    "@angular/cdk": "6.4.7",
+    "@angular/common": "6.1.9",
+    "@angular/compiler": "6.1.9",
+    "@angular/core": "6.1.9",
+    "@angular/forms": "6.1.9",
+    "@angular/http": "6.1.9",
+    "@angular/material": "6.4.7",
+    "@angular/platform-browser": "6.1.9",
+    "@angular/platform-browser-dynamic": "6.1.9",
+    "@angular/router": "6.1.9",
+    "core-js": "2.5.7",
+    "rxjs": "6.3.3",
+    "zone.js": "0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "0.8.3",
+    "@angular/cli": "6.2.3",
+    "@angular/compiler-cli": "6.1.9",
+    "@angular/language-service": "6.1.9",
+    "@types/node": "8.10.30",
+    "codelyzer": "4.4.4",
+    "rxjs-tslint": "0.1.5",
+    "rxjs-tslint-rules": "4.9.0",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "typescript": "2.9.2"
+  }
+}
