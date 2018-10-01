@@ -1,12 +1,12 @@
-FROM node:8
+FROM ngxmaterialkeyboard/testbeds:base
 
 LABEL authors="David Enke <post@davidenke.de>"
 
-RUN mkdir -p /testbed
-
 WORKDIR /testbed
 
-ADD app /testbed/
+COPY ../../core /testbed/
+
+RUN /bin/prepare_testbed.sh
 
 RUN npm install \
     --no-audit \
