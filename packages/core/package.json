@@ -1,0 +1,105 @@
+{
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "name": "@ngx-material-keyboard/core",
+  "version": "0.1.2-SNAPSHOT",
+  "description": "Onscreen virtual keyboard for Angular ≥ 5 (https://angular.io/) using Material 5 (https://material.angular.io/).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngx-material-keyboard/core.git"
+  },
+  "author": "David Enke <post@davidenke.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngx-material-keyboard/core/issues"
+  },
+  "homepage": "https://github.com/ngx-material-keyboard/core",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run build:core && npm run build:docs",
+    "build:core": "ng-packagr -p package.json",
+    "build:docs": "compodoc -p ./tsconfig.json --silent --disableCoverage --theme readthedocs --output ../../dist/docs",
+    "test": "ng test",
+    "lint": "npm run lint:ts && npm run lint:sass",
+    "lint:ts": "ts-node node_modules/tslint/bin/tslint --config tslint.json --type-check=true",
+    "lint:sass": "sass-lint --verbose --no-exit --config ./.sass-lint.yml"
+  },
+  "peerDependencies": {
+    "@angular/animations": ">=5.1.1",
+    "@angular/cdk": ">=5.0.4",
+    "@angular/common": ">=5.1.1",
+    "@angular/core": ">=5.1.1",
+    "@angular/forms": ">=5.1.1",
+    "@angular/material": ">=5.0.4",
+    "rxjs": ">=5.5.0",
+    "rxjs-compat": "^6.0.0"
+  },
+  "devDependencies": {
+    "@angular/animations": "5.1.1",
+    "@angular/cdk": "5.0.4",
+    "@angular/common": "5.1.1",
+    "@angular/core": "5.1.1",
+    "@angular/compiler": "5.1.1",
+    "@angular/compiler-cli": "5.1.1",
+    "@angular/forms": "5.1.1",
+    "@angular/language-service": "5.1.1",
+    "@angular/material": "5.0.4",
+    "@angular/platform-browser": "5.1.1",
+    "@compodoc/compodoc": "1.1.5",
+    "@types/node": "8.10.30",
+    "ng-packagr": "2.4.5",
+    "codelyzer": "4.4.4",
+    "node-sass": "4.9.3",
+    "rxjs": "6.3.3",
+    "rxjs-compat": "6.3.3",
+    "rxjs-tslint": "0.1.5",
+    "rxjs-tslint-rules": "4.9.0",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "typescript": "2.9.2"
+  },
+  "ngPackage": {
+    "dest": "../../dist/core",
+    "workingDirectory": "../../.ng_build",
+    "lib": {
+      "entryFile": "index.ts",
+      "externals": {
+        "@angular/cdk/accordion": "ng.cdk.accordion",
+        "@angular/cdk/layout": "ng.cdk.layout",
+        "@angular/material": "ng.material",
+        "@angular/material/autocomplete": "ng.material.autocomplete",
+        "@angular/material/button": "ng.material.button",
+        "@angular/material/button-toggle": "ng.material.button-toggle",
+        "@angular/material/card": "ng.material.card",
+        "@angular/material/checkbox": "ng.material.checkbox",
+        "@angular/material/chips": "ng.material.chips",
+        "@angular/material/core": "ng.material.core",
+        "@angular/material/datepicker": "ng.material.datepicker",
+        "@angular/material/dialog": "ng.material.dialog",
+        "@angular/material/expansion": "ng.material.expansion",
+        "@angular/material/form-field": "ng.material.form-field",
+        "@angular/material/grid-list": "ng.material.grid-list",
+        "@angular/material/icon": "ng.material.icon",
+        "@angular/material/input": "ng.material.input",
+        "@angular/material/list": "ng.material.list",
+        "@angular/material/menu": "ng.material.menu",
+        "@angular/material/paginator": "ng.material.paginator",
+        "@angular/material/progress-bar": "ng.material.progress-bar",
+        "@angular/material/progress-spinner": "ng.material.progress-spinner",
+        "@angular/material/radio": "ng.material.radio",
+        "@angular/material/select": "ng.material.select",
+        "@angular/material/sidenav": "ng.material.sidenav",
+        "@angular/material/slide-toggle": "ng.material.slide-toggle",
+        "@angular/material/slider": "ng.material.slider",
+        "@angular/material/snack-bar": "ng.material.snack-bar",
+        "@angular/material/sort": "ng.material.sort",
+        "@angular/material/stepper": "ng.material.stepper",
+        "@angular/material/table": "ng.material.table",
+        "@angular/material/tabs": "ng.material.tabs",
+        "@angular/material/toolbar": "ng.material.toolbar",
+        "@angular/material/tooltip": "ng.material.tooltip"
+      }
+    }
+  }
+}
