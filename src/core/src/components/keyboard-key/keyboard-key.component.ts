@@ -222,7 +222,7 @@ export class MatKeyboardKeyComponent implements OnInit {
     }
 
     // Dispatch Input Event for Angular to register a change
-    if (this.input) {
+    if (this.input && this.input.nativeElement) {
       this.input.nativeElement.dispatchEvent(new Event('input',{ bubbles: true }));
     }
   }
