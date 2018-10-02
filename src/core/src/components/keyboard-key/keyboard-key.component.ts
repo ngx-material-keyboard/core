@@ -163,9 +163,14 @@ export class MatKeyboardKeyComponent implements OnInit {
 
     // Manipulate the focused input / textarea value
     let value = this.inputValue === null || this.inputValue === undefined ? '' : this.inputValue.toString();
+
+    // Get startposition of selection
     const caretStart = this.input ? this._getCursorPosition().start : 0;
+
+    // Get startposition of selection
     const caretEnd = this.input ? this._getCursorPosition().end : 0;
 
+    // Delete selection
     if (caretEnd !== caretStart) {
       value = [value.slice(0, caretStart), value.slice(caretEnd)].join('');
       this._setCursorPosition(caretStart);
@@ -224,12 +229,14 @@ export class MatKeyboardKeyComponent implements OnInit {
     }
 
     if (char && this.input) {
+      // Insert char at correct position
       this.inputValue = [value.slice(0, caretStart), char, value.slice(caretStart)].join('');
       this._setCursorPosition(caretStart + 1);
     }
   }
 
   private deleteSelectedText(caretStart: number, caretEnd: number, value: string): void {
+    // Delete one char, else it is already delected by selection
     if (caretEnd === caretStart && caretStart !== 0)  {
       this.inputValue = [value.slice(0, caretStart - 1), value.slice(caretStart)].join('');
       this._setCursorPosition(caretStart - 1);
