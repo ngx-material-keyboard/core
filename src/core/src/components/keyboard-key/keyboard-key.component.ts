@@ -220,6 +220,11 @@ export class MatKeyboardKeyComponent implements OnInit {
       this.replaceSelectedText(char);
       this._setCursorPosition(caret + 1);
     }
+
+    // Dispatch Input Event for Angular to register a change
+    if (this.input) {
+      this.input.nativeElement.dispatchEvent(new Event('input',{ bubbles: true }));
+    }
   }
 
   private deleteSelectedText(): void {
