@@ -1,7 +1,7 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf } from '@angular/core';
+import { ComponentRef, Inject, Injectable, LOCALE_ID, Optional, SkipSelf, ElementRef } from '@angular/core';
 
 import { MatKeyboardRef } from '../classes/keyboard-ref.class';
 import { MatKeyboardContainerComponent } from '../components/keyboard-container/keyboard-container.component';
@@ -18,6 +18,13 @@ import { _applyAvailableLayouts, _applyConfigDefaults } from '../utils/keyboard.
  */
 @Injectable()
 export class MatKeyboardService {
+
+  private _global: boolean;
+  private _layoutOrLocale: string;
+  private _isDebug: boolean;
+  private _darkTheme: boolean;
+  private _duration: number;
+
   /**
    * Reference to the current keyboard in the view *at this level* (in the Angular injector tree).
    * If there is a parent keyboard service, all operations should delegate to that parent
@@ -172,6 +179,74 @@ export class MatKeyboardService {
 
   getLayoutForLocale(locale: string): IKeyboardLayout {
     return this._layouts[this.mapLocale(locale)];
+  }
+
+  setDuration(duration: number): void {
+    this._duration = duration;
+  }
+  setDarkTheme(enable: boolean): void {
+    this._darkTheme = enable;
+  }
+  setDebug(enable: boolean): void {
+    this._isDebug = enable;
+  }
+  setLayoutOrLocale(layoutOrLocale: string): void {
+    this._layoutOrLocale = layoutOrLocale;
+  }
+  getLayoutOrLocale(): string {
+    return this._layoutOrLocale;
+  }
+  // Enables a global keyboard which binds to all input elements
+  enableGlobalKeyboard(): void {
+    this.addEventListener();
+    this._global = true;
+  }
+  disableGlobalKeyboard(): void {
+    this._global = false;
+  }
+
+  private _showKeyboard(inputElement: HTMLInputElement | HTMLTextAreaElement) {
+    const elemenRef = new ElementRef(inputElement);
+
+    const readonly = inputElement.getAttribute('readonly') !== null && inputElement.getAttribute('readonly') !== 'true';
+    if (this._global && !readonly) {
+      this._keyboardRefAtThisLevel = this.open(this._layoutOrLocale, {
+        darkTheme: this._darkTheme,
+        duration: this._duration,
+        isDebug: this._isDebug
+      });
+
+      // reference input
+
+      this._keyboardRefAtThisLevel.instance.setInputInstance(elemenRef);
+    }
+  }
+
+  private _hideKeyboard() {
+    if (this._keyboardRefAtThisLevel) {
+      this._keyboardRefAtThisLevel.dismiss();
+    }
+  }
+
+  // Adds Eventlisteners to hide and show the global Keyboard
+  private addEventListener(): void {
+    document.removeEventListener(('focusin'), () => {/**/});
+    document.removeEventListener(('focusout'), () => {/**/});
+    document.addEventListener(('focusin'), (event: Event) => {
+      if (event.srcElement instanceof HTMLInputElement) {
+        const input = event.srcElement as HTMLInputElement;
+        this._showKeyboard(input);
+      }
+      if (event.srcElement instanceof HTMLTextAreaElement) {
+        const input = event.srcElement as HTMLTextAreaElement;
+        this._showKeyboard(input);
+      }
+    });
+    document.addEventListener(('focusout'), (event: Event) => {
+      if (event.srcElement instanceof HTMLInputElement) {
+        this._hideKeyboard();
+      }
+  });
   }
 
   /**
