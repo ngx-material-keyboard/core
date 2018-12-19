@@ -1,0 +1,120 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "demo": {
+      "root": "src",
+      "sourceRoot": "src/demo",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/demo",
+            "index": "src/demo/index.html",
+            "main": "src/demo/main.ts",
+            "tsConfig": "src/demo/tsconfig.app.json",
+            "showCircularDependencies": false,
+            "polyfills": "src/demo/polyfills.ts",
+            "assets": [
+              "src/demo/assets",
+              "src/demo/favicon.ico"
+            ],
+            "styles": [
+              "node_modules/reset-css/sass/_reset.scss",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/demo/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/demo/environments/environment.ts",
+                  "with": "src/demo/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/demo/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/demo/polyfills.ts",
+            "tsConfig": "src/demo/tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "node_modules/reset-css/_reset.scss",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/demo/styles.scss"
+            ],
+            "assets": [
+              "src/demo/assets",
+              "src/demo/favicon.ico"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": []
+          }
+        }
+      }
+    },
+    "demo-e2e": {
+      "root": "src/e2e",
+      "sourceRoot": "src/e2e",
+      "projectType": "application"
+    }
+  },
+  "defaultProject": "demo",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "mat-keyboard-demo",
+      "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "mat-keyboard-demo"
+    }
+  }
+}
