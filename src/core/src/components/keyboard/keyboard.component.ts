@@ -200,6 +200,18 @@ export class MatKeyboardComponent implements OnInit {
     this.capsClick.next();
   }
 
+  /*
+   * non-modifier keys are clicked
+   */
+  onKeyClick()
+  {
+    if (this._modifier === KeyboardModifier.Shift || this._modifier === KeyboardModifier.ShiftAlt)
+      this._modifier = this._invertShiftModifier(this._modifier);
+
+    if(this._modifier === KeyboardModifier.Alt || this._modifier === KeyboardModifier.ShiftAlt)
+      this._modifier = this._invertAltModifier(this._modifier);
+  }
+
   /**
    * simulates clicking `Alt` key
    */
