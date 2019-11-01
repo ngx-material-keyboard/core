@@ -125,9 +125,9 @@ export class MatKeyboardKeyComponent implements OnInit {
 
   get inputValue(): string {
     if (this.control) {
-      return this.control.value;
+      return this.control.value ? this.control.value.toString() : "";
     } else if (this.input && this.input.nativeElement && this.input.nativeElement.value) {
-      return this.input.nativeElement.value;
+      return this.input.nativeElement.value.toString();
     } else {
       return '';
     }
