@@ -2,14 +2,13 @@ import { animate, AnimationEvent, state, style, transition, trigger } from '@ang
 import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal } from '@angular/cdk/portal';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, EmbeddedViewRef, HostBinding, HostListener, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { AnimationCurves, AnimationDurations } from '@angular/material/core';
-
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/first';
-
+import { Observable, Subject } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { MatKeyboardConfig } from '../../configs/keyboard.config';
 import { KeyboardAnimationState } from '../../enums/keyboard-animation-state.enum';
 import { KeyboardAnimationTransition } from '../../enums/keyboard-animation-transition.enum';
+
+
 
 // TODO: we can't use constants from animation.ts here because you can't use
 // a text interpolation in anything that is analyzed statically with ngc (for AoT compile).
@@ -52,7 +51,7 @@ export class MatKeyboardContainerComponent extends BasePortalOutlet implements O
 
   /** The state of the keyboard animations. */
   @HostBinding('@state')
-  private _animationState: KeyboardAnimationState = KeyboardAnimationState.Void;
+  _animationState: KeyboardAnimationState = KeyboardAnimationState.Void;
 
   /** Subject for notifying that the keyboard has exited from view. */
   onExit: Subject<any> = new Subject();
@@ -67,7 +66,7 @@ export class MatKeyboardContainerComponent extends BasePortalOutlet implements O
   keyboardConfig: MatKeyboardConfig;
 
   constructor(private _ngZone: NgZone,
-              private _changeDetectorRef: ChangeDetectorRef) {
+    private _changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
@@ -140,7 +139,7 @@ export class MatKeyboardContainerComponent extends BasePortalOutlet implements O
   private _completeExit() {
     this._ngZone.onMicrotaskEmpty
       .asObservable()
-      .first()
+      .pipe(first())
       .subscribe(() => {
         this.onExit.next();
         this.onExit.complete();

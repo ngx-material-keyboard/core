@@ -1,15 +1,14 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostBinding, HostListener, Inject, LOCALE_ID, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MatKeyboardRef } from '../../classes/keyboard-ref.class';
 import { KeyboardClassKey } from '../../enums/keyboard-class-key.enum';
 import { KeyboardModifier } from '../../enums/keyboard-modifier.enum';
 import { IKeyboardLayout } from '../../interfaces/keyboard-layout.interface';
 import { MatKeyboardService } from '../../services/keyboard.service';
 import { MatKeyboardKeyComponent } from '../keyboard-key/keyboard-key.component';
+
+
 
 /**
  * A component used to open as the default keyboard, matching material spec.
@@ -85,7 +84,7 @@ export class MatKeyboardComponent implements OnInit {
 
   // inject dependencies
   constructor(@Inject(LOCALE_ID) private _locale: string,
-              private _keyboardService: MatKeyboardService) {}
+    private _keyboardService: MatKeyboardService) { }
 
   setInputInstance(inputInstance: ElementRef) {
     this._inputInstance$.next(inputInstance);
@@ -199,6 +198,18 @@ export class MatKeyboardComponent implements OnInit {
 
     // notify subscribers
     this.capsClick.next();
+  }
+
+  /*
+   * non-modifier keys are clicked
+   */
+  onKeyClick()
+  {
+    if (this._modifier === KeyboardModifier.Shift || this._modifier === KeyboardModifier.ShiftAlt)
+      this._modifier = this._invertShiftModifier(this._modifier);
+
+    if(this._modifier === KeyboardModifier.Alt || this._modifier === KeyboardModifier.ShiftAlt)
+      this._modifier = this._invertAltModifier(this._modifier);
   }
 
   /**

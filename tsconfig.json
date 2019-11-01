@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "baseUrl": "./",
     "sourceMap": true,
@@ -18,12 +19,17 @@
       "dom"
     ],
     "paths": {
-      "@ngx-material-keyboard/core": [ "./src/core/src/public_api.ts" ]
-    }
+      "@ngx-material-keyboard/core": [
+        "./src/core/src/public_api.ts"
+      ]
+    },
+    "module": "es2015"
   },
   "angularCompilerOptions": {
     "paths": {
-      "@ngx-material-keyboard/core": [ "./src/core/src/public_api.ts" ]
+      "@ngx-material-keyboard/core": [
+        "./src/core/src/public_api.ts"
+      ]
     }
   },
   "exclude": [

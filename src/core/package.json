@@ -17,13 +17,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@angular/animations": "^5.0.0",
-    "@angular/cdk": "5.2.2",
-    "@angular/common": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/forms": "^5.0.0",
-    "@angular/material": "5.2.2",
-    "rxjs": "^5.5.2"
+    "@angular/animations": "^7.1.4",
+    "@angular/cdk": "^7.2.0",
+    "@angular/common": "^7.1.4",
+    "@angular/core": "^7.1.4",
+    "@angular/forms": "^7.1.4",
+    "@angular/material": "^7.2.0",
+    "rxjs": "^6.3.3"
   },
   "ngPackage": {
     "dest": "../../dist/core",
