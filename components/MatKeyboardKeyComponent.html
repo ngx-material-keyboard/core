@@ -1,0 +1,2108 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-material-keyboard-src documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-material-keyboard-src documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>MatKeyboardKeyComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/core/src/components/keyboard-key/keyboard-key.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">preserveWhitespaces</td>
+                <td class="col-md-9"><code>false</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>mat-keyboard-key</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>keyboard-key.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./keyboard-key.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_deadkeyKeys">_deadkeyKeys</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_iconKeys">_iconKeys</a>
+                            </li>
+                            <li>
+                                <a href="#active$">active$</a>
+                            </li>
+                            <li>
+                                <a href="#pressed$">pressed$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_getCursorPosition">_getCursorPosition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_getSelectionLength">_getSelectionLength</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_isTextarea">_isTextarea</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_setCursorPosition">_setCursorPosition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_triggerKeyEvent">_triggerKeyEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteSelectedText">deleteSelectedText</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onClick">onClick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#replaceSelectedText">replaceSelectedText</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#active">active</a>
+                            </li>
+                            <li>
+                                <a href="#control">control</a>
+                            </li>
+                            <li>
+                                <a href="#input">input</a>
+                            </li>
+                            <li>
+                                <a href="#key">key</a>
+                            </li>
+                            <li>
+                                <a href="#pressed">pressed</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#altClick">altClick</a>
+                            </li>
+                            <li>
+                                <a href="#bkspClick">bkspClick</a>
+                            </li>
+                            <li>
+                                <a href="#capsClick">capsClick</a>
+                            </li>
+                            <li>
+                                <a href="#enterClick">enterClick</a>
+                            </li>
+                            <li>
+                                <a href="#genericClick">genericClick</a>
+                            </li>
+                            <li>
+                                <a href="#keyClick">keyClick</a>
+                            </li>
+                            <li>
+                                <a href="#shiftClick">shiftClick</a>
+                            </li>
+                            <li>
+                                <a href="#spaceClick">spaceClick</a>
+                            </li>
+                            <li>
+                                <a href="#tabClick">tabClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#active">active</a>
+                                </li>
+                                <li>
+                                    <a href="#pressed">pressed</a>
+                                </li>
+                                <li>
+                                    <a href="#lowerKey">lowerKey</a>
+                                </li>
+                                <li>
+                                    <a href="#charCode">charCode</a>
+                                </li>
+                                <li>
+                                    <a href="#isClassKey">isClassKey</a>
+                                </li>
+                                <li>
+                                    <a href="#isDeadKey">isDeadKey</a>
+                                </li>
+                                <li>
+                                    <a href="#hasIcon">hasIcon</a>
+                                </li>
+                                <li>
+                                    <a href="#icon">icon</a>
+                                </li>
+                                <li>
+                                    <a href="#cssClass">cssClass</a>
+                                </li>
+                                <li>
+                                    <a href="#inputValue">inputValue</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_deadkeys: <a href="../interfaces/IKeyboardDeadkeys.html">IKeyboardDeadkeys</a>, _icons: <a href="../interfaces/IKeyboardIcons.html">IKeyboardIcons</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:142</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_deadkeys</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../interfaces/IKeyboardDeadkeys.html" target="_self" >IKeyboardDeadkeys</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_icons</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../interfaces/IKeyboardIcons.html" target="_self" >IKeyboardIcons</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="active"></a>
+                        <code>active</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:37</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="control"></a>
+                        <code>control</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:58</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="input"></a>
+                        <code>input</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:55</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="key"></a>
+                        <code>key</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="../miscellaneous/enumerations.html#KeyboardClassKey" target="_self" >string | KeyboardClassKey</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="pressed"></a>
+                        <code>pressed</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:46</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="altClick"></a>
+                        <code>altClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:73</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="bkspClick"></a>
+                        <code>bkspClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:67</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="capsClick"></a>
+                        <code>capsClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:70</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="enterClick"></a>
+                        <code>enterClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:64</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="genericClick"></a>
+                        <code>genericClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:61</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="keyClick"></a>
+                        <code>keyClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:85</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="shiftClick"></a>
+                        <code>shiftClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:76</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="spaceClick"></a>
+                        <code>spaceClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:79</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="tabClick"></a>
+                        <code>tabClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:82</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_getCursorPosition"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _getCursorPosition
+                            </b>
+                            <a href="#_getCursorPosition"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_getCursorPosition()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="277" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:277</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_getSelectionLength"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _getSelectionLength
+                            </b>
+                            <a href="#_getSelectionLength"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_getSelectionLength()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="296" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:296</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_isTextarea"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _isTextarea
+                            </b>
+                            <a href="#_isTextarea"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_isTextarea()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="347" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:347</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_setCursorPosition"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _setCursorPosition
+                            </b>
+                            <a href="#_setCursorPosition"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_setCursorPosition(position: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="317" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:317</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>position</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_triggerKeyEvent"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _triggerKeyEvent
+                            </b>
+                            <a href="#_triggerKeyEvent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_triggerKeyEvent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="255" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:255</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteSelectedText"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            deleteSelectedText
+                            </b>
+                            <a href="#deleteSelectedText"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>deleteSelectedText()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:225</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:148</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onClick"></a>
+                        <span class="name">
+                            <b>
+                            onClick
+                            </b>
+                            <a href="#onClick"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onClick(event: MouseEvent)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:156</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code>MouseEvent</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="replaceSelectedText"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            replaceSelectedText
+                            </b>
+                            <a href="#replaceSelectedText"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>replaceSelectedText(char: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="245" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:245</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>char</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_deadkeyKeys"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _deadkeyKeys
+                            </b>
+                            <a href="#_deadkeyKeys"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_deadkeyKeys:     <code>string[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_iconKeys"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _iconKeys
+                            </b>
+                            <a href="#_iconKeys"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_iconKeys:     <code>string[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="active$"></a>
+                        <span class="name">
+                            <b>
+                            active$
+                            </b>
+                            <a href="#active$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>active$:     <code>BehaviorSubject&lt;boolean&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BehaviorSubject&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject(false)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pressed$"></a>
+                        <span class="name">
+                            <b>
+                            pressed$
+                            </b>
+                            <a href="#pressed$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>pressed$:     <code>BehaviorSubject&lt;boolean&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BehaviorSubject&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject(false)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="active"></a>
+                        <span class="name"><b>active</b><a href="#active"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>active()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:41</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>active(active: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:37</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>active</td>
+                                                    
+                                                            <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pressed"></a>
+                        <span class="name"><b>pressed</b><a href="#pressed"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>pressed()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:50</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>pressed(pressed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:46</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>pressed</td>
+                                                    
+                                                            <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lowerKey"></a>
+                        <span class="name"><b>lowerKey</b><a href="#lowerKey"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>lowerKey()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:87</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="charCode"></a>
+                        <span class="name"><b>charCode</b><a href="#charCode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>charCode()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:91</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isClassKey"></a>
+                        <span class="name"><b>isClassKey</b><a href="#isClassKey"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isClassKey()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:95</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isDeadKey"></a>
+                        <span class="name"><b>isDeadKey</b><a href="#isDeadKey"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isDeadKey()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:99</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasIcon"></a>
+                        <span class="name"><b>hasIcon</b><a href="#hasIcon"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>hasIcon()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:103</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="icon"></a>
+                        <span class="name"><b>icon</b><a href="#icon"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>icon()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:107</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cssClass"></a>
+                        <span class="name"><b>cssClass</b><a href="#cssClass"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>cssClass()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:111</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="inputValue"></a>
+                        <span class="name"><b>inputValue</b><a href="#inputValue"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>inputValue()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:126</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>inputValue(inputValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/core/src/components/keyboard-key/keyboard-key.component.ts:136</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>inputValue</td>
+                                                    
+                                                            <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+
+import { BehaviorSubject } from &#x27;rxjs/BehaviorSubject&#x27;;
+
+import { MAT_KEYBOARD_DEADKEYS } from &#x27;../../configs/keyboard-deadkey.config&#x27;;
+import { MAT_KEYBOARD_ICONS } from &#x27;../../configs/keyboard-icons.config&#x27;;
+import { KeyboardClassKey } from &#x27;../../enums/keyboard-class-key.enum&#x27;;
+import { IKeyboardDeadkeys } from &#x27;../../interfaces/keyboard-deadkeys.interface&#x27;;
+import { IKeyboardIcons } from &#x27;../../interfaces/keyboard-icons.interface&#x27;;
+
+export const VALUE_NEWLINE &#x3D; &#x27;\n\r&#x27;;
+export const VALUE_SPACE &#x3D; &#x27; &#x27;;
+export const VALUE_TAB &#x3D; &#x27;\t&#x27;;
+
+@Component({
+  selector: &#x27;mat-keyboard-key&#x27;,
+  templateUrl: &#x27;./keyboard-key.component.html&#x27;,
+  styleUrls: [&#x27;./keyboard-key.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  preserveWhitespaces: false
+})
+export class MatKeyboardKeyComponent implements OnInit {
+
+  private _deadkeyKeys: string[] &#x3D; [];
+
+  private _iconKeys: string[] &#x3D; [];
+
+  active$: BehaviorSubject&lt;boolean&gt; &#x3D; new BehaviorSubject(false);
+
+  pressed$: BehaviorSubject&lt;boolean&gt; &#x3D; new BehaviorSubject(false);
+
+  @Input()
+  key: string | KeyboardClassKey;
+
+  @Input()
+  set active(active: boolean) {
+    this.active$.next(active);
+  }
+
+  get active(): boolean {
+    return this.active$.getValue();
+  }
+
+  @Input()
+  set pressed(pressed: boolean) {
+    this.pressed$.next(pressed);
+  }
+
+  get pressed(): boolean {
+    return this.pressed$.getValue();
+  }
+
+  @Input()
+  input?: ElementRef;
+
+  @Input()
+  control?: FormControl;
+
+  @Output()
+  genericClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  enterClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  bkspClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  capsClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  altClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  shiftClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  spaceClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  tabClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  @Output()
+  keyClick &#x3D; new EventEmitter&lt;MouseEvent&gt;();
+
+  get lowerKey(): string {
+    return &#x60;${this.key}&#x60;.toLowerCase();
+  }
+
+  get charCode(): number {
+    return &#x60;${this.key}&#x60;.charCodeAt(0);
+  }
+
+  get isClassKey(): boolean {
+    return this.key in KeyboardClassKey;
+  }
+
+  get isDeadKey(): boolean {
+    return this._deadkeyKeys.some((deadKey: string) &#x3D;&gt; deadKey &#x3D;&#x3D;&#x3D; &#x60;${this.key}&#x60;);
+  }
+
+  get hasIcon(): boolean {
+    return this._iconKeys.some((iconKey: string) &#x3D;&gt; iconKey &#x3D;&#x3D;&#x3D; &#x60;${this.key}&#x60;);
+  }
+
+  get icon(): string {
+    return this._icons[this.key];
+  }
+
+  get cssClass(): string {
+    const classes &#x3D; [];
+
+    if (this.hasIcon) {
+      classes.push(&#x27;mat-keyboard-key-modifier&#x27;);
+      classes.push(&#x60;mat-keyboard-key-${this.lowerKey}&#x60;);
+    }
+
+    if (this.isDeadKey) {
+      classes.push(&#x27;mat-keyboard-key-deadkey&#x27;);
+    }
+
+    return classes.join(&#x27; &#x27;);
+  }
+
+  get inputValue(): string {
+    if (this.control) {
+      return this.control.value;
+    } else if (this.input &amp;&amp; this.input.nativeElement &amp;&amp; this.input.nativeElement.value) {
+      return this.input.nativeElement.value;
+    } else {
+      return &#x27;&#x27;;
+    }
+  }
+
+  set inputValue(inputValue: string) {
+    if (this.control) {
+      this.control.setValue(inputValue);
+    } else if (this.input &amp;&amp; this.input.nativeElement) {
+      this.input.nativeElement.value &#x3D; inputValue;
+    }
+  }
+
+  // Inject dependencies
+  constructor(@Inject(MAT_KEYBOARD_DEADKEYS) private _deadkeys: IKeyboardDeadkeys,
+              @Inject(MAT_KEYBOARD_ICONS) private _icons: IKeyboardIcons) {}
+
+  ngOnInit() {
+    // read the deadkeys
+    this._deadkeyKeys &#x3D; Object.keys(this._deadkeys);
+
+    // read the icons
+    this._iconKeys &#x3D; Object.keys(this._icons);
+  }
+
+  onClick(event: MouseEvent) {
+    // Trigger a global key event
+    // TODO: investigate
+    this._triggerKeyEvent();
+
+    // Trigger generic click event
+    this.genericClick.emit(event);
+
+    // Manipulate the focused input / textarea value
+    const value &#x3D; this.inputValue;
+    const caret &#x3D; this.input ? this._getCursorPosition() : 0;
+
+    let char: string;
+    switch (this.key) {
+      // this keys have no actions yet
+      // TODO: add deadkeys and modifiers
+      case KeyboardClassKey.Alt:
+      case KeyboardClassKey.AltGr:
+      case KeyboardClassKey.AltLk:
+        this.altClick.emit(event);
+        break;
+
+      case KeyboardClassKey.Bksp:
+        this.deleteSelectedText();
+        this.bkspClick.emit(event);
+        break;
+
+      case KeyboardClassKey.Caps:
+        this.capsClick.emit(event);
+        break;
+
+      case KeyboardClassKey.Enter:
+        if (this._isTextarea()) {
+          char &#x3D; VALUE_NEWLINE;
+        } else {
+          this.enterClick.emit(event);
+          // TODO: trigger submit / onSubmit / ngSubmit properly (for the time being this has to be handled by the user himself)
+          // console.log(this.control.ngControl.control.root)
+          // this.input.nativeElement.form.submit();
+        }
+        break;
+
+      case KeyboardClassKey.Shift:
+        this.shiftClick.emit(event);
+        break;
+
+      case KeyboardClassKey.Space:
+        char &#x3D; VALUE_SPACE;
+        this.spaceClick.emit(event);
+        break;
+
+      case KeyboardClassKey.Tab:
+        char &#x3D; VALUE_TAB;
+        this.tabClick.emit(event);
+        break;
+
+      default:
+        // the key is not mapped or a string
+        char &#x3D; &#x60;${this.key}&#x60;;
+        this.keyClick.emit(event);
+        break;
+    }
+
+    if (char &amp;&amp; this.input) {
+      this.replaceSelectedText(char);
+      this._setCursorPosition(caret + 1);
+    }
+  }
+
+  private deleteSelectedText(): void {
+    const value &#x3D; this.inputValue;
+    let caret &#x3D; this.input ? this._getCursorPosition() : 0;
+    let selectionLength &#x3D; this._getSelectionLength();
+    if (selectionLength &#x3D;&#x3D;&#x3D; 0) {
+      if (caret &#x3D;&#x3D;&#x3D; 0) {
+        return;
+      }
+
+      caret--;
+      selectionLength &#x3D; 1;
+    }
+
+    const headPart &#x3D; value.slice(0, caret);
+    const endPart &#x3D; value.slice(caret + selectionLength);
+
+    this.inputValue &#x3D; [headPart, endPart].join(&#x27;&#x27;);
+    this._setCursorPosition(caret);
+  }
+
+  private replaceSelectedText(char: string): void {
+    const value &#x3D; this.inputValue;
+    const caret &#x3D; this.input ? this._getCursorPosition() : 0;
+    const selectionLength &#x3D; this._getSelectionLength();
+    const headPart &#x3D; value.slice(0, caret);
+    const endPart &#x3D; value.slice(caret + selectionLength);
+
+    this.inputValue &#x3D; [headPart, char, endPart].join(&#x27;&#x27;);
+  }
+
+  private _triggerKeyEvent(): Event {
+    const keyboardEvent &#x3D; new KeyboardEvent(&#x27;keydown&#x27;);
+    //
+    // keyboardEvent[initMethod](
+    //   true, // bubbles
+    //   true, // cancelable
+    //   window, // viewArg: should be window
+    //   false, // ctrlKeyArg
+    //   false, // altKeyArg
+    //   false, // shiftKeyArg
+    //   false, // metaKeyArg
+    //   this.charCode, // keyCodeArg : unsigned long - the virtual key code, else 0
+    //   0 // charCodeArgs : unsigned long - the Unicode character associated with the depressed key, else 0
+    // );
+    //
+    // window.document.dispatchEvent(keyboardEvent);
+
+    return keyboardEvent;
+  }
+
+  // inspired by:
+  // ref https://stackoverflow.com/a/2897510/1146207
+  private _getCursorPosition(): number {
+    if (!this.input) {
+      return;
+    }
+
+    if (&#x27;selectionStart&#x27; in this.input.nativeElement) {
+      // Standard-compliant browsers
+      return this.input.nativeElement.selectionStart;
+    } else if (&#x27;selection&#x27; in window.document) {
+      // IE
+      this.input.nativeElement.focus();
+      const sel &#x3D; window.document[&#x27;selection&#x27;].createRange();
+      const selLen &#x3D; window.document[&#x27;selection&#x27;].createRange().text.length;
+      sel.moveStart(&#x27;character&#x27;, -this.control.value.length);
+
+      return sel.text.length - selLen;
+    }
+  }
+
+  private _getSelectionLength(): number {
+    if (!this.input) {
+      return;
+    }
+
+    if (&#x27;selectionEnd&#x27; in this.input.nativeElement) {
+      // Standard-compliant browsers
+      return this.input.nativeElement.selectionEnd - this.input.nativeElement.selectionStart;
+    }
+
+    if (&#x27;selection&#x27; in window.document) {
+      // IE
+      this.input.nativeElement.focus();
+
+      return window.document[&#x27;selection&#x27;].createRange().text.length;
+    }
+  }
+
+  // inspired by:
+  // ref https://stackoverflow.com/a/12518737/1146207
+  // tslint:disable one-line
+  private _setCursorPosition(position: number): boolean {
+    if (!this.input) {
+      return;
+    }
+
+    this.inputValue &#x3D; this.control.value;
+    // ^ this is used to not only get &quot;focus&quot;, but
+    // to make sure we don&#x27;t have it everything -selected-
+    // (it causes an issue in chrome, and having it doesn&#x27;t hurt any other browser)
+
+    if (&#x27;createTextRange&#x27; in this.input.nativeElement) {
+      const range &#x3D; this.input.nativeElement.createTextRange();
+      range.move(&#x27;character&#x27;, position);
+      range.select();
+      return true;
+    } else {
+      // (el.selectionStart &#x3D;&#x3D;&#x3D; 0 added for Firefox bug)
+      if (this.input.nativeElement.selectionStart || this.input.nativeElement.selectionStart &#x3D;&#x3D;&#x3D; 0) {
+        this.input.nativeElement.focus();
+        this.input.nativeElement.setSelectionRange(position, position);
+        return true;
+      }
+      // fail city, fortunately this never happens (as far as I&#x27;ve tested) :)
+      else {
+        this.input.nativeElement.focus();
+        return false;
+      }
+    }
+  }
+
+  private _isTextarea(): boolean {
+    return this.input &amp;&amp; this.input.nativeElement &amp;&amp; this.input.nativeElement.tagName &#x3D;&#x3D;&#x3D; &#x27;TEXTAREA&#x27;;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;button mat-raised-button
+        class&#x3D;&quot;mat-keyboard-key&quot;
+        tabindex&#x3D;&quot;-1&quot;
+        [class.mat-keyboard-key-active]&#x3D;&quot;active$ | async&quot;
+        [class.mat-keyboard-key-pressed]&#x3D;&quot;pressed$ | async&quot;
+        [ngClass]&#x3D;&quot;cssClass&quot;
+        (click)&#x3D;&quot;onClick($event)&quot;
+&gt;
+  &lt;mat-icon *ngIf&#x3D;&quot;hasIcon&quot;&gt;{{ icon }}&lt;/mat-icon&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;!hasIcon&quot;&gt;{{ key }}&lt;/ng-container&gt;
+&lt;/button&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><button mat-raised-button        class="mat-keyboard-key"        tabindex="-1"        [class.mat-keyboard-key-active]="active$ | async"        [class.mat-keyboard-key-pressed]="pressed$ | async"        [ngClass]="cssClass"        (click)="onClick($event)">  <mat-icon *ngIf="hasIcon">{{ icon }}</mat-icon>  <ng-container *ngIf="!hasIcon">{{ key }}</ng-container></button></div>'
+    var COMPONENTS = [{'name': 'MatKeyboardComponent', 'selector': 'mat-keyboard'},{'name': 'MatKeyboardContainerComponent', 'selector': 'mat-keyboard-container'},{'name': 'MatKeyboardKeyComponent', 'selector': 'mat-keyboard-key'}];
+    var DIRECTIVES = [{'name': 'MatKeyboardDirective', 'selector': 'input[matKeyboard], textarea[matKeyboard]'}];
+    var ACTUAL_COMPONENT = {'name': 'MatKeyboardKeyComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MatKeyboardKeyComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
